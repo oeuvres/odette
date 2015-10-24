@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sheet [
   <!ELEMENT sheet (style+)>
+  <!ATTLIST sheet xmlns (odt:tei) #REQUIRED>
   <!ELEMENT style EMPTY>
   <!-- 
 LGPL  http://www.gnu.org/licenses/lgpl.html
@@ -19,181 +20,182 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   -->
   <!ATTLIST style
     level (c|p) #REQUIRED 
-    class CDATA #REQUIRED
+    name CDATA #REQUIRED
     element CDATA #IMPLIED
     type CDATA #IMPLIED
     rend CDATA #IMPLIED
     parent CDATA #IMPLIED
    >
 ]>
-<sheet>
-  <style level="p" class="ab" element="ab" type="ornament"/>
-  <style level="p" class="address" element="addrLine" parent="address"/>
-  <style level="p" class="argument" element="p" parent="argument"/>
-  <style level="p" class="auteur" element="byline"/>
-  <style level="p" class="author" element="byline"/>
-  <style level="p" class="bibl" element="bibl" parent="quote"/>
-  <style level="p" class="biblio" element="bibl"/>
-  <style level="p" class="bibliography" element="bibl"/>
-  <style level="p" class="bibliographie" element="bibl"/>
-  <style level="p" class="byline" element="byline"/>
-  <style level="p" class="camera" element="camera"/>
-  <style level="p" class="caption" element="caption"/>
-  <style level="p" class="castlist" element="castList"/>
-  <style level="p" class="citation" element="p" parent="quote"/>
-  <style level="p" class="citation1" element="p" parent="quote"/>
-  <style level="p" class="citation2" element="p" parent="quote"/>
-  <style level="p" class="citationalinea" element="p" parent="quote"/>
-  <style level="p" class="citationenvers" element="l" parent="quote"/>
-  <style level="p" class="citationvers" element="l" parent="quote"/>
-  <style level="p" class="closer" element="closer"/>
-  <style level="p" class="corpsdetexte" element="p"/>
-  <style level="p" class="creator" element="byline"/>
-  <style level="p" class="dateline" element="dateline"/>
-  <style level="p" class="date" element="dateline"/>
-  <style level="p" class="def" element="def" parent="entryFree"/>
-  <style level="p" class="desc" element="desc"/>
-  <style level="p" class="dd" element="item" parent="dl"/>
-  <style level="p" class="dt" element="label" parent="dl"/>
-  <style level="p" class="docauthor" element="docAuthor"/>
-  <style level="p" class="docimprint" element="docImprint"/>
-  <style level="p" class="docdate" element="docDate"/>
-  <style level="p" class="eg" element="eg"/>
-  <style level="p" class="epigraph" element="p" parent="epigraph"/>
-  <style level="p" class="endnote" element="note"/>
-  <style level="p" class="entry" element="entry"/>
-  <style level="p" class="exemple" element="quote" parent="entryFree"/>
-  <style level="p" class="footnote" element="p"/><!-- in odt, used inside notes -->
-  <style level="p" class="form" element="form" parent="entryFree"/>
-  <style level="p" class="fw" element="fw"/>
-  <style level="p" class="headsub" element="head" type="sub"/>
-  <style level="p" class="headsub1" element="head" type="sub"/>
-  <style level="p" class="headsub2" element="head" type="sub"/>
-  <style level="p" class="headsub3" element="head" type="sub"/>
-  <style level="p" class="headsub4" element="head" type="sub"/>
-  <style level="p" class="h1sub" element="head" type="sub"/>
-  <style level="p" class="h2sub" element="head" type="sub"/>
-  <style level="p" class="h3sub" element="head" type="sub"/>
-  <style level="p" class="h4sub" element="head" type="sub"/>
-  <style level="p" class="index" element="item" parent="index"/>
-  <style level="p" class="l" element="l"/>
-  <style level="p" class="legende" element="label"/>
-  <style level="p" class="ln" element="l"/>
-  <style level="p" class="lpart" element="l" type="part"/>
-  <style level="p" class="label" element="label"/>
-  <style level="p" class="line" element="l"/>
-  <style level="p" class="listheading" element="label" parent="dl"/>
-  <style level="p" class="listcontent" element="item" parent="dl"/>
-  <style level="p" class="listcontents" element="item" parent="dl"/>
-  <style level="p" class="lg" element="l" parent="lg"/>
-  <style level="p" class="note" element="p" parent="notep"/>
-  <style level="p" class="opener" element="opener"/>
-  <style level="p" class="p" element="p"/>
-  <style level="p" class="pb" element="pb"/>
-  <style level="p" class="pbed" element="pb" type="ed"/>
-  <style level="p" class="poem" element="lg"/>
-  <style level="p" class="postscript" element="p" parent="postscript"/>
-  <style level="p" class="pre" element="eg"/>
-  <style level="p" class="preformattedtext" element="eg"/>
-  <style level="p" class="q" element="q"/>
-  <style level="p" class="quotations" element="p" parent="quote"/>
-  <style level="p" class="quote" element="p" parent="quote"/>
-  <style level="p" class="quotedateline" element="dateline" parent="quote"/>
-  <style level="p" class="quotel" element="l" parent="quote"/>
-  <style level="p" class="quotesalute" element="salute" parent="quote"/>
-  <style level="p" class="quotesigned" element="signed" parent="quote"/>
-  <style level="p" class="refrain" element="l" rend="refrain"/>
-  <style level="p" class="role" element="role" parent="castItem"/>
-  <style level="p" class="roledesc" element="roleDesc" parent="castItem"/>
-  <style level="p" class="said" element="said"/>
-  <style level="p" class="salute" element="salute"/>
-  <style level="p" class="salutation" element="salute"/>
-  <style level="p" class="sender" element="byline"/>
-  <style level="p" class="set" element="p" parent="set"/>
-  <style level="p" class="signed" element="signed"/>
-  <style level="p" class="signature" element="signed"/>
-  <style level="p" class="soustitre" element="head" type="sub"/>
-  <style level="p" class="speaker" element="speaker"/>
-  <style level="p" class="subtitle" element="head" type="sub"/>
-  <style level="p" class="stage" element="stage"/>
-  <style level="p" class="texteenvers" element="l" parent="lg"/>
-  <style level="p" class="term" element="term" parent="index"/>
-  <style level="p" class="title" element="head"/>
-  <style level="p" class="titre" element="head"/>
-  <style level="p" class="trailer" element="trailer"/>
-  <style level="p" class="vers" element="l"/>
-  <style level="p" class="versrompu" element="l" type="part"/>
-  <style level="p" class="xml" element="eg"/>
-  <style level="p" class="xr" element="xr" parent="entryFree"/>
-  <style level="c" class="abbr" element="abbr"/>
-  <style level="c" class="add" element="add"/>
-  <style level="c" class="accentuation" element="emph"/>
-  <style level="c" class="actor" element="actor"/>
-  <style level="c" class="author" element="author"/>
-  <style level="c" class="affiliation" element="affiliation"/>
-  <style level="c" class="age" element="age"/>
-  <style level="c" class="appelnotedebasdep"/><!-- Delete -->
-  <style level="c" class="bibl" element="bibl"/>
-  <style level="c" class="biblcar" element="bibl"/>
-  <style level="c" class="bulletsymbols" element="glyph"/>
-  <style level="c" class="c" element="c"/>
-  <style level="c" class="caption" element="caption"/>
-  <style level="c" class="char" element="c"/>
-  <style level="c" class="citation" element="quote"/>
-  <style level="c" class="citation1" element="quote"/>
-  <style level="c" class="citationhtml" element="title"/>
-  <style level="c" class="code" element="code"/>
-  <style level="c" class="corr" element="corr"/>
-  <style level="c" class="c-stage" element="stage"/>
-  <style level="c" class="date" element="date"/>
-  <style level="c" class="definition" element="gloss"/>
-  <style level="c" class="del" element="del"/>
-  <style level="c" class="distinct" element="distinct"/>
-  <style level="c" class="edautoridad" element="name" type="authority"/>
-  <style level="c" class="edcita" element="quote"/>
-  <style level="c" class="edpolemista" element="name" type="polemista"/>
-  <style level="c" class="edtitulodeobra" element="title"/>
-  <style level="c" class="email" element="email"/>
-  <style level="c" class="em" element="emph"/>
-  <style level="c" class="emph" element="emph"/>
-  <style level="c" class="emphasis" element="emph"/>
-  <style level="c" class="example" element="q"/>
-  <style level="c" class="exposant" element="sup"/>
-  <style level="c" class="foreign" element="foreign"/>
-  <style level="c" class="geogname" element="geogName"/>
-  <style level="c" class="geographie" element="geogName"/>
-  <style level="c" class="gloss" element="gloss"/>
-  <style level="c" class="htmlcite" element="title"/>
-  <style level="c" class="ident" element="ident"/>
-  <style level="c" class="idno" element="idno"/>
-  <style level="c" class="italic" element="i"/>
-  <style level="c" class="italic1" element="i"/>
-  <style level="c" class="lieu" element="placeName"/>
-  <style level="c" class="linenumbering" element="num"/>
-  <style level="c" class="name" element="name"/>
-  <style level="c" class="num" element="num"/>
-  <style level="c" class="pagenumber" element="num"/>
-  <style level="c" class="pagination" element="pb"/>
-  <style level="c" class="pagenum" element="pb"/>
-  <style level="c" class="pagenum1" element="pb"/>
-  <style level="c" class="pb" element="pb"/>
-  <style level="c" class="persname" element="persName"/>
-  <style level="c" class="q" element="q"/>
-  <style level="c" class="quote" element="quote"/>
-  <style level="c" class="quotec" element="quote"/>
-  <style level="c" class="s" element="s"/>
-  <style level="c" class="seg" element="seg"/>
-  <style level="c" class="sic" element="sic"/>
-  <style level="c" class="sourcetext" element="code"/>
-  <style level="c" class="stage" element="stage"/>
-  <style level="c" class="stagec" element="stage"/>
-  <style level="c" class="strongemphasis" element="strong"/>
-  <style level="c" class="teletype" element="code"/>
-  <style level="c" class="temps" element="date"/>
-  <style level="c" class="smcap" element="sc"/>
-  <style level="c" class="smcap1" element="sc"/>
-  <style level="c" class="term" element="term"/>
-  <style level="c" class="title" element="title"/>
-  <style level="c" class="userentry" element="code"/>
-  <style level="c" class="variable" element="term"/>
+<sheet xmlns="odt:tei">
+  <style level="p" name="ab" element="ab" type="ornament"/>
+  <style level="p" name="address" element="addrLine" parent="address"/>
+  <style level="p" name="argument" element="p" parent="argument"/>
+  <style level="p" name="auteur" element="byline"/>
+  <style level="p" name="author" element="byline"/>
+  <style level="p" name="bibl" element="bibl" parent="quote"/>
+  <style level="p" name="biblio" element="bibl"/>
+  <style level="p" name="bibliography" element="bibl"/>
+  <style level="p" name="bibliographie" element="bibl"/>
+  <style level="p" name="byline" element="byline"/>
+  <style level="p" name="camera" element="camera"/>
+  <style level="p" name="caption" element="caption"/>
+  <style level="p" name="castlist" element="castList"/>
+  <style level="p" name="citation" element="p" parent="quote"/>
+  <style level="p" name="citation1" element="p" parent="quote"/>
+  <style level="p" name="citation2" element="p" parent="quote"/>
+  <style level="p" name="citationalinea" element="p" parent="quote"/>
+  <style level="p" name="citationenvers" element="l" parent="quote"/>
+  <style level="p" name="citationvers" element="l" parent="quote"/>
+  <style level="p" name="closer" element="closer"/>
+  <style level="p" name="corpsdetexte" element="p"/>
+  <style level="p" name="creator" element="byline"/>
+  <style level="p" name="dateline" element="dateline"/>
+  <style level="p" name="date" element="dateline"/>
+  <style level="p" name="def" element="def" parent="entryFree"/>
+  <style level="p" name="desc" element="desc"/>
+  <style level="p" name="dd" element="item" parent="dl"/>
+  <style level="p" name="dt" element="label" parent="dl"/>
+  <style level="p" name="docauthor" element="docAuthor"/>
+  <style level="p" name="docimprint" element="docImprint"/>
+  <style level="p" name="docdate" element="docDate"/>
+  <style level="p" name="eg" element="eg"/>
+  <style level="p" name="epigraph" element="p" parent="epigraph"/>
+  <style level="p" name="endnote" element="note"/>
+  <style level="p" name="entry" element="entry"/>
+  <style level="p" name="exemple" element="quote" parent="entryFree"/>
+  <style level="p" name="footnote" element="p"/><!-- in odt, used inside notes -->
+  <style level="p" name="form" element="form" parent="entryFree"/>
+  <style level="p" name="fw" element="fw"/>
+  <style level="p" name="headsub" element="head" type="sub"/>
+  <style level="p" name="headsub1" element="head" type="sub"/>
+  <style level="p" name="headsub2" element="head" type="sub"/>
+  <style level="p" name="headsub3" element="head" type="sub"/>
+  <style level="p" name="headsub4" element="head" type="sub"/>
+  <style level="p" name="h1sub" element="head" type="sub"/>
+  <style level="p" name="h2sub" element="head" type="sub"/>
+  <style level="p" name="h3sub" element="head" type="sub"/>
+  <style level="p" name="h4sub" element="head" type="sub"/>
+  <style level="p" name="index" element="item" parent="index"/>
+  <style level="p" name="l" element="l"/>
+  <style level="p" name="legende" element="label"/>
+  <style level="p" name="ln" element="l"/>
+  <style level="p" name="lpart" element="l" type="part"/>
+  <style level="p" name="label" element="label"/>
+  <style level="p" name="line" element="l"/>
+  <style level="p" name="listheading" element="label" parent="dl"/>
+  <style level="p" name="listcontent" element="item" parent="dl"/>
+  <style level="p" name="listcontents" element="item" parent="dl"/>
+  <style level="p" name="lg" element="l" parent="lg"/>
+  <style level="p" name="note" element="p" parent="notep"/>
+  <style level="p" name="opener" element="opener"/>
+  <style level="p" name="p" element="p"/>
+  <style level="p" name="pb" element="pb"/>
+  <style level="p" name="pbed" element="pb" type="ed"/>
+  <style level="p" name="poem" element="lg"/>
+  <style level="p" name="postscript" element="p" parent="postscript"/>
+  <style level="p" name="pre" element="eg"/>
+  <style level="p" name="preformattedtext" element="eg"/>
+  <style level="p" name="q" element="q"/>
+  <style level="p" name="quotations" element="p" parent="quote"/>
+  <style level="p" name="quote" element="p" parent="quote"/>
+  <style level="p" name="quotedateline" element="dateline" parent="quote"/>
+  <style level="p" name="quotel" element="l" parent="quote"/>
+  <style level="p" name="quotesalute" element="salute" parent="quote"/>
+  <style level="p" name="quotesigned" element="signed" parent="quote"/>
+  <style level="p" name="refrain" element="l" rend="refrain"/>
+  <style level="p" name="role" element="role" parent="castItem"/>
+  <style level="p" name="roledesc" element="roleDesc" parent="castItem"/>
+  <style level="p" name="said" element="said"/>
+  <style level="p" name="salute" element="salute"/>
+  <style level="p" name="salutation" element="salute"/>
+  <style level="p" name="sender" element="byline"/>
+  <style level="p" name="set" element="p" parent="set"/>
+  <style level="p" name="signed" element="signed"/>
+  <style level="p" name="signature" element="signed"/>
+  <style level="p" name="soustitre" element="head" type="sub"/>
+  <style level="p" name="speaker" element="speaker"/>
+  <style level="p" name="subtitle" element="head" type="sub"/>
+  <style level="p" name="stage" element="stage"/>
+  <style level="p" name="texteenvers" element="l" parent="lg"/>
+  <style level="p" name="term" element="term" parent="index"/>
+  <style level="p" name="test" element="test" parent="suite" rend="test" type="test"/>
+  <style level="p" name="title" element="head"/>
+  <style level="p" name="titre" element="head"/>
+  <style level="p" name="trailer" element="trailer"/>
+  <style level="p" name="vers" element="l"/>
+  <style level="p" name="versrompu" element="l" type="part"/>
+  <style level="p" name="xml" element="eg"/>
+  <style level="p" name="xr" element="xr" parent="entryFree"/>
+  <style level="c" name="abbr" element="abbr"/>
+  <style level="c" name="add" element="add"/>
+  <style level="c" name="accentuation" element="emph"/>
+  <style level="c" name="actor" element="actor"/>
+  <style level="c" name="author" element="author"/>
+  <style level="c" name="affiliation" element="affiliation"/>
+  <style level="c" name="age" element="age"/>
+  <style level="c" name="appelnotedebasdep"/><!-- Delete -->
+  <style level="c" name="bibl" element="bibl"/>
+  <style level="c" name="biblcar" element="bibl"/>
+  <style level="c" name="bulletsymbols" element="glyph"/>
+  <style level="c" name="c" element="c"/>
+  <style level="c" name="caption" element="caption"/>
+  <style level="c" name="char" element="c"/>
+  <style level="c" name="citation" element="quote"/>
+  <style level="c" name="citation1" element="quote"/>
+  <style level="c" name="citationhtml" element="title"/>
+  <style level="c" name="code" element="code"/>
+  <style level="c" name="corr" element="corr"/>
+  <style level="c" name="c-stage" element="stage"/>
+  <style level="c" name="date" element="date"/>
+  <style level="c" name="definition" element="gloss"/>
+  <style level="c" name="del" element="del"/>
+  <style level="c" name="distinct" element="distinct"/>
+  <style level="c" name="edautoridad" element="name" type="authority"/>
+  <style level="c" name="edcita" element="quote"/>
+  <style level="c" name="edpolemista" element="name" type="polemista"/>
+  <style level="c" name="edtitulodeobra" element="title"/>
+  <style level="c" name="email" element="email"/>
+  <style level="c" name="em" element="emph"/>
+  <style level="c" name="emph" element="emph"/>
+  <style level="c" name="emphasis" element="emph"/>
+  <style level="c" name="example" element="q"/>
+  <style level="c" name="exposant" element="sup"/>
+  <style level="c" name="foreign" element="foreign"/>
+  <style level="c" name="geogname" element="geogName"/>
+  <style level="c" name="geographie" element="geogName"/>
+  <style level="c" name="gloss" element="gloss"/>
+  <style level="c" name="htmlcite" element="title"/>
+  <style level="c" name="ident" element="ident"/>
+  <style level="c" name="idno" element="idno"/>
+  <style level="c" name="italic" element="i"/>
+  <style level="c" name="italic1" element="i"/>
+  <style level="c" name="lieu" element="placeName"/>
+  <style level="c" name="linenumbering" element="num"/>
+  <style level="c" name="name" element="name"/>
+  <style level="c" name="num" element="num"/>
+  <style level="c" name="pagenumber" element="num"/>
+  <style level="c" name="pagination" element="pb"/>
+  <style level="c" name="pagenum" element="pb"/>
+  <style level="c" name="pagenum1" element="pb"/>
+  <style level="c" name="pb" element="pb"/>
+  <style level="c" name="persname" element="persName"/>
+  <style level="c" name="q" element="q"/>
+  <style level="c" name="quote" element="quote"/>
+  <style level="c" name="quotec" element="quote"/>
+  <style level="c" name="s" element="s"/>
+  <style level="c" name="seg" element="seg"/>
+  <style level="c" name="sic" element="sic"/>
+  <style level="c" name="sourcetext" element="code"/>
+  <style level="c" name="stage" element="stage"/>
+  <style level="c" name="stagec" element="stage"/>
+  <style level="c" name="strongemphasis" element="strong"/>
+  <style level="c" name="teletype" element="code"/>
+  <style level="c" name="temps" element="date"/>
+  <style level="c" name="smcap" element="sc"/>
+  <style level="c" name="smcap1" element="sc"/>
+  <style level="c" name="term" element="term"/>
+  <style level="c" name="title" element="title"/>
+  <style level="c" name="userentry" element="code"/>
+  <style level="c" name="variable" element="term"/>
 </sheet>

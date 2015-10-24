@@ -27,6 +27,12 @@ Pilot to work with OpenOffice Text files. Steps:
 
 
 set_time_limit(-1);
+// register global if not called in Omeka context
+if (!function_exists('_log')) {
+  function _log($message, $priority=null) {
+    fwrite(STDERR, $message."\n");
+  }
+}
 // included file, do nothing
 if (isset($_SERVER['SCRIPT_FILENAME']) && basename($_SERVER['SCRIPT_FILENAME']) != basename(__FILE__));
 else if (isset($_SERVER['ORIG_SCRIPT_FILENAME']) && realpath($_SERVER['ORIG_SCRIPT_FILENAME']) != realpath(__FILE__));
@@ -34,6 +40,7 @@ else if (isset($_SERVER['ORIG_SCRIPT_FILENAME']) && realpath($_SERVER['ORIG_SCRI
 else if (php_sapi_name() == "cli") Odette_Odt2tei::cli();
 // direct http call, work
 else Odette_Odt2tei::doPost();
+
 
 
 /**
@@ -101,8 +108,7 @@ class Odette_Odt2tei {
   public function save($destfile, $format=null, $pars=array()) {
     $pathinfo=pathinfo($destfile);
     if (file_exists($destfile) && !isset($pars['force'])) {
-      echo "Destination file already exists: $destfile\n";
-      return;
+      _log("Odette, destination file already exists: $destfile");
     }
     // used by the tei formatter for mediadir (ex: pictures extracted from odt)
     $this->destname=$pathinfo['filename'];
@@ -177,23 +183,30 @@ class Odette_Odt2tei {
     $pars['filename']=$this->destname;
     $pars['mediadir']=$this->destname.'-img/';
     // some normalisation of oddities
+    $start = microtime(true);
     $this->transform(dirname(__FILE__).'/odt-norm.xsl');
+    _log("odt-norm: " . (microtime(true) - $start));
     // $this->doc->formatOutput=true;
     // odt > tei
-    $this->transform(dirname(__FILE__).'/odt_tei.xsl', $pars);
+    $start = microtime(true);
+    $this->transform(dirname(__FILE__).'/odt2tei.xsl', $pars);
+    
+    _log("odt2tei: " . (microtime(true) - $start));
+    $start = microtime(true);
     
     // indent here produce too much problems, use only for debug
     $this->doc->formatOutput=true;
     $this->doc->substituteEntities=true;
     $xml=$this->doc->saveXML();
 
-    
-
     // regularisation of tags segments, ex: spaces tagged as italic
     $preg=self::sed_preg(file_get_contents(dirname(__FILE__).'/tei.sed'));
     $xml = preg_replace($preg[0], $preg[1], $xml);
     $this->loadXML($xml);
     $this->doc->formatOutput=true;
+    
+    _log("tei.sed: " . (microtime(true) - $start));
+    $start = microtime(true);
     
 
     /* 
@@ -206,8 +219,10 @@ class Odette_Odt2tei {
     // echo 'Mem peak: ', memory_get_peak_usage(), ' true? ', memory_get_peak_usage(true), "\n";
     // print_r($this->message); // for debug show now xlml errors
     // xsl step to put some tei oddities like <hi rend="i"> (instead of <i>)
-    $this->transform(dirname(__FILE__).'/tei_post.xsl');
+    $this->transform(dirname(__FILE__).'/tei-post.xsl');
     // echo 'Mem peak: ', memory_get_peak_usage(), ' true? ', memory_get_peak_usage(true), "\n";
+    
+    _log("tei-post: " . (microtime(true) - $start));
   }
 
   /**
@@ -361,7 +376,11 @@ class Odette_Odt2tei {
     foreach(glob($srcGlob) as $srcfile) {
       $count++;
       $destfile=dirname($srcfile).'/'.basename($srcfile, ".odt").$ext;
-      print "$count. $srcfile > $destfile\n";
+      _log("$count. $srcfile > $destfile");
+      if (file_exists($destfile)) {
+        _log("  $destfile already exists, it will not be overwritten, except if you use the force option");
+        // continue;
+      }
       $odt=new Odette_Odt2tei($srcfile);
       $odt->save($destfile, $format);
     }
