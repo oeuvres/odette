@@ -76,8 +76,10 @@ Best usage of output could be as an input for other filters (regular expressions
   xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2"
   xmlns:rdfa="http://docs.oasis-open.org/opendocument/meta/rdfa#"
   xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0"
+  
+  xmlns:odt2tei="odt:tei"
 
-  exclude-result-prefixes="tei
+  exclude-result-prefixes="tei odt2tei
   office style text table draw fo xlink dc meta number svg chart dr3d math form script ooo ooow oooc dom xforms xsd xsi config rpt of rdfa field"
 
   xmlns:exslt="http://exslt.org/common"
@@ -92,9 +94,12 @@ Best usage of output could be as an input for other filters (regular expressions
   <xsl:output encoding="UTF-8" indent="yes" method="xml"/>
   <!-- clé sur les styles -->
   <xsl:key name="style" match="style:style|text:list-style" use="@style:name"/>
+  <xsl:key name="style-auto" match="office:automatic-styles/style:style|office:automatic-styles/text:list-style" use="@style:name"/>
   <xsl:key name="list-style" match="text:list-style" use="@style:name"/>
+  <xsl:key name="p-style" match="odt2tei:style[@level='p']" use="@name"/>
+  <xsl:key name="c-style" match="odt2tei:style[@level='c']" use="@name"/>
   <!-- Link to a style sheet with style name mapping with elements -->
-  <xsl:variable name="sheet" select="document('styles.xml', document(''))/*"/>
+  <xsl:variable name="sheet" select="document('styles.xml', document(''))"/>
   <!-- the filename processed, set by the caller -->
   <xsl:param name="filename"/>
   <xsl:param name="mediadir"/>
@@ -102,7 +107,7 @@ Best usage of output could be as an input for other filters (regular expressions
   <xsl:variable name="lf"><xsl:text>
 </xsl:text></xsl:variable>
   <xsl:variable name="tab" select="'&#x9;'"/>
-  <xsl:variable name="ABC">ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÆÈÉÊËÌÍÎÏÐÑÒÓÔÕÖŒÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöùúûüýÿþ</xsl:variable>
+  <xsl:variable name="ABC">ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÆÈÉÊËÌÍÎÏÐÑÒÓÔÕÖŒÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöùúûüýÿþ,; ?()/\ ._-</xsl:variable>
   <xsl:variable name="abc">abcdefghijklmnopqrstuvwxyzaaaaaaeeeeeiiiidnoooooœuuuuybbaaaaaaaceeeeiiiionooooouuuuyyb</xsl:variable>
   <xsl:variable name="lang">
     <xsl:choose>
@@ -158,7 +163,7 @@ Best usage of output could be as an input for other filters (regular expressions
   </xsl:template>
   <!-- go throw, sections can break the tree of titles  -->
   <xsl:template match="text:section">
-    <xsl:variable name="cols" select="key('style', @text:style-name)//@fo:column-count"/>
+    <xsl:variable name="cols" select="key('style', @text:style-name)/style:columns/@fo:column-count"/>
     <xsl:comment>
       <xsl:text>section=</xsl:text>
       <xsl:value-of select="@text:name"/> 
@@ -352,7 +357,7 @@ case encountered, seems logic, but not fully tested
     <!-- handle on the current style -->
     <xsl:variable name="style" select="key('style', $style-name)"/>
     <!-- automatic style means local styling to output -->
-    <xsl:variable name="styleAuto" select="$style/ancestor::office:automatic-styles"/>
+    <xsl:variable name="style-auto" select="key('style-auto', $style-name)"/>
     <!-- Get a normalized class name (no spaces, no capitals…) -->
     <xsl:variable name="classtest">
       <xsl:call-template name="class">
@@ -379,42 +384,33 @@ case encountered, seems logic, but not fully tested
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-
-    <!-- Insert pages break ? -->
-    <!--
-    <xsl:choose>
-      <xsl:when test="$style//@fo:break-before='page' or  key('style',$styleName )//@fo:break-before='page'  ">
-        <pb/>
-      </xsl:when>
-    </xsl:choose>
-    -->
     <!-- catch rendering information for non semantic style (supposed to be local styling) -->
     <xsl:variable name="align">
-      <xsl:variable name="left" select="translate($style//@fo:margin-left, 'abcdefghijklmnopqrstuvwxyz', '')"/>
+      <xsl:variable name="left" select="translate($style/style:paragraph-properties/@fo:margin-left, 'abcdefghijklmnopqrstuvwxyz ', '')"/>
       <xsl:variable name="style2" select="key('style', $style/@style:parent-style-name)"/>
       <xsl:choose>
-        <xsl:when test="not($styleAuto)"/>
+        <xsl:when test="not($style-auto)"/>
         <!-- margin-left:0 different from parent style -->
-        <xsl:when test="$left &gt; 0.1 and $style2//@fo:margin-left and not(starts-with($style2//@fo:margin-left, '0'))">outdent</xsl:when>
+        <xsl:when test="$left &gt; 0.1 and $style2/style:paragraph-properties/@fo:margin-left and not(starts-with($style2/style:paragraph-properties/@fo:margin-left, '0'))">outdent</xsl:when>
         <xsl:when test="$left &gt; 0.1">margin</xsl:when>
-        <xsl:when test="$style//@fo:text-align = 'end'">right</xsl:when>
-        <xsl:when test="$style//@fo:text-align = 'center'">center</xsl:when>
+        <xsl:when test="$style/style:paragraph-properties/@fo:text-align = 'end'">right</xsl:when>
+        <xsl:when test="$style/style:paragraph-properties/@fo:text-align = 'center'">center</xsl:when>
         <xsl:when test="contains($class, 'centr') or  contains($class, 'center')">center</xsl:when>
         <xsl:when test="contains($class, 'droite') or contains($class, 'right')">right</xsl:when>
         <!-- ? add noise or info ? to test
-        <xsl:when test="$style//@fo:text-align = 'start'">left</xsl:when>
+        <xsl:when test="$style/style:paragraph-properties/@fo:text-align = 'start'">left</xsl:when>
         -->
       </xsl:choose>
     </xsl:variable>
     <!-- first line indent -->
     <xsl:variable name="indent">
-      <xsl:variable name="n" select="translate($style//@fo:text-indent, 'abcdefghijklmnopqrstuvwxyz', '')"/>
+      <xsl:variable name="n" select="translate($style/style:paragraph-properties/@fo:text-indent, 'abcdefghijklmnopqrstuvwxyz', '')"/>
       <xsl:choose>
         <xsl:when test="$class = 'l'"/>
         <xsl:when test="$class = 'label'"/>
         <xsl:when test="$class = 'quote'"/>
-        <xsl:when test="not($styleAuto)"/>
-        <xsl:when test="not($style//@fo:text-indent)"/>
+        <xsl:when test="not($style-auto)"/>
+        <xsl:when test="not($style/style:paragraph-properties/@fo:text-indent)"/>
         <xsl:when test="$n &lt; -0.1">hanging</xsl:when>
         <!--
         <xsl:when test="$n &gt; 0">indent</xsl:when>
@@ -425,27 +421,26 @@ case encountered, seems logic, but not fully tested
     </xsl:variable>
     <xsl:variable name="font">
       <xsl:choose>
-        <xsl:when test="not($styleAuto)"/>
-        <xsl:when test="$style//@fo:font-style='italic' or $style//@style:font-style-complex='italic'">i</xsl:when>
-        <xsl:when test="$style//@fo:font-weight='bold' or $style//@style:font-weight-complex='bold'">b</xsl:when>
+        <xsl:when test="not($style-auto)"/>
+        <xsl:when test="$style/style:text-properties/@fo:font-style='italic' or $style/style:text-properties/@style:font-style-complex='italic'">i</xsl:when>
+        <xsl:when test="$style/style:text-properties/@fo:font-weight='bold' or $style/style:text-properties/@style:font-weight-complex='bold'">b</xsl:when>
       </xsl:choose>
     </xsl:variable>
     <xsl:variable name="color">
       <xsl:choose>
-        <xsl:when test="not($styleAuto)"/>
-        <xsl:when test="not($style//@fo:color)"/>
-        <xsl:when test="$style//@fo:color='#000000'"></xsl:when>
+        <xsl:when test="not($style-auto)"/>
+        <xsl:when test="not($style/style:text-properties/@fo:color)"/>
+        <xsl:when test="$style/style:text-properties/@fo:color='#000000'"></xsl:when>
         <xsl:otherwise>
           <xsl:text>color_</xsl:text>
-          <xsl:value-of select="substring($style//@fo:color, 2)"/>
+          <xsl:value-of select="substring($style/style:text-properties/@fo:color, 2)"/>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <!-- background color ? -->
     <xsl:variable name="bg">
-      <xsl:variable name="bgcol" select="$style//@fo:background-color"/>
+      <xsl:variable name="bgcol" select="$style/style:text-properties/@fo:background-color"/>
       <xsl:choose>
-        <xsl:when test="not($styleAuto)"/>
+        <xsl:when test="not($style-auto)"/>
         <xsl:when test="not($bgcol)"/>
         <xsl:when test="substring($bgcol, 2) = 'FFFFFF'"/>
         <xsl:when test="substring($bgcol, 2) = 'ffffff'"/>
@@ -457,212 +452,142 @@ case encountered, seems logic, but not fully tested
       </xsl:choose>
     </xsl:variable>
     <xsl:variable name="u">
-      <xsl:variable name="underline" select="($style//@style:text-underline-style and $style//@style:text-underline-style != 'none') or ($style//@style:text-underline and $style//@style:text-underline != 'none')"/>
+      <xsl:variable name="underline" select="($style/style:text-properties/@style:text-underline-style and $style/style:text-properties/@style:text-underline-style != 'none') or ($style/style:text-properties/@style:text-underline and $style/style:text-properties/@style:text-underline != 'none')"/>
       <xsl:choose>
-        <xsl:when test="not($styleAuto)"/>
+        <xsl:when test="not($style-auto)"/>
         <xsl:when test="$underline">u</xsl:when>
       </xsl:choose>
     </xsl:variable>
     <xsl:variable name="sc">
       <xsl:choose>
-        <xsl:when test="not($styleAuto)"/>
-        <xsl:when test="$style//@fo:font-variant = 'small-caps'">sc</xsl:when>
+        <xsl:when test="not($style-auto)"/>
+        <xsl:when test="$style/style:text-properties/@fo:font-variant = 'small-caps'">sc</xsl:when>
       </xsl:choose>
     </xsl:variable>
     <xsl:variable name="border">
       <xsl:call-template name="border"/>
     </xsl:variable>
     <xsl:variable name="rend" select="normalize-space(concat($align,' ',$indent,' ',$font,' ',$color,' ',$bg, ' ', $u, ' ', $sc))"/>
-    <!-- Different attributes to add to created block -->
-    <xsl:variable name="atts">
-      <xsl:call-template name="lang"/>
-    </xsl:variable>
-    <xsl:variable name="mapping" select="$sheet/*[@level='p'][@class=$class][1]"/>
-    <!-- try to infer an element name from some formatting -->
-    <xsl:variable name="spacer" select="preceding-sibling::*[not(*)][.=''][1]"/>
-    <xsl:variable name="next" select="following-sibling::*[1]"/>
-    <xsl:variable name="prev" select="preceding-sibling::*[1]"/>
-    <xsl:variable name="char1" select="substring(translate(., '  ', ''), 1, 1)"/>
-    <xsl:variable name="charNext" select="substring(translate(following-sibling::*[1], '  ', ''), 1, 1)"/>
-    <xsl:variable name="key" select="normalize-space(
-normalize-space(
-  translate(
-    translate(
-      substring-before(., ':'),
-        ',; ?()/\ ._-',
-        ' '
-      ),
-      $ABC, 
-      $abc
-    )
-  )
-)"/>
-    <!-- try to infer an element name when no style -->    
-    <xsl:variable name="elguess">
-      <xsl:choose>
-        <!-- no title style,  non empty para after a page break is a probably a title -->
-        <!-- too dangerous, <pb/> maybe used for rendering only
-        <xsl:when test="not($h) and ($style//@fo:break-before='page' or  key('style',$styleName )//@fo:break-before='page' or $style//@style:master-page-name or  key('style',$styleName )//@style:master-page-name)">head</xsl:when>
-        -->
-        <xsl:when test="local-name(*[1]) = 'tab'"/>
-        <!-- Guess list item (dialogue ar said list items) -->
-        <xsl:when test="$char1='•' or $char1='÷' or $char1='◊'">item</xsl:when>
-        <!-- Shall we decide that centered blocks are title ? -->
-        <!--
-        <xsl:when test="$align = 'center'">label</xsl:when>
-        <xsl:when test="$indent = 'hanging'">bibl</xsl:when>
-        -->
-        <!-- dialogs (blocks with no margin) but here maybe quote -->
-        <!-- try to infer a line group ? -->
-        <!--
-        <xsl:when test="$styleName = 'Standard' and .!='' and string-length(.) &lt; 100 and ((name($next)='text:p' and $next!='' and string-length($next) &lt; 100) or (name($prev)='text:p' and $prev!='' and string-length($prev) &lt; 100))">l</xsl:when>
-        -->
-      </xsl:choose>
-    </xsl:variable>
-    <!-- Store block -->
+    <xsl:variable name="key" select="translate(substring-before(., ':'), $ABC, $abc)"/>
     <xsl:variable name="xml">
       <xsl:choose>
-        <!-- Empty grouping element, used as a separator between different groups ? -->
-        <!--
-        <xsl:when test=".='' and $mapping[@parent]">
-          <xsl:processing-instruction name="sep"/>
-        </xsl:when>
-        -->
-        <!-- empty para containing indexing terms -->
         <xsl:when test=".='' and (text:alphabetical-index-mark | text:alphabetical-index-mark-start | text:user-index-mark)">
-          <index>
-            <xsl:apply-templates select="text:alphabetical-index-mark | text:alphabetical-index-mark-start | text:user-index-mark"/>
-          </index>
-        </xsl:when>
-        <!-- Empty paras, not in preformatted block, are said not significative for the pattern full,empty,full,empty  -->
-        <xsl:when test=".='' and  not(*[name()!='text:soft-page-break']) and not(preceding-sibling::*[1]!='' and preceding-sibling::*[2]!='') and $mapping/@element != 'l'"/>
-        <!-- An indexation term as a block -->
-        <xsl:when test="not(preceding-sibling::text:h) and contains($dc, concat(',', $key, ','))">
-          <index>
-            <term type="{$key}">
-               <xsl:call-template name="flow"/>
-            </term>
-          </index>
-        </xsl:when>
-        <xsl:when test="$class = 'term'">
-          <xsl:if test=". != ''">
             <index>
-              <term>
-                <xsl:if test="contains(., ':')">
-                  <xsl:attribute name="type">
-                    <xsl:value-of select="$key"/>
-                  </xsl:attribute>
-                </xsl:if>
-                <xsl:call-template name="flow"/>
+              <xsl:apply-templates select="text:alphabetical-index-mark | text:alphabetical-index-mark-start | text:user-index-mark"/>
+            </index>
+         </xsl:when>
+        <!-- No style para on first page with form key:value -->
+         <xsl:when test="not(preceding-sibling::text:h) and contains($dc, concat(',', $key, ','))">
+            <index>
+              <term type="{$key}">
+                 <xsl:call-template name="flow"/>
               </term>
             </index>
-          </xsl:if>
-        </xsl:when>
-        <!-- A style known as an element to group in a parent -->
-        <xsl:when test="$mapping[@parent and @parent!='']">
-          <xsl:variable name="element" select="normalize-space($mapping/@element)"/>
-          <xsl:element name="{normalize-space($mapping/@parent)}" namespace="http://www.tei-c.org/ns/1.0">
-            <xsl:element name="{$element}" namespace="http://www.tei-c.org/ns/1.0">
-              <xsl:copy-of select="$atts"/>
-              <xsl:if test="$mapping/@type">
-                <xsl:attribute name="type">
-                  <xsl:value-of select="$mapping/@type"/>
-                </xsl:attribute>
-              </xsl:if>
-              <xsl:variable name="rend2">
-                <xsl:value-of select="$mapping/@rend"/>
-                <xsl:text> </xsl:text>
-                <xsl:value-of select="$rend"/>
-              </xsl:variable>
-              <!-- local rendering of para -->
-              <xsl:if test=" normalize-space($rend2) != ''">
-                <xsl:attribute name="rend">
-                  <xsl:value-of select="$rend2"/>
-                </xsl:attribute>
-              </xsl:if>
-              <!-- numbered line -->
-              <xsl:if test="$element = 'l' and ($style//@text:number-lines='true' or $class='ln') ">
-                <xsl:attribute name="n"/>
-              </xsl:if>
-              <xsl:call-template name="flow"/>
-            </xsl:element>
-          </xsl:element>
-        </xsl:when>
-        <!--  A style known as an element -->
-        <xsl:when test="$mapping[@element and @element!='']">
-          <xsl:variable name="element" select="normalize-space($mapping/@element)"/>
-          <xsl:element name="{$element}" namespace="http://www.tei-c.org/ns/1.0">
-            <xsl:copy-of select="$atts"/>
-            <xsl:if test="$mapping/@type">
-              <xsl:attribute name="type">
-                <xsl:value-of select="$mapping/@type"/>
-              </xsl:attribute>
+          </xsl:when>
+          <xsl:when test="$class = 'term'">
+            <xsl:if test=". != ''">
+              <index>
+                <term>
+                  <xsl:if test="contains(., ':')">
+                    <xsl:attribute name="type">
+                      <xsl:value-of select="$key"/>
+                    </xsl:attribute>
+                  </xsl:if>
+                  <xsl:call-template name="flow"/>
+                </term>
+              </index>
             </xsl:if>
-            <xsl:variable name="rend2">
-              <xsl:value-of select="$mapping/@rend"/>
-              <xsl:text> </xsl:text>
-              <xsl:value-of select="$rend"/>
-            </xsl:variable>
-            <!-- local rendering of para -->
-            <xsl:if test=" normalize-space($rend2) != ''">
-              <xsl:attribute name="rend">
-                <xsl:value-of select="$rend2"/>
-              </xsl:attribute>
-            </xsl:if>
-            <!-- numbered line -->
-            <xsl:if test="$element = 'l' and ($style//@text:number-lines='true' or  $class='ln')">
-              <xsl:attribute name="n"/>
-            </xsl:if>
-            <xsl:if test="$element='eg'">
-              <xsl:value-of select="$lf"/>
-            </xsl:if>
-            <!-- if verse, tab indentation maybe relevant -->
-            <!-- line group where verse are defined by line breaks  -->
-            <xsl:if test="$element = 'lg'">
-              <xsl:text>
-</xsl:text>
-              <lb type="lg"/>
-            </xsl:if>
-            <xsl:call-template name="flow"/>
-            <xsl:if test="$element = 'lg'">
-              <xsl:text>
-              </xsl:text>
-            </xsl:if>
-          </xsl:element>
-        </xsl:when>
-        <!-- An Inferred element with a prent -->
-        <xsl:when test="$elguess = 'item'">
-          <ul>
-            <xsl:element name="{$elguess}" namespace="http://www.tei-c.org/ns/1.0">
-              <xsl:copy-of select="$atts"/>
-              <!-- keep rendering ? 
-              <xsl:if test=" $rend != ''">
-                <xsl:attribute name="rend">
+          </xsl:when>
+        <!-- something to do with a possible semantic class -->
+        <xsl:when test="$class != ''">
+          <xsl:variable name="mapping" select="$sheet/*/odt2tei:style[@level='p'][@name=$class]"/>
+          <xsl:choose>
+            <xsl:when test="$mapping[@parent]">
+              <xsl:variable name="element" select="normalize-space($mapping/@element)"/>
+              <xsl:element name="{$mapping/@parent}" namespace="http://www.tei-c.org/ns/1.0">
+                <xsl:element name="{$element}" namespace="http://www.tei-c.org/ns/1.0">
+                  <xsl:call-template name="lang"/>
+                  <xsl:if test="$mapping/@type">
+                    <xsl:attribute name="type">
+                      <xsl:value-of select="$mapping/@type"/>
+                    </xsl:attribute>
+                  </xsl:if>
+                  <xsl:variable name="rend2">
+                    <xsl:value-of select="$mapping/@rend"/>
+                    <xsl:text> </xsl:text>
+                    <xsl:value-of select="$rend"/>
+                  </xsl:variable>
+                  <!-- local rendering of para -->
+                  <xsl:if test=" normalize-space($rend2) != ''">
+                    <xsl:attribute name="rend">
+                      <xsl:value-of select="$rend2"/>
+                    </xsl:attribute>
+                  </xsl:if>
+                  <!-- numbered line -->
+                  <xsl:if test="$element = 'l' and ($style/style:paragraph-properties/@text:number-lines='true' or $class='ln') ">
+                    <xsl:attribute name="n"/>
+                  </xsl:if>
+                  <xsl:call-template name="flow"/>
+                </xsl:element>
+              </xsl:element>
+            </xsl:when>
+                    <!--  A style known as an element -->
+            <xsl:when test="$mapping[@element and @element!='']">
+              <xsl:variable name="element" select="normalize-space($mapping/@element)"/>
+              <xsl:element name="{$element}" namespace="http://www.tei-c.org/ns/1.0">
+                <xsl:call-template name="lang"/>
+                <xsl:if test="$mapping/@type">
+                  <xsl:attribute name="type">
+                    <xsl:value-of select="$mapping/@type"/>
+                  </xsl:attribute>
+                </xsl:if>
+                <xsl:variable name="rend2">
+                  <xsl:value-of select="$mapping/@rend"/>
+                  <xsl:text> </xsl:text>
                   <xsl:value-of select="$rend"/>
-                </xsl:attribute>
-              </xsl:if>
-              -->
-              <xsl:call-template name="flow"/>
-            </xsl:element>
-          </ul>
+                </xsl:variable>
+                <!-- local rendering of para -->
+                <xsl:if test=" normalize-space($rend2) != ''">
+                  <xsl:attribute name="rend">
+                    <xsl:value-of select="$rend2"/>
+                  </xsl:attribute>
+                </xsl:if>
+                <!-- numbered line -->
+                <xsl:if test="$element = 'l' and ($style/style:paragraph-properties/@text:number-lines='true' or  $class='ln')">
+                  <xsl:attribute name="n"/>
+                </xsl:if>
+                <xsl:if test="$element='eg'">
+                  <xsl:value-of select="$lf"/>
+                </xsl:if>
+                <!-- if verse, tab indentation maybe relevant -->
+                <!-- line group where verse are defined by line breaks  -->
+                <xsl:if test="$element = 'lg'">
+                  <xsl:text>
+    </xsl:text>
+                  <lb type="lg"/>
+                </xsl:if>
+                <xsl:call-template name="flow"/>
+                <xsl:if test="$element = 'lg'">
+                  <xsl:text>
+                  </xsl:text>
+                </xsl:if>
+              </xsl:element>
+            </xsl:when>
+            <xsl:otherwise>
+              <p>
+                <xsl:if test="$rend!='' or $class!=''">
+                  <xsl:attribute name="rend">
+                    <xsl:value-of select="normalize-space(concat($class,' ',$rend))"/>
+                  </xsl:attribute>
+                </xsl:if>
+                <xsl:call-template name="lang"/>
+                <xsl:call-template name="flow"/>
+              </p>
+            </xsl:otherwise>
+          </xsl:choose>
+            
+            
         </xsl:when>
-        <!-- Inferred element from formatting -->
-        <xsl:when test="$elguess != ''">
-          <xsl:element name="{$elguess}" namespace="http://www.tei-c.org/ns/1.0">
-            <xsl:copy-of select="$atts"/>
-            <!-- keep rendering from title -->
-            <xsl:if test=" $rend != ''">
-              <xsl:attribute name="rend">
-                <xsl:value-of select="$rend"/>
-              </xsl:attribute>
-            </xsl:if>
-            <xsl:call-template name="flow"/>
-          </xsl:element>
-          <!-- TODO, resolve problems with verse separator
-          <xsl:if test="$el = 'l' and name($next)='text:p' and $next=''"><lb/></xsl:if>
-          -->
-        </xsl:when>
-        <!-- Non semantic block, give back formatting and not recognize class name -->
         <xsl:otherwise>
           <p>
             <xsl:if test="$rend!='' or $class!=''">
@@ -670,18 +595,13 @@ normalize-space(
                 <xsl:value-of select="normalize-space(concat($class,' ',$rend))"/>
               </xsl:attribute>
             </xsl:if>
-            <xsl:copy-of select="$atts"/>
+            <xsl:call-template name="lang"/>
             <xsl:call-template name="flow"/>
           </p>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <!-- Use border as a grouping element, example : meta block, allow empty verses -->
-    <xsl:choose>
-      <!-- no grouping on already grouped -->
-      <xsl:when test="$mapping[@parent and @parent!='']">
-        <xsl:copy-of select="$xml"/>
-      </xsl:when>
+     <xsl:choose>
       <!-- be careful with empty paras -->
       <xsl:when test="$border != ''">
         <quote rend="border">
@@ -693,25 +613,10 @@ normalize-space(
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
+
   <!-- Template for flow content, especially to deal with mixed content -->
   <xsl:template name="flow">
     <xsl:apply-templates/>
-    <!-- has been a solution in some delicate situation of bad indented xml, is no more correct
-    <xsl:choose>
-      <xsl:when test="text()[normalize-space(.)!='']">
-        <xsl:apply-templates/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:for-each select="*">
-          <xsl:variable name="prev" select="preceding-sibling::*[1]"/>
-          <xsl:apply-templates select="."/>
-          <xsl:if test="position() != last() and normalize-space(.)!='' and substring($prev, string-length($prev) != ' ')">
-            <xsl:text> </xsl:text>
-          </xsl:if>
-        </xsl:for-each>
-      </xsl:otherwise>
-    </xsl:choose>
-    -->
   </xsl:template>
 
   <!-- titre dans une liste, peut contenir plusieurs paragraphes -->
@@ -798,20 +703,20 @@ Listes et tables
     <!-- poignée sur le style à explorer -->
     <xsl:variable name="style" select="key('style', $style-name)"/>
     <!-- Automatic style ? -->
-    <xsl:variable name="styleAuto" select="$style/ancestor::office:automatic-styles"/>
+    <xsl:variable name="style-auto" select="key('style-auto', $style-name)"/>
     <xsl:choose>
       <!-- style de bordure annulé -->
-      <xsl:when test="contains($style//@fo:border, 'none')"/>
-      <xsl:when test="$style//@fo:border">
-        <xsl:value-of select="$style//@fo:border"/>
+      <xsl:when test="contains($style/style:paragraph-properties/@fo:border, 'none')"/>
+      <xsl:when test="$style/style:paragraph-properties/@fo:border">
+        <xsl:value-of select="$style/style:paragraph-properties/@fo:border"/>
       </xsl:when>
       <!-- if not style auto, stop -->
-      <xsl:when test="not($styleAuto)"/>
+      <xsl:when test="not($style-auto)"/>
       <!-- if style automatic, test ancestor -->
       <xsl:when test="$style/@style:parent-style-name">
         <xsl:variable name="class" select="key('style', $style/@style:parent-style-name)"/>
-        <xsl:if test="not (contains($class//@fo:border, 'none'))">
-          <xsl:value-of select="$class//@fo:border"/>
+        <xsl:if test="not (contains($class/style:paragraph-properties/@fo:border, 'none'))">
+          <xsl:value-of select="$class/style:paragraph-properties/@fo:border"/>
         </xsl:if>
       </xsl:when>
     </xsl:choose>
@@ -1061,7 +966,7 @@ to facilitate subsequent groupings.
     <!-- poignée sur le style à explorer -->
     <xsl:variable name="style" select="key('style', $style-name)"/>
     <!-- nom de style automatique -->
-    <xsl:variable name="styleAuto" select="$style/ancestor::office:automatic-styles"/>
+    <xsl:variable name="style-auto" select="key('style-auto', $style-name)"/>
     <!-- Get a good semantic style name -->
     <xsl:variable name="classtest">
       <xsl:call-template name="class">
@@ -1092,21 +997,19 @@ to facilitate subsequent groupings.
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
+    <xsl:variable name="text-position" select="$style/style:text-properties/@style:text-position"/>
     <xsl:variable name="position">
       <xsl:choose>
         <!-- No <sup> for note ref -->
         <xsl:when test="not(text()[normalize-space(.) != ''])"/>
-        <xsl:when test="contains($style//@style:text-position, 'sub') or starts-with($style//@style:text-position, '-')">sub</xsl:when>
-        <xsl:when test="starts-with($style//@style:text-position,'0%')"/>
+        <xsl:when test="contains($text-position, 'sub') or starts-with($text-position, '-')">sub</xsl:when>
+        <xsl:when test="starts-with($text-position,'0%')"/>
         <!-- style:text-position="33% 100%"  -->
-        <xsl:when test="contains($style//@style:text-position, 'super')">sup</xsl:when>
-        <xsl:when test="$style//@style:text-position !=''">sup</xsl:when>
+        <xsl:when test="contains($text-position, 'super')">sup</xsl:when>
+        <xsl:when test="$text-position !=''">sup</xsl:when>
       </xsl:choose>
     </xsl:variable>
-    <xsl:variable name="mapping" select="$sheet/*[@level='c'][@class=$class][1]"/>
-    <xsl:variable name="att-lang">
-      <xsl:call-template name="lang"/>
-    </xsl:variable>
+    <xsl:variable name="mapping" select="$sheet/*/*[@level='c'][@class=$class][1]"/>
     <xsl:choose>
       <!-- no style on spaces  -->
       <xsl:when test="normalize-space(.)='' and not(*)">
@@ -1122,7 +1025,7 @@ to facilitate subsequent groupings.
         <!-- Some local typo inside semantic style, like superscript in inline quote -->
         <xsl:variable name="subsup">
           <xsl:choose>
-            <xsl:when test="not($styleAuto)">
+            <xsl:when test="not($style-auto)">
               <xsl:apply-templates/>
             </xsl:when>
             <xsl:when test="$position = 'sup'">
@@ -1131,7 +1034,7 @@ to facilitate subsequent groupings.
               </sup>
             </xsl:when>
             <!-- no small-caps in superscript, but maybe in italic -->
-            <xsl:when test="$style//@fo:font-variant = 'small-caps'">
+            <xsl:when test="$style/style:text-properties/@fo:font-variant = 'small-caps'">
               <sc>
                 <xsl:apply-templates/>
               </sc>
@@ -1143,12 +1046,12 @@ to facilitate subsequent groupings.
         </xsl:variable>
         <xsl:variable name="i">
           <xsl:choose>
-            <xsl:when test="not($styleAuto)">
+            <xsl:when test="not($style-auto)">
               <xsl:apply-templates/>
             </xsl:when>
-            <xsl:when test="$style//@fo:font-style='italic' or $style//@font-style-complex='italic'">
+            <xsl:when test="$style/style:text-properties/@fo:font-style='italic' or $style/style:text-properties/@font-style-complex='italic'">
               <i>
-                <xsl:copy-of select="$att-lang"/>
+                <xsl:call-template name="lang"/>
                 <xsl:copy-of select="$subsup"/>
               </i>
             </xsl:when>
@@ -1157,18 +1060,19 @@ to facilitate subsequent groupings.
             </xsl:otherwise>
           </xsl:choose>
         </xsl:variable>
+        <xsl:variable name="background-color" select="$style/style:text-properties/@fo:background-color"/>
         <xsl:variable name="col">
           <xsl:choose>
-            <xsl:when test="not($styleAuto)">
+            <xsl:when test="not($style-auto)">
               <xsl:apply-templates/>
             </xsl:when>
-            <xsl:when test="$style//@fo:background-color != '#ffffff' and $style//@fo:background-color != '#FFFFFF' and $style//@fo:background-color != 'transparent'">
-              <xsl:element name="bg_{substring-after( $style//@fo:background-color, '#')}" namespace="http://www.tei-c.org/ns/1.0">
+            <xsl:when test="$background-color != '#ffffff' and $background-color != '#FFFFFF' and starts-with($style/style:text-properties/@fo:background-color, '#')">
+              <xsl:element name="bg_{substring-after($background-color, '#')}" namespace="http://www.tei-c.org/ns/1.0">
                 <xsl:copy-of select="$i"/>
               </xsl:element>
             </xsl:when>
-            <xsl:when test="$style//@fo:color != '#000000'">
-              <xsl:element name="color_{substring-after( $style//@fo:color, '#')}" namespace="http://www.tei-c.org/ns/1.0">
+            <xsl:when test="$style/style:text-properties/@fo:color != '#000000'">
+              <xsl:element name="color_{substring-after( $style/style:text-properties/@fo:color, '#')}" namespace="http://www.tei-c.org/ns/1.0">
                 <xsl:copy-of select="$i"/>
               </xsl:element>
             </xsl:when>
@@ -1190,7 +1094,7 @@ to facilitate subsequent groupings.
                   <xsl:value-of select="$mapping/@rend"/>
                 </xsl:attribute>
               </xsl:if>
-              <xsl:copy-of select="$att-lang"/>
+              <xsl:call-template name="lang"/>
               <xsl:copy-of select="$col"/>
             </xsl:element>
           </xsl:when>
@@ -1202,7 +1106,7 @@ to facilitate subsequent groupings.
       <!--  unknow style, maybe semantic, but consider it is not if superscript or subscript -->
       <xsl:when test="$class != '' and $position=''">
         <seg rend="{$class}">
-          <xsl:copy-of select="$att-lang"/>
+          <xsl:call-template name="lang"/>
           <xsl:apply-templates/>
         </seg>
       </xsl:when>
@@ -1220,7 +1124,7 @@ to facilitate subsequent groupings.
               </xsl:element>
             </xsl:when>
             <!-- no small-caps in superscript, but maybe in italic -->
-            <xsl:when test="$style//@fo:font-variant = 'small-caps'">
+            <xsl:when test="$style/style:text-properties/@fo:font-variant = 'small-caps'">
               <xsl:choose>
                 <!-- No letters, probably noise -->
                 <xsl:when test="translate(., 'aàbcdeéèfghijklmnopqrstuvwxyz', '') = .">
@@ -1248,32 +1152,32 @@ to facilitate subsequent groupings.
         <xsl:variable name="bi">
           <xsl:choose>
             <!-- bold+italic (ex: bad formated titles) protect to italic, supposed more semantic  -->
-            <xsl:when test="($style//@fo:font-weight='bold' or $style//@font-weight-complex='bold') and ($style//@fo:font-style='italic' or $style//@font-style-complex='italic')">
+            <xsl:when test="($style/style:text-properties/@fo:font-weight='bold' or $style/style:text-properties/@font-weight-complex='bold') and ($style/style:text-properties/@fo:font-style='italic' or $style/style:text-properties/@font-style-complex='italic')">
               <b>
-                <xsl:copy-of select="$att-lang"/>
+                <xsl:call-template name="lang"/>
                 <i>
                   <xsl:copy-of select="$subsup"/>
                 </i>
               </b>
             </xsl:when>
-            <xsl:when test="$style//@fo:font-style='italic' or $style//@font-style-complex='italic'">
+            <xsl:when test="$style/style:text-properties/@fo:font-style='italic' or $style/style:text-properties/@font-style-complex='italic'">
               <i>
-                <xsl:copy-of select="$att-lang"/>
+                <xsl:call-template name="lang"/>
                 <xsl:copy-of select="$subsup"/>
               </i>
             </xsl:when>
-            <xsl:when test="$style//@fo:font-weight='bold' or $style//@font-weight-complex='bold'">
+            <xsl:when test="$style/style:text-properties/@fo:font-weight='bold' or $style/style:text-properties/@font-weight-complex='bold'">
               <b>
-                <xsl:copy-of select="$att-lang"/>
+                <xsl:call-template name="lang"/>
                 <xsl:copy-of select="$subsup"/>
               </b>
             </xsl:when>
             <!-- lettres espacées -->
-            <xsl:when test="$style//@fo:letter-spacing != '' and $style//@fo:letter-spacing != 'normal'
-and (number(translate($style//@fo:letter-spacing, 'abcdefghijklmnopqrstuvwxyz', '')) &gt; 0.03 )
+            <xsl:when test="$style/style:text-properties/@fo:letter-spacing != '' and $style/style:text-properties/@fo:letter-spacing != 'normal'
+and (number(translate($style/style:text-properties/@fo:letter-spacing, 'abcdefghijklmnopqrstuvwxyz', '')) &gt; 0.03 )
 ">
               <phr>
-                <xsl:copy-of select="$att-lang"/>
+                <xsl:call-template name="lang"/>
                 <xsl:copy-of select="$subsup"/>
               </phr>
             </xsl:when>
@@ -1285,7 +1189,7 @@ and (number(translate($style//@fo:letter-spacing, 'abcdefghijklmnopqrstuvwxyz', 
         <!-- underline may group italic, superscript and small-caps -->
         <xsl:variable name="u">
           <xsl:choose>
-            <xsl:when test="$style//@style:text-line-through-style and $style//@style:text-line-through-style != 'none'">
+            <xsl:when test="$style/style:text-properties/@style:text-line-through-style and $style/style:text-properties/@style:text-line-through-style != 'none'">
               <del>
                 <xsl:copy-of select="$bi"/>
               </del>
@@ -1293,12 +1197,12 @@ and (number(translate($style//@fo:letter-spacing, 'abcdefghijklmnopqrstuvwxyz', 
             <xsl:when test="ancestor::text:a">
               <xsl:copy-of select="$bi"/>
             </xsl:when>
-            <xsl:when test="($style//@style:text-underline-style and $style//@style:text-underline-style != 'none') or ($style//@style:text-underline and $style//@style:text-underline != 'none') ">
+            <xsl:when test="($style/style:text-properties/@style:text-underline-style and $style/style:text-properties/@style:text-underline-style != 'none') or ($style/style:text-properties/@style:text-underline and $style/style:text-properties/@style:text-underline != 'none') ">
               <u>
                 <xsl:attribute name="rend">
-                  <xsl:value-of select="$style//@style:text-underline-style"/>
+                  <xsl:value-of select="$style/style:text-properties/@style:text-underline-style"/>
                 </xsl:attribute>
-                <xsl:variable name="color" select="$style//@style:text-underline-color"/>
+                <xsl:variable name="color" select="$style/style:text-properties/@style:text-underline-color"/>
                 <xsl:choose>
                   <!-- style:text-underline-color="font-color" -->
                   <xsl:when test="not($color)"/>
@@ -1322,19 +1226,19 @@ and (number(translate($style//@fo:letter-spacing, 'abcdefghijklmnopqrstuvwxyz', 
             </xsl:otherwise>
           </xsl:choose>
         </xsl:variable>
-        <!-- Couleurs, notamment pour surignements enveloppant -->
+        <!-- Couleurs, notamment pour surlignements enveloppant -->
         <xsl:choose>
           <!-- pas de style de couleur dans les liens -->
           <xsl:when test="ancestor::text:a or ancestor::text:h">
             <xsl:copy-of select="$u"/>
           </xsl:when>
-          <xsl:when test="$style//@fo:background-color != '#FFFFFF' and $style//@fo:background-color != '#ffffff' and $style//@fo:background-color != 'transparent'">
-            <xsl:element name="bg_{substring-after( $style//@fo:background-color, '#')}" namespace="http://www.tei-c.org/ns/1.0">
+          <xsl:when test="$style/style:text-properties/@fo:background-color != '#FFFFFF' and $style/style:text-properties/@fo:background-color != '#ffffff' and $style/style:text-properties/@fo:background-color != 'transparent'">
+            <xsl:element name="bg_{substring-after( $style/style:text-properties/@fo:background-color, '#')}" namespace="http://www.tei-c.org/ns/1.0">
               <xsl:copy-of select="$u"/>
             </xsl:element>
           </xsl:when>
-          <xsl:when test="$style//@fo:color != '#000000'">
-            <xsl:element name="color_{substring-after( $style//@fo:color, '#')}" namespace="http://www.tei-c.org/ns/1.0">
+          <xsl:when test="$style/style:text-properties/@fo:color != '#000000'">
+            <xsl:element name="color_{substring-after( $style/style:text-properties/@fo:color, '#')}" namespace="http://www.tei-c.org/ns/1.0">
               <xsl:copy-of select="$u"/>
             </xsl:element>
           </xsl:when>
@@ -1502,7 +1406,7 @@ Go through unuseful link
         <xsl:call-template name="class"/>
       </xsl:for-each>
     </xsl:variable>
-    <xsl:variable name="type" select="$sheet/*[@level='p'][@class=$class][1]/@element"/>
+    <xsl:variable name="type" select="$sheet/*/*[@level='p'][@class=$class][1]/@element"/>
     
     <xsl:choose>
       <!-- line break in titles may cause problems, let's say that people know what they do  -->
@@ -1705,14 +1609,14 @@ Liens et renvois
     <xsl:variable name="language">
       <xsl:choose>
         <!-- local language -->  
-        <xsl:when test="key('style', $style-name)//fo:language">
-          <xsl:value-of select="key('style', $style-name)//fo:language"/>
+        <xsl:when test="key('style', $style-name)/style:text-properties/@fo:language">
+          <xsl:value-of select="key('style', $style-name)/style:text-properties/@fo:language"/>
         </xsl:when>
         <!-- not an auto style stop here -->
-        <xsl:when test="key('style', $style-name)/ancestor::office:automatic-styles"/>
+        <xsl:when test="not(key('style-auto', $style-name))"/>
         <!-- see parent style if auto style -->
-        <xsl:when test="key('style', @style:parent-style-name)//fo:language">
-          <xsl:value-of select="key('style',@style:parent-style-name)//fo:language"/>
+        <xsl:when test="key('style', @style:parent-style-name)/style:text-properties/fo:language">
+          <xsl:value-of select="key('style',@style:parent-style-name)/style:text-properties/fo:language"/>
         </xsl:when>
       </xsl:choose>
     </xsl:variable>
@@ -1730,12 +1634,12 @@ Liens et renvois
     <!-- poignée sur le style à explorer -->
     <xsl:variable name="style" select="key('style', $name)"/>
     <!-- nom de style automatique -->
-    <xsl:variable name="styleAuto" select="$style/ancestor::office:automatic-styles"/>
+    <xsl:variable name="style-auto" select="key('style-auto', $name)"/>
     <!-- obtenir le nom d'un style sémantique, malgré les dérives automatiques  -->
     <xsl:variable name="styleName">
       <xsl:choose>
         <!-- probablement pas un style automatique -->
-        <xsl:when test="not($styleAuto)">
+        <xsl:when test="not($style-auto)">
           <xsl:value-of select="$name"/>
         </xsl:when>
         <!-- style automatique, prendre le parent -->
@@ -1756,8 +1660,7 @@ Liens et renvois
         <xsl:with-param name="string" select="$string"/>
       </xsl:call-template>
     </xsl:variable>
-    <xsl:variable name="normspace" select="translate($class, ',; ?()/\ ._-','')"/>
-    <xsl:value-of select="translate($normspace, $ABC, $abc)"/>
+    <xsl:value-of select="translate($class, $ABC, $abc)"/>
   </xsl:template>
 
   <xsl:template name="_20_loop">
@@ -1768,7 +1671,6 @@ Liens et renvois
         <xsl:call-template name="_20_loop">
           <xsl:with-param name="string" select="substring-before($string, '_2c_')"/>
         </xsl:call-template>
-        <xsl:text> </xsl:text>
         <xsl:call-template name="_20_loop">
           <xsl:with-param name="string" select="substring-after($string, '_2c_')"/>
         </xsl:call-template>
@@ -1777,7 +1679,6 @@ Liens et renvois
         <xsl:call-template name="_20_loop">
           <xsl:with-param name="string" select="substring-before($string, '_3c_')"/>
         </xsl:call-template>
-        <xsl:text> </xsl:text>
         <xsl:call-template name="_20_loop">
           <xsl:with-param name="string" select="substring-after($string, '_3c_')"/>
         </xsl:call-template>
@@ -1786,7 +1687,6 @@ Liens et renvois
         <xsl:call-template name="_20_loop">
           <xsl:with-param name="string" select="substring-before($string, '_3e_')"/>
         </xsl:call-template>
-        <xsl:text> </xsl:text>
         <xsl:call-template name="_20_loop">
           <xsl:with-param name="string" select="substring-after($string, '_3e_')"/>
         </xsl:call-template>
@@ -1795,7 +1695,6 @@ Liens et renvois
         <xsl:call-template name="_20_loop">
           <xsl:with-param name="string" select="substring-before($string, '_5f_')"/>
         </xsl:call-template>
-        <xsl:text>_</xsl:text>
         <xsl:call-template name="_20_loop">
           <xsl:with-param name="string" select="substring-after($string, '_5f_')"/>
         </xsl:call-template>
@@ -1804,7 +1703,6 @@ Liens et renvois
         <xsl:call-template name="_20_loop">
           <xsl:with-param name="string" select="substring-before($string, '_20_')"/>
         </xsl:call-template>
-        <xsl:text> </xsl:text>
         <xsl:call-template name="_20_loop">
           <xsl:with-param name="string" select="substring-after($string, '_20_')"/>
         </xsl:call-template>
