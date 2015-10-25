@@ -30,7 +30,10 @@ set_time_limit(-1);
 // register global if not called in Omeka context
 if (!function_exists('_log')) {
   function _log($message, $priority=null) {
-    fwrite(STDERR, $message."\n");
+    if (defined('STDERR')) {
+      fwrite(STDERR, $message."\n");
+      return;
+    }
   }
 }
 // included file, do nothing
