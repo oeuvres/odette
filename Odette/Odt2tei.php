@@ -188,13 +188,13 @@ class Odette_Odt2tei {
     // some normalisation of oddities
     $start = microtime(true);
     $this->transform(dirname(__FILE__).'/odt-norm.xsl');
-    _log("odt-norm: " . (microtime(true) - $start));
+    // _log("odt-norm: " . (microtime(true) - $start));
     // $this->doc->formatOutput=true;
     // odt > tei
     $start = microtime(true);
     $this->transform(dirname(__FILE__).'/odt2tei.xsl', $pars);
     
-    _log("odt2tei: " . (microtime(true) - $start));
+    // _log("odt2tei: " . (microtime(true) - $start));
     $start = microtime(true);
     
     // indent here produce too much problems, use only for debug
@@ -208,7 +208,7 @@ class Odette_Odt2tei {
     $this->loadXML($xml);
     $this->doc->formatOutput=true;
     
-    _log("tei.sed: " . (microtime(true) - $start));
+    // _log("tei.sed: " . (microtime(true) - $start)); 2 s./Mo
     $start = microtime(true);
     
 
@@ -225,7 +225,7 @@ class Odette_Odt2tei {
     $this->transform(dirname(__FILE__).'/tei-post.xsl');
     // echo 'Mem peak: ', memory_get_peak_usage(), ' true? ', memory_get_peak_usage(true), "\n";
     
-    _log("tei-post: " . (microtime(true) - $start));
+    // _log("tei-post: " . (microtime(true) - $start));
   }
 
   /**
@@ -381,8 +381,8 @@ class Odette_Odt2tei {
       $destfile=dirname($srcfile).'/'.basename($srcfile, ".odt").$ext;
       _log("$count. $srcfile > $destfile");
       if (file_exists($destfile)) {
-        _log("  $destfile already exists, it will not be overwritten, except if you use the force option");
-        // continue;
+        _log("  $destfile already exists, it will not be overwritten");
+        continue;
       }
       $odt=new Odette_Odt2tei($srcfile);
       $odt->save($destfile, $format);
