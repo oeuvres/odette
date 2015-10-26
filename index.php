@@ -1,17 +1,17 @@
 <?php
 // le code pilotant la transformation
-include(dirname(__FILE__).'/Odt.php');
+include(dirname(__FILE__).'/Odt2tei.php');
 
 // Soumission en post
 if (isset($_POST['post'])) {
-  Odt::doPost();
+  Odette_Odt2tei::doPost();
   exit;
 }
 ?><!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title>odt2tei : Open Document Text &gt; XML/TEI</title>
+    <title>Odette : Open Document Text &gt; XML/TEI</title>
     <link rel="stylesheet" type="text/css" href="http://svn.code.sf.net/p/obvil/code/theme/obvil.css" />
   </head>
   <body>
