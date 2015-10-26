@@ -130,7 +130,7 @@ class Odette_Odt2tei {
    * Get xml in the desired format
    */
   public function saveXML($format, $destfile=null, $pars=array()) {
-    $this->destname=$pathinfo($destfile, PATHINFO_FILENAME);
+    $this->destname=pathinfo($destfile, PATHINFO_FILENAME);
     $this->format($format, $pars);
     return $this->doc->saveXML();
   }
@@ -342,7 +342,7 @@ class Odette_Odt2tei {
     else {
       header ("Content-Type: text/xml;");
     }
-    $odt=new Odt_Tei($file);
+    $odt=new Odette_Odt2tei($file);
     echo $odt->saveXML($format, $filename);
     exit;
   }
