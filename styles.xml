@@ -40,6 +40,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="byline" element="byline"/>
   <style level="p" name="camera" element="camera"/>
   <style level="p" name="caption" element="caption"/>
+  <style level="p" name="castitem" element="castList" parent="castlist"/>
   <style level="p" name="castlist" element="castList"/>
   <style level="p" name="citation" element="p" parent="quote"/>
   <style level="p" name="citation1" element="p" parent="quote"/>

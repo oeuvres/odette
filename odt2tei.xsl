@@ -1009,7 +1009,7 @@ to facilitate subsequent groupings.
         <xsl:when test="$text-position !=''">sup</xsl:when>
       </xsl:choose>
     </xsl:variable>
-    <xsl:variable name="mapping" select="$sheet/*/*[@level='c'][@class=$class][1]"/>
+    <xsl:variable name="mapping" select="$sheet/*/*[@level='c'][@name=$class][1]"/>
     <xsl:choose>
       <!-- no style on spaces  -->
       <xsl:when test="normalize-space(.)='' and not(*)">
@@ -1406,7 +1406,7 @@ Go through unuseful link
         <xsl:call-template name="class"/>
       </xsl:for-each>
     </xsl:variable>
-    <xsl:variable name="type" select="$sheet/*/*[@level='p'][@class=$class][1]/@element"/>
+    <xsl:variable name="type" select="$sheet/*/*[@level='p'][@name=$class][1]/@element"/>
     
     <xsl:choose>
       <!-- line break in titles may cause problems, let's say that people know what they do  -->
@@ -1621,7 +1621,7 @@ Liens et renvois
       </xsl:choose>
     </xsl:variable>
     <!-- if different of global language create anattribute -->
-    <xsl:if test="$language and $language != $lang">
+    <xsl:if test="$language and $language != '' and $language != $lang">
       <xsl:attribute name="xml:lang">
         <xsl:value-of select="$language"/>
       </xsl:attribute>
