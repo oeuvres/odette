@@ -12,7 +12,7 @@ if (isset($_POST['post'])) {
   <head>
     <meta charset="utf-8"/>
     <title>Odette : Open Document Text &gt; XML/TEI</title>
-    <link rel="stylesheet" type="text/css" href="http://svn.code.sf.net/p/obvil/code/theme/obvil.css" />
+    <link rel="stylesheet" type="text/css" href="//svn.code.sf.net/p/obvil/code/theme/obvil.css" />
   </head>
   <body>
     <div id="center">
@@ -20,11 +20,11 @@ if (isset($_POST['post'])) {
         <h1>
           <a href="../">Développements</a>
         </h1>
-        <a class="logo" href="http://obvil.paris-sorbonne.fr/developpements/"><img class="logo" src="http://svn.code.sf.net/p/obvil/code/theme/img/logo-obvil.png" alt="OBVIL"></a>
+        <a class="logo" href="//obvil.paris-sorbonne.fr/developpements/"><img class="logo" src="//svn.code.sf.net/p/obvil/code/theme/img/logo-obvil.png" alt="OBVIL"></a>
       </header>
       <div id="contenu">
       
-    <h1>ODT &gt; <a href="http://www.tei-c.org/release/doc/tei-p5-doc/fr/html/REF-ELEMENTS.html">TEI</a>, convertissez vos textes bureautiques en TEI</h1>
+    <h1>Odette, convertissez vos textes bureautiques (odt) en <a href="//www.tei-c.org/release/doc/tei-p5-doc/fr/html/REF-ELEMENTS.html">TEI</a></h1>
     <p class="byline">par <a onmouseover="this.href='mailto'+'\x3A'+'frederic.glorieux'+'\x40'+'fictif.org'" href="#">Frédéric Glorieux</a></p>
     <!--
     <ul>
@@ -65,11 +65,9 @@ if (isset($_POST['post'])) {
         <b>3. Résultat</b> :
         <input type="submit" name="view"  value="Voir"/> ou
           <input type="submit" name="download" onclick="this.form" value="Télécharger"/>
-        <br/>
-        Pour une démonstration sur ce <a href="test.odt">document de test</a>, cliquez sans choisir de fichier.
       </div>
     </form>
-    <p>Pour plus d’explications : <a href="http://resultats.hypotheses.org/267">Glorieux, 2014. <i>Le traitement de textes pour produire des documents structurés (XML/TEI)</i></a>. N'hésitez pas à m’<a onmouseover="this.href='mailto'+'\x3A'+'frederic.glorieux'+'\x40'+'fictif.org'" href="#">envoyer</a> vos cas épineux.</p>
+    <p>Pour plus d’explications : <a href="//resultats.hypotheses.org/267">Glorieux, 2015. <i>Le traitement de textes pour produire des documents structurés (XML/TEI)</i></a>. N'hésitez pas à m’<a onmouseover="this.href='mailto'+'\x3A'+'frederic.glorieux'+'\x40'+'fictif.org'" href="#">envoyer</a> vos cas épineux.</p>
       </div>
     </div>
   </body>

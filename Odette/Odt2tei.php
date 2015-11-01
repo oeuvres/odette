@@ -91,8 +91,8 @@ class Odette_Odt2tei {
       $this->tei();
       // find a transfo pack for tei to html
       $xsl=dirname(__FILE__).'/tei2html.xsl';
-      if (!file_exists($xsl)) $xsl=dirname(dirname(__FILE__)).'/Pactei/tei2html.xsl';
-      if (!file_exists($xsl)) $xsl="http://svn.code.sf.net/p/obvil/code/Pactei/tei2html.xsl";
+      if (!file_exists($xsl)) $xsl=dirname(dirname(__FILE__)).'/Transtei/tei2html.xsl';
+      if (!file_exists($xsl)) $xsl="http://svn.code.sf.net/p/obvil/code/Transtei/tei2html.xsl";
       $this->transform($xsl, $pars);
     }
     else {
