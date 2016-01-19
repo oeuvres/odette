@@ -91,13 +91,13 @@ class Odette_Odt2tei {
       $this->tei();
       // find a transfo pack for tei to html
       $xsl=dirname(__FILE__).'/tei2html.xsl';
-      if (!file_exists($xsl)) $xsl=dirname(dirname(__FILE__)).'/Transtei/tei2html.xsl';
-      if (!file_exists($xsl)) $xsl="http://svn.code.sf.net/p/obvil/code/Transtei/tei2html.xsl";
+      if (!file_exists($xsl)) $xsl=dirname(dirname(__FILE__)).'/Teinte/tei2html.xsl';
+      if (!file_exists($xsl)) $xsl="http://oeuvres.github.io/Teinte/tei2html.xsl";
       $this->transform($xsl, $pars);
     }
     else {
       return;
-      echo "Format $format not yet supported. Please create a ticket to ask for a new feature : <a href=\"http://sourceforge.net/p/obvil/tickets/\">OBVIL SourceForge project</a> ";
+      echo 'Format $format not yet supported. Please create a ticket to ask for a new feature : <a href="http://github.com/oeuvres/Odette/issues">OBVIL SourceForge project</a> ';
       exit;
     }
     $this->doc->formatOutput=true;

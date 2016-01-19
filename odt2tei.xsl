@@ -602,6 +602,9 @@ case encountered, seems logic, but not fully tested
       </xsl:choose>
     </xsl:variable>
      <xsl:choose>
+      <xsl:when test="$class = 'term'">
+        <xsl:copy-of select="$xml"/>
+      </xsl:when>
       <!-- be careful with empty paras -->
       <xsl:when test="$border != ''">
         <quote rend="border">
@@ -707,11 +710,11 @@ Listes et tables
     <xsl:choose>
       <!-- style de bordure annulé -->
       <xsl:when test="contains($style/style:paragraph-properties/@fo:border, 'none')"/>
+      <!-- if not style auto, stop -->
+      <xsl:when test="not($style-auto)"/>
       <xsl:when test="$style/style:paragraph-properties/@fo:border">
         <xsl:value-of select="$style/style:paragraph-properties/@fo:border"/>
       </xsl:when>
-      <!-- if not style auto, stop -->
-      <xsl:when test="not($style-auto)"/>
       <!-- if style automatic, test ancestor -->
       <xsl:when test="$style/@style:parent-style-name">
         <xsl:variable name="class" select="key('style', $style/@style:parent-style-name)"/>
