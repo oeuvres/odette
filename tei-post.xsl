@@ -92,7 +92,7 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
   </xsl:template>
   <!-- Page number -->
   <xsl:template match="tei:pb[text()]">
-    <xsl:variable name="n" select="translate(., '[]p. ', '')"/>
+    <xsl:variable name="n" select="translate(., '[]p.  ', '')"/><!--  Marc : J'ajoute l'espace insécable  -->
     <xsl:choose>
       <xsl:when test="number($n) &gt; 0">
         <pb n="{$n}">
@@ -520,7 +520,7 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
   </xsl:template>
   <!-- teiHeader -->
   <xsl:template match="/tei:TEI/tei:text/*[1]/tei:index">
-    <xsl:variable name="noheader">,author,bibl,created,creation,contributor,copyeditor,creator,date,edition,editor,idno,issued,keyword,licence,license,publie,publisher,secretairederedaction,source,subject,sujet,title,translator,</xsl:variable>
+    <xsl:variable name="noheader">,author,bibl,created,creation,contributor,copyeditor,creator,date,edition,editor,idno,issued,keyword,licence,license,publie,publisher,secretairederedaction,source,subject,sujet,title,translator,language</xsl:variable><!--  Marc : J'ajoute language  -->
     <xsl:variable name="terms" select="tei:term[not(contains($noheader, concat(',', @type, ',')))]"/>
     <xsl:if test="count($terms) &gt; 1">
       <index>
@@ -652,8 +652,17 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
             </date>
           </xsl:for-each>
         </creation>
-        <langUsage>
-          <language ident="{/*/@xml:lang}"/>
+        <langUsage><!--    Marc : Récupérer en priorité la langue depuis le cartouche de métadonnées      -->
+          <xsl:choose>
+            <xsl:when test="$terms[@type='language']">
+              <language>
+                  <xsl:value-of select="normalize-space(.)"/>
+              </language>
+            </xsl:when>
+            <xsl:otherwise>
+              <language ident="{/*/@xml:lang}"/>    
+            </xsl:otherwise>
+          </xsl:choose>
         </langUsage>
         <xsl:if test="$terms[@type='keyword' or @type='subject' or @type='sujet']">
           <textClass>
