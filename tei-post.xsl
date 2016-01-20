@@ -656,7 +656,7 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
           <xsl:choose>
             <xsl:when test="$terms[@type='language']">
               <language>
-                  <xsl:value-of select="normalize-space(.)"/>
+                <xsl:value-of select="normalize-space($terms[@type='language'])"/>
               </language>
             </xsl:when>
             <xsl:otherwise>
