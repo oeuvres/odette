@@ -6,8 +6,8 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
 © 2006 Frederic.Glorieux@fictif.org et ajlsm.com
 © 2007 Frederic.Glorieux@fictif.org
 © 2010 Frederic.Glorieux@fictif.org et École nationale des chartes
-© 2012 Frederic.Glorieux@ficitif.org
-© 2013 Frederic.Glorieux@ficitif.org et LABEX OBVIL
+© 2012 Frederic.Glorieux@fictif.org
+© 2013 Frederic.Glorieux@fictif.org et LABEX OBVIL
 
 <p>
 Pilot to work with OpenOffice Text files. Steps:
