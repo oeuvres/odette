@@ -40,7 +40,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="byline" element="byline"/>
   <style level="p" name="camera" element="camera"/>
   <style level="p" name="caption" element="caption"/>
-  <style level="p" name="castitem" element="castList" parent="castlist"/>
+  <style level="p" name="castitem" element="castItem" parent="castList"/>
   <style level="p" name="castlist" element="castList"/>
   <style level="p" name="citation" element="p" parent="quote"/>
   <style level="p" name="citation1" element="p" parent="quote"/>
@@ -118,6 +118,9 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="speaker" element="speaker"/>
   <style level="p" name="subtitle" element="head" type="sub"/>
   <style level="p" name="stage" element="stage"/>
+  <style level="p" name="stageromain" element="stage" rend="not-i"/>
+  <style level="p" name="stageitaliquecourt" element="stage" rend="right"/>  
+  <style level="p" name="stageitalique" element="stage"/>
   <style level="p" name="texteenvers" element="l" parent="lg"/>
   <style level="p" name="term" element="term" parent="index"/>
   <style level="p" name="test" element="test" parent="suite" rend="test" type="test"/>
@@ -188,8 +191,10 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="c" name="seg" element="seg"/>
   <style level="c" name="sic" element="sic"/>
   <style level="c" name="sourcetext" element="code"/>
+  <style level="c" name="speakercar" element="speaker"/>
   <style level="c" name="stage" element="stage"/>
   <style level="c" name="stagec" element="stage"/>
+  <style level="c" name="stagecar" element="stage"/>
   <style level="c" name="strongemphasis" element="strong"/>
   <style level="c" name="teletype" element="code"/>
   <style level="c" name="temps" element="date"/>

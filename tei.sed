@@ -14,10 +14,9 @@ s@<\?div /\?>@</div>@g
 # GROUPING
 
 # xsl produce series like <entry><form>LEMMA</form><!-- DEL --></entry><entry><!-- /DEL --><def>DEFINITION</def></entry>
-s@(</entry>\s*)(<entry>\s*<form>)@\1<?o?>\2@g 
-s@(</entryFree>\s*)(<entryFree>\s*<form>)@\1<?o?>\2@g 
-s@(</castItem>\s*)(<castItem>\s*<role>)@\1<?o?>\2@g
-s@</(address|argument|castItem|dialogue|dl|entry|entryFree|epigraph|figure|index|lg|notep|quote|set|ul)>\s*<\1( [^>]*)?>@@g
+s@(</entry>\s*)(<entry>\s*<form>)@\1<?o?>\2@g
+s@(</entryFree>\s*)(<entryFree>\s*<form>)@\1<?o?>\2@g
+s@</(address|argument|castList|dialogue|dl|entry|entryFree|epigraph|figure|index|lg|notep|quote|set|ul)>\s*<\1( [^>]*)?>@@g
 # empty can be used as separator
 s@<(argument|castItem|dialogue|dl|entry|entryFree|eg|figure|index|lg|note|quote|set|ul)/>@\n@g
 s@<\?o\?>@@g
@@ -139,4 +138,3 @@ s@<(cell|item|head|p)( [^>]+)?> +@<\1\2>@g
 s@<space/>\s*</(cell|head|item|l|p)>@</\1>@g
 s@<space>[  ]*</space>\s*</(cell|head|item|l|p)>@</\1>@g
 s@ +</(cell|head|item|l|p)>@</\1>@g
-

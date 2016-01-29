@@ -13,7 +13,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
 © 2013 Frederic.Glorieux@fictif.org et LABEX OBVIL
 
 <p>
-Cette transformation prend en entrée du XML OpenDocument (ex : OpenOffice.org),
+Cette transformation prend en entrée du XML OpenDocument (ex : OpenOffice.org LibreOffice),
 et produit un TEI générique. L'insistance a porté sur la robustesse du filtre,
 afin de réduire les reprises du stylage dans le traitements de textes (ex : styles utilisateur corrompus).
 L'outil a été développé pour plusieurs éditions savantes (textes manuscrits, dictionnaires)
@@ -111,11 +111,14 @@ Best usage of output could be as an input for other filters (regular expressions
   <xsl:variable name="abc">abcdefghijklmnopqrstuvwxyzaaaaaaeeeeeiiiidnoooooœuuuuybbaaaaaaaceeeeiiiionooooouuuuyyb</xsl:variable>
   <xsl:variable name="lang">
     <xsl:choose>
+      <xsl:when test="//office:meta/dc:language">
+        <xsl:value-of select="substring-before(concat(//office:meta/dc:language, '-'), '-')"/>
+      </xsl:when>
       <xsl:when test="//style:style[@style:name='Standard']">
         <xsl:value-of select="//style:style[@style:name='Standard']/style:text-properties/@fo:language"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:value-of select="//@fo:language"/>
+        <xsl:value-of select="//@fo:language[.!='']"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
@@ -135,7 +138,7 @@ Best usage of output could be as an input for other filters (regular expressions
   <xsl:template match="office:document-content">
     <xsl:if test="function-available('date:date-time')">
       <xsl:comment>
-        <xsl:text>odt2tei: </xsl:text>
+        <xsl:text>Odette: </xsl:text>
         <xsl:value-of select="date:date-time()"/>
       </xsl:comment>
     </xsl:if>
@@ -1676,6 +1679,14 @@ Liens et renvois
         </xsl:call-template>
         <xsl:call-template name="_20_loop">
           <xsl:with-param name="string" select="substring-after($string, '_2c_')"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:when test="contains($string, '_2b_')">
+        <xsl:call-template name="_20_loop">
+          <xsl:with-param name="string" select="substring-before($string, '_2b_')"/>
+        </xsl:call-template>
+        <xsl:call-template name="_20_loop">
+          <xsl:with-param name="string" select="substring-after($string, '_2b_')"/>
         </xsl:call-template>
       </xsl:when>
       <xsl:when test="contains($string, '_3c_')">

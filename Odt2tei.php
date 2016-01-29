@@ -6,7 +6,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
 © 2006 Frederic.Glorieux@fictif.org et ajlsm.com
 © 2007 Frederic.Glorieux@fictif.org
 © 2010 Frederic.Glorieux@fictif.org et École nationale des chartes
-© 2012 Frederic.Glorieux@ficitif.org 
+© 2012 Frederic.Glorieux@ficitif.org
 © 2013 Frederic.Glorieux@ficitif.org et LABEX OBVIL
 
 <p>
@@ -65,7 +65,7 @@ class Odette_Odt2tei {
   private $proc;
   /** Array of messages */
   private $message;
-  
+
   /**
    * Constructor, instanciations
    */
@@ -104,7 +104,7 @@ class Odette_Odt2tei {
     $this->doc->substituteEntities=true;
     // $this->doc->normalize(); // no, will not allow &gt;
   }
-  
+
   /**
    * Save result to file, in desired format
    */
@@ -125,7 +125,7 @@ class Odette_Odt2tei {
     $this->format($format, $pars);
     $this->doc->save($destfile);
   }
-  
+
   /**
    * Get xml in the desired format
    */
@@ -175,7 +175,7 @@ class Odette_Odt2tei {
 </office:document>';
     // load doc
     $this->loadXML($xml);
-    
+
     $zip->close();
   }
   /**
@@ -193,10 +193,10 @@ class Odette_Odt2tei {
     // odt > tei
     $start = microtime(true);
     $this->transform(dirname(__FILE__).'/odt2tei.xsl', $pars);
-    
+
     // _log("odt2tei: " . (microtime(true) - $start));
     $start = microtime(true);
-    
+
     // indent here produce too much problems, use only for debug
     $this->doc->formatOutput=true;
     $this->doc->substituteEntities=true;
@@ -207,24 +207,24 @@ class Odette_Odt2tei {
     $xml = preg_replace($preg[0], $preg[1], $xml);
     $this->loadXML($xml);
     $this->doc->formatOutput=true;
-    
+
     // _log("tei.sed: " . (microtime(true) - $start)); 2 s./Mo
     $start = microtime(true);
-    
 
-    /* 
+
+    /*
     echo $xml;
     echo '<!-- ',print_r($this->message, true), ' -->'; // for debug show now xlml errors
     exit;
     */
-    
+
     // header("Connection: Keep-alive");
     // echo 'Mem peak: ', memory_get_peak_usage(), ' true? ', memory_get_peak_usage(true), "\n";
     // print_r($this->message); // for debug show now xlml errors
     // xsl step to put some tei oddities like <hi rend="i"> (instead of <i>)
     $this->transform(dirname(__FILE__).'/tei-post.xsl');
     // echo 'Mem peak: ', memory_get_peak_usage(), ' true? ', memory_get_peak_usage(true), "\n";
-    
+
     // _log("tei-post: " . (microtime(true) - $start));
   }
 
@@ -270,7 +270,7 @@ class Odette_Odt2tei {
     $this->message[]=$errstr;
   }
 
-  
+
   /**
    * Transformation, applied to current doc
    */
@@ -289,7 +289,7 @@ class Odette_Odt2tei {
    */
   public static function doPost($format='', $download=null, $defaultFile=null) {
     if (!isset($defaultFile)) $defaultFile=dirname(__FILE__).'/test.odt';
-    
+
     do {
       // a file seems uploaded
       if(count($_FILES)) {
@@ -311,15 +311,15 @@ class Odette_Odt2tei {
         $filename=substr(basename($file), 0, strrpos(basename($file), '.'));
       }
     } while (false);
-    
-    
+
+
     if($format);
     else if(isset($_REQUEST['format'])) $format=$_REQUEST['format'];
     else $format="tei";
     if(isset($download));
     else if(isset($_REQUEST['download'])) $download=true;
     else $download=false;
-    
+
     // headers
     if ($download) {
       if ($format == 'html') {
@@ -353,31 +353,30 @@ class Odette_Odt2tei {
     $formats='odtx|tei|html';
     array_shift($_SERVER['argv']); // shift first arg, the script filepath
     if (!count($_SERVER['argv'])) exit('
-    usage    : php -f Odt.php $formats ? src.odt
+    usage    : php -f Odt.php ()$formats)? "*.odt" dest/?
     format?  : optional dest format, default tei, others may be odtx, html
-    src.odt  : glob patterns are allowed, but in quotes, to not be expanded by shell "folder/*.odt"
+    "*.odt"  : glob patterns are allowed, but in quotes, to not be expanded by shell "folder/*.odt"
   ');
     $format="tei";
     while ($arg=array_shift($_SERVER['argv'])) {
-      if ($arg[0]=='-') $format=substr($arg,1);
-      else if(preg_match("/^($formats)\$/",$arg)) {
+      if ($arg[0]=='-') $arg=substr($arg,1);
+      if(preg_match("/^($formats)\$/",$arg)) {
         $format=$arg;
       }
-      else if(!isset($srcGlob)) {
-        $srcGlob=$arg;
+      else if(!isset($srcglob)) {
+        $srcglob=$arg;
       }
-      /*
-      $destdir=array_shift($_SERVER['argv']);
-      if (!$destdir) $destdir='';
-      $destdir=rtrim($destdir, '/').'/';
-      if (!file_exists($destdir)) mkdir($destdir, 0775, true);
-      */
+      else if(!isset($destdir)) {
+        $destdir=rtrim($arg, '/\\').'/';
+        if (!file_exists($destdir)) mkdir($destdir, true);
+      }
     }
     $ext=".$format";
     if ($ext=='.tei') $ext=".xml";
     $count = 0;
-    foreach(glob($srcGlob) as $srcfile) {
+    foreach(glob($srcglob) as $srcfile) {
       $count++;
+      if (isset($destir)) $destfile = $destdir.basename($srcfile, ".odt").$ext;
       $destfile=dirname($srcfile).'/'.basename($srcfile, ".odt").$ext;
       _log("$count. $srcfile > $destfile");
       if (file_exists($destfile)) {
