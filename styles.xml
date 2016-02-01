@@ -187,6 +187,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="c" name="q" element="q"/>
   <style level="c" name="quote" element="quote"/>
   <style level="c" name="quotec" element="quote"/>
+  <style level="c" name="quotecar" element="quote"/>
   <style level="c" name="s" element="s"/>
   <style level="c" name="seg" element="seg"/>
   <style level="c" name="sic" element="sic"/>
