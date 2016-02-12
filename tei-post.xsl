@@ -127,7 +127,7 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
   <!-- Blocks, try to put inline rendering informations at block level 
   
   -->
-  <xsl:template match="tei:bibl|tei:l|tei:p|tei:said">
+  <xsl:template match="tei:bibl|tei:p|tei:said">
     <xsl:variable name="style">
       <xsl:choose>
         <xsl:when test="text()[normalize-space(.)!='']"/>
@@ -188,22 +188,6 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
               <xsl:value-of select="normalize-space($rend)"/>
             </xsl:attribute>
           </xsl:if>
-          <xsl:if test="@n=''">
-            <xsl:variable name="n">
-              <!-- quite slow
-              <xsl:number count="tei:l[@n='']" level="any"/>
-              in hope this one will not produce problem
-              -->
-              <xsl:number count="*[@n='']" level="any"/>
-            </xsl:variable>
-            <xsl:attribute name="n">
-              <xsl:value-of select="$n"/>
-            </xsl:attribute>
-            <xsl:attribute name="xml:id">
-              <xsl:text>l</xsl:text>
-              <xsl:value-of select="$n"/>
-            </xsl:attribute>
-          </xsl:if>
           <xsl:choose>
             <!-- normal content, go on -->
             <xsl:when test="$style=''">
@@ -221,6 +205,47 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
+  <!-- verse fragment -->
+  <xsl:template match="tei:l/tei:space"/>
+  <xsl:template match="tei:l">
+    <xsl:copy>
+      <xsl:choose>
+        <xsl:when test="@n and @n=''">
+          <xsl:variable name="n">
+            <!-- quite slow
+              <xsl:number count="tei:l[@n='']" level="any"/>
+              in hope this one will not produce problem
+              -->
+            <xsl:number count="*[@n='']" level="any"/>
+          </xsl:variable>
+          <xsl:attribute name="n">
+            <xsl:value-of select="$n"/>
+          </xsl:attribute>
+          <xsl:attribute name="xml:id">
+            <xsl:text>l</xsl:text>
+            <xsl:value-of select="$n"/>
+          </xsl:attribute>
+        </xsl:when>
+        <xsl:when test="@n">
+          <xsl:copy-of select="@n"/>
+        </xsl:when>       
+      </xsl:choose>
+      <xsl:variable name="next" select="following::tei:l[1]"/>
+      <xsl:choose>
+        <xsl:when test="not(@type = 'part') and $next/@type = 'part'">
+          <xsl:attribute name="part">I</xsl:attribute>
+        </xsl:when>
+        <xsl:when test="@type = 'part' and not($next/@type)">
+          <xsl:attribute name="part">F</xsl:attribute>
+        </xsl:when>
+        <xsl:when test="@type = 'part'">
+          <xsl:attribute name="part">M</xsl:attribute>
+        </xsl:when>
+      </xsl:choose>
+      <xsl:apply-templates/>
+    </xsl:copy>
+  </xsl:template>
+  
   <!-- Generic -->
   <xsl:template match="*">
     <xsl:choose>
