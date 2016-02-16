@@ -350,41 +350,46 @@ class Odette_Odt2tei {
    * Apply code from Cli
    */
   public static function cli() {
-    $formats='odtx|tei|html';
+    $formats='tei|odtx|html';
     array_shift($_SERVER['argv']); // shift first arg, the script filepath
-    if (!count($_SERVER['argv'])) exit('
-    usage    : php -f Odt.php ()$formats)? "*.odt" dest/?
-    format?  : optional dest format, default tei, others may be odtx, html
-    "*.odt"  : glob patterns are allowed, but in quotes, to not be expanded by shell "folder/*.odt"
-  ');
+    if (!count($_SERVER['argv'])) exit("
+    usage     : php -f Odt2tei.php ($formats)? destdir/? *.odt
+
+    format?   : optional dest format, default is xml/tei, odtx = xml/odt, html with Teinte
+    destdir/? : optional destination directory, ending by slash
+    *.odt     : glob patterns are allowed, with or without quotes
+
+");
     $format="tei";
-    while ($arg=array_shift($_SERVER['argv'])) {
-      if ($arg[0]=='-') $arg=substr($arg,1);
-      if(preg_match("/^($formats)\$/",$arg)) {
-        $format=$arg;
-      }
-      else if(!isset($srcglob)) {
-        $srcglob=$arg;
-      }
-      else if(!isset($destdir)) {
-        $destdir=rtrim($arg, '/\\').'/';
-        if (!file_exists($destdir)) mkdir($destdir, true);
+    if( preg_match( "/^($formats)\$/", trim($_SERVER['argv'][0], '- ') )) {
+      $format = array_shift($_SERVER['argv']);
+      $format = trim($format, '- ');
+    }
+    $lastc = substr($_SERVER['argv'][0], -1);
+    if ('/' == $lastc || '\\' == $lastc) {
+      $destdir = array_shift($_SERVER['argv']);
+      $destdir = rtrim($destdir, '/\\').'/';
+      if (!file_exists($destdir)) {
+        mkdir($destdir, 0775, true);
+        @chmod($dir, 0775);  // let @, if www-data is not owner but allowed to write
       }
     }
     $ext=".$format";
     if ($ext=='.tei') $ext=".xml";
     $count = 0;
-    foreach(glob($srcglob) as $srcfile) {
-      $count++;
-      if (isset($destir)) $destfile = $destdir.basename($srcfile, ".odt").$ext;
-      $destfile=dirname($srcfile).'/'.basename($srcfile, ".odt").$ext;
-      _log("$count. $srcfile > $destfile");
-      if (file_exists($destfile)) {
-        _log("  $destfile already exists, it will not be overwritten");
-        continue;
+    foreach ($_SERVER['argv'] as $glob) {
+      foreach(glob($glob) as $srcfile) {
+        $count++;
+        if (isset($destdir) ) $destfile = $destdir.pathinfo($srcfile,  PATHINFO_FILENAME).$ext;
+        else $destfile=dirname($srcfile).'/'.pathinfo($srcfile,  PATHINFO_FILENAME).$ext;
+        _log("$count. $srcfile > $destfile");
+        if (file_exists($destfile)) {
+          _log("  $destfile already exists, it will not be overwritten, can't know if human value added");
+          continue;
+        }
+        $odt=new Odette_Odt2tei($srcfile);
+        $odt->save($destfile, $format);
       }
-      $odt=new Odette_Odt2tei($srcfile);
-      $odt->save($destfile, $format);
     }
   }
 }

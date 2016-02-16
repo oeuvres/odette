@@ -77,9 +77,9 @@ Best usage of output could be as an input for other filters (regular expressions
   xmlns:rdfa="http://docs.oasis-open.org/opendocument/meta/rdfa#"
   xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0"
   
-  xmlns:odt2tei="odt:tei"
+  xmlns:odette="odt:tei"
 
-  exclude-result-prefixes="tei odt2tei
+  exclude-result-prefixes="tei odette
   office style text table draw fo xlink dc meta number svg chart dr3d math form script ooo ooow oooc dom xforms xsd xsi config rpt of rdfa field"
 
   xmlns:exslt="http://exslt.org/common"
@@ -96,8 +96,8 @@ Best usage of output could be as an input for other filters (regular expressions
   <xsl:key name="style" match="style:style|text:list-style" use="@style:name"/>
   <xsl:key name="style-auto" match="office:automatic-styles/style:style|office:automatic-styles/text:list-style" use="@style:name"/>
   <xsl:key name="list-style" match="text:list-style" use="@style:name"/>
-  <xsl:key name="p-style" match="odt2tei:style[@level='p']" use="@name"/>
-  <xsl:key name="c-style" match="odt2tei:style[@level='c']" use="@name"/>
+  <xsl:key name="p-style" match="odette:style[@level='p']" use="@name"/>
+  <xsl:key name="c-style" match="odette:style[@level='c']" use="@name"/>
   <!-- Link to a style sheet with style name mapping with elements -->
   <xsl:variable name="sheet" select="document('styles.xml', document(''))"/>
   <!-- the filename processed, set by the caller -->
@@ -136,6 +136,8 @@ Best usage of output could be as an input for other filters (regular expressions
   <xsl:template match="office:scripts | office:font-face-decls | text:sequence-decls | office:forms | office:automatic-styles  | office:settings | office:styles | office:master-styles "/>
 
   <xsl:template match="office:document-content">
+    <xsl:processing-instruction name="xml-stylesheet"> type="text/xsl" href="../Teinte/tei2html.xsl"</xsl:processing-instruction>
+    <xsl:processing-instruction name="xml-model"> href="http://oeuvres.github.io/Teinte/teinte.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"</xsl:processing-instruction>
     <xsl:if test="function-available('date:date-time')">
       <xsl:comment>
         <xsl:text>Odette: </xsl:text>
@@ -503,7 +505,7 @@ case encountered, seems logic, but not fully tested
           </xsl:when>
         <!-- something to do with a possible semantic class -->
         <xsl:when test="$class != ''">
-          <xsl:variable name="mapping" select="$sheet/*/odt2tei:style[@level='p'][@name=$class]"/>
+          <xsl:variable name="mapping" select="$sheet/*/odette:style[@level='p'][@name=$class]"/>
           <xsl:choose>
             <xsl:when test="$mapping[@parent]">
               <xsl:variable name="element" select="normalize-space($mapping/@element)"/>
