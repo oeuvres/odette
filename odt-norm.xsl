@@ -52,7 +52,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   exclude-result-prefixes="tei
   office style text table draw fo xlink dc meta number svg chart dr3d math form script ooo ooow oooc dom xforms xsd xsi config rpt of rdfa field"
 >
-  <xsl:output encoding="UTF-8" indent="yes" method="xml"/>
+  <xsl:output encoding="UTF-8" indent="no" method="xml"/>
   <!-- Shall we infer title from content ? -->
   <xsl:variable name="h" select="boolean(//text:h)"/>
   <!-- has been useful for indent with saxon

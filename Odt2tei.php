@@ -198,7 +198,7 @@ class Odette_Odt2tei {
     $start = microtime(true);
 
     // indent here produce too much problems, use only for debug
-    $this->doc->formatOutput=true;
+    // $this->doc->formatOutput=true;
     $this->doc->substituteEntities=true;
     $xml=$this->doc->saveXML();
 
