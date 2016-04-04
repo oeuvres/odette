@@ -22,13 +22,13 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
     level (c|p) #REQUIRED 
     name CDATA #REQUIRED
     element CDATA #IMPLIED
-    type CDATA #IMPLIED
-    rend CDATA #IMPLIED
+    attribute CDATA #IMPLIED
+    value CDATA #IMPLIED
     parent CDATA #IMPLIED
    >
 ]>
 <sheet xmlns="odt:tei">
-  <style level="p" name="ab" element="ab" type="ornament"/>
+  <style level="p" name="ab" element="ab" attribute="type" value="ornament"/>
   <style level="p" name="address" element="addrLine" parent="address"/>
   <style level="p" name="argument" element="p" parent="argument"/>
   <style level="p" name="auteur" element="byline"/>
@@ -68,20 +68,34 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="footnote" element="p"/><!-- in odt, used inside notes -->
   <style level="p" name="form" element="form" parent="entryFree"/>
   <style level="p" name="fw" element="fw"/>
-  <style level="p" name="headsub" element="head" type="sub"/>
-  <style level="p" name="headsub1" element="head" type="sub"/>
-  <style level="p" name="headsub2" element="head" type="sub"/>
-  <style level="p" name="headsub3" element="head" type="sub"/>
-  <style level="p" name="headsub4" element="head" type="sub"/>
-  <style level="p" name="h1sub" element="head" type="sub"/>
-  <style level="p" name="h2sub" element="head" type="sub"/>
-  <style level="p" name="h3sub" element="head" type="sub"/>
-  <style level="p" name="h4sub" element="head" type="sub"/>
+  <style level="p" name="headsub" element="head" attribute="type" value="sub"/>
+  <style level="p" name="headsub1" element="head" attribute="type" value="sub"/>
+  <style level="p" name="headsub2" element="head" attribute="type" value="sub"/>
+  <style level="p" name="headsub3" element="head" attribute="type" value="sub"/>
+  <style level="p" name="headsub4" element="head" attribute="type" value="sub"/>
+  <style level="p" name="h1sub" element="head" attribute="type" value="sub"/>
+  <style level="p" name="h2sub" element="head" attribute="type" value="sub"/>
+  <style level="p" name="h3sub" element="head" attribute="type" value="sub"/>
+  <style level="p" name="h4sub" element="head" attribute="type" value="sub"/>
   <style level="p" name="index" element="item" parent="index"/>
   <style level="p" name="l" element="l"/>
+  <style level="p" name="l1" element="l" attribute="met" value="l1"/>
+  <style level="p" name="l2" element="l" attribute="met" value="l2"/>
+  <style level="p" name="l3" element="l" attribute="met" value="l3"/>
+  <style level="p" name="l4" element="l" attribute="met" value="l4"/>
+  <style level="p" name="l5" element="l" attribute="met" value="l5"/>
+  <style level="p" name="l6" element="l" attribute="met" value="l6"/>
+  <style level="p" name="l7" element="l" attribute="met" value="l7"/>
+  <style level="p" name="l8" element="l" attribute="met" value="l8"/>
+  <style level="p" name="l9" element="l" attribute="met" value="l9"/>
+  <style level="p" name="l10" element="l" attribute="met" value="l10"/>
+  <style level="p" name="l11" element="l" attribute="met" value="l11"/>
+  <style level="p" name="l12" element="l" attribute="met" value="l12"/>
+  <style level="p" name="l13" element="l" attribute="met" value="l13"/>
+  <style level="p" name="l14" element="l" attribute="met" value="l14"/>
   <style level="p" name="legende" element="label"/>
   <style level="p" name="ln" element="l"/>
-  <style level="p" name="lpart" element="l" type="part"/>
+  <style level="p" name="lpart" element="l" attribute="type" value="part"/>
   <style level="p" name="label" element="label"/>
   <style level="p" name="line" element="l"/>
   <style level="p" name="listheading" element="label" parent="dl"/>
@@ -92,7 +106,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="opener" element="opener"/>
   <style level="p" name="p" element="p"/>
   <style level="p" name="pb" element="pb"/>
-  <style level="p" name="pbed" element="pb" type="ed"/>
+  <style level="p" name="pbed" element="pb" attribute="type" value="ed"/>
   <style level="p" name="poem" element="lg"/>
   <style level="p" name="postscript" element="p" parent="postscript"/>
   <style level="p" name="pre" element="eg"/>
@@ -104,7 +118,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="quotel" element="l" parent="quote"/>
   <style level="p" name="quotesalute" element="salute" parent="quote"/>
   <style level="p" name="quotesigned" element="signed" parent="quote"/>
-  <style level="p" name="refrain" element="l" rend="refrain"/>
+  <style level="p" name="refrain" element="l" attribute="rend" value="refrain"/>
   <style level="p" name="role" element="role" parent="castItem"/>
   <style level="p" name="roledesc" element="roleDesc" parent="castItem"/>
   <style level="p" name="said" element="said"/>
@@ -114,21 +128,20 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="set" element="p" parent="set"/>
   <style level="p" name="signed" element="signed"/>
   <style level="p" name="signature" element="signed"/>
-  <style level="p" name="soustitre" element="head" type="sub"/>
+  <style level="p" name="soustitre" element="head" attribute="type" value="sub"/>
   <style level="p" name="speaker" element="speaker"/>
-  <style level="p" name="subtitle" element="head" type="sub"/>
+  <style level="p" name="subtitle" element="head" attribute="type" value="sub"/>
   <style level="p" name="stage" element="stage"/>
-  <style level="p" name="stageromain" element="stage" rend="not-i"/>
-  <style level="p" name="stageitaliquecourt" element="stage" rend="right"/>  
+  <style level="p" name="stageromain" element="stage" attribute="rend" value="not-i"/>
+  <style level="p" name="stageitaliquecourt" element="stage" attribute="rend" value="right"/>  
   <style level="p" name="stageitalique" element="stage"/>
   <style level="p" name="texteenvers" element="l" parent="lg"/>
   <style level="p" name="term" element="term" parent="index"/>
-  <style level="p" name="test" element="test" parent="suite" rend="test" type="test"/>
   <style level="p" name="title" element="head"/>
   <style level="p" name="titre" element="head"/>
   <style level="p" name="trailer" element="trailer"/>
   <style level="p" name="vers" element="l"/>
-  <style level="p" name="versrompu" element="l" type="part"/>
+  <style level="p" name="versrompu" element="l" attribute="type" value="part"/>
   <style level="p" name="xml" element="eg"/>
   <style level="p" name="xr" element="xr" parent="entryFree"/>
   <style level="c" name="abbr" element="abbr"/>
@@ -155,9 +168,9 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="c" name="definition" element="gloss"/>
   <style level="c" name="del" element="del"/>
   <style level="c" name="distinct" element="distinct"/>
-  <style level="c" name="edautoridad" element="name" type="authority"/>
+  <style level="c" name="edautoridad" element="name" attribute="type" value="authority"/>
   <style level="c" name="edcita" element="quote"/>
-  <style level="c" name="edpolemista" element="name" type="polemista"/>
+  <style level="c" name="edpolemista" element="name" attribute="type" value="polemista"/>
   <style level="c" name="edtitulodeobra" element="title"/>
   <style level="c" name="email" element="email"/>
   <style level="c" name="em" element="emph"/>

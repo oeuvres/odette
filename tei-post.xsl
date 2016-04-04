@@ -96,6 +96,7 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
     <xsl:choose>
       <xsl:when test="number($n) &gt; 0">
         <pb n="{$n}">
+          <xsl:copy-of select="@*"/>
           <xsl:attribute name="xml:id">
             <xsl:value-of select="concat('p', $n)"/>
           </xsl:attribute>
@@ -209,6 +210,7 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
   <xsl:template match="tei:l/tei:space"/>
   <xsl:template match="tei:l">
     <xsl:copy>
+      <xsl:copy-of select="@*"/>
       <xsl:choose>
         <xsl:when test="@n and @n=''">
           <xsl:variable name="n">

@@ -512,22 +512,26 @@ case encountered, seems logic, but not fully tested
               <xsl:element name="{$mapping/@parent}" namespace="http://www.tei-c.org/ns/1.0">
                 <xsl:element name="{$element}" namespace="http://www.tei-c.org/ns/1.0">
                   <xsl:call-template name="lang"/>
-                  <xsl:if test="$mapping/@type">
-                    <xsl:attribute name="type">
-                      <xsl:value-of select="$mapping/@type"/>
-                    </xsl:attribute>
-                  </xsl:if>
-                  <xsl:variable name="rend2">
-                    <xsl:value-of select="$mapping/@rend"/>
-                    <xsl:text> </xsl:text>
-                    <xsl:value-of select="$rend"/>
-                  </xsl:variable>
-                  <!-- local rendering of para -->
-                  <xsl:if test=" normalize-space($rend2) != ''">
-                    <xsl:attribute name="rend">
-                      <xsl:value-of select="$rend2"/>
-                    </xsl:attribute>
-                  </xsl:if>
+                  <xsl:choose>
+                    <xsl:when test="$mapping/@attribute = 'rend'">
+                      <xsl:variable name="rend2">
+                        <xsl:value-of select="$mapping/@value"/>
+                        <xsl:text> </xsl:text>
+                        <xsl:value-of select="$rend"/>
+                      </xsl:variable>
+                      <!-- local rendering of para -->
+                      <xsl:if test=" normalize-space($rend2) != ''">
+                        <xsl:attribute name="rend">
+                          <xsl:value-of select="$rend2"/>
+                        </xsl:attribute>
+                      </xsl:if>
+                    </xsl:when>
+                    <xsl:when test="$mapping/@attribute != ''">
+                      <xsl:attribute name="{$mapping/@attribute}">
+                        <xsl:value-of select="$mapping/@value"/>
+                      </xsl:attribute>
+                    </xsl:when>
+                  </xsl:choose>
                   <!-- numbered line -->
                   <xsl:if test="$element = 'l' and ($style/style:paragraph-properties/@text:number-lines='true' or $class='ln') ">
                     <xsl:attribute name="n"/>
@@ -541,22 +545,26 @@ case encountered, seems logic, but not fully tested
               <xsl:variable name="element" select="normalize-space($mapping/@element)"/>
               <xsl:element name="{$element}" namespace="http://www.tei-c.org/ns/1.0">
                 <xsl:call-template name="lang"/>
-                <xsl:if test="$mapping/@type">
-                  <xsl:attribute name="type">
-                    <xsl:value-of select="$mapping/@type"/>
-                  </xsl:attribute>
-                </xsl:if>
-                <xsl:variable name="rend2">
-                  <xsl:value-of select="$mapping/@rend"/>
-                  <xsl:text> </xsl:text>
-                  <xsl:value-of select="$rend"/>
-                </xsl:variable>
-                <!-- local rendering of para -->
-                <xsl:if test=" normalize-space($rend2) != ''">
-                  <xsl:attribute name="rend">
-                    <xsl:value-of select="$rend2"/>
-                  </xsl:attribute>
-                </xsl:if>
+                <xsl:choose>
+                  <xsl:when test="$mapping/@attribute = 'rend'">
+                    <xsl:variable name="rend2">
+                      <xsl:value-of select="$mapping/@value"/>
+                      <xsl:text> </xsl:text>
+                      <xsl:value-of select="$rend"/>
+                    </xsl:variable>
+                    <!-- local rendering of para -->
+                    <xsl:if test=" normalize-space($rend2) != ''">
+                      <xsl:attribute name="rend">
+                        <xsl:value-of select="$rend2"/>
+                      </xsl:attribute>
+                    </xsl:if>
+                  </xsl:when>
+                  <xsl:when test="$mapping/@attribute != ''">
+                    <xsl:attribute name="{$mapping/@attribute}">
+                      <xsl:value-of select="$mapping/@value"/>
+                    </xsl:attribute>
+                  </xsl:when>
+                </xsl:choose>
                 <!-- numbered line -->
                 <xsl:if test="$element = 'l' and ($style/style:paragraph-properties/@text:number-lines='true' or  $class='ln')">
                   <xsl:attribute name="n"/>
@@ -1092,17 +1100,12 @@ to facilitate subsequent groupings.
         <xsl:choose>
           <xsl:when test="$mapping/@element != ''">
             <xsl:element name="{$mapping/@element}" namespace="http://www.tei-c.org/ns/1.0">
-              <xsl:if test="$mapping/@type">
-                <xsl:attribute name="type">
-                  <xsl:value-of select="$mapping/@type"/>
-                </xsl:attribute>
-              </xsl:if>
-              <xsl:if test="$mapping/@rend">
-                <xsl:attribute name="rend">
-                  <xsl:value-of select="$mapping/@rend"/>
-                </xsl:attribute>
-              </xsl:if>
               <xsl:call-template name="lang"/>
+              <xsl:if test="$mapping/@attribute != ''">
+                <xsl:attribute name="{$mapping/@attribute}">
+                  <xsl:value-of select="$mapping/@value"/>
+                </xsl:attribute>
+              </xsl:if>
               <xsl:copy-of select="$col"/>
             </xsl:element>
           </xsl:when>
