@@ -31,8 +31,8 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
   exclude-result-prefixes="tei"
 >
   <xsl:output encoding="UTF-8" indent="yes" method="xml"/>
-  <xsl:variable name="ABC">ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÆÈÉÊËÌÍÎÏÐÑÒÓÔÕÖÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöùúûüýÿþ ’'</xsl:variable>
-  <xsl:variable name="abc">abcdefghijklmnopqrstuvwxyzaaaaaaeeeeeiiiidnooooouuuuybbaaaaaaaceeeeiiiionooooouuuuyyb---</xsl:variable>
+  <xsl:variable name="ABC">ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÆÈÉÊËÌÍÎÏÐÑÒÓÔÕÖÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöùúûüýÿþ’' </xsl:variable>
+  <xsl:variable name="abc">abcdefghijklmnopqrstuvwxyzaaaaaaeeeeeiiiidnooooouuuuybbaaaaaaaceeeeiiiionooooouuuuyyb</xsl:variable>
   <!-- Default identity transformation -->
   <xsl:template match="node()|@*">
     <xsl:copy>
@@ -363,8 +363,12 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
   <!-- Put inside <sp>, output next, stop on <speaker> -->
   <xsl:template name="sp">
     <xsl:choose>
+      <xsl:when test="self::tei:p [. = '']">
+        <xsl:for-each select="following-sibling::*[1]">
+          <xsl:call-template name="sp"/>
+        </xsl:for-each>
+      </xsl:when>
       <xsl:when test="local-name()='speaker'"/>
-      <xsl:when test="self::tei:p [. = '']"/>
       <xsl:otherwise>
         <xsl:apply-templates select="."/>
         <xsl:for-each select="following-sibling::*[1]">
