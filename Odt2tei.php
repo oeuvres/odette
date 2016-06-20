@@ -1,29 +1,25 @@
 <?php // encoding="UTF-8"
 /**
-<h1>OpenDocument text transform</h1>
-
-LGPL  http://www.gnu.org/licenses/lgpl.html
-© 2006 Frederic.Glorieux@fictif.org et ajlsm.com
-© 2007 Frederic.Glorieux@fictif.org
-© 2010 Frederic.Glorieux@fictif.org et École nationale des chartes
-© 2012 Frederic.Glorieux@fictif.org
-© 2013 Frederic.Glorieux@fictif.org et LABEX OBVIL
-
-<p>
-Pilot to work with OpenOffice Text files. Steps:
-</p>
-
-<ul>
-  <li>unzip odt</li>
-  <li><a href="odtNorm.xsl">normalisation of some odt oddities</a> (XSL)</li>
-  <li><a href="odt2tei.xsl">structuration of visual formatting</a> (XSL)</li>
-  <li><a href="tei.sed">typographical normalisation</a> (regex)</li>
-  <li><a href="teiPost.xsl">some semantic interpretations (ex: index)</a> (XSL)</li>
-</ul>
-
-
-
-*/
+ * <h1>OpenDocument text transform</h1>
+ *
+ * LGPL  http://www.gnu.org/licenses/lgpl.html
+ * © 2006 Frederic.Glorieux@fictif.org et ajlsm.com
+ * © 2007 Frederic.Glorieux@fictif.org
+ * © 2010 Frederic.Glorieux@fictif.org et École nationale des chartes
+ * © 2012 Frederic.Glorieux@fictif.org
+ * © 2013 Frederic.Glorieux@fictif.org et LABEX OBVIL
+ *
+ * Pilot to work with OpenOffice Text files. Steps:
+ *
+ * <ul>
+ *   <li>unzip odt</li>
+ *   <li><a href="odtNorm.xsl">normalisation of some odt oddities</a> (XSL)</li>
+ *   <li><a href="odt2tei.xsl">structuration of visual formatting</a> (XSL)</li>
+ *   <li><a href="tei.sed">typographical normalisation</a> (regex)</li>
+ *   <li><a href="teiPost.xsl">some semantic interpretations (ex: index)</a> (XSL)</li>
+ * </ul>
+ *
+ */
 
 
 set_time_limit(-1);
@@ -197,27 +193,26 @@ class Odette_Odt2tei {
     // _log("odt2tei: " . (microtime(true) - $start));
     $start = microtime(true);
 
-    // indent here produce too much problems, use only for debug
-    // $this->doc->formatOutput=true;
+    // indent here produce problems, but without, may break tags
+    $this->doc->formatOutput=true;
     $this->doc->substituteEntities=true;
     $xml=$this->doc->saveXML();
 
     // regularisation of tags segments, ex: spaces tagged as italic
     $preg=self::sed_preg(file_get_contents(dirname(__FILE__).'/tei.sed'));
     $xml = preg_replace($preg[0], $preg[1], $xml);
+
     $this->loadXML($xml);
     $this->doc->formatOutput=true;
 
     // _log("tei.sed: " . (microtime(true) - $start)); 2 s./Mo
     $start = microtime(true);
 
-
-    /*
+/*
     echo $xml;
     echo '<!-- ',print_r($this->message, true), ' -->'; // for debug show now xlml errors
     exit;
-    */
-
+*/
     // header("Connection: Keep-alive");
     // echo 'Mem peak: ', memory_get_peak_usage(), ' true? ', memory_get_peak_usage(true), "\n";
     // print_r($this->message); // for debug show now xlml errors
