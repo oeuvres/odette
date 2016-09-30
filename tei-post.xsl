@@ -210,7 +210,10 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
   <xsl:template match="tei:l/tei:space"/>
   <xsl:template match="tei:l">
     <xsl:copy>
-      <xsl:copy-of select="@*"/>
+      <xsl:copy-of select="@*[name() != 'type']"/>
+      <xsl:if test="@type and @type!='part'">
+        <xsl:copy-of select="@type"/>
+      </xsl:if>
       <xsl:choose>
         <xsl:when test="@n and @n=''">
           <xsl:variable name="n">
@@ -230,7 +233,7 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
         </xsl:when>
         <xsl:when test="@n">
           <xsl:copy-of select="@n"/>
-        </xsl:when>       
+        </xsl:when>
       </xsl:choose>
       <xsl:variable name="next" select="following::tei:l[1]"/>
       <xsl:choose>

@@ -33,7 +33,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="argument" element="p" parent="argument"/>
   <style level="p" name="auteur" element="byline"/>
   <style level="p" name="author" element="byline"/>
-  <style level="p" name="bibl" element="bibl" parent="quote"/>
+  <style level="p" name="bibl" element="bibl" parent="listBibl"/>
   <style level="p" name="biblio" element="bibl"/>
   <style level="p" name="bibliography" element="bibl"/>
   <style level="p" name="bibliographie" element="bibl"/>
