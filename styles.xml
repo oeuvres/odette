@@ -216,6 +216,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="c" name="smcap1" element="sc"/>
   <style level="c" name="term" element="term"/>
   <style level="c" name="title" element="title"/>
+  <style level="c" name="title0" element="title"/>
   <style level="c" name="userentry" element="code"/>
   <style level="c" name="variable" element="term"/>
 </sheet>

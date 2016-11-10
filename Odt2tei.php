@@ -130,6 +130,9 @@ class Odette_Odt2tei {
     $this->format($format, $pars);
     return $this->doc->saveXML();
   }
+  /**
+   * Images extraction
+   */
   private function pictures($destdir) {
     $zip = new ZipArchive();
     $zip->open($this->srcfile);

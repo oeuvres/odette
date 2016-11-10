@@ -1007,6 +1007,7 @@ to facilitate subsequent groupings.
         <xsl:when test="$classtest = 'titre2car'"/>
         <xsl:when test="$classtest = 'titre3car'"/>
         <xsl:when test="$classtest = 'titre4car'"/>
+        <xsl:when test="$classtest = 'defaultparagraphfont'"/>
         <!-- Normalize style name -->
         <xsl:otherwise>
           <xsl:value-of select="$classtest"/>
@@ -1062,7 +1063,7 @@ to facilitate subsequent groupings.
         </xsl:variable>
         <xsl:variable name="i">
           <xsl:choose>
-            <xsl:when test="not($style-auto)">
+            <xsl:when test="not($style-auto) or starts-with($class, 'title')">
               <xsl:apply-templates/>
             </xsl:when>
             <xsl:when test="$style/style:text-properties/@fo:font-style='italic' or $style/style:text-properties/@font-style-complex='italic'">
@@ -1139,6 +1140,10 @@ to facilitate subsequent groupings.
               <xsl:choose>
                 <!-- No letters, probably noise -->
                 <xsl:when test="translate(., 'aàbcdeéèfghijklmnopqrstuvwxyz', '') = .">
+                  <xsl:apply-templates/>
+                </xsl:when>
+                <!-- Redundant -->
+                <xsl:when test="starts-with($class, 'pers')">
                   <xsl:apply-templates/>
                 </xsl:when>
                 <!-- Roman number -->
