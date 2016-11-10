@@ -377,6 +377,7 @@ case encountered, seems logic, but not fully tested
         <xsl:when test="starts-with($classtest, 'notedebasdepage')"/>
         <xsl:when test="starts-with($classtest, 'corpsdutexte')"/>
         <xsl:when test="$classtest = 'textbody'"/>
+        <xsl:when test="$classtest = 'bodytext'"/>
         <xsl:when test="$classtest = 'standard'"/>
         <xsl:when test="contains($classtest, 'list')"/>
         <xsl:when test="parent::table:table-cell and $classtest = 'tablecontents'"/>
