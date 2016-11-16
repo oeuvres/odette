@@ -375,6 +375,7 @@ case encountered, seems logic, but not fully tested
       <xsl:choose>
         <!-- non semantic style names -->
         <xsl:when test="starts-with($classtest, 'notedebasdepage')"/>
+        <xsl:when test="starts-with($classtest, 'annotationtext')"/>
         <xsl:when test="starts-with($classtest, 'corpsdutexte')"/>
         <xsl:when test="$classtest = 'textbody'"/>
         <xsl:when test="$classtest = 'bodytext'"/>
@@ -995,20 +996,29 @@ to facilitate subsequent groupings.
     <xsl:variable name="class">
       <xsl:choose>
         <!-- non semantic style names -->
-        <xsl:when test="$classtest = 'footnotesymbol'"/>
-        <xsl:when test="starts-with($classtest, 'ww') or starts-with($classtest, 'normal') "/>
-        <xsl:when test="starts-with ($classtest, 'notedebasdepage')"/>
-        <xsl:when test="starts-with ($classtest, 'corpsdutexte')"/>
-        <xsl:when test="$classtest = 'mwheadline'"/>
-        <xsl:when test="$classtest = 'caracteresdenotedebasdepage'"/>
-        <xsl:when test="starts-with($classtest, 'policepardefaut')"/>
-        <xsl:when test="$classtest = 'footnotereference'"/>
-        <xsl:when test="$classtest = 'corpsdetextecar'"/>
-        <xsl:when test="$classtest = 'titre1car'"/>
-        <xsl:when test="$classtest = 'titre2car'"/>
-        <xsl:when test="$classtest = 'titre3car'"/>
-        <xsl:when test="$classtest = 'titre4car'"/>
-        <xsl:when test="$classtest = 'defaultparagraphfont'"/>
+        <xsl:when test="$classtest = 'annotationtext' "/>
+        <xsl:when test="$classtest = 'bodytextchar' "/>
+        <xsl:when test="$classtest = 'caracteresdenotedebasdepage' "/>
+        <xsl:when test="$classtest = 'corpsdetextecar' "/>
+        <xsl:when test="starts-with ($classtest, 'corpsdutexte') "/>
+        <xsl:when test="$classtest = 'defaultparagraphfont' "/>
+        <xsl:when test="$classtest = 'footnotereference' "/>
+        <xsl:when test="$classtest = 'footnotesymbol' "/>
+        <xsl:when test="$classtest = 'footnotetextchar' "/>
+        <xsl:when test="$classtest = 'hyperlink' "/>
+        <xsl:when test="$classtest = 'mwheadline' "/>
+        <xsl:when test=" starts-with($classtest, 'normal') "/>
+        <xsl:when test="starts-with ($classtest, 'notedebasdepage') "/>
+        <xsl:when test="starts-with($classtest, 'policepardefaut') "/>
+        <xsl:when test="$classtest = 'titre1car' "/>
+        <xsl:when test="$classtest = 'titre2car' "/>
+        <xsl:when test="$classtest = 'titre3car' "/>
+        <xsl:when test="$classtest = 'titre4car' "/>
+        <xsl:when test="$classtest = 'titolo1carattere' "/>
+        <xsl:when test="$classtest = 'titolo2carattere' "/>
+        <xsl:when test="$classtest = 'titolo3carattere' "/>
+        <xsl:when test="$classtest = 'titolo4carattere' "/>
+        <xsl:when test="starts-with($classtest, 'ww') "/>
         <!-- Normalize style name -->
         <xsl:otherwise>
           <xsl:value-of select="$classtest"/>

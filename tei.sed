@@ -27,6 +27,7 @@ s@(<term type="[^"]+">)[^<:]+: *@\1@g # suppress term key
 # TEXT CONVENTIONS AS TAGS
 s@\[p\. ([0-9]+)\]@<pb n="\1"/>@
 s@\[(f\. [0-9]+[rv])\]@<pb n="\1"/>@
+s@\[(fol\. [0-9]+[rv])\]@<pb n="\1"/>@
 
 # PUNCTUATION
 # don’t insert spaces here (spanish, english…) but make unbreakable the good ones
