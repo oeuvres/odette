@@ -129,11 +129,17 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
   
   -->
   <xsl:template match="tei:bibl|tei:p|tei:said">
+    <xsl:variable name="text">
+      <xsl:for-each select="text()">
+        <xsl:value-of select="."/>
+      </xsl:for-each>
+    </xsl:variable>
+    <xsl:variable name="mixed" select="normalize-space($text)"/>
     <xsl:variable name="style">
       <xsl:choose>
-        <xsl:when test="text()[normalize-space(.)!='']"/>
+        <xsl:when test="normalize-space($text)!=''"/>
         <xsl:when test="count(*)&gt;1"/>
-        <xsl:when test="tei:anchor | tei:cb | tei:note | tei:pb | tei:quote"/>
+        <xsl:when test="tei:anchor | tei:cb | tei:note | tei:ref | tei:pb | tei:quote"/>
         <xsl:when test="tei:hi/@rend | tei:seg/@rend">
           <xsl:value-of select="*/@rend"/>  
         </xsl:when>
@@ -144,12 +150,6 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
     </xsl:variable>
     <xsl:variable name="next"  select="local-name(following-sibling::*[1])"/>
     <xsl:variable name="prev"  select="local-name(preceding-sibling::*[1])"/>
-    <xsl:variable name="text">
-      <xsl:for-each select="text()">
-        <xsl:value-of select="."/>
-      </xsl:for-each>
-    </xsl:variable>
-    <xsl:variable name="mixed" select="normalize-space($text)"/>
     <xsl:choose>
       <!-- bugs ?
       <xsl:when test="tei:pb and count(*)=1 and $mixed=''">
