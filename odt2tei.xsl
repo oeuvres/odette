@@ -373,6 +373,7 @@ case encountered, seems logic, but not fully tested
     </xsl:variable>
     <xsl:variable name="class">
       <xsl:choose>
+        <xsl:when test="$classtest = 'listheading'">label</xsl:when>
         <!-- non semantic style names -->
         <xsl:when test="starts-with($classtest, 'notedebasdepage')"/>
         <xsl:when test="starts-with($classtest, 'annotationtext')"/>
@@ -663,9 +664,19 @@ Listes et tables
         <xsl:call-template name="class"/>
       </xsl:for-each>
     </xsl:variable>
+    <xsl:variable name="bullet" select="$list-level/@text:bullet-char"/>
     <xsl:variable name="list">
-      
       <xsl:choose>
+        <!-- Dialogue ? -->
+        <xsl:when test="$bullet != '' and contains('-—–', $bullet) and not(*[count(*) > 1])">
+          <xsl:for-each select="*">
+            <p rend="dialog">
+              <xsl:value-of select="$bullet"/>
+              <xsl:text> </xsl:text>
+              <xsl:apply-templates select="*/node()"/>
+            </p>
+          </xsl:for-each>
+        </xsl:when>
         <!-- listBibl -->
         <xsl:when test="starts-with(normalize-space($item-class), 'Bibl') or starts-with(normalize-space($item-class), 'bibl')">
           <listBibl>
