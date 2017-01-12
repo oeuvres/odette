@@ -695,11 +695,18 @@ Listes et tables
             </xsl:choose>
             <xsl:if test="name($list-level)">
               <xsl:variable name="rend" select="$list-level/@text:bullet-char | $list-level/@style:num-format"/>
-              <xsl:if test="translate($rend, '-–—oaI1A', '') = ''">
-                <xsl:attribute name="rend">
+              <xsl:choose>
+                <xsl:when test="translate($rend, '-–—oaI1A', '') = ''">
+                  <xsl:attribute name="rend">
+                    <xsl:value-of select="($list-level/@text:bullet-char | $list-level/@style:num-format)"/>
+                  </xsl:attribute>
+                </xsl:when>
+                <!-- bug PDF 2 DOC, à ou « utilisé comme puce -->
+                <xsl:otherwise>
                   <xsl:value-of select="($list-level/@text:bullet-char | $list-level/@style:num-format)"/>
-                </xsl:attribute>
-              </xsl:if>
+                  <xsl:text> </xsl:text>
+                </xsl:otherwise>
+              </xsl:choose>
             </xsl:if>
             <xsl:apply-templates select="*"/>
             
