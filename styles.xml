@@ -80,20 +80,20 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="h4sub" element="head" attribute="type" value="sub"/>
   <style level="p" name="index" element="item" parent="index"/>
   <style level="p" name="l" element="l"/>
-  <style level="p" name="l1" element="l" attribute="met" value="l1"/>
-  <style level="p" name="l2" element="l" attribute="met" value="l2"/>
-  <style level="p" name="l3" element="l" attribute="met" value="l3"/>
-  <style level="p" name="l4" element="l" attribute="met" value="l4"/>
-  <style level="p" name="l5" element="l" attribute="met" value="l5"/>
-  <style level="p" name="l6" element="l" attribute="met" value="l6"/>
-  <style level="p" name="l7" element="l" attribute="met" value="l7"/>
-  <style level="p" name="l8" element="l" attribute="met" value="l8"/>
-  <style level="p" name="l9" element="l" attribute="met" value="l9"/>
-  <style level="p" name="l10" element="l" attribute="met" value="l10"/>
-  <style level="p" name="l11" element="l" attribute="met" value="l11"/>
-  <style level="p" name="l12" element="l" attribute="met" value="l12"/>
-  <style level="p" name="l13" element="l" attribute="met" value="l13"/>
-  <style level="p" name="l14" element="l" attribute="met" value="l14"/>
+  <style level="p" name="syl1" element="l" attribute="met" value="syl1"/>
+  <style level="p" name="syl2" element="l" attribute="met" value="syl2"/>
+  <style level="p" name="syl3" element="l" attribute="met" value="syl3"/>
+  <style level="p" name="syl4" element="l" attribute="met" value="syl4"/>
+  <style level="p" name="syl5" element="l" attribute="met" value="syl5"/>
+  <style level="p" name="syl6" element="l" attribute="met" value="syl6"/>
+  <style level="p" name="syl7" element="l" attribute="met" value="syl7"/>
+  <style level="p" name="syl8" element="l" attribute="met" value="syl8"/>
+  <style level="p" name="syl9" element="l" attribute="met" value="syl9"/>
+  <style level="p" name="syl10" element="l" attribute="met" value="syl10"/>
+  <style level="p" name="syl11" element="l" attribute="met" value="syl11"/>
+  <style level="p" name="syl12" element="l" attribute="met" value="syl12"/>
+  <style level="p" name="syl13" element="l" attribute="met" value="syl13"/>
+  <style level="p" name="syl14" element="l" attribute="met" value="syl14"/>
   <style level="p" name="legende" element="label"/>
   <style level="p" name="ln" element="l"/>
   <style level="p" name="lpart" element="l" attribute="type" value="part"/>

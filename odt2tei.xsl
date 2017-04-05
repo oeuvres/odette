@@ -136,7 +136,9 @@ Best usage of output could be as an input for other filters (regular expressions
   <xsl:template match="office:scripts | office:font-face-decls | text:sequence-decls | office:forms | office:automatic-styles  | office:settings | office:styles | office:master-styles "/>
 
   <xsl:template match="office:document-content">
+    <!--
     <xsl:processing-instruction name="xml-stylesheet"> type="text/xsl" href="../Teinte/tei2html.xsl"</xsl:processing-instruction>
+    -->
     <xsl:processing-instruction name="xml-model"> href="http://oeuvres.github.io/Teinte/teinte.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"</xsl:processing-instruction>
     <xsl:if test="function-available('date:date-time')">
       <xsl:comment>
@@ -144,7 +146,12 @@ Best usage of output could be as an input for other filters (regular expressions
         <xsl:value-of select="date:date-time()"/>
       </xsl:comment>
     </xsl:if>
-    <TEI xml:lang="{$lang}">
+    <TEI>
+      <xsl:if test="$lang != ''">
+        <xsl:attribute name="xml:lang">
+          <xsl:value-of select="$lang"/>
+        </xsl:attribute>
+      </xsl:if>
       <!-- Pas une bonne idée, trop de renommage
       <xsl:attribute name="xml:id">
         <xsl:value-of select="$filename"/>
