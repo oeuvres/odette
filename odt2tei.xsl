@@ -103,25 +103,22 @@ Best usage of output could be as an input for other filters (regular expressions
   <!-- the filename processed, set by the caller -->
   <xsl:param name="filename"/>
   <xsl:param name="mediadir"/>
+  <xsl:param name="lang">
+    <xsl:choose>
+      <xsl:when test="//office:meta/dc:language">
+        <xsl:value-of select="substring-before(concat(//office:meta/dc:language, '-'), '-')"/>
+      </xsl:when>
+      <xsl:when test="//style:style/style:text-properties/@fo:language">
+        <xsl:value-of select="//style:style/style:text-properties/@fo:language"/>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:param>
   <xsl:variable name="dc">,author,bibl,created,creation,contributor,copyeditor,creator,date,edition,editor,idno,issued,keyword,licence,license,publie,publisher,secretairederedaction,source,subject,sujet,title,translator,</xsl:variable>
   <xsl:variable name="lf"><xsl:text>
 </xsl:text></xsl:variable>
   <xsl:variable name="tab" select="'&#x9;'"/>
   <xsl:variable name="ABC">ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÆÈÉÊËÌÍÎÏÐÑÒÓÔÕÖŒÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöùúûüýÿþ,; ?()/\ ._-</xsl:variable>
   <xsl:variable name="abc">abcdefghijklmnopqrstuvwxyzaaaaaaeeeeeiiiidnoooooœuuuuybbaaaaaaaceeeeiiiionooooouuuuyyb</xsl:variable>
-  <xsl:variable name="lang">
-    <xsl:choose>
-      <xsl:when test="//office:meta/dc:language">
-        <xsl:value-of select="substring-before(concat(//office:meta/dc:language, '-'), '-')"/>
-      </xsl:when>
-      <xsl:when test="//style:style[@style:name='Standard']">
-        <xsl:value-of select="//style:style[@style:name='Standard']/style:text-properties/@fo:language"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="//@fo:language[.!='']"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
   <!-- Shall we infer title from content ? -->
   <xsl:variable name="h" select="//text:h[1]"/>
 
