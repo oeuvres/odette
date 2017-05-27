@@ -88,8 +88,6 @@ Best usage of output could be as an input for other filters (regular expressions
   extension-element-prefixes="date exslt php"
 
 >
-
-  <!-- office style text table draw fo xlink dc meta number svg chart dr3d math form script ooo ooow oooc dom xforms xsd xsi -->
   <!-- Nécessaire pour libxml, assure encodage -->
   <xsl:output encoding="UTF-8" indent="yes" method="xml"/>
   <!-- clé sur les styles -->
@@ -98,6 +96,11 @@ Best usage of output could be as an input for other filters (regular expressions
   <xsl:key name="list-style" match="text:list-style" use="@style:name"/>
   <xsl:key name="p-style" match="odette:style[@level='p']" use="@name"/>
   <xsl:key name="c-style" match="odette:style[@level='c']" use="@name"/>
+  <!-- Kind of output -->
+  <xsl:variable name="fragment">fragment</xsl:variable> 
+  <xsl:variable name="document">document</xsl:variable> 
+  <xsl:param name="output" select="$document"/> 
+  
   <!-- Link to a style sheet with style name mapping with elements -->
   <xsl:variable name="sheet" select="document('styles.xml', document(''))"/>
   <!-- the filename processed, set by the caller -->
@@ -133,30 +136,39 @@ Best usage of output could be as an input for other filters (regular expressions
   <xsl:template match="office:scripts | office:font-face-decls | text:sequence-decls | office:forms | office:automatic-styles  | office:settings | office:styles | office:master-styles "/>
 
   <xsl:template match="office:document-content">
-    <!--
-    <xsl:processing-instruction name="xml-stylesheet"> type="text/xsl" href="../Teinte/tei2html.xsl"</xsl:processing-instruction>
-    -->
-    <xsl:processing-instruction name="xml-model"> href="http://oeuvres.github.io/Teinte/teinte.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"</xsl:processing-instruction>
-    <xsl:if test="function-available('date:date-time')">
-      <xsl:comment>
-        <xsl:text>Odette: </xsl:text>
-        <xsl:value-of select="date:date-time()"/>
-      </xsl:comment>
-    </xsl:if>
-    <TEI>
-      <xsl:if test="$lang != ''">
-        <xsl:attribute name="xml:lang">
-          <xsl:value-of select="$lang"/>
-        </xsl:attribute>
-      </xsl:if>
-      <!-- Pas une bonne idée, trop de renommage
-      <xsl:attribute name="xml:id">
-        <xsl:value-of select="$filename"/>
-      </xsl:attribute>
-      -->
-      <teiHeader/>
-      <xsl:apply-templates select="*"/>
-    </TEI>
+    <xsl:choose>
+      <xsl:when test="$output = $fragment">
+        <fragment>
+          <xsl:apply-templates select="*"/>
+        </fragment>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:comment>
+        <xsl:value-of select="$output"/>
+        </xsl:comment>
+        <xsl:processing-instruction name="xml-stylesheet"> type="text/xsl" href="../Teinte/tei2html.xsl"</xsl:processing-instruction>
+        <xsl:processing-instruction name="xml-model"> href="http://oeuvres.github.io/Teinte/teinte.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"</xsl:processing-instruction>
+        <xsl:if test="function-available('date:date-time')">
+          <xsl:comment>
+            <xsl:text>Odette: </xsl:text>
+            <xsl:value-of select="date:date-time()"/>
+          </xsl:comment>
+        </xsl:if>
+        <TEI>
+          <xsl:if test="$lang != ''">
+            <xsl:attribute name="xml:lang">
+              <xsl:value-of select="$lang"/>
+            </xsl:attribute>
+          </xsl:if>
+          <teiHeader/>
+          <text>
+            <body>
+              <xsl:apply-templates select="*"/>
+            </body>
+          </text>
+        </TEI>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   <!-- Structure -->
   <xsl:template match="office:meta">
@@ -166,9 +178,7 @@ Best usage of output could be as an input for other filters (regular expressions
   </xsl:template>
   <!-- Conteneur  -->
   <xsl:template match="office:body">
-    <text>
-      <xsl:apply-templates select="*"/>
-    </text>
+    <xsl:apply-templates select="*"/>
   </xsl:template>
   <!-- go throw, sections can break the tree of titles  -->
   <xsl:template match="text:section">
@@ -296,18 +306,16 @@ case encountered, seems logic, but not fully tested
   <xsl:template match="text:soft-page-break"/>
   <!-- End of text, do not forget to close open <div> -->
   <xsl:template match="office:text">
-    <body>
-      <!-- NO !
-      <xsl:call-template name="divOpen">
-        <xsl:with-param name="n" select="1"/>
-      </xsl:call-template>
-      -->
-      <xsl:apply-templates select="*"/>
-      <xsl:variable name="last" select="(.//text:h[not(ancestor::text:note|ancestor::table:table)])[last()]"/>
-      <xsl:call-template name="divClose">
-        <xsl:with-param name="n" select="$last/@text:outline-level"/>
-      </xsl:call-template>
-    </body>
+    <!-- NO !
+    <xsl:call-template name="divOpen">
+      <xsl:with-param name="n" select="1"/>
+    </xsl:call-template>
+    -->
+    <xsl:apply-templates select="*"/>
+    <xsl:variable name="last" select="(.//text:h[not(ancestor::text:note|ancestor::table:table)])[last()]"/>
+    <xsl:call-template name="divClose">
+      <xsl:with-param name="n" select="$last/@text:outline-level"/>
+    </xsl:call-template>
   </xsl:template>
   <!-- Section générée -->
   <xsl:template match="text:table-of-content | text:alphabetical-index | text:user-index">

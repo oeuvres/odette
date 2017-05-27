@@ -554,7 +554,7 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
   </xsl:template>
   <!-- teiHeader -->
   <xsl:template match="/tei:TEI/tei:text/*[1]/tei:index">
-    <xsl:variable name="noheader">,author,bibl,created,creation,contributor,copyeditor,creator,date,edition,editor,idno,issued,keyword,licence,license,publie,publisher,secretairederedaction,source,subject,sujet,title,translator,language</xsl:variable><!--  Marc : J'ajoute language  -->
+    <xsl:variable name="noheader">,author,bibl,created,creation,contributor,copyeditor,creator,date,edition,editor,idno,issued,keyword,lang,language,licence,license,publie,publisher,secretairederedaction,source,subject,sujet,title,translator</xsl:variable><!--  Marc : J'ajoute language  -->
     <xsl:variable name="terms" select="tei:term[not(contains($noheader, concat(',', @type, ',')))]"/>
     <xsl:if test="count($terms) &gt; 1">
       <index>

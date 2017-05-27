@@ -3,11 +3,11 @@
  * <h1>OpenDocument text transform</h1>
  *
  * LGPL  http://www.gnu.org/licenses/lgpl.html
- * © 2006 Frederic.Glorieux@fictif.org et ajlsm.com
- * © 2007 Frederic.Glorieux@fictif.org
- * © 2010 Frederic.Glorieux@fictif.org et École nationale des chartes
- * © 2012 Frederic.Glorieux@fictif.org
  * © 2013 Frederic.Glorieux@fictif.org et LABEX OBVIL
+ * © 2012 Frederic.Glorieux@fictif.org
+ * © 2010 Frederic.Glorieux@fictif.org et École nationale des chartes
+ * © 2007 Frederic.Glorieux@fictif.org
+ * © 2006 Frederic.Glorieux@fictif.org et ajlsm.com
  *
  * Pilot to work with OpenOffice Text files. Steps:
  *
@@ -43,8 +43,7 @@ else Odette_Odt2tei::doPost();
 
 
 /**
-
-OpenDocumentText vers TEI.
+ * OpenDocumentText vers TEI.
  */
 class Odette_Odt2tei {
   /** keep original odt FilePath for a file context */
@@ -65,7 +64,8 @@ class Odette_Odt2tei {
   /**
    * Constructor, instanciations
    */
-  function __construct($odtfile) {
+  function __construct($odtfile)
+  {
     $this->srcfile=$odtfile;
     $pathinfo=pathinfo($odtfile);
     $this->xsl = new DOMDocument("1.0", "UTF-8");
@@ -77,10 +77,14 @@ class Odette_Odt2tei {
   /**
    * Format loaded dom
    */
-  public function format($format, $pars=array()) {
-    if ($format=='odtx');
-    else if ($format=='tei') {
+  public function format( $format, $pars=array() )
+  {
+    if ( $format=='odtx' );
+    else if ( $format=='tei') {
       $this->tei();
+    }
+    else if ( $format=='fragment') {
+      $this->tei( "fragment" );
     }
     else if ($format == 'html') {
       // format html from a clean TEI
@@ -104,7 +108,8 @@ class Odette_Odt2tei {
   /**
    * Save result to file, in desired format
    */
-  public function save($destfile, $format=null, $pars=array()) {
+  public function save( $destfile, $format=null, $pars=array() )
+  {
     $pathinfo=pathinfo($destfile);
     if (file_exists($destfile) && !isset($pars['force'])) {
       _log("Odette, destination file already exists: $destfile");
@@ -125,15 +130,21 @@ class Odette_Odt2tei {
   /**
    * Get xml in the desired format
    */
-  public function saveXML($format, $destfile=null, $pars=array()) {
-    $this->destname=pathinfo($destfile, PATHINFO_FILENAME);
-    $this->format($format, $pars);
-    return $this->doc->saveXML();
+  public function saveXML( $format, $pars=array() )
+  {
+    $this->format( $format, $pars );
+    $xml = $this->doc->saveXML();
+    if ( $format == "fragment" ) {
+      $xml = preg_replace( '@<\?xml version="1.0" encoding="UTF-8"\?>|</?fragment( [^>]+)?>@', '', $xml);
+      $xml = trim( $xml );
+    }
+    return $xml;
   }
   /**
    * Images extraction
    */
-  private function pictures($destdir) {
+  private function pictures( $destdir )
+  {
     $zip = new ZipArchive();
     $zip->open($this->srcfile);
     $entries=array();
@@ -180,10 +191,12 @@ class Odette_Odt2tei {
   /**
    * Output TEI
    */
-  private function tei() {
+  private function tei( $output="document" )
+  {
     $pars=array();
-    $pars['filename']=$this->destname;
-    $pars['mediadir']=$this->destname.'-img/';
+    $pars['filename'] = $this->destname;
+    $pars['mediadir'] = $this->destname.'-img/';
+    $pars['output'] = $output;
     // some normalisation of oddities
     $start = microtime(true);
     $this->transform(dirname(__FILE__).'/odt-norm.xsl');
@@ -205,7 +218,7 @@ class Odette_Odt2tei {
     $preg=self::sed_preg(file_get_contents(dirname(__FILE__).'/tei.sed'));
     $xml = preg_replace($preg[0], $preg[1], $xml);
 
-    $this->loadXML($xml);
+    $this->loadXML( $xml );
     $this->doc->formatOutput=true;
 
     // _log("tei.sed: " . (microtime(true) - $start)); 2 s./Mo
@@ -229,7 +242,8 @@ class Odette_Odt2tei {
   /**
    * Build a search/replace regexp table from a sed script
    */
-  public static function sed_preg($script) {
+  public static function sed_preg($script)
+  {
     $search=array();
     $replace=array();
     $lines=explode("\n", $script);
@@ -247,7 +261,8 @@ class Odette_Odt2tei {
   /**
    * Load xml as dom
    */
-  private function loadXML($xml) {
+  private function loadXML($xml)
+  {
     $this->message=array();
     $oldError=set_error_handler(array($this,"err"), E_ALL);
     // if not set here, no indent possible for output
@@ -263,7 +278,8 @@ class Odette_Odt2tei {
   /**
    * record errors in a log variable, need to be public to used by loadXML
    */
-  public function err( $errno, $errstr, $errfile, $errline, $errcontext) {
+  public function err( $errno, $errstr, $errfile, $errline, $errcontext)
+  {
     if(strpos($errstr, "xmlParsePITarget: invalid name prefix 'xml'") !== FALSE) return;
     $this->message[]=$errstr;
   }
@@ -272,7 +288,8 @@ class Odette_Odt2tei {
   /**
    * Transformation, applied to current doc
    */
-  private function transform($xslFile, $pars=null) {
+  private function transform( $xslFile, $pars=null )
+  {
     // filePath should be correct, only internal resources are used here
     $this->xsl->load($xslFile);
     $this->proc->importStyleSheet($this->xsl);
