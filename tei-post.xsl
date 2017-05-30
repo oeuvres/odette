@@ -31,7 +31,7 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
   exclude-result-prefixes="tei"
 >
   <xsl:output encoding="UTF-8" indent="yes" method="xml"/>
-  <xsl:variable name="ABC">ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÆÈÉÊËÌÍÎÏÐÑÒÓÔÕÖÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöùúûüýÿþ’' </xsl:variable>
+  <xsl:variable name="ABC">ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÆÈÉÊËÌÍÎÏÐÑÒÓÔÕÖÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöùúûüýÿþ’' -</xsl:variable>
   <xsl:variable name="abc">abcdefghijklmnopqrstuvwxyzaaaaaaeeeeeiiiidnooooouuuuybbaaaaaaaceeeeiiiionooooouuuuyyb</xsl:variable>
   <!-- Default identity transformation -->
   <xsl:template match="node()|@*">
@@ -125,10 +125,11 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
     </note>
     
   </xsl:template>
-  <!-- Blocks, try to put inline rendering informations at block level 
+  <!-- 
+    Blocks, try to put inline rendering informations at block level ?
   
   -->
-  <xsl:template match="tei:bibl|tei:p|tei:said">
+  <xsl:template match=" OBSOLETE ">
     <xsl:variable name="text">
       <xsl:for-each select="text()">
         <xsl:value-of select="."/>
@@ -206,6 +207,8 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
+  
+  
   <!-- verse fragment -->
   <xsl:template match="tei:l/tei:space"/>
   <xsl:template match="tei:l">

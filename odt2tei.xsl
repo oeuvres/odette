@@ -6,11 +6,11 @@
 <p>Vous qui entrez, laissez toute espérance ! (de comprendre)</p>
 
 LGPL  http://www.gnu.org/licenses/lgpl.html
-© 2005 ajlsm.com (Cybertheses)
-© 2007 Frederic.Glorieux@fictif.org
-© 2010 Frederic.Glorieux@fictif.org et École nationale des chartes
-© 2012 Frederic.Glorieux@fictif.org 
 © 2013 Frederic.Glorieux@fictif.org et LABEX OBVIL
+© 2012 Frederic.Glorieux@fictif.org 
+© 2010 Frederic.Glorieux@fictif.org et École nationale des chartes
+© 2007 Frederic.Glorieux@fictif.org
+© 2005 ajlsm.com (Cybertheses)
 
 <p>
 Cette transformation prend en entrée du XML OpenDocument (ex : OpenOffice.org LibreOffice),
@@ -143,9 +143,6 @@ Best usage of output could be as an input for other filters (regular expressions
         </fragment>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:comment>
-        <xsl:value-of select="$output"/>
-        </xsl:comment>
         <xsl:processing-instruction name="xml-stylesheet"> type="text/xsl" href="../Teinte/tei2html.xsl"</xsl:processing-instruction>
         <xsl:processing-instruction name="xml-model"> href="http://oeuvres.github.io/Teinte/teinte.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"</xsl:processing-instruction>
         <xsl:if test="function-available('date:date-time')">
@@ -1612,7 +1609,10 @@ simplfiy by post-process, not here, or bugs
       <xsl:value-of select="dc:date"/>
       <xsl:for-each select="text:*">
         <xsl:value-of select="$lf"/>
+        <!--
         <xsl:copy-of select="."/>
+        -->
+        <xsl:value-of select="translate(., '-', '‑')"/>
       </xsl:for-each>
     </xsl:comment>
   </xsl:template>
