@@ -42,6 +42,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="caption" element="caption"/>
   <style level="p" name="castitem" element="castItem" parent="castList"/>
   <style level="p" name="castlist" element="castList"/>
+  <style level="p" name="citaepigrafe" element="p" parent="epigraph"/>
   <style level="p" name="citation" element="p" parent="quote"/>
   <style level="p" name="citation1" element="p" parent="quote"/>
   <style level="p" name="citation2" element="p" parent="quote"/>
@@ -60,6 +61,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="docauthor" element="docAuthor"/>
   <style level="p" name="docimprint" element="docImprint"/>
   <style level="p" name="docdate" element="docDate"/>
+  <style level="p" name="edbibl" element="bibl"/>
   <style level="p" name="eg" element="eg"/>
   <style level="p" name="epigraph" element="p" parent="epigraph"/>
   <style level="p" name="epigraphl" element="l" parent="epigraph"/>
