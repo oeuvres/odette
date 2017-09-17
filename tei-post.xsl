@@ -447,15 +447,17 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
         <xsl:copy>
           <xsl:copy-of select="@*"/>
           <!-- ?? section à spliter ? -->
-          <xsl:if test="starts-with($head, 'chapter') or starts-with($head, 'chapitre')">
-            <xsl:attribute name="type">chapter</xsl:attribute>
-          </xsl:if>
           <xsl:if test="tei:head[1]/@type">
             <xsl:attribute name="type">
               <xsl:value-of select="tei:head/@type"/>
             </xsl:attribute>
           </xsl:if>
           <xsl:copy-of select="tei:head[1]/tei:anchor[1]/@xml:id"/>
+          <!-- Non, trop de problèmes
+          <xsl:if test="starts-with($head, 'chapter') or starts-with($head, 'chapitre')">
+            <xsl:attribute name="type">chapter</xsl:attribute>
+          </xsl:if>
+            -->
           <xsl:apply-templates select="@* | node()"/>
         </xsl:copy>
       </xsl:otherwise>
