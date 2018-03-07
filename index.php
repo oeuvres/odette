@@ -12,7 +12,7 @@ if (isset($_POST['post'])) {
   <head>
     <meta charset="utf-8"/>
     <title>Odette : Open Document Text &gt; XML/TEI</title>
-    <link rel="stylesheet" type="text/css" href="//svn.code.sf.net/p/obvil/code/theme/obvil.css" />
+    <link rel="stylesheet" type="text/css" href="https://obvil.github.io/theme/obvil.css" />
   </head>
   <body>
     <div id="center">
@@ -23,7 +23,7 @@ if (isset($_POST['post'])) {
         <a class="logo" href="//obvil.paris-sorbonne.fr/developpements/"><img class="logo" src="//svn.code.sf.net/p/obvil/code/theme/img/logo-obvil.png" alt="OBVIL"></a>
       </header>
       <div id="contenu">
-      
+
     <h1>Odette, convertissez vos textes bureautiques (odt) en <a href="//www.tei-c.org/release/doc/tei-p5-doc/fr/html/REF-ELEMENTS.html">TEI</a></h1>
     <p class="byline">par <a onmouseover="this.href='mailto'+'\x3A'+'frederic.glorieux'+'\x40'+'fictif.org'" href="#">Frédéric Glorieux</a></p>
     <!--
