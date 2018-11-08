@@ -77,14 +77,14 @@ class Odette_Odt2tei {
   /**
    * Format loaded dom
    */
-  public function format( $format, $pars=array() )
+  public function format($format, $pars=array())
   {
-    if ( $format=='odtx' );
-    else if ( $format=='tei') {
+    if ($format=='odtx');
+    else if ($format=='tei') {
       $this->tei();
     }
-    else if ( $format=='fragment') {
-      $this->tei( "fragment" );
+    else if ($format=='fragment') {
+      $this->tei("fragment");
     }
     else if ($format == 'html') {
       // format html from a clean TEI
@@ -108,7 +108,7 @@ class Odette_Odt2tei {
   /**
    * Save result to file, in desired format
    */
-  public function save( $destfile, $format=null, $pars=array() )
+  public function save($destfile, $format=null, $pars=array())
   {
     $pathinfo=pathinfo($destfile);
     if (file_exists($destfile) && !isset($pars['force'])) {
@@ -130,20 +130,20 @@ class Odette_Odt2tei {
   /**
    * Get xml in the desired format
    */
-  public function saveXML( $format, $pars=array() )
+  public function saveXML($format, $pars=array())
   {
-    $this->format( $format, $pars );
+    $this->format($format, $pars);
     $xml = $this->doc->saveXML();
-    if ( $format == "fragment" ) {
-      $xml = preg_replace( '@<\?xml version="1.0" encoding="UTF-8"\?>|</?fragment( [^>]+)?>@', '', $xml);
-      $xml = trim( $xml );
+    if ($format == "fragment") {
+      $xml = preg_replace('@<\?xml version="1.0" encoding="UTF-8"\?>|</?fragment([^>]+)?>@', '', $xml);
+      $xml = trim($xml);
     }
     return $xml;
   }
   /**
    * Images extraction
    */
-  private function pictures( $destdir )
+  private function pictures($destdir)
   {
     $zip = new ZipArchive();
     $zip->open($this->srcfile);
@@ -191,7 +191,7 @@ class Odette_Odt2tei {
   /**
    * Output TEI
    */
-  private function tei( $output="document" )
+  private function tei($output="document")
   {
     $pars=array();
     $pars['filename'] = $this->destname;
@@ -200,13 +200,9 @@ class Odette_Odt2tei {
     // some normalisation of oddities
     $start = microtime(true);
     $this->transform(dirname(__FILE__).'/odt-norm.xsl');
-    // _log("odt-norm: " . (microtime(true) - $start));
-    // $this->doc->formatOutput=true;
     // odt > tei
-    $start = microtime(true);
     $this->transform(dirname(__FILE__).'/odt2tei.xsl', $pars);
 
-    // _log("odt2tei: " . (microtime(true) - $start));
     $start = microtime(true);
 
     // indent here produce problems, but without, may break tags
@@ -218,25 +214,11 @@ class Odette_Odt2tei {
     $preg=self::sed_preg(file_get_contents(dirname(__FILE__).'/tei.sed'));
     $xml = preg_replace($preg[0], $preg[1], $xml);
 
-    $this->loadXML( $xml );
-    $this->doc->formatOutput=true;
-
-    // _log("tei.sed: " . (microtime(true) - $start)); 2 s./Mo
-    $start = microtime(true);
-
-/*
-    echo $xml;
-    echo '<!-- ',print_r($this->message, true), ' -->'; // for debug show now xlml errors
-    exit;
-*/
-    // header("Connection: Keep-alive");
-    // echo 'Mem peak: ', memory_get_peak_usage(), ' true? ', memory_get_peak_usage(true), "\n";
-    // print_r($this->message); // for debug show now xlml errors
-    // xsl step to put some tei oddities like <hi rend="i"> (instead of <i>)
+    $this->loadXML($xml);
+    // $this->doc->formatOutput=true;
+    // TEI regularisations
     $this->transform(dirname(__FILE__).'/tei-post.xsl');
-    // echo 'Mem peak: ', memory_get_peak_usage(), ' true? ', memory_get_peak_usage(true), "\n";
 
-    // _log("tei-post: " . (microtime(true) - $start));
   }
 
   /**
@@ -278,7 +260,7 @@ class Odette_Odt2tei {
   /**
    * record errors in a log variable, need to be public to used by loadXML
    */
-  public function err( $errno, $errstr, $errfile, $errline, $errcontext)
+  public function err($errno, $errstr, $errfile, $errline, $errcontext)
   {
     if(strpos($errstr, "xmlParsePITarget: invalid name prefix 'xml'") !== FALSE) return;
     $this->message[]=$errstr;
@@ -288,7 +270,7 @@ class Odette_Odt2tei {
   /**
    * Transformation, applied to current doc
    */
-  private function transform( $xslFile, $pars=null )
+  private function transform($xslFile, $pars=null)
   {
     // filePath should be correct, only internal resources are used here
     $this->xsl->load($xslFile);
@@ -376,7 +358,7 @@ class Odette_Odt2tei {
 
 ");
     $format="tei";
-    if( preg_match( "/^($formats)\$/", trim($_SERVER['argv'][0], '- ') )) {
+    if(preg_match("/^($formats)\$/", trim($_SERVER['argv'][0], '- '))) {
       $format = array_shift($_SERVER['argv']);
       $format = trim($format, '- ');
     }
@@ -395,7 +377,7 @@ class Odette_Odt2tei {
     foreach ($_SERVER['argv'] as $glob) {
       foreach(glob($glob) as $srcfile) {
         $count++;
-        if (isset($destdir) ) $destfile = $destdir.pathinfo($srcfile,  PATHINFO_FILENAME).$ext;
+        if (isset($destdir)) $destfile = $destdir.pathinfo($srcfile,  PATHINFO_FILENAME).$ext;
         else $destfile=dirname($srcfile).'/'.pathinfo($srcfile,  PATHINFO_FILENAME).$ext;
         _log("$count. $srcfile > $destfile");
         if (file_exists($destfile)) {

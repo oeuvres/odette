@@ -12,11 +12,12 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
 @level
   c : char level
   p : para level
-@class  : normalized name of style (lower case, ' '='_'…)
+@name  : normalized name of style (lower case, ' '='_'…)
 @element : name of element
 @attribute : optional, an attribute to fill with value
 @value : optional, a value to fill in attribute
 @parent : optional, a parent element, generated to group series of element of same name
+@rend : optional, transmit local rendering like alignement
   -->
   <!ATTLIST style
     level (c|p) #REQUIRED 
@@ -25,6 +26,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
     attribute CDATA #IMPLIED
     value CDATA #IMPLIED
     parent CDATA #IMPLIED
+    rend CDATA #IMPLIED
    >
 ]>
 <sheet xmlns="odt:tei">
@@ -64,7 +66,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="docdate" element="docDate"/>
   <style level="p" name="edbibl" element="bibl"/>
   <style level="p" name="eg" element="eg"/>
-  <style level="p" name="epigraph" element="p" parent="epigraph"/>
+  <style level="p" name="epigraph" element="p" parent="epigraph" rend="keep"/>
   <style level="p" name="epigraphl" element="l" parent="epigraph"/>
   <style level="p" name="endnote" element="note"/>
   <style level="p" name="entry" element="entry"/>
@@ -72,6 +74,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="footnote" element="p"/><!-- in odt, used inside notes -->
   <style level="p" name="form" element="form" parent="entryFree"/>
   <style level="p" name="fw" element="fw"/>
+  <style level="p" name="heading" element="label" attribute="type" value="head"/>
   <style level="p" name="headsub" element="head" attribute="type" value="sub"/>
   <style level="p" name="headsub1" element="head" attribute="type" value="sub"/>
   <style level="p" name="headsub2" element="head" attribute="type" value="sub"/>
@@ -82,7 +85,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="h3sub" element="head" attribute="type" value="sub"/>
   <style level="p" name="h4sub" element="head" attribute="type" value="sub"/>
   <style level="p" name="index" element="item" parent="index"/>
-  <style level="p" name="l" element="l"/>
+  <style level="p" name="l" element="l" rend="keep"/>
   <style level="p" name="syl1" element="l" attribute="met" value="syl1"/>
   <style level="p" name="syl2" element="l" attribute="met" value="syl2"/>
   <style level="p" name="syl3" element="l" attribute="met" value="syl3"/>
@@ -101,6 +104,10 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="ln" element="l"/>
   <style level="p" name="lpart" element="l" attribute="type" value="part"/>
   <style level="p" name="label" element="label"/>
+  <style level="p" name="labeldateline" element="label" attribute="type" value="dateline"/>
+  <style level="p" name="labelhead" element="label" attribute="type" value="head"/>
+  <style level="p" name="labelsalute" element="label" attribute="type" value="salute"/>
+  <style level="p" name="labelspeaker" element="label" attribute="type" value="speaker"/>
   <style level="p" name="line" element="l"/>
   <style level="p" name="listheading" element="label" parent="dl"/>
   <style level="p" name="listcontent" element="item" parent="dl"/>
@@ -108,7 +115,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="lg" element="l" parent="lg"/>
   <style level="p" name="note" element="p" parent="notep"/>
   <style level="p" name="opener" element="opener"/>
-  <style level="p" name="p" element="p"/>
+  <style level="p" name="p" element="p" rend="keep"/>
   <style level="p" name="pb" element="pb"/>
   <style level="p" name="pbed" element="pb" attribute="type" value="ed"/>
   <style level="p" name="poem" element="lg"/>
@@ -117,7 +124,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="preformattedtext" element="eg"/>
   <style level="p" name="q" element="q"/>
   <style level="p" name="quotations" element="p" parent="quote"/>
-  <style level="p" name="quote" element="p" parent="quote"/>
+  <style level="p" name="quote" element="p" parent="quote" rend="keep"/>
   <style level="p" name="quotedateline" element="dateline" parent="quote"/>
   <style level="p" name="quotel" element="l" parent="quote"/>
   <style level="p" name="quotesalute" element="salute" parent="quote"/>

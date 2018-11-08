@@ -1,10 +1,6 @@
-
 *.odt#
-
 *.odt
-
+*.bak
 *.docx
-
 *.xml
-
 *.doc

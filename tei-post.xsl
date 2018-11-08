@@ -24,13 +24,9 @@ s#<(bg|color|font|mark)_([^>/]+)([ /][^>]*)?>#<hi rend="\1" n="\2"\3>#g
 s#</(bg|color|font|mark)_[^>]+>#</hi>#g
 
 -->
-<xsl:transform version="1.1"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns="http://www.tei-c.org/ns/1.0"
-  xmlns:tei="http://www.tei-c.org/ns/1.0"
-  exclude-result-prefixes="tei"
->
+<xsl:transform exclude-result-prefixes="tei" version="1.1" xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output encoding="UTF-8" indent="yes" method="xml"/>
+  <xsl:strip-space elements="tei:teiHeader"/>
   <xsl:variable name="ABC">ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÆÈÉÊËÌÍÎÏÐÑÒÓÔÕÖÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöùúûüýÿþ’' -</xsl:variable>
   <xsl:variable name="abc">abcdefghijklmnopqrstuvwxyzaaaaaaeeeeeiiiidnooooouuuuybbaaaaaaaceeeeiiiionooooouuuuyyb</xsl:variable>
   <!-- Default identity transformation -->
@@ -64,12 +60,12 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
       <!-- Specific to "Classiques des Sciences Sociales", original page number -->
       <xsl:when test="translate(., ' .0123456789IVXLC', '')='p'">
         <xsl:variable name="n" select="normalize-space(translate(., ' .p', ''))"/>
-        <pb n="{$n}" ana="src">
+        <pb ana="src" n="{$n}">
           <xsl:attribute name="xml:id">
             <xsl:text>p</xsl:text>
             <xsl:value-of select="$n"/>
           </xsl:attribute>
-        </pb>     
+        </pb>
       </xsl:when>
       <xsl:otherwise>
         <hi>
@@ -82,7 +78,6 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-
   <xsl:template match="tei:phr">
     <xsl:copy>
       <xsl:copy-of select="@*"/>
@@ -92,7 +87,8 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
   </xsl:template>
   <!-- Page number -->
   <xsl:template match="tei:pb[text()]">
-    <xsl:variable name="n" select="translate(., '[]p.  ', '')"/><!--  Marc : J'ajoute l'espace insécable  -->
+    <xsl:variable name="n" select="translate(., '[]p.  ', '')"/>
+    <!--  Marc : J'ajoute l'espace insécable  -->
     <xsl:choose>
       <xsl:when test="number($n) &gt; 0">
         <pb n="{$n}">
@@ -123,7 +119,6 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
         </xsl:otherwise>
       </xsl:choose>
     </note>
-    
   </xsl:template>
   <!-- 
     Blocks, try to put inline rendering informations at block level ?
@@ -142,15 +137,15 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
         <xsl:when test="count(*)&gt;1"/>
         <xsl:when test="tei:anchor | tei:cb | tei:note | tei:ref | tei:pb | tei:quote"/>
         <xsl:when test="tei:hi/@rend | tei:seg/@rend">
-          <xsl:value-of select="*/@rend"/>  
+          <xsl:value-of select="*/@rend"/>
         </xsl:when>
         <xsl:otherwise>
           <xsl:value-of select="name(*)"/>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <xsl:variable name="next"  select="local-name(following-sibling::*[1])"/>
-    <xsl:variable name="prev"  select="local-name(preceding-sibling::*[1])"/>
+    <xsl:variable name="next" select="local-name(following-sibling::*[1])"/>
+    <xsl:variable name="prev" select="local-name(preceding-sibling::*[1])"/>
     <xsl:choose>
       <!-- bugs ?
       <xsl:when test="tei:pb and count(*)=1 and $mixed=''">
@@ -159,7 +154,7 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
       <xsl:when test="tei:figure and count(*)=1 and $mixed=''">
         <xsl:apply-templates/>
       </xsl:when>
-      -->      
+      -->
       <!-- Do not output unuseful spacing empty paras, start or end of section, before or after some grouping  -->
       <xsl:when test=".='' and not(*) and ($next='' or $prev='' or $next='figure' or $prev='figure' or $next='head' or $prev='head' or $next='item' or $prev='item' or $next='list' or $prev='list' or $next='quote' or $prev='quote' )"/>
       <!-- This should be done for things like
@@ -207,8 +202,6 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-  
-  
   <!-- verse fragment -->
   <xsl:template match="tei:l/tei:space"/>
   <xsl:template match="tei:l">
@@ -253,7 +246,6 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
       <xsl:apply-templates/>
     </xsl:copy>
   </xsl:template>
-  
   <!-- Generic -->
   <xsl:template match="*">
     <xsl:choose>
@@ -364,8 +356,6 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
- 
-
   <!-- Put inside <sp>, output next, stop on <speaker> -->
   <xsl:template name="sp">
     <xsl:choose>
@@ -383,7 +373,6 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-        
   <!--  -->
   <xsl:template match="tei:div">
     <xsl:variable name="head" select="translate(normalize-space(tei:head), $ABC, $abc)"/>
@@ -488,7 +477,6 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-
   <!-- Wash some inline typo in headings -->
   <xsl:template match="tei:head">
     <xsl:copy>
@@ -511,7 +499,7 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
             <xsl:choose>
               <xsl:when test="self::tei:space">
                 <xsl:text> </xsl:text>
-              </xsl:when>             
+              </xsl:when>
               <!-- element -->
               <xsl:when test="self::*">
                 <xsl:apply-templates select="."/>
@@ -538,7 +526,6 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
       </xsl:choose>
     </xsl:copy>
   </xsl:template>
-
   <xsl:template match="tei:head/tei:space"/>
   <!-- Should I wash some anchors ? -->
   <xsl:template match="tei:anchor">
@@ -559,7 +546,7 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
   </xsl:template>
   <!-- teiHeader -->
   <xsl:template match="/tei:TEI/tei:text/*[1]/tei:index">
-    <xsl:variable name="noheader">,author,bibl,created,creation,contributor,copyeditor,creator,date,edition,editor,idno,issued,keyword,lang,language,licence,license,publie,publisher,secretairederedaction,source,subject,sujet,title,translator</xsl:variable><!--  Marc : J'ajoute language  -->
+    <xsl:variable name="noheader">,author,bibl,created,creation,contributor,copyeditor,creator,date,edition,editor,idno,issued,keyword,lang,langage,language,licence,license,publie,publisher,secretairederedaction,source,subject,sujet,title,titre,translator</xsl:variable>
     <xsl:variable name="terms" select="tei:term[not(contains($noheader, concat(',', @type, ',')))]"/>
     <xsl:if test="count($terms) &gt; 1">
       <index>
@@ -567,37 +554,51 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
       </index>
     </xsl:if>
   </xsl:template>
-  <xsl:template name="teiHeader" match="tei:teiHeader">
+  <xsl:template match="tei:teiHeader">
     <xsl:variable name="terms" select="/tei:TEI/tei:text/*[1]/tei:index/tei:term"/>
-    <!-- TODO, prendre les métas -->
     <teiHeader>
       <fileDesc>
-        <titleStmt>
-          <xsl:for-each select="$terms[@type='title']">
-            <title>
-              <xsl:apply-templates/>
-            </title>
-          </xsl:for-each>
-          <xsl:for-each select="$terms[@type='author' or @type='creator']">
-            <author>
-              <xsl:apply-templates/>
-            </author>
-          </xsl:for-each>
-          <xsl:for-each select="$terms[@type='editor' or @type='contributor'  or @type='translator']">
-            <editor>
-              <xsl:if test="@type = 'translator'">
-                <xsl:attribute name="role">translator</xsl:attribute>
-              </xsl:if>
-              <xsl:apply-templates/>
-            </editor>
-          </xsl:for-each>
-        </titleStmt>
+        <xsl:choose>
+          <xsl:when test="$terms[@type='title' or @type='titre']">
+            <titleStmt>
+              <xsl:for-each select="$terms[@type='title' or @type='titre']">
+                <title>
+                  <xsl:apply-templates/>
+                </title>
+              </xsl:for-each>
+              <xsl:for-each select="$terms[@type='auteur' or @type='author' or @type='creator']">
+                <author>
+                  <xsl:apply-templates/>
+                </author>
+              </xsl:for-each>
+              <xsl:for-each select="$terms[@type='editor' or @type='contributor'  or @type='translator']">
+                <editor>
+                  <xsl:if test="@type = 'translator'">
+                    <xsl:attribute name="role">translator</xsl:attribute>
+                  </xsl:if>
+                  <xsl:apply-templates/>
+                </editor>
+              </xsl:for-each>
+            </titleStmt>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:apply-templates select="tei:fileDesc/tei:titleStmt"/>
+          </xsl:otherwise>
+        </xsl:choose>
         <editionStmt>
-          <xsl:for-each select="$terms[@type='edition']">
-            <edition>
-              <xsl:apply-templates/>
-            </edition>
-          </xsl:for-each>
+          <xsl:choose>
+            <xsl:when test="$terms[@type='edition']">
+              <xsl:for-each select="$terms[@type='edition']">
+                <edition>
+                  <xsl:apply-templates/>
+                </edition>
+              </xsl:for-each>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:apply-templates select="tei:fileDesc/tei:editionStmt/tei:edition"/>
+            </xsl:otherwise>
+          </xsl:choose>
+          <xsl:apply-templates select="tei:fileDesc/tei:editionStmt/tei:*[local-name() != 'edition']"/>
           <xsl:for-each select="$terms[@type='copyeditor' or @type='sr' or @type='secretairederedaction']">
             <respStmt>
               <xsl:choose>
@@ -632,74 +633,113 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
           </xsl:for-each>
         </editionStmt>
         <publicationStmt>
-          <xsl:for-each select="$terms[@type='publisher']">
-            <publisher>
-              <xsl:apply-templates/>
-            </publisher>
-          </xsl:for-each>
-          <xsl:for-each select="$terms[@type='issued' or @type='publie']">
-            <date>
-              <xsl:apply-templates/>
-            </date>
-          </xsl:for-each>
+          <xsl:choose>
+            <xsl:when test="$terms[@type='publisher']">
+              <xsl:for-each select="$terms[@type='publisher']">
+                <publisher>
+                  <xsl:apply-templates/>
+                </publisher>
+              </xsl:for-each>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:apply-templates select="tei:fileDesc/tei:publicationStmt/tei:authority | tei:fileDesc/tei:publicationStmt/tei:distributor | tei:fileDesc/tei:publicationStmt/tei:publisher | tei:fileDesc/tei:publicationStmt/tei:pubPlace"/>
+            </xsl:otherwise>
+          </xsl:choose>
+          <xsl:choose>
+            <xsl:when test="$terms[@type='issued' or @type='publie']">
+              <xsl:for-each select="$terms[@type='issued' or @type='publie']">
+                <date>
+                  <xsl:apply-templates/>
+                </date>
+              </xsl:for-each>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:apply-templates select="tei:fileDesc/tei:publicationStmt/tei:date"/>
+            </xsl:otherwise>
+          </xsl:choose>
           <xsl:for-each select="$terms[@type='idno']">
             <idno>
               <xsl:apply-templates/>
             </idno>
           </xsl:for-each>
-          <availability status="restricted">
-            <xsl:for-each select="$terms[@type='licence' or @type='license']">
-              <licence>
-                <xsl:choose>
-                  <xsl:when test="tei:ref and not(text()[normalize-space(.) != ''])">
-                    <xsl:attribute name="target">
-                      <xsl:value-of select="tei:ref/@target"/>
-                    </xsl:attribute>
-                    <xsl:apply-templates select="*/node()"/>
-                  </xsl:when>
-                  <xsl:otherwise>
-                    <xsl:apply-templates select="tei:ref[1]/@target"/>
-                    <xsl:apply-templates/>
-                  </xsl:otherwise>
-                </xsl:choose>
-              </licence>
-            </xsl:for-each>
-          </availability>
+          <xsl:choose>
+            <xsl:when test="$terms[@type='licence' or @type='license']">
+              <availability status="restricted">
+                <xsl:for-each select="$terms[@type='licence' or @type='license']">
+                  <licence>
+                    <xsl:choose>
+                      <xsl:when test="tei:ref and not(text()[normalize-space(.) != ''])">
+                        <xsl:attribute name="target">
+                          <xsl:value-of select="tei:ref/@target"/>
+                        </xsl:attribute>
+                        <xsl:apply-templates select="*/node()"/>
+                      </xsl:when>
+                      <xsl:otherwise>
+                        <xsl:apply-templates select="tei:ref[1]/@target"/>
+                        <xsl:apply-templates/>
+                      </xsl:otherwise>
+                    </xsl:choose>
+                  </licence>
+                </xsl:for-each>
+              </availability>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:apply-templates select="tei:fileDesc/tei:publicationStmt/tei:availability"/>
+            </xsl:otherwise>
+          </xsl:choose>
         </publicationStmt>
+        <xsl:apply-templates select="tei:fileDesc/tei:seriesStmt | tei:fileDesc/tei:notesStmt"/>
         <sourceDesc>
-          <xsl:for-each select="$terms[@type='source' or @type='bibl']">
-            <bibl>
-              <xsl:apply-templates/>
-            </bibl>
-          </xsl:for-each>
+          <xsl:choose>
+            <xsl:when test="$terms[@type='source' or @type='bibl']">
+              <xsl:for-each select="$terms[@type='source' or @type='bibl']">
+                <bibl>
+                  <xsl:apply-templates/>
+                </bibl>
+              </xsl:for-each>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:apply-templates select="tei:fileDesc/tei:sourceDesc/*"/>
+            </xsl:otherwise>
+          </xsl:choose>
         </sourceDesc>
       </fileDesc>
       <profileDesc>
-        <creation>
-          <xsl:for-each select="$terms[@type='created' or @type='creation' or @type='date']">
-            <date>
-              <xsl:choose>
-                <xsl:when test="translate(., '0123456789-- ', '') = ''">
-                  <xsl:attribute name="when">
-                    <xsl:value-of select="normalize-space(.)"/>
-                  </xsl:attribute>
-                </xsl:when>
-                <xsl:otherwise>
-                  <xsl:apply-templates/>
-                </xsl:otherwise>
-              </xsl:choose>
-            </date>
-          </xsl:for-each>
-        </creation>
-        <langUsage><!--    Marc : Récupérer en priorité la langue depuis le cartouche de métadonnées      -->
+        <xsl:choose>
+          <xsl:when test="$terms[@type='created' or @type='creation' or @type='date']">
+            <creation>
+              <xsl:for-each select="$terms[@type='created' or @type='creation' or @type='date']">
+                <date>
+                  <xsl:choose>
+                    <xsl:when test="translate(., '0123456789-- ', '') = ''">
+                      <xsl:attribute name="when">
+                        <xsl:value-of select="normalize-space(.)"/>
+                      </xsl:attribute>
+                    </xsl:when>
+                    <xsl:otherwise>
+                      <xsl:apply-templates/>
+                    </xsl:otherwise>
+                  </xsl:choose>
+                </date>
+              </xsl:for-each>
+            </creation>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:apply-templates select="tei:profileDesc/tei:creation"/>
+          </xsl:otherwise>
+        </xsl:choose>
+        <langUsage>
           <xsl:choose>
             <xsl:when test="$terms[@type='language']">
               <language>
                 <xsl:value-of select="normalize-space($terms[@type='language'])"/>
               </language>
             </xsl:when>
+            <xsl:when test="tei:profileDesc/tei:langUsage/tei:language">
+              <xsl:apply-templates select="tei:profileDesc/tei:langUsage/tei:language"/>
+            </xsl:when>
             <xsl:otherwise>
-              <language ident="{/*/@xml:lang}"/>    
+              <language ident="{/*/@xml:lang}"/>
             </xsl:otherwise>
           </xsl:choose>
         </langUsage>
