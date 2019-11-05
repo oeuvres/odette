@@ -32,7 +32,7 @@
       <date when="[AAAA-MM-JJ]"/>
     </creation>
     <langUsage>
-      <language ident="fr"/>
+      <language ident="fre"/>
     </langUsage>
   </profileDesc>
 </teiHeader>

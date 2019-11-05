@@ -1157,9 +1157,8 @@ to facilitate subsequent groupings.
           <xsl:apply-templates/>
         </seg>
       </xsl:when>
-      <!-- big test chain for good  -->
       <xsl:otherwise>
-        <!-- su^perscript/subscript -->
+        <!-- superscript/subscript -->
         <xsl:variable name="subsup">
           <xsl:choose>
             <xsl:when test="$position = 'sup' and translate(., 'ao', '') = ''">

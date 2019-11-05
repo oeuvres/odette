@@ -203,7 +203,6 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
     </xsl:choose>
   </xsl:template>
   <!-- verse fragment -->
-  <xsl:template match="tei:l/tei:space"/>
   <xsl:template match="tei:l">
     <xsl:copy>
       <xsl:copy-of select="@*[name() != 'type']"/>
@@ -442,12 +441,17 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
             </xsl:attribute>
           </xsl:if>
           <xsl:copy-of select="tei:head[1]/tei:anchor[1]/@xml:id"/>
+          <xsl:apply-templates select="@*"/>
           <!-- Non, trop de problèmes
           <xsl:if test="starts-with($head, 'chapter') or starts-with($head, 'chapitre')">
             <xsl:attribute name="type">chapter</xsl:attribute>
           </xsl:if>
             -->
-          <xsl:apply-templates select="@* | node()"/>
+          <xsl:attribute name="subtype">
+            <xsl:text>level</xsl:text>
+            <xsl:value-of select="count(ancestor-or-self::tei:div)"/>
+          </xsl:attribute>
+          <xsl:apply-templates/>
         </xsl:copy>
       </xsl:otherwise>
     </xsl:choose>
