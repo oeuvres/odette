@@ -208,6 +208,8 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="c" name="pagenum1" element="pb"/>
   <style level="c" name="pb" element="pb"/>
   <style level="c" name="persname" element="persName"/>
+  <style level="c" name="place" element="placeName"/>
+  <style level="c" name="placename" element="placeName"/>
   <style level="c" name="q" element="q"/>
   <style level="c" name="quote" element="quote"/>
   <style level="c" name="quotec" element="quote"/>
