@@ -55,6 +55,8 @@ s@</(author|name|persName|surname|sub|sup)>([  ]*)<\1( [^>]+)?>@\2@g
 # exit line break from inline tags
 s@(<lb/>\s*)</(b|em|emph|hi|i|name|num|phr|s|sc|strong|sub|sup|title|u)>@</\2>\1@g
 s@(<note[^>]*>) +@$1@g
+s@(<note[^>]*)>\[?nde\]? *@$1 resp="editor">@gi
+s@(<note[^>]*)>\[?nda\]? *@$1 resp="author">@gi
 s@</quote>( *<pb>[^<]*</pb> *)<quote[^>]*>@$1@g # inline quotes, insert page breaks (after upper)
 s@</quote>( *<note[^>]*>.+?</note> *)<quote[^>]*>@$1@g # inline quotes insert notes, ungreedy!
 

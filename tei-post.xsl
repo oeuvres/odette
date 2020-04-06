@@ -36,7 +36,7 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
     </xsl:copy>
   </xsl:template>
   <!-- typo inlines -->
-  <xsl:template match="tei:b | tei:i | tei:strong | tei:sup | tei:sc | tei:u">
+  <xsl:template match="tei:b | tei:strong | tei:sup | tei:sc | tei:u">
     <hi>
       <xsl:copy-of select="@*"/>
       <xsl:attribute name="rend">
@@ -44,6 +44,12 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
       </xsl:attribute>
       <xsl:apply-templates/>
     </hi>
+  </xsl:template>
+  <xsl:template match="tei:i">
+    <emph>
+      <xsl:copy-of select="@*"/>
+      <xsl:apply-templates/>
+    </emph>
   </xsl:template>
   <xsl:template match="tei:author">
     <name>
@@ -452,6 +458,19 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
             <xsl:value-of select="count(ancestor-or-self::tei:div)"/>
           </xsl:attribute>
           <xsl:apply-templates/>
+        </xsl:copy>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  <xsl:template match="tei:p">
+    <xsl:variable name="mixed" select="text()[normalize-space(.) != '']"/>
+    <xsl:choose>
+      <xsl:when test="not($mixed) and count(*) = 1 and tei:pb">
+        <xsl:apply-templates/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:copy>
+          <xsl:apply-templates select="@* | node()"/>
         </xsl:copy>
       </xsl:otherwise>
     </xsl:choose>

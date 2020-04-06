@@ -354,6 +354,7 @@ case encountered, seems logic, but not fully tested
         <xsl:when test="$classtest = 'bodytext'"/>
         <xsl:when test="starts-with($classtest, 'corpsdutexte')"/>
         <xsl:when test="$classtest = 'footnotetext'"/>
+        <xsl:when test="$classtest = 'footnotecharacters'"/>
         <xsl:when test="$classtest = 'framecontents'"/>
         <xsl:when test="contains($classtest, 'list')"/>
         <xsl:when test="starts-with($classtest, 'normal')"/>
@@ -685,8 +686,9 @@ Listes et tables
                 </xsl:when>
                 <!-- bug PDF 2 DOC, à ou « utilisé comme puce -->
                 <xsl:otherwise>
-                  <xsl:value-of select="($list-level/@text:bullet-char | $list-level/@style:num-format)"/>
-                  <xsl:text> </xsl:text>
+                  <xsl:attribute name="rend">
+                    <xsl:value-of select="($list-level/@text:bullet-char | $list-level/@style:num-format)"/>
+                  </xsl:attribute>
                 </xsl:otherwise>
               </xsl:choose>
             </xsl:if>
@@ -1027,6 +1029,7 @@ to facilitate subsequent groupings.
         <xsl:when test="starts-with ($classtest, 'corpsdutexte') "/>
         <xsl:when test="$classtest = 'defaultparagraphfont' "/>
         <xsl:when test="$classtest = 'footnotereference' "/>
+        <xsl:when test="$classtest = 'footnotecharacters'"/>
         <xsl:when test="$classtest = 'footnotesymbol' "/>
         <xsl:when test="$classtest = 'footnotetextchar' "/>
         <xsl:when test="$classtest = 'framecontents'"/>
@@ -1681,6 +1684,7 @@ simplfiy by post-process, not here, or bugs
       </xsl:for-each>
     </xsl:comment>
   </xsl:template>
+  <xsl:template match="office:annotation-end"/>
   <!--
 Liens et renvois
 ================

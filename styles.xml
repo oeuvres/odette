@@ -217,19 +217,21 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="c" name="s" element="s"/>
   <style level="c" name="seg" element="seg"/>
   <style level="c" name="sic" element="sic"/>
+  <style level="c" name="smcap" element="sc"/>
+  <style level="c" name="smcap1" element="sc"/>
   <style level="c" name="sourcetext" element="code"/>
   <style level="c" name="speakercar" element="speaker"/>
   <style level="c" name="stage" element="stage"/>
   <style level="c" name="stagec" element="stage"/>
   <style level="c" name="stagecar" element="stage"/>
   <style level="c" name="strongemphasis" element="strong"/>
-  <style level="c" name="teletype" element="code"/>
+  <style level="c" name="tech" element="tech"/>
   <style level="c" name="temps" element="date"/>
-  <style level="c" name="smcap" element="sc"/>
-  <style level="c" name="smcap1" element="sc"/>
+  <style level="c" name="teletype" element="code"/>
   <style level="c" name="term" element="term"/>
   <style level="c" name="title" element="title"/>
   <style level="c" name="title0" element="title"/>
+  <style level="c" name="titlec" element="title"/>
   <style level="c" name="userentry" element="code"/>
   <style level="c" name="variable" element="term"/>
 </sheet>

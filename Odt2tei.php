@@ -226,15 +226,18 @@ class Odette_Odt2tei {
    */
   public static function sed_preg($script)
   {
-    $search=array();
+    $search = array();
     $replace=array();
     $lines=explode("\n", $script);
     $lines=array_filter($lines, 'trim');
     foreach($lines as $l){
       if ($l[0] != 's') continue;
-      list($a,$s,$r)=explode($l[1], $l);
-      $search[]=$l[1].$s.$l[1].'u';
-      $replace[]=preg_replace('/\\\\([0-9]+)/', '\\$$1', $r);
+      $delim = $l[1];
+      list($a, $re, $rep, $flags)=explode($delim, $l);
+      $mod = 'u';
+      if (strpos($flags, 'i') !== FALSE) $mod .= "i"; // ignore case ?
+      $search[]=$delim.$re.$delim.$mod;
+      $replace[]=preg_replace('/\\\\([0-9]+)/', '\\$$1', $rep);
     }
     return array($search, $replace);
   }
