@@ -43,17 +43,17 @@ s@(c|d|j|l|m|n|qu|s|t)'@\1’@g
 # EMPTY AND SPACES
 
 # suppress inline empty tags before normalisation
-s@<(bg_[^> ]+|color_[^> ]+|mark_[^> ]+|font_[^> ]+|b|code|em|emph|hi|i|num|phr|ref|s|sc|strong|sub|surname|sup|strong|title|u)( [^>]+)?/>@@g
+s@<(bg_[^> ]+|color_[^> ]+|mark_[^> ]+|font_[^> ]+|b|code|em|emph|foreign|hi|i|num|phr|ref|s|sc|seg|strong|sub|surname|sup|strong|tech|title|u)( [^>]+)?/>@@g
 # <seg rend="lang-el">ρυθμιζειν</seg><seg rend="lang-el"> </seg><seg rend="lang-el">τας</seg>
 # <hi>The Holly</hi> <hi>Bible</hi> => <hi>The Holly Bible</hi>
 # do color first
 s@</(bg_[^> ]+|color_[^> ]+|mark_[^> ]+|font_[^> ]+)>([  ,.:’-]*)<\1( [^>]+)?>@\2@g
 # </pb>.<pb> => ., \s ?
-s@</(b|code|em|emph|hi|i|num|pb|phr|s|sc|strong|title|u)>([\s ,.:’-]*)<\1( [^>]+)?>@\2@g
+s@</(b|code|em|emph|foreign|hi|i|num|pb|phr|s|sc|seg|strong|tech|title|u)>([\s ,.:’-]*)<\1( [^>]+)?>@\2@g
 # <author>Juan Andrea</author> <author>Gilio</author>
 s@</(author|name|persName|surname|sub|sup)>([  ]*)<\1( [^>]+)?>@\2@g
 # exit line break from inline tags
-s@(<lb/>\s*)</(b|em|emph|hi|i|name|num|phr|s|sc|strong|sub|sup|title|u)>@</\2>\1@g
+s@(<lb/>\s*)</(b|em|emph|foreign|hi|i|name|num|phr|s|sc|seg|strong|sub|sup|tech|title|u)>@</\2>\1@g
 s@(<note[^>]*>) +@$1@g
 s@(<note[^>]*)>\[?nde\]? *@$1 resp="editor">@gi
 s@(<note[^>]*)>\[?nda\]? *@$1 resp="author">@gi
@@ -65,13 +65,13 @@ s@</quote>( *<note[^>]*>.+?</note> *)<quote[^>]*>@$1@g # inline quotes insert no
 # suppress inline tags with spaces <mark_ffffcc> </mark_ffffcc> =>  (be careful to empty cells, or paras with unbreakable space)
 # will not work in sed
 # <sup>’</sup>
-s@<(bg_[^> ]+|color_[^> ]+|mark_[^> ]+|font_[^> ]+|author|b|code|em|emph|hi|i|num|phr|s|sc|strong|sub|sup|surname|title|u)( [^>]+)?>([ : \‑\.\(\),\]\[’“”«»]*)</\1>@\3@g
+s@<(bg_[^> ]+|color_[^> ]+|mark_[^> ]+|font_[^> ]+|author|b|code|em|emph|foreign|hi|i|num|phr|s|sc|seg|strong|sub|sup|surname|tech|title|u)( [^>]+)?>([ : \‑\.\(\),\]\[’“”«»]*)</\1>@\3@g
 # <num>. ii</num> => . <num>ii</num>, <i>— L’Ordene de Chevalerie</i>
 # spaces or punctuation at start of a character tag ?
-# s@<(b|em|emph|hi|i|num|s|sc|surname|phr|title|u)( [^>]+)?>([ :\,;!?\-\. \)\]*•—–]+)@\3<\1\2>@g
+# s@<(b|em|emph|foreign|hi|i|num|s|sc|surname|phr|tech|title|u)( [^>]+)?>([ :\,;!?\-\. \)\]*•—–]+)@\3<\1\2>@g
 # exit some punctuation from inline tags !! &amp;
-s@\s*( ;)</(b|emph|em|hi|i|phr|strong|sub|sup|title|u)>@</\2>\1@g
-s@([  \-\,:!\?]+)</(author|b|em|emph|hi|i|phr|strong|sub|sup|title|u)>@</\2>\1@g
+s@\s*( ;)</(b|emph|foreign|em|hi|i|phr|strong|seg|sub|sup|tech|title|u)>@</\2>\1@g
+s@([  \-\,:!\?]+)</(author|b|em|emph|foreign|hi|i|phr|strong|seg|sub|sup|tech|title|u)>@</\2>\1@g
 
 # LINKS
 
@@ -132,8 +132,8 @@ s@</(num)>( *[⁰¹²³⁴⁵⁶⁷⁸⁹ªᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿ�
 
 # error <mark_000000>blah</mark_000000> blah blah <mark_000000>blah</mark_000000><term rend="index" key="BLAH"/>
 # ====> <term key="BLAH">blah</mark_000000> blah blah <mark_000000>blah</term>
-s@</(bg_[^> ]+|color_[^> ]+|font_[^> ]+|mark_[^> ]+|b|em|emph|hi|i|phr|title|u)>(\s*)(<term rend="index"[^>]+/>)@\3</\1>\2@g
-s@(<term rend="index"[^>]+/>)(\s*)<(bg_[^> ]+|color_[^> ]+|font_[^> ]+|mark_[^> ]+|b|em|emph|hi|i|phr|title|u)>@\2<\3>\1@g
+s@</(bg_[^> ]+|color_[^> ]+|font_[^> ]+|mark_[^> ]+|b|em|emph|foreign|hi|i|phr|title|u)>(\s*)(<term rend="index"[^>]+/>)@\3</\1>\2@g
+s@(<term rend="index"[^>]+/>)(\s*)<(bg_[^> ]+|color_[^> ]+|font_[^> ]+|mark_[^> ]+|b|em|emph|foreign|hi|i|phr|title|u)>@\2<\3>\1@g
 
 # trim some spaces and non significative punctuation
 # s@<(item|bibl)( [^>]+)?>[\s ]*[-*•—–][\s ]*@<\1\2>@g

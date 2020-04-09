@@ -178,6 +178,9 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="c" name="date" element="date"/>
   <style level="c" name="definition" element="gloss"/>
   <style level="c" name="del" element="del"/>
+  <style level="c" name="desc" element="desc"/>
+  <style level="c" name="description" element="seg" attribute="ana" value="description"/>
+  <style level="c" name="descriptioncar" element="seg" attribute="ana" value="description"/>
   <style level="c" name="distinct" element="distinct"/>
   <style level="c" name="edautoridad" element="name" attribute="type" value="authority"/>
   <style level="c" name="edcita" element="quote"/>

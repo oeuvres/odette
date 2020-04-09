@@ -252,39 +252,29 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
     </xsl:copy>
   </xsl:template>
   <!-- Generic -->
-  <xsl:template match="*">
-    <xsl:choose>
-      <!-- transform colors -->
-      <xsl:when test="starts-with(local-name(), 'bg_') or starts-with(local-name(), 'mark_') or starts-with(local-name(), 'color_')">
-        <hi>
-          <xsl:copy-of select="@*"/>
-          <xsl:attribute name="rend">
-            <xsl:variable name="rend">
-              <xsl:value-of select="@rend"/>
-              <xsl:text> </xsl:text>
-              <xsl:value-of select="local-name()"/>
-              <xsl:if test="following-sibling::*[1][local-name()='note']">
-                <xsl:text> note</xsl:text>
-              </xsl:if>
-            </xsl:variable>
-            <xsl:value-of select="normalize-space($rend)"/>
-          </xsl:attribute>
-          <xsl:apply-templates/>
+  <xsl:template match="*[starts-with(local-name(), 'bg_') or starts-with(local-name(), 'mark_') or starts-with(local-name(), 'color_')]">
+    <hi>
+      <xsl:copy-of select="@*"/>
+      <xsl:attribute name="rend">
+        <xsl:variable name="rend">
+          <xsl:value-of select="@rend"/>
+          <xsl:text> </xsl:text>
+          <xsl:value-of select="local-name()"/>
           <xsl:if test="following-sibling::*[1][local-name()='note']">
-            <xsl:for-each select="following-sibling::*[1]">
-              <xsl:copy>
-                <xsl:apply-templates/>
-              </xsl:copy>
-            </xsl:for-each>
+            <xsl:text> note</xsl:text>
           </xsl:if>
-        </hi>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:copy>
-          <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-      </xsl:otherwise>
-    </xsl:choose>
+        </xsl:variable>
+        <xsl:value-of select="normalize-space($rend)"/>
+      </xsl:attribute>
+      <xsl:apply-templates/>
+      <xsl:if test="following-sibling::*[1][local-name()='note']">
+        <xsl:for-each select="following-sibling::*[1]">
+          <xsl:copy>
+            <xsl:apply-templates/>
+          </xsl:copy>
+        </xsl:for-each>
+      </xsl:if>
+    </hi>
   </xsl:template>
   <!-- Index marks inside segments -->
   <xsl:template match="tei:hi[count(tei:term[@rend='index'][not(text())] )=1]">
