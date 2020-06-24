@@ -601,8 +601,7 @@ case encountered, seems logic, but not fully tested
       <xsl:with-param name="empty" select="$text = ''"/>
     </xsl:apply-templates>
     <xsl:choose>
-      <!-- Do not open a paragraph containing only a frame -->
-      <xsl:when test="$text = ''"/>
+      <!-- Keep empty paras as separator -->
       <xsl:when test="$class = 'term'">
         <xsl:copy-of select="$xml"/>
       </xsl:when>

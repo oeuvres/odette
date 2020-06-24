@@ -197,6 +197,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="c" name="geographie" element="geogName"/>
   <style level="c" name="gloss" element="gloss"/>
   <style level="c" name="htmlcite" element="title"/>
+  <style level="c" name="id" element="id"/>
   <style level="c" name="ident" element="ident"/>
   <style level="c" name="idno" element="idno"/>
   <style level="c" name="italic" element="i"/>

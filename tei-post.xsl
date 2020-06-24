@@ -126,6 +126,16 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
       </xsl:choose>
     </note>
   </xsl:template>
+  <xsl:template match="tei:ref[starts-with(., 'p.') or starts-with(., '[p.')]">
+    <pb>
+      <xsl:attribute name="n">
+        <xsl:value-of select="translate(normalize-space(.), '[]', '')"/>
+      </xsl:attribute>
+      <xsl:attribute name="facs">
+        <xsl:value-of select="normalize-space(@target)"/>
+      </xsl:attribute>
+    </pb>
+  </xsl:template>
   <!-- 
     Blocks, try to put inline rendering informations at block level ?
   
@@ -429,6 +439,12 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
       <xsl:when test="contains(normalize-space(tei:head), '[skip]')"/>
       <xsl:otherwise>
         <xsl:copy>
+          <xsl:variable name="divid" select="tei:head/tei:id"/>
+          <xsl:if test="$divid">
+            <xsl:attribute name="xml:id">
+              <xsl:value-of select="translate($divid, '[]', '')"/>
+            </xsl:attribute>
+          </xsl:if>
           <xsl:copy-of select="@*"/>
           <!-- ?? section à spliter ? -->
           <xsl:if test="tei:head[1]/@type">
@@ -447,11 +463,13 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
             <xsl:text>level</xsl:text>
             <xsl:value-of select="count(ancestor-or-self::tei:div)"/>
           </xsl:attribute>
+          
           <xsl:apply-templates/>
         </xsl:copy>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
+  <xsl:template match="tei:div/tei:head/tei:id"/>
   <xsl:template match="tei:p">
     <xsl:variable name="mixed" select="text()[normalize-space(.) != '']"/>
     <xsl:choose>
