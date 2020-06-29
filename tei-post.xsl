@@ -52,13 +52,22 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
     </emph>
   </xsl:template>
   <xsl:template match="tei:author">
-    <name>
-      <xsl:copy-of select="@*"/>
-      <xsl:attribute name="type">
-        <xsl:value-of select="local-name()"/>
-      </xsl:attribute>
-      <xsl:apply-templates/>
-    </name>
+    <xsl:choose>
+      <xsl:when test="ancestor::tei:analytic|ancestor::tei:bibl|ancestor::tei:editionStmt|ancestor::tei:monogr|ancestor::tei:msItem|ancestor::tei:msItemStruct|ancestor::tei:titleStmt">
+        <xsl:copy>
+          <xsl:apply-templates select="node()|@*"/>
+        </xsl:copy>
+      </xsl:when>
+      <xsl:otherwise>
+        <name>
+          <xsl:copy-of select="@*"/>
+          <xsl:attribute name="type">
+            <xsl:value-of select="local-name()"/>
+          </xsl:attribute>
+          <xsl:apply-templates/>
+        </name>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   <!-- sub chars may be page number in some conventions -->
   <xsl:template match="tei:sub">
@@ -439,13 +448,14 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
       <xsl:when test="contains(normalize-space(tei:head), '[skip]')"/>
       <xsl:otherwise>
         <xsl:copy>
+          <xsl:copy-of select="@*"/>
+          <!-- explicit id override <anchor xml:id="ddr193010burg"/> -->
           <xsl:variable name="divid" select="tei:head/tei:id"/>
           <xsl:if test="$divid">
             <xsl:attribute name="xml:id">
-              <xsl:value-of select="translate($divid, '[]', '')"/>
+              <xsl:value-of select="normalize-space(translate($divid, '[]', ''))"/>
             </xsl:attribute>
           </xsl:if>
-          <xsl:copy-of select="@*"/>
           <!-- ?? section à spliter ? -->
           <xsl:if test="tei:head[1]/@type">
             <xsl:attribute name="type">

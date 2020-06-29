@@ -184,6 +184,13 @@ class Odette_Odt2tei {
     $xml .='
 </office:document>';
     // load doc
+    // some indent
+    $xml = preg_replace(
+      array("@<(/?table:|office:|text:h |/?text:list |text:list-item|text:p )@"),
+      array("\n<$1"),
+      $xml
+    );
+    
     $this->loadXML($xml);
 
     $zip->close();
@@ -200,8 +207,10 @@ class Odette_Odt2tei {
     // some normalisation of oddities
     $start = microtime(true);
     $this->transform(dirname(__FILE__).'/odt-norm.xsl');
+    
     // odt > tei
     $this->transform(dirname(__FILE__).'/odt2tei.xsl', $pars);
+    
 
     $start = microtime(true);
 
@@ -215,9 +224,10 @@ class Odette_Odt2tei {
     $xml = preg_replace($preg[0], $preg[1], $xml);
 
     $this->loadXML($xml);
-    // $this->doc->formatOutput=true;
+    
     // TEI regularisations
     $this->transform(dirname(__FILE__).'/tei-post.xsl');
+    $this->doc->formatOutput=true; // should be OK if loadXML preserve spaces
 
   }
 
@@ -252,7 +262,7 @@ class Odette_Odt2tei {
     $oldError=set_error_handler(array($this,"err"), E_ALL);
     // if not set here, no indent possible for output
     $this->doc = new DOMDocument("1.0", "UTF-8");
-    $this->doc->preserveWhiteSpace = false;
+    $this->doc->preserveWhiteSpace = true; // keep white spaces !!! De[ ]Man
     $this->doc->recover=true;
     $this->doc->loadXML($xml, LIBXML_NOENT | LIBXML_NONET | LIBXML_NSCLEAN | LIBXML_NOCDATA | LIBXML_COMPACT);
     restore_error_handler();
