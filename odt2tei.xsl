@@ -607,7 +607,7 @@ case encountered, seems logic, but not fully tested
       </xsl:when>
       <!-- be careful with empty paras -->
       <xsl:when test="$border != ''">
-        <quote rend="border">
+        <quote rend="framed">
           <xsl:copy-of select="$xml"/>
         </quote>
       </xsl:when>
@@ -706,7 +706,7 @@ Listes et tables
     <xsl:choose>
       <xsl:when test="$border != ''">
         <!-- No space before a border, to help future cleaning -->
-        <quote rend="border">
+        <quote rend="framed">
           <xsl:copy-of select="$list"/>
         </quote>
       </xsl:when>
@@ -1164,9 +1164,11 @@ to facilitate subsequent groupings.
         <!-- superscript/subscript -->
         <xsl:variable name="subsup">
           <xsl:choose>
+            <!--
             <xsl:when test="$position = 'sup' and translate(., 'ao', '') = ''">
               <xsl:value-of select="translate(., 'ao', 'ªº')"/>
             </xsl:when>
+            -->
             <xsl:when test="$position != ''">
               <xsl:element name="{$position}" namespace="http://www.tei-c.org/ns/1.0">
                 <xsl:apply-templates/>
