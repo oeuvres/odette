@@ -86,20 +86,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="h4sub" element="head" attribute="type" value="sub"/>
   <style level="p" name="index" element="item" parent="index"/>
   <style level="p" name="l" element="l" rend="keep"/>
-  <style level="p" name="syl1" element="l" attribute="met" value="syl1"/>
-  <style level="p" name="syl2" element="l" attribute="met" value="syl2"/>
-  <style level="p" name="syl3" element="l" attribute="met" value="syl3"/>
-  <style level="p" name="syl4" element="l" attribute="met" value="syl4"/>
-  <style level="p" name="syl5" element="l" attribute="met" value="syl5"/>
-  <style level="p" name="syl6" element="l" attribute="met" value="syl6"/>
-  <style level="p" name="syl7" element="l" attribute="met" value="syl7"/>
-  <style level="p" name="syl8" element="l" attribute="met" value="syl8"/>
-  <style level="p" name="syl9" element="l" attribute="met" value="syl9"/>
-  <style level="p" name="syl10" element="l" attribute="met" value="syl10"/>
-  <style level="p" name="syl11" element="l" attribute="met" value="syl11"/>
-  <style level="p" name="syl12" element="l" attribute="met" value="syl12"/>
-  <style level="p" name="syl13" element="l" attribute="met" value="syl13"/>
-  <style level="p" name="syl14" element="l" attribute="met" value="syl14"/>
+  <style level="p" name="lindent" element="l" attribute="rend" value="indent"/>
   <style level="p" name="legende" element="label"/>
   <style level="p" name="ln" element="l"/>
   <style level="p" name="lpart" element="l" attribute="type" value="part"/>
@@ -122,13 +109,16 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="postscript" element="p" parent="postscript"/>
   <style level="p" name="pre" element="eg"/>
   <style level="p" name="preformattedtext" element="eg"/>
+  <style level="p" name="ptop" element="p" rend="keep"/>
   <style level="p" name="q" element="q"/>
   <style level="p" name="quotations" element="p" parent="quote"/>
   <style level="p" name="quote" element="p" parent="quote" rend="keep"/>
   <style level="p" name="quotedateline" element="dateline" parent="quote"/>
   <style level="p" name="quotel" element="l" parent="quote"/>
+  <style level="p" name="quotelindent" element="l" parent="quote" attribute="rend" value="indent"/>
   <style level="p" name="quotesalute" element="salute" parent="quote"/>
   <style level="p" name="quotesigned" element="signed" parent="quote"/>
+  <style level="p" name="quotetop" element="p" parent="quote" rend="keep"/>
   <style level="p" name="refrain" element="l" attribute="rend" value="refrain"/>
   <style level="p" name="role" element="role" parent="castItem"/>
   <style level="p" name="roledesc" element="roleDesc" parent="castItem"/>
@@ -141,11 +131,25 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="signature" element="signed"/>
   <style level="p" name="soustitre" element="head" attribute="type" value="sub"/>
   <style level="p" name="speaker" element="speaker"/>
-  <style level="p" name="subtitle" element="head" attribute="type" value="sub"/>
   <style level="p" name="stage" element="stage"/>
   <style level="p" name="stageromain" element="stage" attribute="rend" value="not-i"/>
   <style level="p" name="stageitaliquecourt" element="stage" attribute="rend" value="right"/>  
   <style level="p" name="stageitalique" element="stage"/>
+  <style level="p" name="subtitle" element="head" attribute="type" value="sub"/>
+  <style level="p" name="syl1" element="l" attribute="met" value="syl1"/>
+  <style level="p" name="syl2" element="l" attribute="met" value="syl2"/>
+  <style level="p" name="syl3" element="l" attribute="met" value="syl3"/>
+  <style level="p" name="syl4" element="l" attribute="met" value="syl4"/>
+  <style level="p" name="syl5" element="l" attribute="met" value="syl5"/>
+  <style level="p" name="syl6" element="l" attribute="met" value="syl6"/>
+  <style level="p" name="syl7" element="l" attribute="met" value="syl7"/>
+  <style level="p" name="syl8" element="l" attribute="met" value="syl8"/>
+  <style level="p" name="syl9" element="l" attribute="met" value="syl9"/>
+  <style level="p" name="syl10" element="l" attribute="met" value="syl10"/>
+  <style level="p" name="syl11" element="l" attribute="met" value="syl11"/>
+  <style level="p" name="syl12" element="l" attribute="met" value="syl12"/>
+  <style level="p" name="syl13" element="l" attribute="met" value="syl13"/>
+  <style level="p" name="syl14" element="l" attribute="met" value="syl14"/>
   <style level="p" name="texteenvers" element="l" parent="lg"/>
   <style level="p" name="term" element="term" parent="index"/>
   <style level="p" name="title" element="head"/>

@@ -56,13 +56,19 @@ Best usage of output could be as an input for other filters (regular expressions
   <xsl:variable name="width">
     <xsl:variable name="layout" select="//style:page-layout-properties[1]"/>
     <xsl:variable name="margin-left">
-      <xsl:apply-templates select="$layout/@fo:margin-left" mode="tomm"/>
+      <xsl:call-template name="mm">
+        <xsl:with-param name="value" select="$layout/@fo:margin-left"/>
+      </xsl:call-template>
     </xsl:variable>
     <xsl:variable name="margin-right">
-      <xsl:apply-templates select="$layout/@fo:margin-right" mode="tomm"/>
+      <xsl:call-template name="mm">
+        <xsl:with-param name="value" select="$layout/@fo:margin-right"/>
+      </xsl:call-template>
     </xsl:variable>
     <xsl:variable name="page-width">
-      <xsl:apply-templates select="$layout/@fo:page-width" mode="tomm"/>
+      <xsl:call-template name="mm">
+        <xsl:with-param name="value" select="$layout/@fo:page-width"/>
+      </xsl:call-template>
     </xsl:variable>
     <xsl:value-of select="$page-width - $margin-left - $margin-right"/>
   </xsl:variable> 
@@ -267,7 +273,9 @@ case encountered, seems logic, but not fully tested
     <pb n="{.}"/>
   </xsl:template>
   <!-- if office page break are gnificative, it is here -->
-  <xsl:template match="text:soft-page-break"/>
+  <xsl:template match="text:soft-page-break">
+    <pb/>
+  </xsl:template>
   <!-- End of text, do not forget to close open <div> -->
   <xsl:template match="office:text">
     <!-- NO !
@@ -352,6 +360,8 @@ case encountered, seems logic, but not fully tested
         <!-- non semantic style names -->
         <xsl:when test="starts-with($classtest, 'annotationtext')"/>
         <xsl:when test="$classtest = 'bodytext'"/>
+        <!-- ABBYY -->
+        <xsl:when test="starts-with($classtest, 'texteducorps')"/>
         <xsl:when test="starts-with($classtest, 'corpsdutexte')"/>
         <xsl:when test="$classtest = 'footnotetext'"/>
         <xsl:when test="$classtest = 'footnotecharacters'"/>
@@ -384,7 +394,9 @@ case encountered, seems logic, but not fully tested
     </xsl:variable>
     <xsl:variable name="margin">
       <xsl:variable name="margin-left">
-        <xsl:apply-templates select="$style/style:paragraph-properties/@fo:margin-left" mode="tomm"/>
+      <xsl:call-template name="mm">
+        <xsl:with-param name="value" select="$style/style:paragraph-properties/@fo:margin-left"/>
+      </xsl:call-template>
       </xsl:variable>
       <xsl:variable name="ratio" select="$margin-left div $width"/>
       <xsl:choose>
@@ -586,20 +598,6 @@ case encountered, seems logic, but not fully tested
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <!-- process frames out of flow (a <html:p> cannot contain <html:div> ) -->
-    <xsl:variable name="text">
-      <xsl:for-each select="node()">
-        <xsl:choose>
-          <xsl:when test="self::draw:frame"/>
-          <xsl:otherwise>
-            <xsl:value-of select="normalize-space(.)"/>
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:for-each>
-    </xsl:variable>
-    <xsl:apply-templates select="draw:frame" mode="frame">
-      <xsl:with-param name="empty" select="$text = ''"/>
-    </xsl:apply-templates>
     <xsl:choose>
       <!-- Keep empty paras as separator -->
       <xsl:when test="$class = 'term'">
@@ -650,6 +648,7 @@ Listes et tables
     <xsl:variable name="list">
       <xsl:choose>
         <!-- Dialogue ? -->
+        <!--
         <xsl:when test="$bullet != '' and contains('-—–', $bullet) and not(*[count(*) > 1])">
           <xsl:for-each select="*">
             <p rend="dialog">
@@ -659,6 +658,7 @@ Listes et tables
             </p>
           </xsl:for-each>
         </xsl:when>
+        -->
         <!-- listBibl -->
         <xsl:when test="starts-with(normalize-space($item-class), 'Bibl') or starts-with(normalize-space($item-class), 'bibl')">
           <listBibl>
@@ -801,7 +801,9 @@ Listes et tables
     <xsl:variable name="style" select="key('style', $style-name)"/>
     <xsl:variable name="align" select="$style/style:table-properties/@table:align"/>
     <xsl:variable name="width">
-      <xsl:apply-templates select="$style/style:table-properties/@style:width" mode="tomm"/>
+      <xsl:call-template name="mm">
+        <xsl:with-param name="value" select="$style/style:table-properties/@style:width"/>
+      </xsl:call-template>
     </xsl:variable>
     <table>
       <xsl:if test="$align">
@@ -832,7 +834,9 @@ Listes et tables
     <xsl:variable name="style-name" select="@table:style-name"/>
     <xsl:variable name="style" select="key('style', $style-name)"/>
     <xsl:variable name="column-width">
-      <xsl:apply-templates select="$style/style:table-column-properties/@style:column-width" mode="tomm"/>
+      <xsl:call-template name="mm">
+        <xsl:with-param name="value" select="$style/style:table-column-properties/@style:column-width"/>
+      </xsl:call-template>
     </xsl:variable>   
     <xsl:variable name="pc" select="round(100 * $column-width div $width)"/>
     <span type="col">
@@ -1414,93 +1418,58 @@ Go through unuseful link
           </draw:frame>
         </text:p>
   -->
-  <!-- For text frame to put outside of paragraphs -->
-  <xsl:template match="draw:frame" mode="frame">
-    <xsl:param name="empty"/>
-    <xsl:choose>
-      <xsl:when test="$empty">
-        <figure>
-          <xsl:apply-templates/>
-        </figure>
-      </xsl:when>
-      <xsl:when test="draw:image"/>
-      <xsl:when test=".//draw:image and count(draw:text-box/text:p) = 1"/>
-      <xsl:otherwise>
-        <figure>
-          <xsl:apply-templates/>
-        </figure>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
   <xsl:template match="draw:frame">
-    <xsl:choose>
-      <xsl:when test="draw:image">
-        <xsl:apply-templates/>
-      </xsl:when>
-      <xsl:when test=".//draw:image and count(draw:text-box/text:p) = 1">
-        <xsl:apply-templates/>
-      </xsl:when>
-      <xsl:otherwise/>
-    </xsl:choose>
+    <figure rend="frame">
+      <xsl:variable name="image-width">
+        <xsl:call-template name="mm">
+          <xsl:with-param name="value" select="@svg:width"/>
+        </xsl:call-template>
+      </xsl:variable>
+      <xsl:variable name="scale" select=" round(100 * $image-width div $width) div 100"/>
+      <xsl:variable name="x">
+        <xsl:call-template name="mm">
+          <xsl:with-param name="value" select="@svg:x"/>
+        </xsl:call-template>
+      </xsl:variable>
+      <xsl:variable name="align">
+        <xsl:choose>
+          <xsl:when test="$width div ($image-width + $x) &gt; 0.9">right</xsl:when>
+        </xsl:choose>
+      </xsl:variable>
+      <xsl:variable name="rend" select="normalize-space($align)"/>
+      <xsl:apply-templates/>
+    </figure>
   </xsl:template>
   <xsl:template match="draw:text-box">
-    <xsl:choose>
-      <xsl:when test="count(text:p) = 1 and text:p/draw:frame/draw:image">
-        <xsl:apply-templates select="text:p/draw:frame/draw:image"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates/>
-      </xsl:otherwise>
-    </xsl:choose>
+    <quote>
+      <xsl:apply-templates/>
+    </quote>
   </xsl:template>
   <xsl:template match="draw:plugin">
     <ptr target="{@xlink:href}"/>
   </xsl:template>
   
   <xsl:template match="draw:frame/svg:title">
-    <head>
-      <xsl:apply-templates select="node()[local-name() != 'image' and local-name() != 'frame']"/>
-    </head>
+    <xsl:if test="normalize-space(.) != ''">
+      <head>
+        <xsl:apply-templates/>
+      </head>
+    </xsl:if>
   </xsl:template>
   <xsl:template match="text:sequence">
     <xsl:apply-templates/>
   </xsl:template>
+  
   <xsl:template match="draw:text-box//text:line-break"/>
   <xsl:template match="draw:frame/svg:desc">
-    <figDesc>
-      <xsl:apply-templates/>
-    </figDesc>
+    <xsl:if test="normalize-space(.) != ''">
+      <figDesc>
+        <xsl:apply-templates/>
+      </figDesc>
+    </xsl:if>
   </xsl:template>
   <xsl:template match="draw:image">
-    <xsl:variable name="frame" select="ancestor::draw:frame[position() = last()]"/>
-    <xsl:variable name="image-width">
-      <xsl:apply-templates select="$frame/@svg:width" mode="tomm"/>
-    </xsl:variable>
-    <xsl:variable name="scale" select=" round(100 * $image-width div $width) div 100"/>
-    <xsl:variable name="x">
-      <xsl:apply-templates select="$frame/@svg:x" mode="tomm"/>
-    </xsl:variable>
-    <xsl:variable name="align">
-      <xsl:choose>
-        <xsl:when test="$width div ($image-width + $x) &gt; 0.9">right</xsl:when>
-      </xsl:choose>
-    </xsl:variable>
-    <xsl:variable name="rend" select="normalize-space($align)"/>
     <graphic>
-      <xsl:if test="$rend != ''">
-        <xsl:attribute name="rend">
-          <xsl:value-of select="$rend"/>
-        </xsl:attribute>
-      </xsl:if>
-      <xsl:choose>
-        <xsl:when test="$scale &gt; 0.9"/>
-        <xsl:when test="$scale &lt; 0.1"/>
-        <xsl:otherwise>
-          <xsl:attribute name="scale">
-            <xsl:value-of select="$scale"/>
-          </xsl:attribute>
-        </xsl:otherwise>
-      </xsl:choose>
       <xsl:attribute name="url">
         <xsl:choose>
           <xsl:when test="$mediadir != '' and contains(@xlink:href, 'media/')">
@@ -1520,12 +1489,19 @@ Go through unuseful link
           </xsl:otherwise>
         </xsl:choose>
       </xsl:attribute>
+      <!-- do not try to restore bad hierarchy here
       <xsl:if test="ancestor::draw:text-box">
         <desc>
           <xsl:apply-templates select="ancestor::draw:text-box[1]/text:p/node()[not(self::draw:frame)]"/>
         </desc>
       </xsl:if>
+      -->
+      <xsl:apply-templates/>
     </graphic>
+  </xsl:template>
+  <!--  Go through all other draw:* till no better idea found-->
+  <xsl:template match="draw:*">
+    <xsl:apply-templates/>
   </xsl:template>
   <!-- Saut de ligne -->
   <xsl:template match="text:line-break">
@@ -1620,12 +1596,13 @@ Notes
           </xsl:otherwise>
         </xsl:choose>
       </xsl:attribute>
-      <xsl:apply-templates select="text:note-body"/>
+      <xsl:apply-templates/>
     </note>
   </xsl:template>
+  <xsl:template match="text:note-citation"/>
   <xsl:template match="text:note-body">
     <xsl:choose>
-      <xsl:when test="count(descendant::text:p)=1">
+      <xsl:when test="count(descendant::text:p) = 1">
         <!-- 
 <text:span text:style-name="Appel_20_note_20_de_20_bas_20_de_20_p.">
   <text:span text:style-name="T21">
@@ -1852,12 +1829,12 @@ Liens et renvois
     </xsl:choose>
   </xsl:template>
   <!-- Default is a copy all to get back what is not matched -->
-  <xsl:template match="node()|@*">
+  <xsl:template match="node()|@*" priority="-1">
     <xsl:copy>
       <xsl:apply-templates select="node()|@*"/>
     </xsl:copy>
   </xsl:template>
-  <xsl:template mode="tomm" match="@*|node()">
+  <xsl:template name="mm">
     <xsl:param name="value" select="."/>
     <xsl:variable name="unit" select="translate($value, '0123456789. -', '')"/>
     <xsl:variable name="number" select="translate($value, '-0123456789.ptxcinme', '-0123456789.')"/>
