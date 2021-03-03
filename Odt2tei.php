@@ -212,10 +212,12 @@ class Odette_Odt2tei {
     $this->transform(dirname(__FILE__).'/odt2tei.xsl', $pars);
     
 
+
     $start = microtime(true);
 
-    // indent here produce problems, but without, may break tags
-    $this->doc->formatOutput=true;
+    // indent here produce problems, but without, tags may be broken by regex
+    $this->doc->preserveWhiteSpace = true;
+    $this->doc->formatOutput = false;
     $this->doc->substituteEntities=true;
     $xml=$this->doc->saveXML();
 
@@ -223,12 +225,13 @@ class Odette_Odt2tei {
     $preg=self::sed_preg(file_get_contents(dirname(__FILE__).'/tei.sed'));
     $xml = preg_replace($preg[0], $preg[1], $xml);
 
+    
     $this->loadXML($xml);
     
     // TEI regularisations
     $this->transform(dirname(__FILE__).'/tei-post.xsl');
-    $this->doc->formatOutput=true; // should be OK if loadXML preserve spaces
-
+    $this->doc->preserveWhiteSpace = true;
+    $this->doc->formatOutput = false;
   }
 
   /**

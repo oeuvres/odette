@@ -1,38 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 
-<teiHeader> model, will be inserted in the TEI document extracted from odt document.
+<teiHeader> 
+modèle inséré dans le document TEI extrait
 -->
 <teiHeader xmlns="http://www.tei-c.org/ns/1.0">
   <fileDesc>
     <titleStmt>
-      <title>[Titre non renseigné]</title>
-      <author key="[Nom, Prénom (AAAA-AAAA)]">[Auteur non renseigné]</author>
+      <title>{title}</title>
+      <author key="{author_key}">{author}</author>
     </titleStmt>
     <editionStmt>
-      <edition>OBVIL</edition>
+      <edition>ObTiC</edition>
     </editionStmt>
     <publicationStmt>
-      <publisher>Sorbonne Université, Labex OBVIL</publisher>
-      <availability status="restricted">
-        <licence target="http://creativecommons.org/licenses/by-nc-nd/3.0/fr/">
-          <p>Cette ressource électronique protégée par le code de la propriété intellectuelle sur les bases de données (L341-1) est mise à disposition de la communauté scientifique internationale par l’OBVIL, selon les termes de la licence Creative Commons : 	« Attribution - Pas d’Utilisation Commerciale - Pas de Modification 3.0 France (CCBY-NC-ND 3.0 FR) ».</p>
-          <p>Attribution : afin de référencer la source, toute utilisation ou publication dérivée de cette ressource électroniques comportera le nom de l’OBVIL et surtout l’adresse Internet de la ressource.</p>
-          <p>Pas d’Utilisation Commerciale : dans l’intérêt de la communauté scientifique, toute utilisation commerciale est interdite.</p>
-          <p>Pas de Modification : l’OBVIL s’engage à améliorer et à corriger cette ressource électronique, notamment en intégrant toutes les contributions extérieures, la diffusion de versions modifiées de cette ressource n’est pas souhaitable.</p>
+      <publisher>ObTiC</publisher>
+        <licence target="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr">
+          <p>Cette ressource électronique protégée par le code de la propriété intellectuelle sur les bases de données (L341-1) est mise à disposition de la communauté scientifique internationale par l’ObTiC, selon les termes de la licence Creative Commons : « Attribution - Pas d’Utilisation Commerciale - Pas de Modification 4.0 International (CC BY-NC-ND 4.0) ».</p>
+          <p>Attribution : afin de référencer la source, toute utilisation ou publication dérivée de cette ressource électroniques comportera le nom de l’ObTiC et surtout l’URL de référence.</p>
+          <p>Pas d’Utilisation Commerciale : toute utilisation commerciale ne serait qu’une version dégradée de l’original qui est, et restera, libre et gratuit.</p>
+          <p>Pas de Modification : l’ObTiC s’engage à améliorer et à corriger cette ressource électronique, notamment en intégrant toutes les contributions extérieures, la diffusion de versions modifiées de cette ressource n’est pas souhaitable.</p>
         </licence>
-      </availability>
     </publicationStmt>
     <sourceDesc>
-      <bibl>[Source numérisée]</bibl>
+      <bibl>{bibl}</bibl>
     </sourceDesc>
   </fileDesc>
   <profileDesc>
     <creation>
-      <!-- Date de création du texte -->
-      <date when="[AAAA-MM-JJ]"/>
+      <date when="{date}"/>
     </creation>
     <langUsage>
-      <language ident="fre"/>
+      <language ident="{lang}"/>
     </langUsage>
   </profileDesc>
 </teiHeader>

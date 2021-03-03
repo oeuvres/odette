@@ -3,6 +3,7 @@
 Post processing of odt_tei
 
 LGPL  http://www.gnu.org/licenses/lgpl.html
+© 2021 frederic.glorieux@fictif.org et Optéos
 © 2015 frederic.glorieux@fictif.org et LABEX OBVIL
 
 // dangerous in re
@@ -27,8 +28,13 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
 <xsl:transform exclude-result-prefixes="tei" version="1.1" xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output encoding="UTF-8" indent="yes" method="xml"/>
   <xsl:strip-space elements="tei:teiHeader"/>
-  <xsl:variable name="ABC">ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÆÈÉÊËÌÍÎÏÐÑÒÓÔÕÖÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöùúûüýÿþ’' -</xsl:variable>
-  <xsl:variable name="abc">abcdefghijklmnopqrstuvwxyzaaaaaaeeeeeiiiidnooooouuuuybbaaaaaaaceeeeiiiionooooouuuuyyb</xsl:variable>
+  <xsl:variable name="ABC">ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÆÈÉÊËÌÍÎÏÐÑÒÓÔÕÖŒÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöùúûüýÿþ,:; ?()/\ ._-{}[]</xsl:variable>
+  <xsl:variable name="abc">abcdefghijklmnopqrstuvwxyzaaaaaaeeeeeiiiidnoooooœuuuuybbaaaaaaaceeeeiiiionooooouuuuyyb</xsl:variable>
+  <xsl:variable name="metakeys">
+    <xsl:text>,</xsl:text>
+    <xsl:apply-templates select="/*/tei:teiHeader" mode="metakeys"/>
+  </xsl:variable>
+  <xsl:key name="meta" match="/tei:TEI/tei:text/*[1]/tei:index/tei:term" use="@type"/>
   <!-- Default identity transformation -->
   <xsl:template match="node()|@*">
     <xsl:copy>
@@ -587,14 +593,63 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
   </xsl:template>
   <!-- teiHeader -->
   <xsl:template match="/tei:TEI/tei:text/*[1]/tei:index">
-    <xsl:variable name="noheader">,author,bibl,created,creation,contributor,copyeditor,creator,date,edition,editor,idno,issued,keyword,lang,langage,language,licence,license,publie,publisher,secretairederedaction,source,subject,sujet,title,titre,translator</xsl:variable>
-    <xsl:variable name="terms" select="tei:term[not(contains($noheader, concat(',', @type, ',')))]"/>
+    <xsl:variable name="terms" select="tei:term[not(contains($metakeys, concat(',', @type, ',')))]"/>
     <xsl:if test="count($terms) &gt; 1">
       <index>
         <xsl:copy-of select="$terms"/>
       </index>
     </xsl:if>
   </xsl:template>
+  <xsl:template match="node()" mode="metakeys">
+    <xsl:apply-templates select="node()|@*" mode="metakeys"/>
+  </xsl:template>
+  <xsl:template match="text()|@*" mode="metakeys">
+    <xsl:choose>
+      <xsl:when test="starts-with(., '{') and contains(., '}') and normalize-space(substring-after(., '}')) = ''">
+        <xsl:value-of select="translate(., $ABC, $abc)"/>
+        <xsl:text>,</xsl:text>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:template>
+  <xsl:template match="tei:teiHeader // text()">
+    <xsl:choose>
+      <xsl:when test="starts-with(., '{') and contains(., '}') and normalize-space(substring-after(., '}')) = ''">
+        <xsl:variable name="key" select="translate(., $ABC, $abc)"/>
+        <xsl:choose>
+          <xsl:when test="key('meta', $key)">
+            <xsl:apply-templates select="key('meta', $key)/node()"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:copy-of select="."/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:copy-of select="."/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  <xsl:template match="tei:teiHeader // @*">
+    <xsl:attribute name="{name()}">
+      <xsl:choose>
+        <xsl:when test="starts-with(., '{') and contains(., '}') and normalize-space(substring-after(., '}')) = ''">
+          <xsl:variable name="key" select="translate(., $ABC, $abc)"/>
+          <xsl:choose>
+            <xsl:when test="key('meta', $key)">
+              <xsl:value-of select="key('meta', $key)"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="."/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:copy-of select="."/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:attribute>
+  </xsl:template>
+  <!--
   <xsl:template match="tei:teiHeader">
     <xsl:variable name="terms" select="/tei:TEI/tei:text/*[1]/tei:index/tei:term"/>
     <teiHeader>
@@ -752,7 +807,7 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
               <xsl:for-each select="$terms[@type='created' or @type='creation' or @type='date']">
                 <date>
                   <xsl:choose>
-                    <xsl:when test="translate(., '0123456789-- ', '') = ''">
+                    <xsl:when test="translate(., '0123456789- ', '') = ''">
                       <xsl:attribute name="when">
                         <xsl:value-of select="normalize-space(.)"/>
                       </xsl:attribute>
@@ -798,4 +853,5 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
       </profileDesc>
     </teiHeader>
   </xsl:template>
+  -->
 </xsl:transform>

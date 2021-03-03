@@ -6,6 +6,7 @@
 <p>Vous qui entrez, laissez toute espérance ! (de comprendre)</p>
 
 LGPL  http://www.gnu.org/licenses/lgpl.html
+© 2021 Frederic.Glorieux@fictif.org et Optéos
 © 2013 Frederic.Glorieux@fictif.org et LABEX OBVIL
 © 2012 Frederic.Glorieux@fictif.org 
 © 2010 Frederic.Glorieux@fictif.org et École nationale des chartes
@@ -71,7 +72,7 @@ Best usage of output could be as an input for other filters (regular expressions
       </xsl:call-template>
     </xsl:variable>
     <xsl:value-of select="$page-width - $margin-left - $margin-right"/>
-  </xsl:variable> 
+  </xsl:variable>
   <!-- Kind of output -->
   <xsl:variable name="fragment">fragment</xsl:variable>
   <xsl:variable name="document">document</xsl:variable>
@@ -98,7 +99,7 @@ Best usage of output could be as an input for other filters (regular expressions
 </xsl:text>
   </xsl:variable>
   <xsl:variable name="tab" select="'&#x9;'"/>
-  <xsl:variable name="ABC">ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÆÈÉÊËÌÍÎÏÐÑÒÓÔÕÖŒÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöùúûüýÿþ,; ?()/\ ._-</xsl:variable>
+  <xsl:variable name="ABC">ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÆÈÉÊËÌÍÎÏÐÑÒÓÔÕÖŒÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöùúûüýÿþ,:; ?()/\ ._-{}[]</xsl:variable>
   <xsl:variable name="abc">abcdefghijklmnopqrstuvwxyzaaaaaaeeeeeiiiidnoooooœuuuuybbaaaaaaaceeeeiiiionooooouuuuyyb</xsl:variable>
   <!-- Shall we infer title from content ? -->
   <xsl:variable name="h" select="//text:h[1]"/>
@@ -136,7 +137,11 @@ Best usage of output could be as an input for other filters (regular expressions
           <xsl:copy-of select="$teiHeader"/>
           <text>
             <body>
+              <xsl:value-of select="$lf"/>
+              <xsl:value-of select="$lf"/>
               <xsl:apply-templates select="*"/>
+              <xsl:value-of select="$lf"/>
+              <xsl:value-of select="$lf"/>
             </body>
           </text>
         </TEI>
@@ -156,19 +161,27 @@ Best usage of output could be as an input for other filters (regular expressions
   <!-- go throw, sections can break the tree of titles  -->
   <xsl:template match="text:section">
     <xsl:variable name="cols" select="key('style', @text:style-name)/style:columns/@fo:column-count"/>
+    <xsl:value-of select="$lf"/>
     <xsl:comment>
       <xsl:text>section=</xsl:text>
       <xsl:value-of select="@text:name"/> 
       <xsl:if test="$cols and number($cols) &gt; 1"> cols=<xsl:value-of select="$cols"/></xsl:if>
     </xsl:comment>
+    <xsl:value-of select="$lf"/>
     <xsl:apply-templates/>
-    <xsl:comment>/section=<xsl:value-of select="@text:name"/></xsl:comment>
+    <xsl:value-of select="$lf"/>
+    <xsl:comment>
+      <xsl:text>/section=</xsl:text>
+      <xsl:value-of select="@text:name"/>
+    </xsl:comment>
+    <xsl:value-of select="$lf"/>
   </xsl:template>
   <!-- A counting template to produce inlines -->
   <xsl:template name="divClose">
     <xsl:param name="n"/>
     <xsl:choose>
       <xsl:when test="$n &gt; 0">
+        <xsl:value-of select="$lf"/>
         <xsl:processing-instruction name="div">/</xsl:processing-instruction>
         <xsl:call-template name="divClose">
           <xsl:with-param name="n" select="$n - 1"/>
@@ -180,6 +193,7 @@ Best usage of output could be as an input for other filters (regular expressions
     <xsl:param name="n"/>
     <xsl:choose>
       <xsl:when test="$n &gt; 0">
+        <xsl:value-of select="$lf"/>
         <xsl:processing-instruction name="div"/>
         <xsl:call-template name="divOpen">
           <xsl:with-param name="n" select="$n - 1"/>
@@ -243,6 +257,7 @@ Best usage of output could be as an input for other filters (regular expressions
 case encountered, seems logic, but not fully tested         
       <xsl:if test="$style//@fo:break-before='page' or key('style',$styleName )//@fo:break-before='page' or $style//@style:master-page-name or  key('style',$styleName )//@style:master-page-name"><pb/></xsl:if>
       -->
+      <xsl:value-of select="$lf"/>
       <head>
         <xsl:choose>
           <xsl:when test="$class = ''"/>
@@ -270,10 +285,12 @@ case encountered, seems logic, but not fully tested
     <xsl:copy-of select="$xml"/>
   </xsl:template>
   <xsl:template match="text:page-number">
+    <xsl:value-of select="$lf"/>
     <pb n="{.}"/>
   </xsl:template>
   <!-- if office page break are gnificative, it is here -->
   <xsl:template match="text:soft-page-break">
+    <xsl:value-of select="$lf"/>
     <pb/>
   </xsl:template>
   <!-- End of text, do not forget to close open <div> -->
@@ -284,7 +301,7 @@ case encountered, seems logic, but not fully tested
     </xsl:call-template>
     -->
     <xsl:apply-templates select="*"/>
-    <xsl:variable name="last" select="(.//text:h[not(ancestor::text:note|ancestor::table:table)])[last()]"/>
+    <xsl:variable name="last" select="(.//text:h[not(ancestor::text:note|ancestor::table:table|ancestor::text:frame|text:bookmark-end)])[last()]"/>
     <xsl:call-template name="divClose">
       <xsl:with-param name="n" select="$last/@text:outline-level"/>
     </xsl:call-template>
@@ -394,9 +411,9 @@ case encountered, seems logic, but not fully tested
     </xsl:variable>
     <xsl:variable name="margin">
       <xsl:variable name="margin-left">
-      <xsl:call-template name="mm">
-        <xsl:with-param name="value" select="$style/style:paragraph-properties/@fo:margin-left"/>
-      </xsl:call-template>
+        <xsl:call-template name="mm">
+          <xsl:with-param name="value" select="$style/style:paragraph-properties/@fo:margin-left"/>
+        </xsl:call-template>
       </xsl:variable>
       <xsl:variable name="ratio" select="$margin-left div $width"/>
       <xsl:choose>
@@ -487,24 +504,44 @@ case encountered, seems logic, but not fully tested
             <xsl:apply-templates select="text:alphabetical-index-mark | text:alphabetical-index-mark-start | text:user-index-mark"/>
           </index>
         </xsl:when>
-        <!-- No style para on first page with form key:value -->
+        <!-- No style para on first page with form key:value, could be dangerous -->
+        <!--
         <xsl:when test="not(preceding-sibling::text:h) and contains($dc, concat(',', $key, ','))">
+          <xsl:value-of select="$lf"/>
           <index>
             <term type="{$key}">
               <xsl:call-template name="flow"/>
             </term>
           </index>
         </xsl:when>
-        <xsl:when test="$class = 'term'">
+        -->
+        <xsl:when test="$class = 'term' or $class = 'meta'">
           <xsl:if test=". != ''">
+            <xsl:value-of select="$lf"/>
             <index>
               <term>
+                <xsl:choose>
+                  <xsl:when test="contains(., ':')">
+                    <xsl:attribute name="type">
+                      <xsl:value-of select="$key"/>
+                    </xsl:attribute>
+                    <xsl:for-each select="node()">
+                      <xsl:choose>
+                        <xsl:when test="position() = 1 and contains(':', .)">
+                          <xsl:value-of select="normalize-space(substring-after(., ':'))"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                          <xsl:apply-templates select="."/>
+                        </xsl:otherwise>
+                      </xsl:choose>
+                    </xsl:for-each>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:call-template name="flow"/>
+                  </xsl:otherwise>
+                </xsl:choose>
                 <xsl:if test="contains(., ':')">
-                  <xsl:attribute name="type">
-                    <xsl:value-of select="$key"/>
-                  </xsl:attribute>
                 </xsl:if>
-                <xsl:call-template name="flow"/>
               </term>
             </index>
           </xsl:if>
@@ -515,7 +552,9 @@ case encountered, seems logic, but not fully tested
           <xsl:choose>
             <xsl:when test="$mapping[@parent]">
               <xsl:variable name="element" select="normalize-space($mapping/@element)"/>
+              <xsl:value-of select="$lf"/>
               <xsl:element name="{$mapping/@parent}" namespace="http://www.tei-c.org/ns/1.0">
+                <xsl:value-of select="$lf"/>
                 <xsl:element name="{$element}" namespace="http://www.tei-c.org/ns/1.0">
                   <xsl:call-template name="lang"/>
                   <xsl:if test="$rend != ''">
@@ -539,6 +578,7 @@ case encountered, seems logic, but not fully tested
             <!--  A style known as an element -->
             <xsl:when test="$mapping[@element and @element!='']">
               <xsl:variable name="element" select="normalize-space($mapping/@element)"/>
+              <xsl:value-of select="$lf"/>
               <xsl:element name="{$element}" namespace="http://www.tei-c.org/ns/1.0">
                 <xsl:call-template name="lang"/>
                 <xsl:if test="$rend != ''">
@@ -573,6 +613,7 @@ case encountered, seems logic, but not fully tested
               </xsl:element>
             </xsl:when>
             <xsl:otherwise>
+              <xsl:value-of select="$lf"/>
               <p>
                 <xsl:if test="$rend!='' or $class!=''">
                   <xsl:attribute name="rend">
@@ -586,6 +627,7 @@ case encountered, seems logic, but not fully tested
           </xsl:choose>
         </xsl:when>
         <xsl:otherwise>
+          <xsl:value-of select="$lf"/>
           <p>
             <xsl:if test="$rend!='' or $class!=''">
               <xsl:attribute name="rend">
@@ -600,7 +642,7 @@ case encountered, seems logic, but not fully tested
     </xsl:variable>
     <xsl:choose>
       <!-- Keep empty paras as separator -->
-      <xsl:when test="$class = 'term'">
+      <xsl:when test="$class = 'term' or $class = 'meta'">
         <xsl:copy-of select="$xml"/>
       </xsl:when>
       <!-- be careful with empty paras -->
@@ -661,11 +703,13 @@ Listes et tables
         -->
         <!-- listBibl -->
         <xsl:when test="starts-with(normalize-space($item-class), 'Bibl') or starts-with(normalize-space($item-class), 'bibl')">
+          <xsl:value-of select="$lf"/>
           <listBibl>
             <xsl:apply-templates select="*"/>
           </listBibl>
         </xsl:when>
         <xsl:otherwise>
+          <xsl:value-of select="$lf"/>
           <list>
             <xsl:choose>
               <xsl:when test="local-name($list-level) = 'list-level-style-bullet'">
@@ -765,6 +809,7 @@ Listes et tables
         </bibl>
       </xsl:when>
       <xsl:otherwise>
+        <xsl:value-of select="$lf"/>
         <item>
           <xsl:choose>
             <xsl:when test="$class='corpsdetexte'"/>
@@ -805,6 +850,7 @@ Listes et tables
         <xsl:with-param name="value" select="$style/style:table-properties/@style:width"/>
       </xsl:call-template>
     </xsl:variable>
+    <xsl:value-of select="$lf"/>
     <table>
       <xsl:if test="$align">
         <xsl:attribute name="rend">
@@ -837,7 +883,7 @@ Listes et tables
       <xsl:call-template name="mm">
         <xsl:with-param name="value" select="$style/style:table-column-properties/@style:column-width"/>
       </xsl:call-template>
-    </xsl:variable>   
+    </xsl:variable>
     <xsl:variable name="pc" select="round(100 * $column-width div $width)"/>
     <span type="col">
       <xsl:if test="$pc &gt; 0 and $pc &lt; 100">
@@ -849,10 +895,10 @@ Listes et tables
       </xsl:attribute>
     </span>
   </xsl:template>
-  
   <!-- Lignes -->
   <xsl:template match="table:table-row | table:row">
     <xsl:param name="role"/>
+    <xsl:value-of select="$lf"/>
     <row>
       <xsl:if test="$role != ''">
         <xsl:attribute name="role">
@@ -868,6 +914,7 @@ Listes et tables
   </xsl:template>
   <!-- Cellules -->
   <xsl:template match="table:table-cell | table:cell">
+    <xsl:value-of select="$lf"/>
     <cell>
       <xsl:apply-templates select="@*"/>
       <xsl:variable name="align">
@@ -885,7 +932,7 @@ Listes et tables
         <xsl:variable name="style" select="key('style', @table:style-name)"/>
         <xsl:variable name="stylev" select="$style/style:table-cell-properties/@style:vertical-align"/>
         <xsl:value-of select="$stylev"/>
-      </xsl:variable>     
+      </xsl:variable>
       <xsl:variable name="class">
         <!--  pas encore vu de style sémantique
         <xsl:value-of select="@table:style-name"/>
@@ -1075,6 +1122,7 @@ to facilitate subsequent groupings.
         <xsl:apply-templates/>
       </xsl:when>
       <xsl:when test="$mapping/@element = 'pb'">
+        <xsl:value-of select="$lf"/>
         <xsl:element name="{$mapping/@element}" namespace="http://www.tei-c.org/ns/1.0">
           <xsl:value-of select="normalize-space(.)"/>
         </xsl:element>
@@ -1419,6 +1467,7 @@ Go through unuseful link
         </text:p>
   -->
   <xsl:template match="draw:frame">
+    <xsl:value-of select="$lf"/>
     <figure rend="frame">
       <xsl:variable name="image-width">
         <xsl:call-template name="mm">
@@ -1439,6 +1488,8 @@ Go through unuseful link
       <xsl:variable name="rend" select="normalize-space($align)"/>
       <xsl:apply-templates/>
     </figure>
+    <xsl:value-of select="$lf"/>
+    <xsl:value-of select="$lf"/>
   </xsl:template>
   <xsl:template match="draw:text-box">
     <quote>
@@ -1448,7 +1499,6 @@ Go through unuseful link
   <xsl:template match="draw:plugin">
     <ptr target="{@xlink:href}"/>
   </xsl:template>
-  
   <xsl:template match="draw:frame/svg:title">
     <xsl:if test="normalize-space(.) != ''">
       <head>
@@ -1459,7 +1509,12 @@ Go through unuseful link
   <xsl:template match="text:sequence">
     <xsl:apply-templates/>
   </xsl:template>
-  
+  <!-- OCR garbage -->
+  <xsl:template match="draw:frame//text:h | text:h[text:bookmark-start][text:bookmark-end]">
+    <label>
+      <xsl:apply-templates/>
+    </label>
+  </xsl:template>
   <xsl:template match="draw:text-box//text:line-break"/>
   <xsl:template match="draw:frame/svg:desc">
     <xsl:if test="normalize-space(.) != ''">
@@ -1578,6 +1633,7 @@ Notes
        <text:p fo:text-align="justify" class="standard"><text:span><text:s/>nitebantur] nitebanter.</text:span></text:p></text:note-body></text:note></text:span>
   -->
   <xsl:template match="text:note">
+    <xsl:value-of select="$lf"/>
     <note>
       <!-- ne pas garder le n°, généralement automatique -->
       <!--
