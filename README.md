@@ -32,10 +32,6 @@ The transformation transpose text processor paragraphs (¶) with some direct for
   <p>content</p>
 </argument>
 ```
-**author**
-```xml
-<byline>content</byline>
-```
 **bibl**
 ```xml
 <bibl>content</bibl>
