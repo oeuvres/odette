@@ -14,7 +14,7 @@ Maybe used with command line
 
 # Styles
 
-The transformation transpose text processor paragraphs (¶) with some direct formatting with semantic, at paragraph level (left, right, center) and character level (italic, small caps…), but most of informaiton is transmitted by user styles. Below a list of styles known and their xml/tei transposition. Unknown styles are kept in a @rend attribute. Styles are here shown normalized as ascii lower case letter, but real life styles may contain capitals, accents, spaces, or punctuation. For example, **quotel** could appears as *&lt,quote.l&gt;* for the user in its word processor (a style used for verses in quotes). 
+The transformation transpose text processor paragraphs (¶) with some direct formatting with semantic, at paragraph level (left, right, center) and character level (italic, small caps…), but most of informaiton is transmitted by user styles. Below a list of styles known and their xml/tei transposition. Unknown styles are kept in a @rend attribute. Styles are here shown normalized as ascii lower case letter, but real life styles may contain capitals, accents, spaces, or punctuation. For example, **quotesalute** could appears as *&lt;Quote, Salute&gt;* for the user in its word processor (a style for a letter in a citation). 
 
 **ab**
 ```xml
