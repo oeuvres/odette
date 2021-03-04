@@ -4,7 +4,7 @@ From text processor odt file, extract all possible information in semantic XML (
 
 Doc (in French) : http://resultats.hypotheses.org/267
 
-Demo : http://obvil.lip6.fr/Odette/
+Demo : https://obvil.huma-num.fr/odette/
 
 S’utiise aussi en ligne de commande
 
