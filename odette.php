@@ -36,16 +36,16 @@ if (!function_exists('_log')) {
 if (isset($_SERVER['SCRIPT_FILENAME']) && basename($_SERVER['SCRIPT_FILENAME']) != basename(__FILE__));
 else if (isset($_SERVER['ORIG_SCRIPT_FILENAME']) && realpath($_SERVER['ORIG_SCRIPT_FILENAME']) != realpath(__FILE__));
 // direct command line call, work
-else if (php_sapi_name() == "cli") Odette_Odt2tei::cli();
+else if (php_sapi_name() == "cli") Odette::cli();
 // direct http call, work
-else Odette_Odt2tei::doPost();
+else Odette::doPost();
 
 
 
 /**
  * OpenDocumentText vers TEI.
  */
-class Odette_Odt2tei {
+class Odette {
   /** keep original odt FilePath for a file context */
   private $srcfile;
   /** FileName without extension for generated contents */
@@ -97,7 +97,7 @@ class Odette_Odt2tei {
     }
     else {
       return;
-      echo 'Format $format not yet supported. Please create a ticket to ask for a new feature : <a href="http://github.com/oeuvres/Odette/issues">OBVIL SourceForge project</a> ';
+      echo 'Format $format not yet supported. Please create a ticket to ask for a new feature : <a href="http://github.com/oeuvres/Odette/issues">OBVIL GitHub project</a> ';
       exit;
     }
     $this->doc->formatOutput=true;
@@ -198,12 +198,12 @@ class Odette_Odt2tei {
   /**
    * Output TEI
    */
-  private function tei($output="document")
+  private function tei($model="default")
   {
     $pars=array();
     $pars['filename'] = $this->destname;
     $pars['mediadir'] = $this->destname.'-img/';
-    $pars['output'] = $output;
+    $pars['output'] = "body";
     // some normalisation of oddities
     $start = microtime(true);
     $this->transform(dirname(__FILE__).'/odt-norm.xsl');
@@ -224,11 +224,14 @@ class Odette_Odt2tei {
     // regularisation of tags segments, ex: spaces tagged as italic
     $preg=self::sed_preg(file_get_contents(dirname(__FILE__).'/tei.sed'));
     $xml = preg_replace($preg[0], $preg[1], $xml);
-
     
+    $model_xml = realpath(dirname(__FILE__)."/models/".$model."/".$model.".xml");
+    if (!file_exists($model_xml)) $model_xml = realpath(dirname(__FILE__)."/models/default/default.xml");
+    if (!file_exists($model_xml)) throw new Exception("XML TEI model not found:".$model_xml);
+    $pars=array();
+    $pars['model'] = $model_xml;
     $this->loadXML($xml);
-    
-    // TEI regularisations
+    // TEI regularisations and model fusion
     $this->transform(dirname(__FILE__).'/tei-post.xsl');
     $this->doc->preserveWhiteSpace = true;
     $this->doc->formatOutput = false;
@@ -355,7 +358,7 @@ class Odette_Odt2tei {
     else {
       header ("Content-Type: text/xml;");
     }
-    $odt=new Odette_Odt2tei($file);
+    $odt=new Odette($file);
     echo $odt->saveXML($format, $filename);
     exit;
   }
@@ -400,10 +403,112 @@ class Odette_Odt2tei {
           _log("  $destfile already exists, it will not be overwritten, can't know if human value added");
           continue;
         }
-        $odt=new Odette_Odt2tei($srcfile);
+        $odt=new Odette($srcfile);
         $odt->save($destfile, $format);
       }
     }
+  }
+}
+
+class Web
+{
+  /** web parameters */
+  static $pars;
+  /**
+   * Handle repeated parameters values, especially in multiple select.
+   * $_REQUEST propose a strange PHP centric interpretation of http protocol, with the bracket keys
+   * &lt;select name="var[]">
+   *
+   * $query : optional, a "query string" ?cl%C3%A9=%C3%A9%C3%A9&param=valeur1&param=&param=valeur2
+   * return : Array (
+   *   "clé" => array("éé"),
+   *   "param" => array("valeur1", "", "valeur2")
+   *)
+   */
+  public static function pars($name = FALSE, $expire = 0, $pattern = null, $default = null, $query = FALSE)
+  {
+    // store params array extracted from query
+    if (!self::$pars) {
+      if (!$query) $query = Web::query();
+      // populate an array
+      self::$pars = array();
+      $a = explode('&', $query);
+      foreach ($a as $p) {
+        if (!$p) continue;
+        if (!strpos($p,'=')) continue;
+        list($k, $v) = preg_split('/=/', $p);
+        $k = urldecode($k);
+        $v = urldecode($v);
+        // seems ISO, translate accents
+        if (preg_match('/[\xC0-\xFD]/', $k+$v)) {
+          $k = utf8_encode ($k);
+          $v = utf8_encode ($v);
+        }
+        self::$pars[$k][] = $v;
+      }
+    }
+    // no key requested, return all params, do not store cookies
+    if (!$name) return self::$pars;
+    // a param is requested, values found
+    else if (isset(self::$pars[$name])) $pars = self::$pars[$name];
+    // no param for this name
+    else $pars = array();
+
+
+    // no cookie store requested
+    if(!$expire);
+    // if empty ?, delete cookie
+    else if (count($pars)==1 && !$pars[0]) {
+      setcookie($name);
+    }
+    // if a value, set cookie, do not $_COOKIE[$name] = $value
+    else if (count($pars)) {
+      // if a number
+      if ($expire > 60) setcookie($name, serialize($pars), time()+ $expire);
+      // session time
+      else setcookie($name, serialize($pars));
+    }
+    // if cookie stored, load it
+    else if(isset($_COOKIE[$name])) $pars = unserialize($_COOKIE[$name]);
+    // validate
+    if ($pattern) {
+      $newPars = array();
+      foreach($pars as $value) if (preg_match($pattern, $value)) $newPars[] = $value;
+      $pars = $newPars;
+    }
+    // default
+    if (count($pars));
+    else if (!$default);
+    else if (is_array($default)) $pars = $default;
+    else $pars = array($default);
+    return $pars;
+  }
+  
+    /**
+   * build a clean query string from get or post, especially
+   * to get multiple params from select
+   *
+   * query: ?A=1&A=2&A=&B=3
+   * return: ?A=1&A=2&B=3
+   * $keep=true : keep empty params -> ?A=1&A=2&A=&B=3
+   * $exclude=array() : exclude some parameters
+   */
+  public static function query($keep = false, $exclude = array(), $query = null)
+  {
+    // query given as param
+    if ($query) $query = preg_replace('/&amp;/', '&', $p1);
+    // POST
+    else if ($_SERVER['REQUEST_METHOD'] == "POST") {
+      if (isset($HTTP_RAW_POST_DATA)) $query = $HTTP_RAW_POST_DATA;
+      else $query = file_get_contents("php://input");
+    }
+    // GET
+    else $query = $_SERVER['QUERY_STRING'];
+    // exclude some params
+    if (count($exclude)) $query = preg_replace('/&('.implode('|',$exclude).')=[^&]*/', '', '&'.$query);
+    // delete empty params
+    if (!$keep) $query = preg_replace(array('/[^&=]+=&/', '/&$/'), array('', ''), $query.'&');
+    return $query;
   }
 }
 

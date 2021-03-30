@@ -1,6 +1,6 @@
 <?php
 // le code pilotant la transformation
-include(dirname(__FILE__).'/Odt2tei.php');
+include(dirname(__FILE__).'/odette.php');
 
 // Soumission en post
 if (isset($_POST['post'])) {

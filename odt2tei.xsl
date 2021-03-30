@@ -74,9 +74,9 @@ Best usage of output could be as an input for other filters (regular expressions
     <xsl:value-of select="$page-width - $margin-left - $margin-right"/>
   </xsl:variable>
   <!-- Kind of output -->
-  <xsl:variable name="fragment">fragment</xsl:variable>
-  <xsl:variable name="document">document</xsl:variable>
-  <xsl:param name="output" select="$document"/>
+  <xsl:variable name="body">body</xsl:variable>
+  <xsl:variable name="tei">tei</xsl:variable>
+  <xsl:param name="output" select="$body"/>
   <!-- Link to a style sheet with style name mapping with elements -->
   <xsl:variable name="sheet" select="document('styles.xml', document(''))"/>
   <xsl:variable name="teiHeader" select="document('teiHeader.xml', document(''))/*"/>
@@ -114,10 +114,12 @@ Best usage of output could be as an input for other filters (regular expressions
   <xsl:template match="office:scripts | office:font-face-decls | text:sequence-decls | office:forms | office:automatic-styles  | office:settings | office:styles | office:master-styles "/>
   <xsl:template match="office:document-content">
     <xsl:choose>
-      <xsl:when test="$output = $fragment">
-        <fragment>
+      <xsl:when test="$output = $body">
+        <body>
+          <xsl:value-of select="$lf"/>
           <xsl:apply-templates select="*"/>
-        </fragment>
+          <xsl:value-of select="$lf"/>
+        </body>
       </xsl:when>
       <xsl:otherwise>
         <xsl:processing-instruction name="xml-stylesheet"> type="text/xsl" href="../Teinte/tei2html.xsl"</xsl:processing-instruction>
@@ -519,6 +521,7 @@ case encountered, seems logic, but not fully tested
           <xsl:if test=". != ''">
             <xsl:value-of select="$lf"/>
             <index>
+              <xsl:value-of select="$lf"/>
               <term>
                 <xsl:choose>
                   <xsl:when test="contains(., ':')">
@@ -543,6 +546,7 @@ case encountered, seems logic, but not fully tested
                 <xsl:if test="contains(., ':')">
                 </xsl:if>
               </term>
+              <xsl:value-of select="$lf"/>
             </index>
           </xsl:if>
         </xsl:when>
@@ -1157,10 +1161,10 @@ to facilitate subsequent groupings.
               <xsl:apply-templates/>
             </xsl:when>
             <xsl:when test="$style/style:text-properties/@fo:font-style='italic' or $style/style:text-properties/@font-style-complex='italic'">
-              <i>
+              <emph>
                 <xsl:call-template name="lang"/>
                 <xsl:copy-of select="$subsup"/>
-              </i>
+              </emph>
             </xsl:when>
             <xsl:otherwise>
               <xsl:copy-of select="$subsup"/>
@@ -1262,16 +1266,16 @@ to facilitate subsequent groupings.
             <xsl:when test="($style/style:text-properties/@fo:font-weight='bold' or $style/style:text-properties/@font-weight-complex='bold') and ($style/style:text-properties/@fo:font-style='italic' or $style/style:text-properties/@font-style-complex='italic')">
               <b>
                 <xsl:call-template name="lang"/>
-                <i>
+                <emph>
                   <xsl:copy-of select="$subsup"/>
-                </i>
+                </emph>
               </b>
             </xsl:when>
             <xsl:when test="$style/style:text-properties/@fo:font-style='italic' or $style/style:text-properties/@font-style-complex='italic'">
-              <i>
+              <emph>
                 <xsl:call-template name="lang"/>
                 <xsl:copy-of select="$subsup"/>
-              </i>
+              </emph>
             </xsl:when>
             <xsl:when test="$style/style:text-properties/@fo:font-weight='bold' or $style/style:text-properties/@font-weight-complex='bold'">
               <b>

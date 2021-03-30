@@ -30,17 +30,64 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
   <xsl:strip-space elements="tei:teiHeader"/>
   <xsl:variable name="ABC">ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÆÈÉÊËÌÍÎÏÐÑÒÓÔÕÖŒÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöùúûüýÿþ,:; ?()/\ ._-{}[]</xsl:variable>
   <xsl:variable name="abc">abcdefghijklmnopqrstuvwxyzaaaaaaeeeeeiiiidnoooooœuuuuybbaaaaaaaceeeeiiiionooooouuuuyyb</xsl:variable>
-  <xsl:variable name="metakeys">
-    <xsl:text>,</xsl:text>
-    <xsl:apply-templates select="/*/tei:teiHeader" mode="metakeys"/>
-  </xsl:variable>
-  <xsl:key name="meta" match="/tei:TEI/tei:text/*[1]/tei:index/tei:term" use="@type"/>
+  <xsl:param name="model">models/default/default.xml</xsl:param>
+  <xsl:variable name="tei" select="document($model)"/>
+  <xsl:variable name="body" select="/*"/>
+  <xsl:variable name="meta" select="/*/tei:index/tei:term"/>
+  <!-- start  -->
+  <xsl:template match="/">
+    <xsl:apply-templates mode="model" select="$tei"/>
+  </xsl:template>
+  <xsl:template match="tei:body" mode="model">
+    <xsl:for-each select="$body">
+      <xsl:apply-templates select="."/>
+    </xsl:for-each>
+  </xsl:template>
+  <!-- Copy model -->
+  <xsl:template match="node()|@*" mode="model">
+    <xsl:copy>
+      <xsl:apply-templates mode="model" select="node()|@*"/>
+    </xsl:copy>
+  </xsl:template>
+  <xsl:template match="*[not(*)][text()][starts-with(., '{')][contains(., '}')][normalize-space(substring-after(., '}')) = '']" mode="model">
+    <xsl:variable name="key" select="translate(., $ABC, $abc)"/>
+    <xsl:choose>
+      <xsl:when test="$meta[@type = $key]">
+        <xsl:variable name="el" select="."/>
+        <xsl:for-each select="$meta[@type = $key]">
+          <xsl:element name="{name($el)}">
+            <xsl:copy-of select="$el/@*"/>
+            <xsl:apply-templates/>
+          </xsl:element>
+        </xsl:for-each>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:copy-of select="."/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  <!-- value in attribute -->
+  <xsl:template match="@*[starts-with(., '{') and contains(., '}') and normalize-space(substring-after(., '}')) = '']" mode="model">
+    <xsl:attribute name="{name()}">
+      <xsl:variable name="key" select="translate(., $ABC, $abc)"/>
+      <xsl:choose>
+        <xsl:when test="$meta[@type = $key]">
+          <xsl:value-of select="normalize-space($meta[@type = $key])"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="normalize-space(.)"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:attribute>
+  </xsl:template>
   <!-- Default identity transformation -->
   <xsl:template match="node()|@*">
     <xsl:copy>
       <xsl:apply-templates select="node()|@*"/>
     </xsl:copy>
   </xsl:template>
+  <!-- Strip meta -->
+  <xsl:template match="/*/tei:index"/>
   <!-- typo inlines -->
   <xsl:template match="tei:b | tei:strong | tei:sup | tei:sc | tei:u">
     <hi>
@@ -479,7 +526,6 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
             <xsl:text>level</xsl:text>
             <xsl:value-of select="count(ancestor-or-self::tei:div)"/>
           </xsl:attribute>
-          
           <xsl:apply-templates/>
         </xsl:copy>
       </xsl:otherwise>
@@ -601,7 +647,7 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
     </xsl:if>
   </xsl:template>
   <xsl:template match="node()" mode="metakeys">
-    <xsl:apply-templates select="node()|@*" mode="metakeys"/>
+    <xsl:apply-templates mode="metakeys" select="node()|@*"/>
   </xsl:template>
   <xsl:template match="text()|@*" mode="metakeys">
     <xsl:choose>
@@ -610,44 +656,6 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
         <xsl:text>,</xsl:text>
       </xsl:when>
     </xsl:choose>
-  </xsl:template>
-  <xsl:template match="tei:teiHeader // text()">
-    <xsl:choose>
-      <xsl:when test="starts-with(., '{') and contains(., '}') and normalize-space(substring-after(., '}')) = ''">
-        <xsl:variable name="key" select="translate(., $ABC, $abc)"/>
-        <xsl:choose>
-          <xsl:when test="key('meta', $key)">
-            <xsl:apply-templates select="key('meta', $key)/node()"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:copy-of select="."/>
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:copy-of select="."/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-  <xsl:template match="tei:teiHeader // @*">
-    <xsl:attribute name="{name()}">
-      <xsl:choose>
-        <xsl:when test="starts-with(., '{') and contains(., '}') and normalize-space(substring-after(., '}')) = ''">
-          <xsl:variable name="key" select="translate(., $ABC, $abc)"/>
-          <xsl:choose>
-            <xsl:when test="key('meta', $key)">
-              <xsl:value-of select="key('meta', $key)"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:value-of select="."/>
-            </xsl:otherwise>
-          </xsl:choose>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:copy-of select="."/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:attribute>
   </xsl:template>
   <!--
   <xsl:template match="tei:teiHeader">
