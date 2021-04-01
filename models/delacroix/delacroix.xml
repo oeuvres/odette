@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:lang="fr" xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>{titre}</title>
+        <author key="{auteur}"/>
+      </titleStmt>
+      <editionStmt>
+        <edition>Centre André Chastel — ObTiC</edition>
+        <respStmt>
+          <name>{transcription}</name>
+          <resp>Transcription</resp>
+        </respStmt>
+      </editionStmt>
+      <publicationStmt>
+        <publisher>Sorbonne Université, Centre André Chastel</publisher>
+        <date when="2021"/>
+        <idno>{filename}</idno>
+        <!--il faut revoir les identifiants-->
+        <availability status="restricted">
+          <!--il faut mettre notre propre licence -->
+          <!-- Et c’est quoi ? votre licence ? -->
+          <licence target="http://creativecommons.org/licenses/by-nc-nd/3.0/fr/">
+            <p>Copyright © 2015 Université Paris-Sorbonne, agissant pour le Laboratoire d’Excellence « Observatoire de la vie littéraire » (ci-après dénommé OBVIL).</p>
+            <p>Cette ressource électronique protégée par le code de la propriété intellectuelle sur les bases de données (L341-1) est mise à disposition de la communauté scientifique internationale par l’OBVIL, selon les termes de la licence Creative Commons : « Attribution - Pas d’Utilisation Commerciale - Pas de Modification 3.0 France (CC BY-NC-ND 3.0 FR) ».</p>
+            <p>Attribution : afin de référencer la source, toute utilisation ou publication dérivée de cette ressource électroniques comportera le nom de l’OBVIL et surtout l’adresse Internet de la ressource.</p>
+            <p>Pas d’Utilisation Commerciale : dans l’intérêt de la communauté scientifique, toute utilisation commerciale est interdite.</p>
+            <p>Pas de Modification : l’OBVIL s’engage à améliorer et à corriger cette ressource électronique, notamment en intégrant toutes les contributions extérieures, la diffusion de versions modifiées de cette ressource n’est pas souhaitable.</p>
+          </licence>
+        </availability>
+      </publicationStmt>
+      <seriesStmt>
+        <title type="main">Correspondance d'Eugène Delacroix</title>
+        <title type="sub">Hôtel Lambert<!--titre sous corpus! ex Correspondance de Delacroix avec Joséphine de Forget--></title>
+      </seriesStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <country>{cotepays}</country>
+            <settlement>{cotepays}</settlement>
+            <institution>{coteinstitution}</institution>
+            <repository>{cotefonds}</repository>
+            <idno>{cote}</idno>
+          </msIdentifier>
+          <physDesc>
+            <objectDesc form="letter">
+              <supportDesc>
+                <extent>
+                  <measure type="page">{pages}</measure>
+                </extent>
+              </supportDesc>
+            </objectDesc>
+            <accMat>{accMat}</accMat>
+            <!--pour les pièces accompagnant la lettre ex : envelope-->
+          </physDesc>
+          <history>
+            <provenance>{historique}</provenance>
+          </history>
+        </msDesc>
+        <listBibl>
+          <bibl>{edition}</bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <correspDesc>
+        <correspAction type="sent">
+          <persName key="{auteur}"/>
+          <date when="{date}"/>
+          <placeName>{lieu}</placeName>
+        </correspAction>
+        <correspAction type="received">
+          <persName key="{destinataire}"/>
+        </correspAction>
+        <correspContext>
+          <ref target="{reponsea}" type="replyTo"/>
+        </correspContext>
+      </correspDesc>
+      <langUsage>
+        <language ident="fr"/>
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body/>
+  </text>
+</TEI>

@@ -1,9 +1,8 @@
-teiHeader.xml
 *.odt#
-*.odt
+/*.odt
 *.bak
 *.docx
-*.xml
+/*.xml
 *.doc
 !odette.odt
 

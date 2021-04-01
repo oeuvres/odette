@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://oeuvres.github.io/Teinte/teinte.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xml:lang="fr" xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>{Title}</title>
+        <author key="{author}"/>
+      </titleStmt>
+      <editionStmt>
+        <edition>hurlus.fr</edition>
+      </editionStmt>
+      <publicationStmt>
+        <publisher>hurlus.fr</publisher>
+        <date when="2021"/>
+        <availability status="restricted">
+          <licence target="https://creativecommons.org/publicdomain/zero/1.0/deed.fr"/>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>{bibl}</bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr"/>
+      </langUsage>
+      <creation>
+        <date when="{date}"/>
+      </creation>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <!-- requis, remplacé par le contenu TEI du document odt -->
+    </body>
+  </text>
+</TEI>

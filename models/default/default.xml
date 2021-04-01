@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://oeuvres.github.io/Teinte/teinte.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xml:lang="fr" xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>{Title}</title>
+        <author key="{author}"/>
+      </titleStmt>
+      <editionStmt>
+        <edition>{publisher}</edition>
+        <respStmt>
+          <name>{Transcription}</name>
+          <resp>Transcription</resp>
+        </respStmt>
+      </editionStmt>
+      <publicationStmt>
+        <publisher>{publisher}</publisher>
+        <date when="2021"/>
+        <idno>{filename}</idno>
+        <availability status="restricted">
+          <licence target="http://creativecommons.org/licenses/by-nc-nd/3.0/fr/"/>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>{bibl}</bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr"/>
+      </langUsage>
+      <creation>
+        <date when="{date}"/>
+      </creation>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <!-- requis, remplacé par le contenu TEI du document odt -->
+    </body>
+  </text>
+</TEI>
