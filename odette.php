@@ -77,14 +77,11 @@ class Odette {
   /**
    * Format loaded dom
    */
-  public function format($format, $pars=array())
+  public function format($format='tei', $model=null)
   {
     if ($format=='odtx');
     else if ($format=='tei') {
-      $this->tei();
-    }
-    else if ($format=='fragment') {
-      $this->tei("fragment");
+      $this->tei($model);
     }
     else if ($format == 'html') {
       // format html from a clean TEI
@@ -108,12 +105,9 @@ class Odette {
   /**
    * Save result to file, in desired format
    */
-  public function save($destfile, $format=null, $pars=array())
+  public function save($destfile, $format=null, $model=null)
   {
     $pathinfo=pathinfo($destfile);
-    if (file_exists($destfile) && !isset($pars['force'])) {
-      _log("Odette, destination file already exists: $destfile");
-    }
     // used by the tei formatter for mediadir (ex: pictures extracted from odt)
     $this->destname=$pathinfo['filename'];
     if ($format=='odtx') {
@@ -123,16 +117,16 @@ class Odette {
       $this->pictures(dirname($destfile).'/'.$this->destname.'-img/');
     }
     if (!$format) $format = 'tei';
-    $this->format($format, $pars);
+    $this->format($format, $model);
     $this->doc->save($destfile);
   }
 
   /**
    * Get xml in the desired format
    */
-  public function saveXML($format, $pars=array())
+  public function saveXML($format, $model)
   {
-    $this->format($format, $pars);
+    $this->format($format, $model);
     $xml = $this->doc->saveXML();
     if ($format == "fragment") {
       $xml = preg_replace('@<\?xml version="1.0" encoding="UTF-8"\?>|</?fragment([^>]+)?>@', '', $xml);
@@ -198,7 +192,7 @@ class Odette {
   /**
    * Output TEI
    */
-  private function tei($model="default")
+  private function tei($model=null)
   {
     $pars=array();
     $pars['filename'] = $this->destname;
@@ -207,18 +201,14 @@ class Odette {
     // some normalisation of oddities
     $start = microtime(true);
     $this->transform(dirname(__FILE__).'/odt-norm.xsl');
-    
+
     // odt > tei
     $this->transform(dirname(__FILE__).'/odt2tei.xsl', $pars);
     
-
-
-    $start = microtime(true);
-
-    // indent here produce problems, but without, tags may be broken by regex
     $this->doc->preserveWhiteSpace = true;
-    $this->doc->formatOutput = false;
+    $this->doc->formatOutput = false; // after multiple tests, keep it
     $this->doc->substituteEntities=true;
+    
     $xml=$this->doc->saveXML();
 
     // regularisation of tags segments, ex: spaces tagged as italic
@@ -226,15 +216,23 @@ class Odette {
     $xml = preg_replace($preg[0], $preg[1], $xml);
     
     $model_xml = realpath(dirname(__FILE__)."/models/".$model."/".$model.".xml");
-    if (!file_exists($model_xml)) $model_xml = realpath(dirname(__FILE__)."/models/default/default.xml");
+
+    if (!file_exists($model_xml)) {
+      fwrite(STDERR, "Model \"$model\" not found, use \"default\" instead.\n");
+      $model_xml = realpath(dirname(__FILE__)."/models/default/default.xml");
+    }
     if (!file_exists($model_xml)) throw new Exception("XML TEI model not found:".$model_xml);
     $pars=array();
     $pars['model'] = $model_xml;
+    
     $this->loadXML($xml);
     // TEI regularisations and model fusion
-    $this->transform(dirname(__FILE__).'/tei-post.xsl');
-    $this->doc->preserveWhiteSpace = true;
-    $this->doc->formatOutput = false;
+    $this->transform(dirname(__FILE__).'/tei-post.xsl', $pars);
+    // specific normalisations ?
+    $model_xsl = realpath(dirname(__FILE__)."/models/".$model."/".$model.".xsl");
+    if (file_exists($model_xsl)) {
+      $this->transform($model_xsl);
+    }
   }
 
   /**
@@ -362,25 +360,51 @@ class Odette {
     echo $odt->saveXML($format, $filename);
     exit;
   }
+  
+  public static function models()
+  {
+    $glob = glob(dirname(__FILE__)."/models/*", GLOB_ONLYDIR|GLOB_MARK);
+    $models = array();
+    foreach($glob as $dir)
+    {
+      $name = basename($dir);
+      if (!file_exists($dir.$name.".xml")) continue;
+      $models[$name] = $dir;
+    }
+    return $models;
+  }
+  
+  
   /**
    * Apply code from Cli
    */
   public static function cli() {
-    $formats='tei|odtx|html';
+    $formats=array(
+      "tei"=>".xml",
+      "odtx"=>".odt.xml",
+      "html"=>".html",
+    );
+    $models = self::models();
+    
     array_shift($_SERVER['argv']); // shift first arg, the script filepath
     if (!count($_SERVER['argv'])) exit("
-    usage     : php -f Odt2tei.php ($formats)? destdir/? *.odt
+    usage     : php -f odette.php (".implode('|', array_keys($formats)).")? (".implode('|', array_keys($models)).")? destdir/? *.odt
 
     format?   : optional dest format, default is xml/tei, odtx = xml/odt, html with Teinte
+    model?    : a TEI skeleton available for this installation in models/my_model/my_model.xml
     destdir/? : optional destination directory, ending by slash
     *.odt     : glob patterns are allowed, with or without quotes
 
 ");
-    $format="tei";
-    if(preg_match("/^($formats)\$/", trim($_SERVER['argv'][0], '- '))) {
-      $format = array_shift($_SERVER['argv']);
-      $format = trim($format, '- ');
-    }
+
+    $format=trim($_SERVER['argv'][0], '- ');
+    if(isset($formats[$format])) array_shift($_SERVER['argv']);
+    else $format = "tei";
+
+    $model = trim($_SERVER['argv'][0], '- ');
+    if(isset($models[$model])) array_shift($_SERVER['argv']);
+    else $model = null;
+    
     $lastc = substr($_SERVER['argv'][0], -1);
     if ('/' == $lastc || '\\' == $lastc) {
       $destdir = array_shift($_SERVER['argv']);
@@ -390,8 +414,7 @@ class Odette {
         @chmod($dir, 0775);  // let @, if www-data is not owner but allowed to write
       }
     }
-    $ext=".$format";
-    if ($ext=='.tei') $ext=".xml";
+    $ext = $formats[$format];
     $count = 0;
     foreach ($_SERVER['argv'] as $glob) {
       foreach(glob($glob) as $srcfile) {
@@ -404,7 +427,7 @@ class Odette {
           continue;
         }
         $odt=new Odette($srcfile);
-        $odt->save($destfile, $format);
+        $odt->save($destfile, $format, $model);
       }
     }
   }

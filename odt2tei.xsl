@@ -288,6 +288,7 @@ case encountered, seems logic, but not fully tested
   </xsl:template>
   <xsl:template match="text:page-number">
     <xsl:value-of select="$lf"/>
+    <xsl:value-of select="$lf"/>
     <pb n="{.}"/>
   </xsl:template>
   <!-- if office page break are gnificative, it is here -->
@@ -523,28 +524,12 @@ case encountered, seems logic, but not fully tested
             <index>
               <xsl:value-of select="$lf"/>
               <term>
-                <xsl:choose>
-                  <xsl:when test="contains(., ':')">
-                    <xsl:attribute name="type">
-                      <xsl:value-of select="$key"/>
-                    </xsl:attribute>
-                    <xsl:for-each select="node()">
-                      <xsl:choose>
-                        <xsl:when test="position() = 1 and contains(':', .)">
-                          <xsl:value-of select="normalize-space(substring-after(., ':'))"/>
-                        </xsl:when>
-                        <xsl:otherwise>
-                          <xsl:apply-templates select="."/>
-                        </xsl:otherwise>
-                      </xsl:choose>
-                    </xsl:for-each>
-                  </xsl:when>
-                  <xsl:otherwise>
-                    <xsl:call-template name="flow"/>
-                  </xsl:otherwise>
-                </xsl:choose>
                 <xsl:if test="contains(., ':')">
+                  <xsl:attribute name="type">
+                    <xsl:value-of select="$key"/>
+                  </xsl:attribute>
                 </xsl:if>
+                <xsl:call-template name="flow"/>
               </term>
               <xsl:value-of select="$lf"/>
             </index>
@@ -1513,8 +1498,8 @@ Go through unuseful link
   <xsl:template match="text:sequence">
     <xsl:apply-templates/>
   </xsl:template>
-  <!-- OCR garbage -->
-  <xsl:template match="draw:frame//text:h | text:h[text:bookmark-start][text:bookmark-end]">
+  <!-- OCR garbage. | text:h[text:bookmark-start][text:bookmark-end] ??? -->
+  <xsl:template match="draw:frame//text:h ">
     <label>
       <xsl:apply-templates/>
     </label>
@@ -1637,7 +1622,6 @@ Notes
        <text:p fo:text-align="justify" class="standard"><text:span><text:s/>nitebantur] nitebanter.</text:span></text:p></text:note-body></text:note></text:span>
   -->
   <xsl:template match="text:note">
-    <xsl:value-of select="$lf"/>
     <note>
       <!-- ne pas garder le n°, généralement automatique -->
       <!--
@@ -1735,18 +1719,15 @@ Liens et renvois
   <xsl:template match="text:bookmark-end">
     <!-- link to preceding to bookmark-start ? -->
   </xsl:template>
-  <!-- Ancre -->
+  <!-- Anchors, seems always parasits and badly controled -->
   <xsl:template match="text:bookmark | text:bookmark-start">
-    <xsl:choose>
-      <xsl:when test="contains(@text:name, 'RefHeading')"/>
-      <xsl:otherwise>
-        <anchor>
-          <xsl:attribute name="xml:id">
-            <xsl:value-of select="translate(@text:name, ' ', '_')"/>
-          </xsl:attribute>
-        </anchor>
-      </xsl:otherwise>
-    </xsl:choose>
+    <!--
+    <anchor>
+      <xsl:attribute name="xml:id">
+        <xsl:value-of select="translate(@text:name, ' ', '_')"/>
+      </xsl:attribute>
+    </anchor>
+      -->
   </xsl:template>
   <xsl:template match="text:bookmark-end"/>
   <!-- 

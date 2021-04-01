@@ -22,7 +22,7 @@ s@<(argument|castItem|dialogue|dl|entry|entryFree|eg|figure|index|lg|listBibl|no
 s@<\?o\?>@@g
 s@</eg>\s*<eg( [^>]*)?>@@g
 s@<lb type="lg"/>([^\n]+)@<l>\1</l>@g
-s@(<term type="[^"]+">)[^<:]+: *@\1@g # suppress term key
+s@(<term type="[^"]+">)[^<:]+:[  ]*@\1@g # suppress term key
 
 # TEXT CONVENTIONS AS TAGS
 s@\[p\. ([0-9]+)\]@<pb n="\1"/>@

@@ -27,7 +27,7 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
 -->
 <xsl:transform exclude-result-prefixes="tei" version="1.1" xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output encoding="UTF-8" indent="yes" method="xml"/>
-  <xsl:strip-space elements="tei:teiHeader"/>
+  <xsl:variable name="lf" select="'&#10;'"/>
   <xsl:variable name="ABC">ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÆÈÉÊËÌÍÎÏÐÑÒÓÔÕÖŒÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöùúûüýÿþ,:; ?()/\ ._-{}[]</xsl:variable>
   <xsl:variable name="abc">abcdefghijklmnopqrstuvwxyzaaaaaaeeeeeiiiidnoooooœuuuuybbaaaaaaaceeeeiiiionooooouuuuyyb</xsl:variable>
   <xsl:param name="model">models/default/default.xml</xsl:param>
@@ -49,15 +49,26 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
       <xsl:apply-templates mode="model" select="node()|@*"/>
     </xsl:copy>
   </xsl:template>
+  <!-- Meta element -->
   <xsl:template match="*[not(*)][text()][starts-with(., '{')][contains(., '}')][normalize-space(substring-after(., '}')) = '']" mode="model">
     <xsl:variable name="key" select="translate(., $ABC, $abc)"/>
     <xsl:choose>
       <xsl:when test="$meta[@type = $key]">
         <xsl:variable name="el" select="."/>
         <xsl:for-each select="$meta[@type = $key]">
+          <xsl:if test="position() !=1">
+            <xsl:value-of select="$lf"/>
+          </xsl:if>
           <xsl:element name="{name($el)}">
             <xsl:copy-of select="$el/@*"/>
-            <xsl:apply-templates/>
+            <xsl:choose>
+              <xsl:when test="normalize-space(.) != ''">
+                <xsl:apply-templates/>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:value-of select="$el"/>
+              </xsl:otherwise>
+            </xsl:choose>
           </xsl:element>
         </xsl:for-each>
       </xsl:when>
@@ -68,10 +79,10 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
   </xsl:template>
   <!-- value in attribute -->
   <xsl:template match="@*[starts-with(., '{') and contains(., '}') and normalize-space(substring-after(., '}')) = '']" mode="model">
+    <xsl:variable name="key" select="translate(., $ABC, $abc)"/>
     <xsl:attribute name="{name()}">
-      <xsl:variable name="key" select="translate(., $ABC, $abc)"/>
       <xsl:choose>
-        <xsl:when test="$meta[@type = $key]">
+        <xsl:when test="$meta[@type = $key] and normalize-space($meta[@type = $key]) != ''">
           <xsl:value-of select="normalize-space($meta[@type = $key])"/>
         </xsl:when>
         <xsl:otherwise>
