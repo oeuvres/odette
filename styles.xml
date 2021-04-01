@@ -23,30 +23,31 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <!ATTLIST style
     level (c|p) #REQUIRED 
     name CDATA #REQUIRED
-    doc (true) #IMPLIED
     element CDATA #IMPLIED
     attribute CDATA #IMPLIED
     value CDATA #IMPLIED
     parent CDATA #IMPLIED
     rend (keep) #IMPLIED
+    doc (true) #IMPLIED
    >
 ]>
 <sheet xmlns="odt:tei">
-  <style level="p" doc="true" name="ab" element="ab" attribute="type" value="ornament"/>
-  <style level="p" doc="true" name="address" element="addrLine" parent="address"/>
-  <style level="p" doc="true" name="argument" element="p" parent="argument"/>
+  <style level="p" name="ab" element="ab" attribute="type" value="ornament" doc="true"/>
+  <style level="p" name="address" element="addrLine" parent="address" doc="true"/>
+  <style level="p" name="argument" element="p" parent="argument" doc="true"/>
   <style level="p" name="auteur" element="byline"/>
   <style level="p" name="author" element="byline"/>
-  <style level="p" name="bibl" doc="true" element="bibl"/>
+  <style level="p" name="bibl" element="bibl" doc="true"/>
   <style level="p" name="biblio" element="bibl"/>
   <style level="p" name="bibliography" element="bibl"/>
   <style level="p" name="bibliographie" element="bibl"/>
-  <style level="p" doc="true" name="byline" element="byline"/>
-  <style level="p" doc="true" name="camera" element="camera"/>
+  <style level="p" name="blockquote" element="p" parent="quote" rend="keep" doc="true"/>
+  <style level="p" name="byline" element="byline" doc="true"/>
+  <style level="p" name="camera" element="camera" doc="true"/>
   <style level="p" name="chant" element="l" attribute="type" value="chant"/>
-  <style level="p" doc="true" name="caption" element="caption"/>
-  <style level="p" doc="true" name="castitem" element="castItem" parent="castList"/>
-  <style level="p" doc="true" name="castlist" element="castList"/>
+  <style level="p" name="caption" element="caption" doc="true"/>
+  <style level="p" name="castitem" element="castItem" parent="castList" doc="true"/>
+  <style level="p" name="castlist" element="castList" doc="true"/>
   <style level="p" name="citaepigrafe" element="p" parent="epigraph"/>
   <style level="p" name="citation" element="p" parent="quote"/>
   <style level="p" name="citation1" element="p" parent="quote"/>
@@ -54,28 +55,28 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="citationalinea" element="p" parent="quote"/>
   <style level="p" name="citationenvers" element="l" parent="quote"/>
   <style level="p" name="citationvers" element="l" parent="quote"/>
-  <style level="p" doc="true" name="closer" element="closer"/>
+  <style level="p" name="closer" element="closer" doc="true"/>
   <style level="p" name="corpsdetexte" element="p"/>
   <style level="p" name="creator" element="byline"/>
-  <style level="p" doc="true" name="dateline" element="dateline"/>
+  <style level="p" name="dateline" element="dateline" doc="true"/>
   <style level="p" name="date" element="dateline"/>
-  <style level="p" doc="true" name="def" element="def" parent="entryFree"/>
-  <style level="p" doc="true" name="desc" element="desc"/>
+  <style level="p" name="def" element="def" parent="entryFree" doc="true"/>
+  <style level="p" name="desc" element="desc" doc="true"/>
   <style level="p" name="dd" element="item" parent="dl"/>
   <style level="p" name="dt" element="label" parent="dl"/>
-  <style level="p" doc="true" name="docauthor" element="docAuthor"/>
-  <style level="p" doc="true" name="docimprint" element="docImprint"/>
-  <style level="p" doc="true" name="docdate" element="docDate"/>
+  <style level="p" name="docauthor" element="docAuthor" doc="true"/>
+  <style level="p" name="docimprint" element="docImprint" doc="true"/>
+  <style level="p" name="docdate" element="docDate" doc="true"/>
   <style level="p" name="edbibl" element="bibl"/>
-  <style level="p" doc="true" name="eg" element="eg"/>
-  <style level="p" doc="true" name="epigraph" element="p" parent="epigraph" rend="keep"/>
-  <style level="p" doc="true" name="epigraphl" element="l" parent="epigraph"/>
+  <style level="p" name="eg" element="eg" doc="true"/>
+  <style level="p" name="epigraph" element="p" parent="epigraph" rend="keep" doc="true"/>
+  <style level="p" name="epigraphl" element="l" parent="epigraph" doc="true"/>
   <style level="p" name="endnote" element="note"/>
-  <style level="p" doc="true" name="entry" element="entry"/>
+  <style level="p" name="entry" element="entry" doc="true"/>
   <style level="p" name="exemple" element="quote" parent="entryFree"/>
   <style level="p" name="footnote" element="p"/><!-- in odt, used inside notes -->
   <style level="p" name="form" element="form" parent="entryFree"/>
-  <style level="p" doc="true" name="fw" element="fw"/>
+  <style level="p" name="fw" element="fw" doc="true"/>
   <style level="p" name="heading" element="label" attribute="type" value="head"/>
   <style level="p" name="headsub" element="head" attribute="type" value="sub"/>
   <style level="p" name="headsub1" element="head" attribute="type" value="sub"/>
@@ -86,54 +87,54 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="h2sub" element="head" attribute="type" value="sub"/>
   <style level="p" name="h3sub" element="head" attribute="type" value="sub"/>
   <style level="p" name="h4sub" element="head" attribute="type" value="sub"/>
-  <style level="p" doc="true" name="index" element="item" parent="index"/>
-  <style level="p" doc="true" name="l" element="l" rend="keep"/>
+  <style level="p" name="index" element="item" parent="index" doc="true"/>
+  <style level="p" name="l" element="l" rend="keep" doc="true"/>
   <style level="p" name="lindent" element="l" attribute="rend" value="indent"/>
   <style level="p" name="legende" element="label"/>
   <style level="p" name="ln" element="l"/>
   <style level="p" name="lpart" element="l" attribute="type" value="part"/>
-  <style level="p" name="label" doc="true" element="label"/>
-  <style level="p" name="labeldateline" doc="true" element="label" attribute="type" value="dateline"/>
-  <style level="p" name="labelhead" doc="true" element="label" attribute="type" value="head"/>
-  <style level="p" name="labelsalute" doc="true" element="label" attribute="type" value="salute"/>
-  <style level="p" name="labelspeaker" doc="true" element="label" attribute="type" value="speaker"/>
+  <style level="p" name="label" element="label" doc="true"/>
+  <style level="p" name="labeldateline" element="label" attribute="type" value="dateline" doc="true"/>
+  <style level="p" name="labelhead" element="label" attribute="type" value="head" doc="true"/>
+  <style level="p" name="labelsalute" element="label" attribute="type" value="salute" doc="true"/>
+  <style level="p" name="labelspeaker" element="label" attribute="type" value="speaker" doc="true"/>
   <style level="p" name="line" element="l"/>
   <style level="p" name="listheading" element="label" parent="dl"/>
   <style level="p" name="listcontent" element="item" parent="dl"/>
   <style level="p" name="listcontents" element="item" parent="dl"/>
-  <style level="p" name="lg" doc="true" element="l" parent="lg"/>
+  <style level="p" name="lg" element="l" parent="lg" doc="true"/>
   <style level="p" name="note" element="p" parent="notep"/>
-  <style level="p" name="opener" doc="true" element="opener"/>
-  <style level="p" name="p" doc="true" element="p" rend="keep"/>
-  <style level="p" name="pb" doc="true" element="pb"/>
+  <style level="p" name="opener" element="opener" doc="true"/>
+  <style level="p" name="p" element="p" rend="keep" doc="true"/>
+  <style level="p" name="pb" element="pb" doc="true"/>
   <style level="p" name="pbed" element="pb" attribute="type" value="ed"/>
   <style level="p" name="poem" element="lg"/>
-  <style level="p" name="postscript" doc="true" element="p" parent="postscript"/>
+  <style level="p" name="postscript" element="p" parent="postscript" doc="true"/>
   <style level="p" name="pre" element="eg"/>
   <style level="p" name="preformattedtext" element="eg"/>
   <style level="p" name="ptop" element="p" rend="keep"/>
-  <style level="p" name="q" doc="true" element="q"/>
+  <style level="p" name="q" element="q" doc="true"/>
   <style level="p" name="quotations" element="p" parent="quote"/>
-  <style level="p" name="quote" doc="true" element="p" parent="quote" rend="keep"/>
-  <style level="p" name="quotedateline" doc="true" element="dateline" parent="quote"/>
-  <style level="p" name="quotel" doc="true" element="l" parent="quote"/>
+  <style level="p" name="quote" element="p" parent="quote" rend="keep" doc="true"/>
+  <style level="p" name="quotedateline" element="dateline" parent="quote" doc="true"/>
+  <style level="p" name="quotel" element="l" parent="quote" doc="true"/>
   <style level="p" name="quotelindent" element="l" parent="quote" attribute="rend" value="indent"/>
-  <style level="p" name="quotesalute" doc="true" element="salute" parent="quote"/>
-  <style level="p" name="quotesigned" doc="true" element="signed" parent="quote"/>
+  <style level="p" name="quotesalute" element="salute" parent="quote" doc="true"/>
+  <style level="p" name="quotesigned" element="signed" parent="quote" doc="true"/>
   <style level="p" name="quotetop" element="p" parent="quote" rend="keep"/>
   <style level="p" name="refrain" element="l" attribute="rend" value="refrain"/>
-  <style level="p" name="role" doc="true" element="role" parent="castItem"/>
-  <style level="p" name="roledesc" doc="true" element="roleDesc" parent="castItem"/>
-  <style level="p" name="said" doc="true" element="said"/>
-  <style level="p" name="salute" doc="true" element="salute"/>
-  <style level="p" name="salutation" doc="true" element="salute"/>
+  <style level="p" name="role" element="role" parent="castItem" doc="true"/>
+  <style level="p" name="roledesc" element="roleDesc" parent="castItem" doc="true"/>
+  <style level="p" name="said" element="said" doc="true"/>
+  <style level="p" name="salute" element="salute" doc="true"/>
+  <style level="p" name="salutation" element="salute" doc="true"/>
   <style level="p" name="sender" element="byline"/>
-  <style level="p" name="set" doc="true" element="p" parent="set"/>
-  <style level="p" name="signed" doc="true" element="signed"/>
+  <style level="p" name="set" element="p" parent="set" doc="true"/>
+  <style level="p" name="signed" element="signed" doc="true"/>
   <style level="p" name="signature" element="signed"/>
   <style level="p" name="soustitre" element="head" attribute="type" value="sub"/>
-  <style level="p" name="speaker" doc="true"  element="speaker"/>
-  <style level="p" name="stage" doc="true" element="stage"/>
+  <style level="p" name="speaker"  element="speaker" doc="true"/>
+  <style level="p" name="stage" element="stage" doc="true"/>
   <style level="p" name="stageromain" element="stage" attribute="rend" value="not-i"/>
   <style level="p" name="stageitaliquecourt" element="stage" attribute="rend" value="right"/>  
   <style level="p" name="stageitalique" element="stage"/>
@@ -153,54 +154,54 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="syl13" element="l" attribute="met" value="syl13"/>
   <style level="p" name="syl14" element="l" attribute="met" value="syl14"/>
   <style level="p" name="texteenvers" element="l" parent="lg"/>
-  <style level="p" name="term" doc="true" element="term" parent="index"/>
+  <style level="p" name="term" element="term" parent="index" doc="true"/>
   <style level="p" name="title" element="head"/>
   <style level="p" name="titre" element="head"/>
-  <style level="p" name="trailer" doc="true" element="trailer"/>
+  <style level="p" name="trailer" element="trailer" doc="true"/>
   <style level="p" name="vers" element="l"/>
   <style level="p" name="versrompu" element="l" attribute="type" value="part"/>
   <style level="p" name="xml" element="eg"/>
   <style level="p" name="xr" element="xr" parent="entryFree"/>
-  <style level="c" name="abbr" doc="true" element="abbr"/>
-  <style level="c" name="add" doc="true" element="add"/>
+  <style level="c" name="abbr" element="abbr" doc="true"/>
+  <style level="c" name="add" element="add" doc="true"/>
   <style level="c" name="accentuation" element="emph"/>
-  <style level="c" name="actor" doc="true" element="actor"/>
-  <style level="c" name="author" doc="true" element="author"/>
-  <style level="c" name="affiliation" doc="true" element="affiliation"/>
-  <style level="c" name="age" doc="true" element="age"/>
+  <style level="c" name="actor" element="actor" doc="true"/>
+  <style level="c" name="author" element="author" doc="true"/>
+  <style level="c" name="affiliation" element="affiliation" doc="true"/>
+  <style level="c" name="age" element="age" doc="true"/>
   <style level="c" name="appelnotedebasdep"/><!-- Delete -->
-  <style level="c" name="bibl" doc="true" element="bibl"/>
+  <style level="c" name="bibl" element="bibl" doc="true"/>
   <style level="c" name="biblcar" element="bibl"/>
   <style level="c" name="bulletsymbols" element="glyph"/>
-  <style level="c" name="c" doc="true" element="c"/>
+  <style level="c" name="c" element="c" doc="true"/>
   <style level="c" name="caption" element="caption"/>
   <style level="c" name="char" element="c"/>
   <style level="c" name="citation" element="quote"/>
   <style level="c" name="citation1" element="quote"/>
   <style level="c" name="citationhtml" element="title"/>
-  <style level="c" name="code" doc="true" element="code"/>
-  <style level="c" name="corr" doc="true" element="corr"/>
+  <style level="c" name="code" element="code" doc="true"/>
+  <style level="c" name="corr" element="corr" doc="true"/>
   <style level="c" name="cstage" element="stage"/>
-  <style level="c" name="date" doc="true" element="date"/>
+  <style level="c" name="date" element="date" doc="true"/>
   <style level="c" name="definition" element="gloss"/>
-  <style level="c" name="del" doc="true" element="del"/>
+  <style level="c" name="del" element="del" doc="true"/>
   <style level="c" name="description" element="seg" attribute="ana" value="description"/>
   <style level="c" name="descriptioncar" element="seg" attribute="ana" value="description"/>
-  <style level="c" name="distinct" doc="true" element="distinct"/>
+  <style level="c" name="distinct" element="distinct" doc="true"/>
   <style level="c" name="edautoridad" element="name" attribute="type" value="authority"/>
   <style level="c" name="edcita" element="quote"/>
   <style level="c" name="edpolemista" element="name" attribute="type" value="polemista"/>
   <style level="c" name="edtitulodeobra" element="title"/>
-  <style level="c" name="email" doc="true" element="email"/>
+  <style level="c" name="email" element="email" doc="true"/>
   <style level="c" name="em" element="emph"/>
-  <style level="c" name="emph" doc="true" element="emph"/>
+  <style level="c" name="emph" element="emph" doc="true"/>
   <style level="c" name="emphasis" element="emph"/>
   <style level="c" name="example" element="q"/>
   <style level="c" name="exposant" element="sup"/>
   <style level="c" name="foreign" element="foreign"/>
-  <style level="c" name="geogname" doc="true" element="geogName"/>
+  <style level="c" name="geogname" element="geogName" doc="true"/>
   <style level="c" name="geographie" element="geogName"/>
-  <style level="c" name="gloss" doc="true" element="gloss"/>
+  <style level="c" name="gloss" element="gloss" doc="true"/>
   <style level="c" name="htmlcite" element="title"/>
   <style level="c" name="id" element="id"/>
   <style level="c" name="ident" element="ident"/>
@@ -209,16 +210,16 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="c" name="italic1" element="i"/>
   <style level="c" name="lieu" element="placeName"/>
   <style level="c" name="linenumbering" element="num"/>
-  <style level="c" name="name" doc="true" element="name"/>
-  <style level="c" name="num" doc="true" element="num"/>
+  <style level="c" name="name" element="name" doc="true"/>
+  <style level="c" name="num" element="num" doc="true"/>
   <style level="c" name="pagenumber" element="num"/>
   <style level="c" name="pagination" element="pb"/>
   <style level="c" name="pagenum" element="pb"/>
   <style level="c" name="pagenum1" element="pb"/>
-  <style level="c" name="pb" doc="true" element="pb"/>
-  <style level="c" name="persname" doc="true" element="persName"/>
+  <style level="c" name="pb" element="pb" doc="true"/>
+  <style level="c" name="persname" element="persName" doc="true"/>
   <style level="c" name="place" element="placeName"/>
-  <style level="c" name="placename" doc="true" element="placeName"/>
+  <style level="c" name="placename" element="placeName" doc="true"/>
   <style level="c" name="q" element="q"/>
   <style level="c" name="quote" element="quote"/>
   <style level="c" name="quotec" element="quote"/>
@@ -230,7 +231,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="c" name="smcap1" element="sc"/>
   <style level="c" name="sourcetext" element="code"/>
   <style level="c" name="speakercar" element="speaker"/>
-  <style level="c" name="stage" doc="true" element="stage"/>
+  <style level="c" name="stage" element="stage" doc="true"/>
   <style level="c" name="stagec" element="stage"/>
   <style level="c" name="stagecar" element="stage"/>
   <style level="c" name="strongemphasis" element="strong"/>
@@ -238,7 +239,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="c" name="temps" element="date"/>
   <style level="c" name="teletype" element="code"/>
   <style level="c" name="term" element="term"/>
-  <style level="c" name="title" doc="true" element="title"/>
+  <style level="c" name="title" element="title" doc="true"/>
   <style level="c" name="title0" element="title"/>
   <style level="c" name="titlec" element="title"/>
   <style level="c" name="userentry" element="code"/>

@@ -4,7 +4,7 @@
   <teiHeader>
     <fileDesc>
       <titleStmt>
-        <title>{Title}</title>
+        <title>{title}</title>
         <author key="{author}"/>
       </titleStmt>
       <editionStmt>
@@ -18,7 +18,7 @@
         </availability>
       </publicationStmt>
       <sourceDesc>
-        <bibl>{bibl}</bibl>
+        <bibl>{source}</bibl>
       </sourceDesc>
     </fileDesc>
     <profileDesc>

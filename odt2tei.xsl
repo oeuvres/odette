@@ -79,7 +79,6 @@ Best usage of output could be as an input for other filters (regular expressions
   <xsl:param name="output" select="$body"/>
   <!-- Link to a style sheet with style name mapping with elements -->
   <xsl:variable name="sheet" select="document('styles.xml', document(''))"/>
-  <xsl:variable name="teiHeader" select="document('teiHeader.xml', document(''))/*"/>
   <!-- the filename processed, set by the caller -->
   <xsl:param name="filename"/>
   <xsl:param name="mediadir"/>
@@ -136,7 +135,6 @@ Best usage of output could be as an input for other filters (regular expressions
               <xsl:value-of select="$lang"/>
             </xsl:attribute>
           </xsl:if>
-          <xsl:copy-of select="$teiHeader"/>
           <text>
             <body>
               <xsl:value-of select="$lf"/>
