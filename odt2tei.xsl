@@ -1363,12 +1363,22 @@ to facilitate subsequent groupings.
   </xsl:template>
   <xsl:template match="text:tab">
     <xsl:variable name="tab">
-      <xsl:text>    </xsl:text>
+      <xsl:text>    </xsl:text>
+    </xsl:variable>
+    <xsl:variable name="pclass">
+      <xsl:for-each select="ancestor::text:p[1]">
+        <xsl:call-template name="class">
+          <xsl:with-param name="string">
+            <xsl:call-template name="styleName"/>
+          </xsl:with-param>
+        </xsl:call-template>
+      </xsl:for-each>
     </xsl:variable>
     <xsl:choose>
       <!-- tab at start of a note -->
       <xsl:when test="ancestor::text:note and not(../preceding-sibling::node())"/>
       <xsl:when test="ancestor::text:note and not(preceding-sibling::node())"/>
+      <xsl:when test="contains(',meta,term,name,', concat(',', $pclass, ','))"/>
       <xsl:when test="true()">
         <space rend="tab">
           <xsl:copy-of select="$tab"/>

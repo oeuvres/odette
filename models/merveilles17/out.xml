@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../merveilles17.xsl"?>
+<?xml-stylesheet type="text/css" href="../style/tei-author.css" alternate="author"?>
+<?xml-model href="../merveilles17.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="fr">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Relation des divertissements que le roi a donné aux reines dans le parc de Versailles, écrite à un gentilhomme qui est présentement hors de France</title>
+        <author key="???">Lully, Jean-Baptiste (naissance, mort)</author>
+<author key="???">Benserade, Isaac de (?, ?)</author>
+<author key="???">Périgny, Octave de (?, ?)</author>
+      </titleStmt>
+      <editionStmt>
+        <edition>Merveilles17</edition>
+        <respStmt>
+          <name>Nom de la personne qui édite le texte (DEGUIN, Yohann par exemple)</name>
+          <resp>Transcription</resp>
+        </respStmt>
+      </editionStmt>
+      <publicationStmt>
+        <publisher>Université d’Artois - Lille, MESHS</publisher>
+        <date when="2021"/>
+        <availability status="restricted">
+          <licence target="https://creativecommons.org/licenses/by-sa/4.0/deed.fr"/>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>Marigny, <emph>Relation des divertissements que le roi a donné aux reines dans le parc de Versailles, écrite à un gentilhomme qui est présentement hors de France</emph>, Paris, Barbin, 1664</bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <creation>
+        <date when="AAAA-MM-JJ"/>
+      </creation>
+      <langUsage>
+        <language ident="fr"/>
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+
+
+<p>En copiant la section ci-dessus, et en la remplissant, au début de chaque transcription, vous pourrez obtenir, grâce à Odette, un Header déjà partiellement rempli.</p>
+<p>Ensuite, pour importer les styles nécessaires au stylage de vos transcriptions sur vos logiciels de traitement de texte (Word, Libre Office), il vous suffit de copier-coller ceci dans le document, ce qui aura pour effet de copier aussi les styles dans votre palette de styles, puis de le supprimer.</p>
+<p>C’est parti, vous pouvez styler.</p>
+<p/>
+<p>Les titres et corps de texte sont stylés à partir des styles par défaut du logiciel (Titre, Titre 1, Titre 2, Corps de Texte, etc.).</p>
+<p/>
+<salute>Les salutations</salute>
+<l>Les vers et les devises</l>
+<l/>
+<l><persName>Les noms de personnes réelles</persName></l>
+<l/>
+<l><tech>Les techniques</tech></l>
+<p><placeName>Les noms de lieu</placeName></p>
+<p><date>Les dates</date></p>
+<l><name>Les noms de personnages</name></l>
+<p><foreign>Les segments en langue étrangère</foreign></p>
+<p>Les listes</p>
+<p>Les noms de personnages qui parlent dans le dispositif théâtral</p>
+<l/>
+<byline>L’annonce de l’auteur ou de l’éditeur : « Par Barbier »</byline>
+<byline/>
+
+<pb n="Les numéros de page."/>
+<p/>
+
+<pb/>
+<p/>
+<p>Page suivante, un exemple :</p>
+<salute>Chers tous,</salute>
+<p/>
+<p>Ce corps de texte est très riche puisque si j’écris <name>Charlemagne</name> je me trouve avec un nom de personnage, si j’écris <placeName>Versailles</placeName>, voilà un lieu. <persName>Louis XIV</persName> est mort en <date>1715</date> ; personne n’a pensé à tirer un <tech>feu d’artifice</tech> pour fêter ça : et hop, une personne réelle, une date et une technique. Là, je vais signaler un saut de page ! Attention : 
+<pb n="1" xml:id="p1"/> ; 
+<pb n="2" xml:id="p2"/>. <foreign>So easy</foreign>! Tiens, si on versifiait un peu ?</p>
+<label type="head">Petit interlude où je cite <persName>Racine</persName></label>
+<label type="speaker">BERENICE</label>
+<l>Dans un mois, dans un an, combien souffrirons-nous,</l>
+<l>Seigneur, que tant de mers me séparent de vous ?</l>
+<l>Que le jour recommence et que le jour finisse,</l>
+<l>Sans que jamais Titus puisse voir Bérénice.</l>
+<l/>
+<p>Le Roi
+<lb/>La Reine
+<lb/>La princesse de Lamballe
+<lb/>La fille du boulanger</p>
+<p/>
+<byline>
+<pb n="Par Yohann"/></byline>
+<p/>
+<p/>
+<p/>
+</body>
+  </text>
+</TEI>
