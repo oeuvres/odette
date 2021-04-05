@@ -107,11 +107,6 @@ Apache licence http://www.apache.org/licenses/LICENSE-2.0
       </xsl:when>
       <!-- empty title, strip -->
       <xsl:when test="starts-with($styleName, 'Heading_20_') and normalize-space(.)=''"/>
-      <!-- A specific thing form "Classiques des sciences sociales" http://classiques.uqac.ca/ -->
-      <xsl:when test="normalize-space(.) = '@'"/>
-      <xsl:when test="starts-with(normalize-space(.), 'Retour à la table des matières')"/> 
-      <xsl:when test="starts-with(normalize-space(.), 'Retour à la table des planches')"/> 
-      <xsl:when test="starts-with(normalize-space(.), 'Retour au Sommaire')"/> 
       <!-- empty, do not add it like a title -->
       <xsl:when test=".=''">
         <xsl:copy>

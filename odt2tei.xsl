@@ -225,7 +225,8 @@ Best usage of output could be as an input for other filters (regular expressions
       <xsl:when test="ancestor::table:table"/>
       <xsl:when test="ancestor::text:note"/>
       <xsl:otherwise>
-        <xsl:variable name="prev" select="preceding::text:h[1]/@text:outline-level"/>
+        <!-- keep [ancestor::office:text] if text:h in style:header -->
+        <xsl:variable name="prev" select="preceding::text:h[1][ancestor::office:text]/@text:outline-level"/>
         <xsl:if test="$prev">
           <xsl:call-template name="divClose">
             <xsl:with-param name="n" select="1+ $prev - $level"/>
@@ -291,8 +292,10 @@ case encountered, seems logic, but not fully tested
   </xsl:template>
   <!-- if office page break are gnificative, it is here -->
   <xsl:template match="text:soft-page-break">
+    <!--
     <xsl:value-of select="$lf"/>
     <pb/>
+    -->
   </xsl:template>
   <!-- End of text, do not forget to close open <div> -->
   <xsl:template match="office:text">
@@ -374,6 +377,7 @@ case encountered, seems logic, but not fully tested
     </xsl:variable>
     <xsl:variable name="class">
       <xsl:choose>
+        <xsl:when test="$classtest = 'listparagraph'"/>
         <xsl:when test="$classtest = 'listheading'">label</xsl:when>
         <!-- non semantic style names -->
         <xsl:when test="starts-with($classtest, 'annotationtext')"/>
@@ -497,6 +501,7 @@ case encountered, seems logic, but not fully tested
       <xsl:call-template name="border"/>
     </xsl:variable>
     <xsl:variable name="rend" select="normalize-space(concat($align,' ', $margin,' ',$indent,' ',$font,' ',$color,' ',$bg, ' ', $u, ' ', $sc))"/>
+    <xsl:variable name="rendkeep" select="normalize-space($align)"/>
     <xsl:variable name="key" select="translate(substring-before(., ':'), $ABC, $abc)"/>
     <xsl:variable name="xml">
       <xsl:choose>
@@ -544,9 +549,9 @@ case encountered, seems logic, but not fully tested
                 <xsl:value-of select="$lf"/>
                 <xsl:element name="{$element}" namespace="http://www.tei-c.org/ns/1.0">
                   <xsl:call-template name="lang"/>
-                  <xsl:if test="$rend != ''">
+                  <xsl:if test="$mapping/@keep = 'true' and $rendkeep != ''">
                     <xsl:attribute name="rend">
-                      <xsl:value-of select="$rend"/>
+                      <xsl:value-of select="$rendkeep"/>
                     </xsl:attribute>
                   </xsl:if>
                   <xsl:if test="$mapping/@attribute != ''">
@@ -560,6 +565,9 @@ case encountered, seems logic, but not fully tested
                   </xsl:if>
                   <xsl:call-template name="flow"/>
                 </xsl:element>
+                <!--
+                <xsl:value-of select="$lf"/>
+                -->
               </xsl:element>
             </xsl:when>
             <!--  A style known as an element -->
@@ -568,9 +576,9 @@ case encountered, seems logic, but not fully tested
               <xsl:value-of select="$lf"/>
               <xsl:element name="{$element}" namespace="http://www.tei-c.org/ns/1.0">
                 <xsl:call-template name="lang"/>
-                <xsl:if test="$rend != ''">
+                <xsl:if test="$mapping/@keep = 'true' and $rendkeep != ''">
                   <xsl:attribute name="rend">
-                    <xsl:value-of select="$rend"/>
+                    <xsl:value-of select="$rendkeep"/>
                   </xsl:attribute>
                 </xsl:if>
                 <xsl:if test="$mapping/@attribute != ''">
@@ -809,6 +817,7 @@ Listes et tables
             <xsl:when test="$class='Standard'"/>
             <xsl:when test="$class='Text_20_body'"/>
             <xsl:when test="$class='textbody'"/>
+            <xsl:when test="$class='listparagraph'"/>
             <xsl:otherwise>
               <xsl:attribute name="rend">
                 <xsl:value-of select="$class"/>
@@ -1344,10 +1353,8 @@ to facilitate subsequent groupings.
   <!-- Spacing -->
   <xsl:template match="text:s">
     <xsl:choose>
-      <!-- space at start of a note -->
-      <xsl:when test="preceding-sibling::*[1][self::text:tab]"/>
-      <xsl:when test="parent::text:note and not(preceding-sibling::node()[1])"/>
-      <xsl:when test="../../text:note and not(../preceding-sibling::node()[1])"/>
+      <!-- <text:p text:style-name="Footnote"><text:s/><text:tab/>L&apos; -->
+      <xsl:when test="ancestor::text:note"/>
       <!-- Bad rule
       <xsl:when test="not(preceding-sibling::node()[normalize-space(.) != ''])"/>
       -->
@@ -1375,10 +1382,12 @@ to facilitate subsequent groupings.
       </xsl:for-each>
     </xsl:variable>
     <xsl:choose>
-      <!-- tab at start of a note -->
-      <xsl:when test="ancestor::text:note and not(../preceding-sibling::node())"/>
-      <xsl:when test="ancestor::text:note and not(preceding-sibling::node())"/>
-      <xsl:when test="contains(',meta,term,name,', concat(',', $pclass, ','))"/>
+      <!-- tab in a note, usually at start -->
+      <xsl:when test="ancestor::text:note"/>
+      <xsl:when test="contains(',l,', concat(',', $pclass, ','))"/>
+      <xsl:when test="contains(',meta,term,name,', concat(',', $pclass, ','))">
+        <xsl:text> </xsl:text>
+      </xsl:when>
       <xsl:when test="true()">
         <space rend="tab">
           <xsl:copy-of select="$tab"/>
@@ -1759,12 +1768,13 @@ Liens et renvois
       </xsl:choose>
     </xsl:variable>
     <!-- if different of global language create anattribute -->
-    <xsl:if test="$language and $language != '' and $language != $lang">
+    <xsl:if test="$language and $language != '' and $language != $lang and $language != 'fr'">
       <xsl:attribute name="xml:lang">
         <xsl:value-of select="$language"/>
       </xsl:attribute>
     </xsl:if>
   </xsl:template>
+  
   <!-- Find the best semantic name for an automatic style name -->
   <xsl:template name="styleName">
     <!-- nom de style, peut être passé en paramètre -->

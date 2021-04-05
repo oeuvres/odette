@@ -1,39 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://oeuvres.github.io/teinte/teinte.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-stylesheet type="text/xsl" href="../teinte/tei2html.xsl"?>
-<TEI xml:lang="fr" xmlns="http://www.tei-c.org/ns/1.0">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="fr">
   <teiHeader>
     <fileDesc>
       <titleStmt>
         <title>{title}</title>
         <author key="{author}"/>
+        <editor>{editor}</editor>
+        <principal>Georges Forestier</principal>
       </titleStmt>
       <editionStmt>
-        <edition>hurlus.fr</edition>
+        <edition>Sorbonne Université, CELLF 16e-18e</edition>
+        <respStmt>
+          <name>Claire Carpentier</name>
+          <resp>OCR, XML-TEI</resp>
+        </respStmt>
       </editionStmt>
       <publicationStmt>
-        <publisher>hurlus.fr</publisher>
-        <date when="2021"/>
+        <publisher>CELLF 16e-18e</publisher>
+        <date when="2015"/>
+        <idno>?</idno>
         <availability status="restricted">
-          <licence target="https://creativecommons.org/publicdomain/zero/1.0/deed.fr"/>
+          <licence target="?">CELLF 16e-18e</licence>
         </availability>
       </publicationStmt>
       <sourceDesc>
-        <bibl>{source}</bibl>
+        <bibl>{bibl}</bibl>
       </sourceDesc>
     </fileDesc>
     <profileDesc>
+      <creation>
+        <date when="{creation}"/>
+      </creation>
       <langUsage>
         <language ident="fr"/>
       </langUsage>
-      <creation>
-        <date when="{date}"/>
-      </creation>
     </profileDesc>
   </teiHeader>
   <text>
-    <body>
-      <!-- requis, remplacé par le contenu TEI du document odt -->
-    </body>
+    <body/>
   </text>
 </TEI>

@@ -16,23 +16,14 @@
       <publicationStmt>
         <publisher>Sorbonne Université, Centre André Chastel</publisher>
         <date when="2021"/>
-        <idno>{filename}</idno>
-        <!--il faut revoir les identifiants-->
+        <idno>{filename}</idno><!-- A supprimer ?-->
         <availability status="restricted">
-          <!--il faut mettre notre propre licence -->
-          <!-- Et c’est quoi ? votre licence ? -->
-          <licence target="http://creativecommons.org/licenses/by-nc-nd/3.0/fr/">
-            <p>Copyright © 2015 Université Paris-Sorbonne, agissant pour le Laboratoire d’Excellence « Observatoire de la vie littéraire » (ci-après dénommé OBVIL).</p>
-            <p>Cette ressource électronique protégée par le code de la propriété intellectuelle sur les bases de données (L341-1) est mise à disposition de la communauté scientifique internationale par l’OBVIL, selon les termes de la licence Creative Commons : « Attribution - Pas d’Utilisation Commerciale - Pas de Modification 3.0 France (CC BY-NC-ND 3.0 FR) ».</p>
-            <p>Attribution : afin de référencer la source, toute utilisation ou publication dérivée de cette ressource électroniques comportera le nom de l’OBVIL et surtout l’adresse Internet de la ressource.</p>
-            <p>Pas d’Utilisation Commerciale : dans l’intérêt de la communauté scientifique, toute utilisation commerciale est interdite.</p>
-            <p>Pas de Modification : l’OBVIL s’engage à améliorer et à corriger cette ressource électronique, notamment en intégrant toutes les contributions extérieures, la diffusion de versions modifiées de cette ressource n’est pas souhaitable.</p>
-          </licence>
+          <licence target="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr"></licence>
         </availability>
       </publicationStmt>
       <seriesStmt>
         <title type="main">Correspondance d'Eugène Delacroix</title>
-        <title type="sub">Hôtel Lambert<!--titre sous corpus! ex Correspondance de Delacroix avec Joséphine de Forget--></title>
+        <title type="sub">Hôtel Lambert</title><!-- optionnel -->
       </seriesStmt>
       <sourceDesc>
         <msDesc>
@@ -47,19 +38,18 @@
             <objectDesc form="letter">
               <supportDesc>
                 <extent>
-                  <measure type="page">{pages}</measure>
+                  <measure type="page">{pages}</measure><!-- optionnel -->
                 </extent>
               </supportDesc>
             </objectDesc>
-            <accMat>{accMat}</accMat>
-            <!--pour les pièces accompagnant la lettre ex : envelope-->
+            <accMat>{accMat}</accMat><!-- optionnel -->
           </physDesc>
           <history>
-            <provenance>{historique}</provenance>
+            <provenance>{historique}</provenance><!-- optionnel -->
           </history>
         </msDesc>
         <listBibl>
-          <bibl>{edition}</bibl>
+          <bibl>{edition}</bibl><!-- optionnel -->
         </listBibl>
       </sourceDesc>
     </fileDesc>
@@ -67,14 +57,14 @@
       <correspDesc>
         <correspAction type="sent">
           <persName key="{auteur}"/>
-          <date when="{date}"/>
-          <placeName>{lieu}</placeName>
+          <date when="{date}"/><!-- optionnel -->
+          <placeName>{lieu}</placeName><!-- optionnel -->
         </correspAction>
-        <correspAction type="received">
-          <persName key="{destinataire}"/>
+        <correspAction type="received"><!-- optionnel -->
+          <persName key="{destinataire}"/><!-- optionnel -->
         </correspAction>
         <correspContext>
-          <ref target="{reponsea}" type="replyTo"/>
+          <ref target="{reponsea}" type="replyTo"/><!-- optionnel -->
         </correspContext>
       </correspDesc>
       <langUsage>

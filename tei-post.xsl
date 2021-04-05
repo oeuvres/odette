@@ -444,6 +444,7 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
       </xsl:when>
       <xsl:when test="local-name()='speaker'"/>
       <xsl:otherwise>
+        <xsl:value-of select="$lf"/>
         <xsl:apply-templates select="."/>
         <xsl:for-each select="following-sibling::*[1]">
           <xsl:call-template name="sp"/>

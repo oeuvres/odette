@@ -67,6 +67,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="docauthor" element="docAuthor" doc="true"/>
   <style level="p" name="docimprint" element="docImprint" doc="true"/>
   <style level="p" name="docdate" element="docDate" doc="true"/>
+  <style level="p" name="doctitle" element="docTitle" doc="true"/>
   <style level="p" name="edbibl" element="bibl"/>
   <style level="p" name="eg" element="eg" doc="true"/>
   <style level="p" name="epigraph" element="p" parent="epigraph" rend="keep" doc="true"/>

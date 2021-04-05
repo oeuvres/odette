@@ -202,15 +202,17 @@ class Odette {
     $start = microtime(true);
     $this->transform(dirname(__FILE__).'/odt-norm.xsl');
 
+
     // odt > tei
     $this->transform(dirname(__FILE__).'/odt2tei.xsl', $pars);
     
     $this->doc->preserveWhiteSpace = true;
     $this->doc->formatOutput = false; // after multiple tests, keep it
     $this->doc->substituteEntities=true;
+
     
     $xml=$this->doc->saveXML();
-
+    
     // regularisation of tags segments, ex: spaces tagged as italic
     $preg=self::sed_preg(file_get_contents(dirname(__FILE__).'/tei.sed'));
     $xml = preg_replace($preg[0], $preg[1], $xml);
@@ -226,6 +228,8 @@ class Odette {
     $pars['model'] = $model_xml;
     
     $this->loadXML($xml);
+
+    
     // TEI regularisations and model fusion
     $this->transform(dirname(__FILE__).'/tei-post.xsl', $pars);
     // specific normalisations ?
