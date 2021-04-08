@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://oeuvres.github.io/Teinte/teinte.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="fr">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Le Journal des Soldats Blessés aux Yeux, n° 29, mars 1919</title>
+      </titleStmt>
+      <editionStmt>
+        <edition>2021</edition>
+        <respStmt>
+          <name>Nom, prénom</name>
+          <resp>Transcription</resp>
+        </respStmt>
+      </editionStmt>
+      <publicationStmt>
+        <publisher>Médiathèque Valentin Haüy</publisher>
+        <availability status="restricted">
+          <licence target="https://creativecommons.org/publicdomain/mark/1.0/deed.fr"/>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>{source}</bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr"/>
+      </langUsage>
+      <creation>
+        <date when="1919-03"/>
+      </creation>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+
+
+<p/>
+<p><ref target="../../../../../../../home/fred/Documents/admin-obtic/Lien%20image">[n. p.]</ref>
+<!-- Auteur inconnu : 2021-03-25T10:34:28.853267988
+Page non numérotée, lien vers l’url de référence de l’image de page--></p>
+<p/>
+<p/>
+<p><ref target="../../../../../../../home/fred/Documents/admin-obtic/lien%20à%20la%20page"><pb n="13"/></ref>
+<!-- Auteur inconnu : 2021-03-25T10:35:07.358277426
+Par convention, le numéro de page est toujours mis avant le texte qu’elle désigne, comme un titre, sinon il faut rouvrir les images pour savoir si les numéros sont avant ou après.https://argonnaute.parisnanterre.fr/ark:/14707/a011447428447vjWQrG/1f9913b063 --></p>
+<div subtype="level1">
+<head>Lettres de nos camarades
+<!-- Auteur inconnu : 2021-03-25T10:36:13.451874840
+Titre 1, titre d’article, ne pas hésiter à mettre des couleurs dans le modèle pour aider à se repérer, ne pas laisser mettre des filets et séparateurs qui sont déjà portés par la sémantique d’un style--></head>
+<div subtype="level2">
+<head>Tout n’est pas perdu
+<!-- Auteur inconnu : 2021-03-25T10:36:51.823585095
+Titre 2, titre structurant de sous‑section--></head>
+<dateline>Meaux, le 26 mai 1918.
+<!-- Auteur inconnu : 2021-03-25T10:37:18.375189686
+<dateline>, nom de style avec la sémantique TEI, et le < fait passer le style en haut sur la palette, date vient du latin datum, donné le… à …, date de lieu et date de temps ne sont pas distingués ici, selon la tradition romaine, extraire une info pour renseigner un champ de recherche est très imprudent, ici c’est au niveau de la sous‑section--></dateline>
+<salute>Bien cher monsieur Brieux.
+<!-- Auteur inconnu : 2021-03-25T10:37:36.471972001
+<salute>, un paragraphe centré avec espacement qui évite de se retrouver avec trop de paragraphes vides parasites--></salute>
+<p>Je viens aujourd’hui…
+<!-- Auteur inconnu : 2021-03-25T10:37:52.834661402
+Corps de texte, ou <p> ; le paragraphe de texte par défaut de cette revue semble un alinéa avec indentation de première ligne sans espacement--></p>
+<p>Encore un alinéa…</p>
+<p>Et encore un autre blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah.</p>
+<p>
+<!-- Auteur inconnu : 2021-03-25T10:38:03.880306616
+paragraphe vide pour séparer les alinéas--></p>
+<p>Et la suite</p>
+<signed>Benoit Tavernier
+<lb/>56<hi rend="sup">e</hi> territorial, à Torcieu (Ain).
+<!-- Auteur inconnu : 2021-03-25T10:38:21.913464747
+<signed>, expliquer les que saut de ligne, maj+entrée, ne crée pas un nouveau bloc, donc sera une même balise XML--></signed>
+</div>
+<div subtype="level2">
+<head>
+<!-- Auteur inconnu : 2021-03-25T10:38:46.242610638
+Ne pas chercher à mettre l’ornement séparateur de section, l’imitatif est inutile, il y a l’image-->« Je me trouve très heureux »</head>
+<p>Blah,</p>
+</div>
+</div>
+<div subtype="level1">
+<head>Machine Braille
+<lb/>pour les amputés d’une main
+<!-- Auteur inconnu : 2021-03-25T10:39:10.775716728
+« pour les amputés d’une main » semble un complément de titre lié syntaxiquement au titre, plutôt qu’un sous‑titre, donc saut de ligne,--></head>
+<p>Alinéa…</p>
+<p>Alinéa…</p>
+<p>Alinéa…</p>
+<p>Alinéa…</p>
+<signed>M. Bocquet
+<!-- Auteur inconnu : 2021-03-25T10:40:15.597719122
+<signed>--></signed>
+</div>
+<div subtype="level1">
+<head>Société d’impression et de reliure
+<!-- Auteur inconnu : 2021-03-25T10:40:30.069966541
+Si on veut une tables des matière homogène qui conserve les lettres accentuées et des majuscules sur les prénoms, titres toujours en minuscules.--></head>
+<head type="sub">Du <emph>L</emph>ivre pour les aveugles
+<lb/>Siègle social : 49, rue Ampère</head>
+<p>Blah</p>
+</div>
+<div subtype="level1">
+<head>Notre Syndicat professionnel</head>
+<argument>
+<p>Le chapeau est un type de paragraphe couramment distingué dans la presse
+<!-- Auteur inconnu : 2021-03-25T10:40:54.389081788
+<argument>--></p></argument>
+<p>Blah</p>
+<p>Blah</p>
+<label>Intertitre non structurant
+<!-- Auteur inconnu : 2021-03-25T10:40:39.641863730
+<label>--></label>
+<p>Blah</p>
+</div>
+</body>
+  </text>
+</TEI>
