@@ -85,7 +85,7 @@ class Odette {
     }
     else if ($format == 'html') {
       // format html from a clean TEI
-      $this->tei();
+      $this->tei($model);
       // find a transfo pack for tei to html
       $xsl=dirname(__FILE__).'/tei2html.xsl';
       if (!file_exists($xsl)) $xsl=dirname(dirname(__FILE__)).'/teinte/tei2html.xsl';
@@ -354,8 +354,7 @@ class Odette {
     }
     // chrome do not like text/xml
     else {
-      header ("Content-Type: text/xml;");
-      preg_replace('@<\?xml-stylesheet.*\?>@', '', $xml);
+      header ("Content-Type: text/plain; charset=UTF-8");
     }
     echo $xml;
     exit;
