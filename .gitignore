@@ -1,8 +1,6 @@
 *.odt#
 /*.odt
 *.bak
-*.docx
+/*.docx
 /*.xml
 *.doc
-!odette.odt
-
