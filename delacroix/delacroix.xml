@@ -9,21 +9,28 @@
       <editionStmt>
         <edition>Centre André Chastel — ObTiC</edition>
         <respStmt>
-          <name>{transcription}</name>
           <resp>Transcription</resp>
+          <name>{transcription}</name>
+        </respStmt>
+        <respStmt>
+          <resp>Annotation</resp>
+          <name>{annotation}</name>
+        </respStmt>
+        <respStmt>
+          <resp>Corrections</resp>
+          <name>{corrections}</name>
         </respStmt>
       </editionStmt>
       <publicationStmt>
         <publisher>Sorbonne Université, Centre André Chastel</publisher>
         <date when="2021"/>
-        <idno>{filename}</idno><!-- A supprimer ?-->
         <availability status="restricted">
           <licence target="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr"></licence>
         </availability>
       </publicationStmt>
       <seriesStmt>
         <title type="main">Correspondance d'Eugène Delacroix</title>
-        <title type="sub">Hôtel Lambert</title><!-- optionnel -->
+        <title type="sub">Hôtel Lambert</title>
       </seriesStmt>
       <sourceDesc>
         <msDesc>
@@ -38,18 +45,18 @@
             <objectDesc form="letter">
               <supportDesc>
                 <extent>
-                  <measure type="page">{pages}</measure><!-- optionnel -->
+                  <measure type="page"><!-- Rempli au tomatiquement par le nombre de <pb/> --></measure>
                 </extent>
               </supportDesc>
             </objectDesc>
-            <accMat>{accMat}</accMat><!-- optionnel -->
+            <accMat>{accMat}</accMat>
           </physDesc>
           <history>
-            <provenance>{historique}</provenance><!-- optionnel -->
+            <provenance>{historique}</provenance>
           </history>
         </msDesc>
         <listBibl>
-          <bibl>{edition}</bibl><!-- optionnel -->
+          <bibl>{edition}</bibl>
         </listBibl>
       </sourceDesc>
     </fileDesc>
@@ -57,11 +64,11 @@
       <correspDesc>
         <correspAction type="sent">
           <persName key="{auteur}"/>
-          <date when="{date}"/><!-- optionnel -->
-          <placeName>{lieu}</placeName><!-- optionnel -->
+          <date when="{date}"/>
+          <placeName>{lieu}</placeName>
         </correspAction>
-        <correspAction type="received"><!-- optionnel -->
-          <persName key="{destinataire}"/><!-- optionnel -->
+        <correspAction type="received">
+          <persName key="{destinataire}"/>
         </correspAction>
         <correspContext>
           <ref target="{reponsea}" type="replyTo"/><!-- optionnel -->

@@ -16,7 +16,7 @@ s@<\?div /\?>@</div>@g
 # xsl produce series like <entry><form>LEMMA</form><!-- DEL --></entry><entry><!-- /DEL --><def>DEFINITION</def></entry>
 s@(</entry>\s*)(<entry>\s*<form>)@\1<?o?>\2@g
 s@(</entryFree>\s*)(<entryFree>\s*<form>)@\1<?o?>\2@g
-s@</(address|argument|castList|dialogue|dl|entry|entryFree|epigraph|figure|index|lg|listBibl|notep|quote|set|ul)>\s*<\1( [^>]*)?>@@g
+s@</(address|argument|castList|closer|dialogue|dl|entry|entryFree|epigraph|figure|index|lg|listBibl|notep|opener|quote|set|ul)>\s*<\1( [^>]*)?>@@g
 # empty can be used as separator
 s@<(argument|castItem|dialogue|dl|entry|entryFree|eg|figure|index|lg|listBibl|note|quote|set|ul)/>@\n@g
 s@<\?o\?>@@g

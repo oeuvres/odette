@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="fr">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Lettre de Joséphine de Forget à Delacroix, [15 mars 1842]</title>
+        <author key="Forget, Joséphine de (1802-1886)"/>
+      </titleStmt>
+      <editionStmt>
+        <edition>Centre André Chastel — ObTiC</edition>
+        <respStmt>
+          <name>Gaëlle Lafage</name>
+          <resp>Transcription</resp>
+        </respStmt>
+      </editionStmt>
+      <publicationStmt>
+        <publisher>Sorbonne Université, Centre André Chastel</publisher>
+        <date when="2021"/>
+        <availability status="restricted">
+          <licence target="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr"/>
+        </availability>
+      </publicationStmt>
+      <seriesStmt>
+        <title type="main">Correspondance d'Eugène Delacroix</title>
+        <title type="sub">Hôtel Lambert</title><!-- optionnel -->
+      </seriesStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <country>France</country>
+            <settlement>France</settlement>
+            <institution>Archives départementales du Val-de-Marne</institution>
+            <repository>{cotefonds}</repository>
+            <idno>2 J 187, pièce 7</idno>
+          </msIdentifier>
+          <physDesc>
+            <objectDesc form="letter">
+              <supportDesc>
+                <extent>
+                  <measure type="page">4</measure>
+                </extent>
+              </supportDesc>
+            </objectDesc>
+            
+          </physDesc>
+          
+        </msDesc>
+        <listBibl>
+          <bibl>Burty Philippe, <emph>Lettres de Eugène Delacroix</emph>, Paris, A. Quantin, 1878, t.I, p. 277-279.</bibl>
+<bibl>Joubin André, <emph>Correspondance générale de Eugène Delacroix</emph>, Paris, Plon, 1936-1938, t. II, p. 136-137.</bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <correspDesc>
+        <correspAction type="sent">
+          <persName key="Forget, Joséphine de (1802-1886)"/>
+          <date when="1842-03-15"/><!-- optionnel -->
+          <placeName>{lieu}</placeName><!-- optionnel -->
+        </correspAction>
+        <correspAction type="received"><!-- optionnel -->
+          <persName key="Delacroix, Eugène (1798-1863)"/><!-- optionnel -->
+        </correspAction>
+        <correspContext>
+          <ref target="{reponsea}" type="replyTo"/><!-- optionnel -->
+        </correspContext>
+      </correspDesc>
+      <langUsage>
+        <language ident="fr"/>
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+
+
+<div subtype="level1">
+<head>Transcription diplomatique</head>
+<p>Il est vrai, mon ami, que j’esperois recevoir de vos</p>
+<p>nouvelles plutôt, j’etois inquiete de votre santé.</p>
+<p>Jouissez de la campagne, puisqu’elle vous fait du bien, et ne</p>
+<p>faut-il pas hélas ! que je m’habitue à rester longtems sans</p>
+<p>vous voir ; l’absence est une chose cruelle pour les personnes</p>
+<p>qui s’aiment, et surtout pour nous, qui n’y avons pas été</p>
+<p>habitués. C’est en soupirant, que je pense, ami, à votre</p>
+<p>voyage d’Italie, et cependant, je vous engage vivement à</p>
+<p>persister ; il s’agit de votre santé, et par cela même,</p>
+<p>de beaucoup de choses fort graves. Je crois en</p>
+<p>effet que les villes d’Italie sont bien différentes de</p>
+<p>notre Paris, elles doivent avoir un charme particulier, pour</p>
+<p>un artiste, et quel beau climat ! Louise me</p>
+<p>disoit il y a quelques jours, que se trouvant à Naples</p>
+<p>au mois de décembre, elle étoit dans une auberge, à</p>
+<p>un balcon, où elle ne put rester, tant l’air étoit</p>
+<p>étouffant, et le soleil brûlant ! Je conçois, mon ami,</p>
+<p>que vous serez obligé à votre retour, de prendre beaucoup</p>
+<p>de menagements ; si vous pouvez vous remettre au travail, vous</p>
+<p>serez aussi obligé de vous imposer le plus grand silence :</p>
+<p>[p. 2]</p>
+<p>est-ce que cette réclusion sera aussi pour moi ? je ne</p>
+<p>vous demanderai pas une parole, heureuse de vous voir, de</p>
+<p>vous serrer, de vous baiser la main, pas autre chose, mon</p>
+<p>ami. Je suis fachée que vous ne puissiez pas continuer</p>
+<p>vos travaux, étant ainsi établie à la campagne, et</p>
+<p>je comprends votre effroi de ce Paris, qui n’est</p>
+<p>séduisant que pour les personnes qui ont besoin du monde,</p>
+<p>et de ses plaisirs, mais pour une personne souffrante,</p>
+<p>solitaire tout ce bruit serre le cœur ! Tous vos amis</p>
+<p>me demandent souvent de vos nouvelles ; M<hi rend="sup">r</hi>. de</p>
+<p>Marest, samedi dernier m’a parlé longtems de vous et</p>
+<p>de votre voyage, qu’il approuve fort.</p>
+<p>Nous n’avons rien de nouveau ici ; les Députés votent</p>
+<p>des lois en courant, et les tribunaux condamnent des</p>
+<p>gens bien innocents : Il y a de par le monde, un</p>
+<p>M<hi rend="sup">r</hi>. Luchet faiseur de romans, qui un jour s’est avisé</p>
+<p>de raconter la biographie de M<hi rend="sup">r</hi>. de Girardin (celui</p>
+<p>du journal de la Presse) et de sa famille, qui est, à</p>
+<p>ce qu’il paroît assez peu morale, et puis de nous</p>
+<p>faire connoitre l’histoire assez curieuse de M<hi rend="sup">r</hi>. Casimir</p>
+<p>Broussais, qui par amour pour la médecine, après</p>
+<p>la mort de son père, lui a coupé la tête lui-</p>
+<p>même, qu’il a emportée sous son bras, à l’académie</p>
+<p>pour la montrer, la disséquer, et faire de beaux discours.</p>
+<p>[p. 3]</p>
+<p>Il a raconté aussi d’autres histoires aussi véridiques,</p>
+<p>et aussi peu morales, et quoique les noms propres, ne</p>
+<p>fussent pas écrits en toutes lettres, il n’y avoit pas à s’y</p>
+<p>méprendre ; les personnes offenssées et toutes puissantes, ont</p>
+<p>poussé au procès de ce pauvre M<hi rend="sup">r</hi>. Luchet, fort</p>
+<p>innoffenssif d’ailleurs, et sans protection, sans défense,</p>
+<p>et il a été condamné à 2 ans de prison et 1000<hi rend="sup">f</hi>.</p>
+<p>d’amende !</p>
+<p>Les Italiens ont bien de la peine à se soutenir jusqu’à</p>
+<p>la fin de la saison. Nous avons ce soir la première</p>
+<p>représentation de <emph>Sapho</emph>, qui sera représentée par la</p>
+<p>Grisi, qui grossit d’une manière effrayante !</p>
+<p>Albertazzi est aussi dans la même position !</p>
+<p>l’opéra s’égosille à chanter la Reine de Chypre,</p>
+<p>et M<hi rend="sup">elle</hi> Rachel joue fort rarement le Cid : je</p>
+<p>vais donc fort peu au spectacle, et je m’ennuie souvent !</p>
+<p>je me console avec Balzac, qui m’intéresse beaucoup,</p>
+<p>dans ses scènes de la vie privée. Mais il me manque</p>
+<p>quelque chose de bien doux dans la vie ; c’était le</p>
+<p>bonheur de vous voir, de passer une bonne soirée avec vous</p>
+<p>tous les 3 ou 4 jours ; maintenant je ne vous attend</p>
+<p>plus, je ne vous espère plus ! lorsque j’etois triste ou ennuyée,</p>
+<p>je me disois : oh demain, ou après demain, je le verrai !</p>
+<p>cette pensée me fortifioit, me donnoit du courage, et</p>
+<p>[p. 4]</p>
+<p>aujourd’hui, je n’ai à opposer à mon ennui, à</p>
+<p>ma tristesse que l’inquietude, le chagrin de vous savoir</p>
+<p>souffrant, et moi privée de votre douce tendresse : enfin</p>
+<p>ami, espérons que l’été sera plus <emph>prospère</emph>. Ecrivez-moi</p>
+<p>le jour que vous reviendrez, je vous enverrai aussitôt votre</p>
+<p>coussin, fini depuis longtems, il vous sera commode,</p>
+<p>je l’espère.</p>
+<p>Adieu ami, reprenez de la santé, de la force</p>
+<p>quand à votre voix, nous la ménagerons : maintenant</p>
+<p>que je suis bien persuadée qu’il ne faut pas parler, eh</p>
+<p>bien nous saurons nous taire ! est-ce que c’est chose</p>
+<p>si difficile ? avec vos amis, je ne sais comment vous</p>
+<p>vous en tirerez, mais avec moi, nous saurons bien rester</p>
+<p>longtems ensemble sans nous ennuyer et nous serons bien</p>
+<p>heureux encore ! Je vous envoie mille bonnes tendresses,</p>
+<p>mon ami, et je baise votre chère petite main.</p>
+<p>donnez moi de vos nouvelles, ce sera me donner une</p>
+<p>petite portion du bonheur que vous m’avez retiré. adieu</p>
+<p><emph>Ce mardi</emph><space rend="tab">    </space><space rend="tab">    </space><space rend="tab">    </space><space rend="tab">    </space><emph>Joséphine</emph></p>
+</div>
+<div subtype="level1">
+<head>Transcription avec notes</head>
+<p>
+<!-- Microsoft Office User : 2021-03-26T11:25:00
+Donc il faut créer un hyperlien sur le texte [p.X] si j’ai bien compris – ce qui me va très bien-->
+<!-- Auteur inconnu : 2021-03-25T18:47:00
+Lien à limage directement sur le saut de page--><pb n="p.1" facs="https://api.nakala.fr/iiif/10.34847/nkl.eabdb80f/53f0e35666ca3d417af3df693f0ee978eba36ddf/full/full/0/default.jpg"/>
+
+ Il est vrai, mon ami, que j’espérais recevoir de vos nouvelles plus tôt, j’étais inquiète de votre santé. Jouissez de la campagne, puisqu’elle vous fait du bien<note place="bottom">Delacroix s’était installé dès le début du mois de mars chez sa tante Félicité Riesener à Frépillon où il séjourna environ six semaines afin de se reposer car il avait perdu sa voix. Joséphine de Forget lui écrivit plusieurs longues lettres dans lesquelles elle s’inquiète de sa santé, se désole de son absence et lui donne quelques nouvelles de Paris (voir les <hi rend="bg_00ff00">lettres du 7 mars et du 26 mars</hi>).</note>, et ne faut-il pas, hélas ! que je m’habitue à rester longtemps sans vous voir ? L’absence est une chose cruelle pour les personnes qui s’aiment, et surtout pour nous, qui n’y avons pas été habitués. C’est en soupirant que je pense, ami, à votre voyage d’Italie<note place="bottom">Delacroix voulut à plusieurs reprises voyager en Italie. Dans <hi rend="bg_00ff00">une lettre à Gustave Planche du 9 août 1842</hi>, il écrit qu’il pense aller en Italie durant l’hiver pour éviter de retomber malade (Joubin, <emph>Corr. gén.</emph>, t. II, p. 119). Toutefois, il ne réalisera jamais le voyage.</note>, et cependant, je vous engage vivement à persister ; il s’agit de votre santé, et par cela même, de beaucoup de choses fort graves. Je crois en effet que les villes d’Italie sont bien différentes de notre Paris, elles doivent avoir un charme particulier, pour un artiste, et quel beau climat ! Louise<note place="bottom">Personne inconnue.</note> me disait, il y a quelques jours, que se trouvant à Naples au mois de décembre, elle était dans une auberge, à un balcon, où elle ne put rester, tant l’air était étouffant, et le soleil brûlant ! Je conçois, mon ami, que vous serez obligé, à votre retour, de prendre beaucoup de ménagements ; si vous pouvez vous remettre au travail, vous serez aussi obligé de vous imposer le plus grand silence <pb n="p. 2" facs="https://api.nakala.fr/iiif/10.34847/nkl.eabdb80f/59cc6f40e7249f7a07ebe2774651c9a4f67051f3/full/full/0/default.jpg"/> : est-ce que cette réclusion sera aussi pour moi ? Je ne vous demanderai pas une parole, heureuse de vous voir, de vous serrer, de vous baiser la main, pas autre chose, mon ami. Je suis fâchée que vous ne puissiez pas continuer vos travaux, étant ainsi établi à la campagne, et je comprends votre effroi de ce Paris, qui n’est séduisant que pour les personnes qui ont besoin du monde, et de ses plaisirs, mais pour une personne souffrante, solitaire, tout ce bruit serre le cœur<note place="bottom">Il se plaignit également à Pierret <hi rend="bg_00ff00">dans sa lettre du 12 mars</hi> (Joubin, <emph>Corr. gén.</emph>, t. II, p. 93) de ce Paris qui « l’épouvante », ajoutant « il me semble que vous vivez là dans la fange, dans les guenilles, dans l’infection ».</note> ! Tous vos amis me demandent souvent de vos nouvelles ; <hi rend="bg_ffff00">M. de Mareste</hi>, samedi dernier, m’a parlé longtemps de vous et de votre voyage, qu’il approuve fort.</p>
+<p>Nous n’avons rien de nouveau ici ; les députés votent des lois en courant, et les tribunaux condamnent des gens bien innocents. Il y a de par le monde un M. Luchet<note place="bottom">Auguste Luchet (1806-1872) publia en 1841 <emph>Le Nom de famille</emph>, un livre qui faisait le récit de terribles histoires de familles réelles, mais qu’il ne prit pas toujours la peine de dissimuler par des pseudonymes. Ainsi, il ne changea pas le nom de Casimir Broussais (1803-1847), alors médecin et professeur au Val-de-Grâce. Quant à Émile de Girardin (1802-1881), fondateur du journal <emph>La Presse</emph>, Luchet transforma quelque peu son histoire et son nom, ce qui n’empêchait pas ses contemporains de le reconnaître.</note>, faiseur de romans, qui un jour s’est avisé de raconter la biographie de M. de Girardin (celui du journal de <emph>La Presse</emph>) et de sa famille, qui est, à ce qu’il paraît assez peu morale, et puis de nous faire connaître l’histoire assez curieuse de M.  Casimir Broussais, qui, par amour pour la médecine, après la mort de son père, lui a coupé la tête lui-même, qu’il a emportée sous son bras, à l’Académie, pour la montrer, la disséquer, et faire de beaux discours. <pb n="p. 3" facs="https://api.nakala.fr/iiif/10.34847/nkl.eabdb80f/c134a1b6a8acdee484d53033a0e7dbf5dc0f2afe/full/full/0/default.jpg"/> Il a raconté aussi d’autres histoires aussi véridiques, et aussi peu morales, et quoique les noms propres ne fussent pas écrits en toutes lettres, il n’y avait pas à s’y méprendre ; les personnes offensées et toutes puissantes ont poussé au procès de ce pauvre M. Luchet, fort inoffensif d’ailleurs, et sans protection, sans défense, et il a été condamné à deux ans de prison et 1000 F d’amende<note place="bottom">Le procès s’est déroulé le 10 mars 1842 donc quelques jours seulement avant l’écriture de cette lettre. Voir le récit du procès dans <emph>L’Écho des tribunaux</emph>, avril 1842, p. 6-8. Dans <hi rend="bg_00ff00">sa lettre du 26 mars 1842</hi>, Joséphine de Forget raconte que Luchet se sauva en Angleterre pour ne pas purger sa peine.</note> !</p>
+<p>Les Italiens ont bien de la peine à se soutenir jusqu’à la fin de la saison. Nous avons ce soir la première représentation de <emph>Sapho</emph>, qui sera représentée par la Grisi, qui grossit d’une manière effrayante<note place="bottom">Il s’agit de <emph>Saffo</emph>, opéra de Giovanni Pacini, créé à Naples en 1840 et donné pour la première fois à Paris le 15 mars 1842 au Théâtre des Italiens. Giulia Grisi (1811-1869) interpréta le rôle-titre.</note> ! Albertazzi est aussi dans la même position<note place="bottom">Emma Albertazzi (1814-1847) était une chanteuse anglaise qui se produisit à Paris, notamment au Théâtre des Italiens.</note> ! L’opéra s’égosille à chanter <emph>La Reine de Chypre</emph><note place="bottom">Opéra de Fromental Halévy représenté pour la première fois à l’Opéra le 22 décembre 1841.</note>, et M<hi rend="sup">lle</hi> Rachel joue fort rarement <emph>Le Cid</emph><note place="bottom">Rachel Félix (1821-1858) joua le rôle de Chimène dans la reprise du <emph>Cid</emph> à la Comédie-Française à partir de janvier 1842.</note> : je vais donc fort peu au spectacle, et je m’ennuie souvent ! Je me console avec Balzac, qui m’intéresse beaucoup, dans ses scènes de la vie privée. Mais il me manque quelque chose de bien doux dans la vie : c’était le bonheur de vous voir, de passer une bonne soirée avec vous tous les 3 ou 4 jours ; maintenant je ne vous attends plus, je ne vous espère plus ! Lorsque j’étais triste ou ennuyée, je me disais : oh ! demain, ou après-demain, je le verrai ! Cette pensée me fortifiait, me donnait du courage, et <pb n="p. 4" facs="https://api.nakala.fr/iiif/10.34847/nkl.eabdb80f/fd1065068b39bf4cbf5a5ecfe60c108630eae1ee/full/full/0/default.jpg"/> aujourd’hui, je n’ai à opposer à mon ennui, à ma tristesse, que l’inquiétude, le chagrin de vous savoir souffrant, et moi privée de votre douce tendresse : enfin, ami, espérons que l’été sera plus <emph>prospère</emph>. Écrivez-moi le jour que vous reviendrez, je vous enverrai aussitôt votre coussin, fini depuis longtemps ; il vous sera commode, je l’espère.</p>
+<p>Adieu, ami, reprenez de la santé, de la force ; quant à votre voix, nous la ménagerons : maintenant que je suis bien persuadée qu’il ne faut pas parler, eh bien, nous saurons nous taire ! est-ce que c’est chose si difficile ? Avec vos amis, je ne sais comment vous vous en tirerez, mais avec moi, nous saurons bien rester longtemps ensemble sans nous ennuyer et nous serons bien heureux encore ! Je vous envoie mille bonnes tendresses, mon ami, et je baise votre chère petite main. Donnez-moi de vos nouvelles, ce sera me donner une petite portion du bonheur que vous m’avez retiré. Adieu</p>
+<p><emph>Ce mardi</emph><space rend="tab">    </space><space rend="tab">    </space><space rend="tab">    </space><emph>Joséphine</emph></p>
+<p/>
+</div>
+</body>
+  </text>
+</TEI>

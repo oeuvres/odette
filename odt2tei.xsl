@@ -92,12 +92,8 @@ Best usage of output could be as an input for other filters (regular expressions
       </xsl:when>
     </xsl:choose>
   </xsl:param>
-  <xsl:variable name="dc">,auteur,author,bibl,created,creation,contributor,copyeditor,creator,date,edition,editor,idno,issued,keyword,licence,license,publie,publisher,secretairederedaction,source,subject,sujet,titre,title,translator,</xsl:variable>
-  <xsl:variable name="lf">
-    <xsl:text>
-</xsl:text>
-  </xsl:variable>
-  <xsl:variable name="tab" select="'&#x9;'"/>
+  <xsl:variable name="lf" select="'&#10;'"/>
+  <xsl:variable name="tab" select="'&#9;'"/>
   <xsl:variable name="ABC">ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÆÈÉÊËÌÍÎÏÐÑÒÓÔÕÖŒÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöùúûüýÿþ,:; ?()/\ ._-{}[]</xsl:variable>
   <xsl:variable name="abc">abcdefghijklmnopqrstuvwxyzaaaaaaeeeeeiiiidnoooooœuuuuybbaaaaaaaceeeeiiiionooooouuuuyyb</xsl:variable>
   <!-- Shall we infer title from content ? -->
@@ -510,17 +506,11 @@ case encountered, seems logic, but not fully tested
             <xsl:apply-templates select="text:alphabetical-index-mark | text:alphabetical-index-mark-start | text:user-index-mark"/>
           </index>
         </xsl:when>
-        <!-- No style para on first page with form key:value, could be dangerous -->
-        <!--
-        <xsl:when test="not(preceding-sibling::text:h) and contains($dc, concat(',', $key, ','))">
+        <!-- empty para -->
+        <xsl:when test="normalize-space(.) = ''">
           <xsl:value-of select="$lf"/>
-          <index>
-            <term type="{$key}">
-              <xsl:call-template name="flow"/>
-            </term>
-          </index>
+          <lb type="line"/>
         </xsl:when>
-        -->
         <xsl:when test="$class = 'term' or $class = 'meta'">
           <xsl:if test=". != ''">
             <xsl:value-of select="$lf"/>

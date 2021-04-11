@@ -88,8 +88,9 @@ class Odette {
       $this->tei();
       // find a transfo pack for tei to html
       $xsl=dirname(__FILE__).'/tei2html.xsl';
-      if (!file_exists($xsl)) $xsl=dirname(dirname(__FILE__)).'/Teinte/tei2html.xsl';
-      if (!file_exists($xsl)) $xsl="http://oeuvres.github.io/Teinte/tei2html.xsl";
+      if (!file_exists($xsl)) $xsl=dirname(dirname(__FILE__)).'/teinte/tei2html.xsl';
+      if (!file_exists($xsl)) $xsl="http://oeuvres.github.io/teinte/tei2html.xsl";
+      $pars = array();
       $this->transform($xsl, $pars);
     }
     else {
@@ -119,20 +120,6 @@ class Odette {
     if (!$format) $format = 'tei';
     $this->format($format, $model);
     $this->doc->save($destfile);
-  }
-
-  /**
-   * Get xml in the desired format
-   */
-  public function saveXML($format, $model)
-  {
-    $this->format($format, $model);
-    $xml = $this->doc->saveXML();
-    if ($format == "fragment") {
-      $xml = preg_replace('@<\?xml version="1.0" encoding="UTF-8"\?>|</?fragment([^>]+)?>@', '', $xml);
-      $xml = trim($xml);
-    }
-    return $xml;
   }
   /**
    * Images extraction
@@ -217,13 +204,13 @@ class Odette {
     $preg=self::sed_preg(file_get_contents(dirname(__FILE__).'/tei.sed'));
     $xml = preg_replace($preg[0], $preg[1], $xml);
     
-    $model_xml = realpath(dirname(__FILE__)."/models/".$model."/".$model.".xml");
+    $model_xml = realpath(dirname(__FILE__)."/".$model."/".$model.".xml");
 
     if (!file_exists($model_xml)) {
-      fwrite(STDERR, "Model \"$model\" not found, use \"default\" instead.\n");
-      $model_xml = realpath(dirname(__FILE__)."/models/default/default.xml");
+      if (defined('STDERR')) fwrite(STDERR, "Model \"$model\" not found, use \"default\" instead.\n");
+      $model_xml = realpath(dirname(__FILE__)."/default/default.xml");
     }
-    if (!file_exists($model_xml)) throw new Exception("XML TEI model not found:".$model_xml);
+    if (!file_exists($model_xml)) throw new Exception("TEI model: \"".$model_xml."\"?");
     $pars=array();
     $pars['model'] = $model_xml;
     
@@ -233,7 +220,7 @@ class Odette {
     // TEI regularisations and model fusion
     $this->transform(dirname(__FILE__).'/tei-post.xsl', $pars);
     // specific normalisations ?
-    $model_xsl = realpath(dirname(__FILE__)."/models/".$model."/".$model.".xsl");
+    $model_xsl = realpath(dirname(__FILE__)."/".$model."/".$model.".xsl");
     if (file_exists($model_xsl)) {
       $this->transform($model_xsl);
     }
@@ -338,6 +325,13 @@ class Odette {
     else if(isset($_REQUEST['download'])) $download=true;
     else $download=false;
 
+    $model = '';
+    if(isset($_REQUEST['model'])) $model=$_REQUEST['model'];
+
+    $odt=new Odette($file);
+    $odt->format($format, $model);
+    $xml=$odt->doc->saveXML();
+
     // headers
     if ($download) {
       if ($format == 'html') {
@@ -355,19 +349,21 @@ class Odette {
       header('Pragma: ');
       flush();
     }
-    else if ($format == 'html') header ("Content-Type: text/html; charset=UTF-8");
+    else if ($format == 'html') {
+      header ("Content-Type: text/html; charset=UTF-8");
+    }
     // chrome do not like text/xml
     else {
       header ("Content-Type: text/xml;");
+      preg_replace('@<\?xml-stylesheet.*\?>@', '', $xml);
     }
-    $odt=new Odette($file);
-    echo $odt->saveXML($format, $filename);
+    echo $xml;
     exit;
   }
   
   public static function models()
   {
-    $glob = glob(dirname(__FILE__)."/models/*", GLOB_ONLYDIR|GLOB_MARK);
+    $glob = glob(dirname(__FILE__)."/*", GLOB_ONLYDIR|GLOB_MARK);
     $models = array();
     foreach($glob as $dir)
     {
@@ -395,7 +391,7 @@ class Odette {
     usage     : php -f odette.php (".implode('|', array_keys($formats)).")? (".implode('|', array_keys($models)).")? destdir/? *.odt
 
     format?   : optional dest format, default is xml/tei, odtx = xml/odt, html with Teinte
-    model?    : a TEI skeleton available for this installation in models/my_model/my_model.xml
+    model?    : a TEI skeleton available for this installation in my_model/my_model.xml
     destdir/? : optional destination directory, ending by slash
     *.odt     : glob patterns are allowed, with or without quotes
 

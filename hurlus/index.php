@@ -1,30 +1,27 @@
 <?php
-// le code pilotant la transformation
-include(dirname(__FILE__).'/odette.php');
 
-// Soumission en post
+// Soumission en post, lancer la transformation
 if (isset($_POST['post'])) {
-  Odette_Odt2tei::doPost();
+  include(dirname(dirname(__FILE__)).'/odette.php');
+  Odette::doPost();
   exit;
 }
 ?><!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title>Odette : Open Document Text &gt; XML/TEI</title>
+    <title>Odette (odt ► TEI), Delacroix</title>
+    <link rel="stylesheet" type="text/css" href="delacroix.css" />
   </head>
   <body>
     <div id="center">
-      <header id="header">
-        <h1>
-          <a href="../">Développements</a>
-        </h1>
-        <a class="logo" href="//obvil.paris-sorbonne.fr/developpements/"><img class="logo" src="//svn.code.sf.net/p/obvil/code/theme/img/logo-obvil.png" alt="OBVIL"></a>
-      </header>
-      <div id="contenu">
-
-    <h1>Odette, convertissez vos textes bureautiques (odt) en <a href="//www.tei-c.org/release/doc/tei-p5-doc/fr/html/REF-ELEMENTS.html">TEI</a></h1>
-    <p class="byline">par <a onmouseover="this.href='mailto'+'\x3A'+'frederic.glorieux'+'\x40'+'fictif.org'" href="#">Frédéric Glorieux</a></p>
+    <header id="header">
+      <a href="http://www.correspondance-delacroix.fr/"><img src="logo.png" alt="Correspondances d’Eugène Delacroix"></a>
+      <i class="tab">Odette (odt ► TEI)</i>
+    </header>
+    <div id="contenu">
+      <p>Correspondance de Delacroix, conversion des lettres éditées en traitement de textes vers XML/TEI</p>
+    
     <!--
     <ul>
       <li>Parcourir : chercher un fichier OpenOffice odt sur votre poste</li>
@@ -37,13 +34,8 @@ if (isset($_POST['post'])) {
     <?php
   if (isset($_REQUEST['format'])) $format=$_REQUEST['format'];
   else $format="tei";
-  /*
-        — <label title="OpenDocument Text xml"><input name="format" type="radio" value="ngml" <?php if($format == 'ngml') echo ' checked="checked"'; ?>/> NGML </label>
-
-        — <label title="HTML (Diple)"><input name="format" type="radio" value="html" <?php if($format == 'html') echo ' checked="checked"'; ?>/> HTML </label>
-  */
     ?>
-    <form enctype="multipart/form-data" method="POST" name="odt" action="index.php">
+    <form class="gris" enctype="multipart/form-data" method="POST" name="odt" action="index.php">
       <input type="hidden" name="post" value="post"/>
       <div style="margin: 50px 0 20px;">
         <b>1. Fichier odt</b> :
@@ -66,7 +58,7 @@ if (isset($_POST['post'])) {
           <input type="submit" name="download" onclick="this.form" value="Télécharger"/>
       </div>
     </form>
-    <p>Pour plus d’explications : <a href="//resultats.hypotheses.org/267">Glorieux, 2015. <i>Le traitement de textes pour produire des documents structurés (XML/TEI)</i></a>. N'hésitez pas à m’<a onmouseover="this.href='mailto'+'\x3A'+'frederic.glorieux'+'\x40'+'fictif.org'" href="#">envoyer</a> vos cas épineux.</p>
+    <p class="byline">par <a onmouseover="this.href='mailto'+'\x3A'+'frederic.glorieux'+'\x40'+'fictif.org'" href="#">Frédéric Glorieux</a></p>
       </div>
     </div>
   </body>
