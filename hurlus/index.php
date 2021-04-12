@@ -10,42 +10,76 @@ if (isset($_POST['post'])) {
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title>Odette (odt ► TEI), Delacroix</title>
-    <link rel="stylesheet" type="text/css" href="delacroix.css" />
+    <title>Odette (odt ▶ TEI), Hurlus</title>
+    <style>
+body, html {
+  width: 100%;
+  margin: 0;
+  background: #697f73;
+}
+
+body {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: Arial, Helvetica,sans-serif;
+  color: #FFFFFF;
+}
+
+#center {
+  width: 967px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  text-align: left;
+  min-height: 650px;
+  _height: 650px;
+}
+
+.tab {
+  color: #FFFFFF;
+  display: inline-block;
+  border-bottom: solid 4px #FFFFFF;
+  font-family: Georgia , Arial, Helvetica, sans-serif;
+  font-style: italic;
+}
+
+#main {
+  padding: 15px 40px;
+}
+
+form.gris {
+  background-color: rgba(33, 33, 33, 0.3);
+  padding: 10px 50px 20px 50px;
+}
+
+.byline {
+  text-align: right;
+}
+    </style>
   </head>
   <body>
     <div id="center">
     <header id="header">
-      <a href="http://www.correspondance-delacroix.fr/"><img src="logo.png" alt="Correspondances d’Eugène Delacroix"></a>
-      <i class="tab">Odette (odt ► TEI)</i>
+      <a href=https://github.com/hurlus">Hurlus, des bouquinistes électroniques</a>
+      <i class="tab">Odette (odt ▶ TEI)</i>
     </header>
     <div id="contenu">
-      <p>Correspondance de Delacroix, conversion des lettres éditées en traitement de textes vers XML/TEI</p>
-    
-    <!--
-    <ul>
-      <li>Parcourir : chercher un fichier OpenOffice odt sur votre poste</li>
-      <li>Voir : montrer le XML produit</li>
-      <li>Télécharger : enregistrer le produit sur son poste</li>
-    </ul>
-    -->
-
-
+      <p>Hurlus, convertir les textes édités en traitement de textes vers XML/TEI</p>
     <?php
   if (isset($_REQUEST['format'])) $format=$_REQUEST['format'];
   else $format="tei";
     ?>
     <form class="gris" enctype="multipart/form-data" method="POST" name="odt" action="index.php">
       <input type="hidden" name="post" value="post"/>
+      <input type="hidden" name="model" value="<?php echo basename(dirname(__FILE__)) ?>"/>
       <div style="margin: 50px 0 20px;">
         <b>1. Fichier odt</b> :
-        <input type="file" size="70" name="odt" accept="application/vnd.oasis.opendocument.text"/><!-- ne sort pas ds chrome -->
+        <input type="file" size="70" name="odt" accept="application/vnd.oasis.opendocument.text"/>
       </div>
 
       <div style="margin: 20px 0 20px;">
         <b>2. Format d'export</b> :
             <label title="TEI"><input name="format" type="radio" value="tei" <?php if($format == 'tei') echo ' checked="checked"'; ?>/> tei</label>
-          — <label title="OpenDocument Text xml"><input name="format" type="radio" value="odtx" <?php if($format == 'odtx') echo ' checked="checked"'; ?>/> xml odt</label>
           — <label title="OpenDocument Text xml"><input name="format" type="radio" value="html" <?php if($format == 'html') echo ' checked="checked"'; ?>/> html</label>
           <!--
           | <label title="Indiquer le mot clé d'un autre format">Autres formats <input name="local" size="10"/></label>
@@ -58,7 +92,7 @@ if (isset($_POST['post'])) {
           <input type="submit" name="download" onclick="this.form" value="Télécharger"/>
       </div>
     </form>
-    <p class="byline">par <a onmouseover="this.href='mailto'+'\x3A'+'frederic.glorieux'+'\x40'+'fictif.org'" href="#">Frédéric Glorieux</a></p>
+    <p class="byline">Développement <a onmouseover="this.href='mailto'+'\x3A'+'frederic.glorieux'+'\x40'+'fictif.org'" href="#">Frédéric Glorieux</a></p>
       </div>
     </div>
   </body>

@@ -1742,27 +1742,26 @@ Liens et renvois
   -->
   <!-- get a linguistic info from styles -->
   <xsl:template name="lang">
+    <!-- Automatic language in text processot is not relevant -->
+    <!--
     <xsl:param name="style-name" select="@text:style-name | @class | @draw:style-name | @draw:text-style-name"/>
     <xsl:variable name="language">
       <xsl:choose>
-        <!-- local language -->
         <xsl:when test="key('style', $style-name)/style:text-properties/@fo:language">
           <xsl:value-of select="key('style', $style-name)/style:text-properties/@fo:language"/>
         </xsl:when>
-        <!-- not an auto style stop here -->
         <xsl:when test="not(key('style-auto', $style-name))"/>
-        <!-- see parent style if auto style -->
         <xsl:when test="key('style', @style:parent-style-name)/style:text-properties/fo:language">
           <xsl:value-of select="key('style',@style:parent-style-name)/style:text-properties/fo:language"/>
         </xsl:when>
       </xsl:choose>
     </xsl:variable>
-    <!-- if different of global language create anattribute -->
     <xsl:if test="$language and $language != '' and $language != $lang and $language != 'fr'">
       <xsl:attribute name="xml:lang">
         <xsl:value-of select="$language"/>
       </xsl:attribute>
     </xsl:if>
+    -->
   </xsl:template>
   
   <!-- Find the best semantic name for an automatic style name -->

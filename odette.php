@@ -87,10 +87,15 @@ class Odette {
       // format html from a clean TEI
       $this->tei($model);
       // find a transfo pack for tei to html
-      $xsl=dirname(__FILE__).'/tei2html.xsl';
-      if (!file_exists($xsl)) $xsl=dirname(dirname(__FILE__)).'/teinte/tei2html.xsl';
-      if (!file_exists($xsl)) $xsl="http://oeuvres.github.io/teinte/tei2html.xsl";
-      $pars = array();
+      $pars = array(
+        'xslbase' => null,
+        'theme' => '../../teinte/',
+      );
+      $xsl=dirname(dirname(__FILE__)).'/teinte/tei2html.xsl';
+      if (!file_exists($xsl)) {
+        $xsl="http://oeuvres.github.io/teinte/tei2html.xsl";
+        $pars['theme'] = null;
+      }
       $this->transform($xsl, $pars);
     }
     else {
@@ -349,12 +354,15 @@ class Odette {
       header('Pragma: ');
       flush();
     }
-    else if ($format == 'html') {
-      header ("Content-Type: text/html; charset=UTF-8");
-    }
-    // chrome do not like text/xml
     else {
-      header ("Content-Type: text/plain; charset=UTF-8");
+      if ($format == 'html') {
+        header ("Content-Type: text/html; charset=UTF-8");
+      }
+      // chrome do not like text/xml
+      else {
+        $xml = preg_replace('@<\?xml-stylesheet.*@', '', $xml);
+        header ("Content-Type: text/plain; charset=UTF-8");
+      }
     }
     echo $xml;
     exit;
