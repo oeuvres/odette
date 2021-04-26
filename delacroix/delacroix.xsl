@@ -57,7 +57,9 @@ Normalisation finale d’une lettre de Delacroix. Par défaut, tout est recopié
   <xsl:template match="tei:measure[@type='page']">
     <xsl:copy>
       <xsl:copy-of select="@*"/>
-      <xsl:value-of select="count(/tei:TEI/tei:text/tei:body//tei:pb)"/>
+      <xsl:attribute name="quantity">
+        <xsl:value-of select="count(/tei:TEI/tei:text/tei:body//tei:pb)"/>
+      </xsl:attribute>
     </xsl:copy>
   </xsl:template>
 </xsl:transform>

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://edelacroix.github.io/schema/delacroix.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<!-- 
+https://edelacroix.github.io/schema/delacroix.rng
+-->
+<?xml-model href="../../delacroix-schema/delacroix.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-stylesheet type="text/xsl" href="theme/lettre.xsl"?>
 <?xml-stylesheet type="text/css" href="https://oeuvres.github.io/teinte/author-tei.css" alternate="no" title="TEI générique"?>
 <?xml-stylesheet type="text/css" href="theme/author-delacroix.css"  alternate="yes" title="Delacroix (sans notes)"?>
@@ -49,7 +52,7 @@
             <objectDesc form="letter">
               <supportDesc>
                 <extent>
-                  <measure type="page"><!-- Rempli au tomatiquement par le nombre de <pb/> --></measure>
+                  <measure unit="page" quantity="0"/>
                 </extent>
               </supportDesc>
             </objectDesc>
@@ -75,7 +78,7 @@
           <persName key="{destinataire}"/>
         </correspAction>
         <correspContext>
-          <ref target="{reponsea}" type="replyTo"/><!-- optionnel -->
+          <ref target="{reponsea}" type="replyTo"/>
         </correspContext>
       </correspDesc>
       <langUsage>
