@@ -17,9 +17,10 @@ s@<\?div /\?>@</div>@g
 s@(</entry>\s*)(<entry>\s*<form>)@\1<?o?>\2@g
 s@(</entryFree>\s*)(<entryFree>\s*<form>)@\1<?o?>\2@g
 s@</(address|argument|castList|closer|dialogue|dl|entry|entryFree|epigraph|figure|index|lg|listBibl|notep|opener|quote|set|ul)>\s*<\1( [^>]*)?>@@g
-# empty can be used as separator
-s@<(argument|castItem|dialogue|dl|entry|entryFree|eg|figure|index|lg|listBibl|note|quote|set|ul)/>@\n@g
-s@<\?o\?>@@g
+s@</(address|argument|castList|closer|dialogue|dl|entry|entryFree|epigraph|figure|index|lg|listBibl|notep|opener|quote|set|ul)>\s*<\1( [^>]*)?>@@g
+# empty tag, not used as separator
+s@<(address|argument|castItem|dialogue|dl|entry|entryFree|eg|figure|index|lg|listBibl|note|quote|set|ul)/>@\n@g
+# s@<\?o\?>@@g
 s@</eg>\s*<eg( [^>]*)?>@@g
 s@<lb type="lg"/>([^\n]+)@<l>\1</l>@g
 s@(<term type="[^"]+">)[^<:]+:[  ]*@\1@g # suppress term key

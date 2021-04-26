@@ -34,6 +34,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
 <sheet xmlns="odt:tei">
   <style level="p" name="ab" element="ab" attribute="type" value="ornament" doc="true"/>
   <style level="p" name="address" element="addrLine" parent="address" doc="true"/>
+  <style level="p" name="addrline" element="addrLine" parent="address"/>
   <style level="p" name="argument" element="p" parent="argument" doc="true"/>
   <style level="p" name="auteur" element="byline"/>
   <style level="p" name="author" element="byline"/>

@@ -18,6 +18,10 @@ body, html {
   background: #697f73;
 }
 
+a {
+  color: #f80;
+}
+
 body {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -92,6 +96,22 @@ form.gris {
           <input type="submit" name="download" onclick="this.form" value="Télécharger"/>
       </div>
     </form>
+    <?php
+    $odt = glob(dirname(__FILE__)."/*.odt");
+    $count = count($odt);
+    if ($count) {
+      if ($count > 1) $mess = "Exemples de documents";
+      else $mess = "Exemple de document";
+      echo "<b>".$mess."</b>\n";
+      echo "<ul>\n";
+      foreach ($odt as $file) {
+        $basename = basename($file);
+        echo "<li><a href=\"".$basename."\">".$basename."</a></li>\n";
+      }
+      echo "</ul>\n";
+    }
+     ?>
+
     <p class="byline">Développement <a onmouseover="this.href='mailto'+'\x3A'+'frederic.glorieux'+'\x40'+'fictif.org'" href="#">Frédéric Glorieux</a></p>
       </div>
     </div>

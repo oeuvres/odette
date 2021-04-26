@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://edelacroix.github.io/schema/delacroix.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-stylesheet type="text/xsl" href="theme/lettre.xsl"?>
+<?xml-stylesheet type="text/css" href="https://oeuvres.github.io/teinte/author-tei.css" alternate="no" title="TEI générique"?>
+<?xml-stylesheet type="text/css" href="theme/author-delacroix.css"  alternate="yes" title="Delacroix (sans notes)"?>
 <TEI xml:lang="fr" xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader>
     <fileDesc>
@@ -30,13 +34,13 @@
       </publicationStmt>
       <seriesStmt>
         <title type="main">Correspondance d'Eugène Delacroix</title>
-        <title type="sub">Hôtel Lambert</title>
+        <title type="sub">{collection}</title>
       </seriesStmt>
       <sourceDesc>
         <msDesc>
           <msIdentifier>
             <country>{cotepays}</country>
-            <settlement>{cotepays}</settlement>
+            <settlement>{coteville}</settlement>
             <institution>{coteinstitution}</institution>
             <repository>{cotefonds}</repository>
             <idno>{cote}</idno>
