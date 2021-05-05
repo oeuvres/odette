@@ -42,7 +42,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="biblio" element="bibl"/>
   <style level="p" name="bibliography" element="bibl"/>
   <style level="p" name="bibliographie" element="bibl"/>
-  <style level="p" name="blockquote" element="p" parent="quote" rend="keep" doc="true"/>
+  <style level="p" name="blockquote" element="p" parent="quote" rend="keep"/>
   <style level="p" name="byline" element="byline" doc="true"/>
   <style level="p" name="camera" element="camera" doc="true"/>
   <style level="p" name="chant" element="l" attribute="type" value="chant"/>
