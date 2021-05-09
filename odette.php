@@ -198,6 +198,7 @@ class Odette {
     // odt > tei
     $this->transform(dirname(__FILE__).'/odt2tei.xsl', $pars);
     
+    
     $this->doc->preserveWhiteSpace = true;
     $this->doc->formatOutput = false; // after multiple tests, keep it
     $this->doc->substituteEntities=true;
@@ -216,14 +217,16 @@ class Odette {
       $model_xml = realpath(dirname(__FILE__)."/default/default.xml");
     }
     if (!file_exists($model_xml)) throw new Exception("TEI model: \"".$model_xml."\"?");
+    // $model_xml = "file:///".$model_xml;
     $pars=array();
-    $pars['model'] = $model_xml;
+    $pars['model'] = str_replace('\\', '/', $model_xml);
     
     $this->loadXML($xml);
 
     
     // TEI regularisations and model fusion
     $this->transform(dirname(__FILE__).'/tei-post.xsl', $pars);
+
     // specific normalisations ?
     $model_xsl = realpath(dirname(__FILE__)."/".$model."/".$model.".xsl");
     if (file_exists($model_xsl)) {
@@ -273,7 +276,7 @@ class Odette {
   /**
    * record errors in a log variable, need to be public to used by loadXML
    */
-  public function err($errno, $errstr, $errfile, $errline, $errcontext)
+  public function err($errno, $errstr, $errfile, $errline, $errcontext='')
   {
     if(strpos($errstr, "xmlParsePITarget: invalid name prefix 'xml'") !== FALSE) return;
     $this->message[]=$errstr;
@@ -289,7 +292,12 @@ class Odette {
     $this->xsl->load($xslFile);
     $this->proc->importStyleSheet($this->xsl);
     // transpose params
-    if($pars && count($pars)) foreach ($pars as $key => $value) $this->proc->setParameter('', $key, $value);
+    if($pars && count($pars)) { 
+      foreach ($pars as $key => $value) {
+        if (!$value) $value = '';
+        $this->proc->setParameter('', $key, $value);
+      }
+    }
     // we should have no errors here
     $this->doc=$this->proc->transformToDoc($this->doc);
   }
