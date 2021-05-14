@@ -198,7 +198,6 @@ class Odette {
     // odt > tei
     $this->transform(dirname(__FILE__).'/odt2tei.xsl', $pars);
     
-    
     $this->doc->preserveWhiteSpace = true;
     $this->doc->formatOutput = false; // after multiple tests, keep it
     $this->doc->substituteEntities=true;

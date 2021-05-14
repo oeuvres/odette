@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://edelacroix.github.io/schema/delacroix.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-stylesheet type="text/xsl" href="theme/lettre.xsl"?>
+<?xml-stylesheet type="text/css" href="https://oeuvres.github.io/teinte/author-tei.css" alternate="no" title="TEI générique"?>
+<?xml-stylesheet type="text/css" href="theme/author-delacroix.css"  alternate="yes" title="Delacroix (sans notes)"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="fr">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Lettre de Joséphine de Forget à Eugène Delacroix, [20 ? juillet 1844]</title>
+        <author key="Forget, Joséphine de (1802-1886)"/>
+      </titleStmt>
+      <editionStmt>
+        <edition>Centre André Chastel — ObTiC</edition>
+        <respStmt>
+          <resp>Transcription</resp>
+          <name>Gaëlle Lafage</name>
+        </respStmt>
+        <respStmt>
+          <resp>Annotation</resp>
+          <name>Gaëlle Lafage</name>
+        </respStmt>
+        <respStmt>
+          <resp>Corrections</resp>
+          <name>Catherine Gros</name>
+        </respStmt>
+      </editionStmt>
+      <publicationStmt>
+        <publisher>Sorbonne Université, Centre André Chastel</publisher>
+        <date when="2021"/>
+        <availability status="restricted">
+          <licence target="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr"/>
+        </availability>
+      </publicationStmt>
+      <seriesStmt>
+        <title type="main">Correspondance d'Eugène Delacroix</title>
+        
+      </seriesStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <country>France</country>
+            <settlement>Créteil</settlement>
+            <institution>Archives départementales du Val-de-Marne</institution>
+            
+            <idno>2 J 187, pièce 17</idno>
+          </msIdentifier>
+          <physDesc>
+            <objectDesc form="letter">
+              <supportDesc>
+                <extent>
+                  <measure unit="page" quantity="4"/>
+                </extent>
+              </supportDesc>
+            </objectDesc>
+            
+          </physDesc>
+          
+        </msDesc>
+        <listBibl>
+          <bibl>René Huyghe, <hi rend="it">Delacroix ou le Combat solitaire</hi>, 1964, p. 534-535</bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <correspDesc>
+        <correspAction type="sent">
+          <persName key="Forget, Joséphine de (1802-1886)"/>
+          <date when="1844-07-20"/>
+          
+        </correspAction>
+        <correspAction type="received">
+          <persName key="Delacroix, Eugène (1798-1863)"/>
+        </correspAction>
+        
+      </correspDesc>
+      <langUsage>
+        <language ident="fr"/>
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+
+
+<p><pb n="p.1" facs="https://api.nakala.fr/iiif/10.34847/nkl.d9c01j18/faa8e645883e13bd4d69f9c6e5e5d3d241eee538/full/full/0/default.jpg"/></p>
+<dateline><date>Ce samedi matin</date><note place="bottom">Cette lettre, par les informations qu’elle contient, semble pouvoir être datée du samedi 20 juillet 1844 et non du 13 juillet, comme le propose René Huyghe (<hi rend="it">Delacroix ou le Combat solitaire</hi>, 1964, p. 534-535). Delacroix était alors à Champrosay où il faisait arranger sa maison de campagne. Il envoya une lettre à Joséphine de Forget <ref type="letter">le 8 juillet</ref>, lui disant qu’il était bien arrivé, puis l<ref type="letter">e 11 juillet</ref> pour la remercier des fleurs qu’elle lui avait envoyées. Si Joséphine se plaint dans sa lettre de la longue absence de Delacroix, cela repousse son écriture au samedi suivant, 20 juillet. Delacroix lui adressa sans doute une lettre la veille, qui demeure inconnue. Joubin a daté <ref type="letter">une lettre de Delacroix à son amie</ref> du 15 juillet (Joubin, II, p. 185), mais nous pensons qu’elle est mal datée, car Delacroix y parle de son passage récent à Paris. De plus, la lettre que Gaultron adressa à Delacroix à Paris, mentionnée plus bas par Joséphine, est certainement celle à laquelle <ref type="letter">Delacroix répondit le 22 juillet</ref> pour arrêter le choix de son nouvel atelier.</note></dateline>
+<p>Enfin, <persName>mon ami</persName>, j’ai appris hier soir, que vous n’étiez ni noyé, ni perdu ! J’en ai été fort aise, car je commençais à être inquiète de votre retour aussi retardé. Dans la petite lettre que vous m’aviez écrite il y a dix jours<note place="bottom">Certainement <ref target="../../../../../../Users/GaelleLAFAGE/Documents/Delacroix/Delacroix%20-%20Transcriptions/2_Annotes/CAC_ED_inha-aut120-1398-4a-2">la lettre de Delacroix du 11 juillet</ref> à laquelle celle-ci semble répondre.</note>, vous ne me parliez pas d’autre projet, je pensais donc que vous reviendriez comme vous me l’aviez assuré à votre départ : c’est pour cela que je ne vous ai pas répondu ; je comptais sur vous le lundi ou mardi, surtout avec ce temps épouvantable. Il est vrai que je n’avais pas pensé à votre ouvrière, à vos housses, à votre passion pour la campagne, à l’<hi rend="u"><hi rend="it">agrément de votre</hi></hi> voisinage, et enfin mille autres raisons qui vous empêchent de revenir à Paris, et de penser que vous y avez une amie entièrement seule, et fort triste, comme vous devez le croire, de cette longue absence<note place="bottom">Delacroix avait amené avec lui une ouvrière de Paris qui lui faisait des travaux, notamment des housses. Le peintre profitait du voisinage des Villot et Barbier, comme nous l’apprennent sa <ref target="../../../../../../Users/GaelleLAFAGE/Documents/Delacroix/Delacroix%20-%20Transcriptions/2_Annotes/CAC_ED_inha-ms252-45">lettre à Soulier du 8 juillet</ref> et celle à Joséphine de Forget du <ref target="../../../../../../Users/GaelleLAFAGE/Documents/Delacroix/Delacroix%20-%20Transcriptions/2_Annotes/CAC_ED_inha-aut120-1398-4a-2">11 juillet</ref>.</note>. Il aurait été au moins généreux à vous de lui écrire plus tôt pour lui faire part de votre prolongation à la campagne, pour calmer ses inquiétudes et la consoler un peu de ne pas être avec vous, mais vous avez bien autre chose à songer, ma foi !!! Vous connaissez du reste ma tendresse <hi rend="u">quand même</hi>, et vous savez aussi qu’elle ne résiste pas aux moindres preuves de votre affection pour moi : ainsi ma rancune passée, je suis enchantée <pb n="p.2" facs="https://api.nakala.fr/iiif/10.34847/nkl.d9c01j18/5f216585cbf3a8530d5648ce73d91f1064c07498/full/full/0/default.jpg"/> que vous vous plaisiez autant dans votre villa, que votre santé s’en trouve aussi bien, et que vous ayez employé votre temps d’une manière aussi utile. Je ne suis pas égoïste, <persName>mon ami</persName>, et si vous êtes satisfait, je le suis aussi, seulement j’ai le cœur encore blessé et profondément triste de n’avoir pas été la première dans votre pensée ; vous n’avez donc par senti que je vous attendais, et que j’avais besoin de votre souvenir et de vos consolations ? Aujourd’hui, je ne sais pas encore le jour positif de votre retour, mais vous attendez pour vous décider, <hi rend="u">le conseil de vos femmes</hi><note place="bottom">Elle évoque certainement l’ouvrière citée plus haut, mais peut-être aussi Mmes Villot et Barbier, voisines de Delacroix.</note>, et lorsque l’ouvrage sera enfin terminé, vous me reviendrez, et je n’ai pas besoin de vous exprimer le bonheur que j’aurai à vous revoir ! J’espère que je serai la première à vous féliciter sur votre embonpoint et votre bonne mine. J’aurai aussi bien des choses à vous dire, et vous aurez bien des <hi rend="u">pardons</hi> à me demander. Vous m’écrirez aussitôt ce que vous désirerez.</p>
+<p><persName>M. Gaultron</persName> m’a dit, jeudi dernier, qu’il vous avait écrit chez vous à Paris, ne sachant pas votre adresse à la campagne ; c’est au sujet d’un atelier d’élèves qu’il a trouvé à louer, et il serait nécessaire qu’il eût une prompte réponse<note place="bottom">Delacroix écrivit à Gaultron, dès son retour à Paris, <ref target="../../../../../../Users/GaelleLAFAGE/Documents/Delacroix/Delacroix%20-%20Transcriptions/2_Annotes/CAC_ED_louvre-A776">le 22 juillet</ref>, au sujet de son changement d’atelier. Il quitta le 17, rue des Marais Saint-Germain pour s’installer au 54, rue Notre-Dame-de-Lorette en octobre 1844.</note>. Ce pauvre garçon est bien changé ! Et je ne conçois pas comment une indisposition ait pu le mettre dans cet état : je soupçonne (moi seule, et que ceci soit bien entre nous) que son nouveau quartier lui aura donné bien des tentations, et qu’il y aura succombé : cela promet <pb n="p.3" facs="https://api.nakala.fr/iiif/10.34847/nkl.d9c01j18/1496fa91496824c5d5bb0ced039775e5c87a0b67/full/full/0/default.jpg"/> pour les personnes qui vont habiter ce lieu de perdition !!!</p>
+<p>Si j’avais eu une occasion, et je l’ai regretté, je vous aurais envoyé le nouveau daguerréotype de votre amie, cela aurait été nécessaire, pour vous faire ressouvenir qu’elle est encore de ce monde<note place="bottom">Delacroix lui dit dans <ref target="../../../../../../Users/GaelleLAFAGE/Documents/Delacroix/Delacroix%20-%20Transcriptions/2_Annotes/CAC_ED_inha-aut120-1398-4a-2">sa lettre du 11 juillet</ref> : « Je me fais une fête d’avoir ton portrait qui m’aurait été si nécessaire ici pour tromper l’ennui de l’absence. » Toutefois, nous ignorons qui réalisa ce daguerréotype.</note> ! Je ne sais si vous serez plus content de celui-là : je trouve la figure plus éclaircie et plus jeune, mais hélas, toujours fort laide !</p>
+<p>Je suis fâchée que vous n’ayez pas laissé chez moi votre porte-montre ; on le reprendra et vous en auriez trouvé un autre à votre retour ; envoyez-le moi aussitôt votre arrivée, j’irai de suite le reporter, aussi vous pourrez laisser l’autre à la campagne. Si vous pouviez me rapporter le dernier petit panier (et s’il en vaut la peine) dans lequel je vous ai envoyé vos fleurs, il pourrait me servir pour un autre envoi, un peu plus tard. J’espère que ces fleurs sont devenues belles et grimpantes. Comment donc, cher ami, voulez-vous me refuser le plaisir de vous faire un si menu cadeau<note place="bottom">C’est également dans <ref target="../../../../../../Users/GaelleLAFAGE/Documents/Delacroix/Delacroix%20-%20Transcriptions/2_Annotes/CAC_ED_inha-aut120-1398-4a-2">sa lettre du 11 juillet</ref> que Delacroix remercia son amie des fleurs qu’elle lui avait envoyées pour orner ses murs, mais en ajoutant « tu auras la bonté de permettre que je te tienne compte de tout cela. »</note> ? Oh non, n’y comptez pas ! Et si vous n’êtes pas plus aimable une autre fois, je vous en enverrai tant que je vous ruinerai en port de bourriches !</p>
+<p>J’ai reçu des nouvelles d’<persName>Hortense</persName>, d’Ostende où elle est établie ; elle était enchantée de sa nouvelle installation, mais elle doit être fort mécontente de ce temps, ne pouvant pas commencer ses bains. <persName>Son mari</persName> <pb n="p.4" facs="https://api.nakala.fr/iiif/10.34847/nkl.d9c01j18/7a4a347197c3321775692a8349d6396c1c49c1e7/full/full/0/default.jpg"/> a envoyé à <persName>M. Dubochet</persName>, pour <hi rend="it">L’Illustration</hi>, des dessins et articles ; je pense que cela paraîtra bientôt<note place="bottom">Richard de Querelles, le mari d’Hortense, était l’un des soutiens de Louis-Napoléon Bonaparte, ayant participé à l’attentat de Boulogne en 1840. Exilé à Bruxelles, où il fut l’un des pionniers de ce qu’on appelle aujourd’hui la bande dessinée, il est aujourd’hui mal connu. Il publia en 1843 un recueil de dessins accompagné de texte intitulé <hi rend="it">Le Déluge à Bruxelles</hi>, signé seulement « Richard ». Ainsi, nous avons pu retrouver dans <hi rend="it">L’Illustration</hi> les articles et dessins dont il est question dans cette lettre. Également signés « Richard », peut-être en raison de sa situation, ces articles laissent toutefois peu de doutes quant à l’identification de leur auteur. Le premier parut dans la livraison du 28 septembre 1844. Intitulé, « <ref target="https://books.google.fr/books?id=u9dLAAAAcAAJ&amp;hl=fr&amp;pg=PA60">Les Bains de mer belges, caricatures par Richard</ref> », il comporte un texte racontant, sur le ton de la satire, le séjour à Ostende qu’il effectua avec sa femme qui allait y prendre des bains (évoqués dans cette lettre par Joséphine de Forget). Les personnes ou situations grotesques rencontrées sont caricaturées dans quatorze dessins. L’autre article que nous avons pu identifier parut le 16 novembre 1844 (p. 167-170). Intitulé « <ref target="https://books.google.fr/books?id=u9dLAAAAcAAJ&amp;hl=fr&amp;pg=PA167">Association belge philanthropique des frères d’armes de l’Empire français, institué à Bruxelles le 12 juillet 1838</ref> », il présente cette association et rend hommage à son doyen, le commandant de l’armée napoléonienne Pierre Joseph Dereume. Le sujet évoque bien les opinions politiques de Richard de Querelles. Onze dessins illustrent l’article.</note>. Vous me direz aussi, mon ami, lorsque vous paraîtrez dans ce journal, car je vais m’y abonner, vous pensez combien je m’intéresse maintenant à ce journal.</p>
+<p>Notre temps est effroyable, il pleut tous les jours, en vérité je plains les habitants de la campagne, excepté ceux, toutefois, qui résistent à ces désagréments ! Ma santé est très bonne, cependant je dors assez mal, les ouvriers me réveillent dès 5 heures du matin, par un bruit infernal, et puis l’ennui devrait me miner et me maigrir ! J’ai été au spectacle hier, la seule fois depuis notre partie des Français.</p>
+
+<opener>
+<salute>Adieu, <persName>cher ami</persName>, je vous souhaite santé, plaisir, et pour mon compte, votre prochain retour. Je serai bien heureuse de vous revoir, <persName>mon ami</persName>, nous passons une singulière vie, il faut l’avouer, pour des gens qui s’aiment ? Enfin, il faut de la philosophie dans ce monde, et j’en ai bien besoin : en attendant qu’elle m’arrive, je vous aime, et vous serre contre mon triste cœur.</salute>
+<signed><persName><hi rend="u">Consuelo</hi></persName></signed>
+</opener>
+
+
+<lb type="line"/>
+</body>
+  </text>
+</TEI>

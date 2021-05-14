@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://edelacroix.github.io/schema/delacroix.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-stylesheet type="text/xsl" href="theme/lettre.xsl"?>
+<?xml-stylesheet type="text/css" href="https://oeuvres.github.io/teinte/author-tei.css" alternate="no" title="TEI générique"?>
+<?xml-stylesheet type="text/css" href="theme/author-delacroix.css"  alternate="yes" title="Delacroix (sans notes)"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="fr">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Lettre d’Eugène Delacroix à Adolphe Mouilleron, 21 août 1850</title>
+        <author key="Delacroix, Eugène (1798-1863)"/>
+      </titleStmt>
+      <editionStmt>
+        <edition>Centre André Chastel — ObTiC</edition>
+        <respStmt>
+          <resp>Transcription</resp>
+          <name>Baptiste Dumas-Piro</name>
+        </respStmt>
+        <respStmt>
+          <resp>Annotation</resp>
+          <name>Baptiste Dumas-Piro</name>
+        </respStmt>
+        <respStmt>
+          <resp>Corrections</resp>
+          <name>Catherine Gros</name>
+<name>Gaëlle Lafage</name>
+        </respStmt>
+      </editionStmt>
+      <publicationStmt>
+        <publisher>Sorbonne Université, Centre André Chastel</publisher>
+        <date when="2021"/>
+        <availability status="restricted">
+          <licence target="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr"/>
+        </availability>
+      </publicationStmt>
+      <seriesStmt>
+        <title type="main">Correspondance d'Eugène Delacroix</title>
+        
+      </seriesStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <country>Pays-Bas</country>
+            <settlement>Amsterdam,</settlement>
+            <institution>Bibliothèque de l’Université</institution>
+            
+            <idno>OTM hs. 43 Dz 47 a</idno>
+          </msIdentifier>
+          <physDesc>
+            <objectDesc form="letter">
+              <supportDesc>
+                <extent>
+                  <measure unit="page" quantity="2"/>
+                </extent>
+              </supportDesc>
+            </objectDesc>
+            
+          </physDesc>
+          
+        </msDesc>
+        <listBibl>
+          <bibl><hi rend="it">Nouvelles lettres</hi>, p. 69-70</bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <correspDesc>
+        <correspAction type="sent">
+          <persName key="Delacroix, Eugène (1798-1863)"/>
+          <date when="1850-08-21"/>
+          
+        </correspAction>
+        <correspAction type="received">
+          <persName key="Mouilleron, Adolphe (1820-1881)"/>
+        </correspAction>
+        
+      </correspDesc>
+      <langUsage>
+        <language ident="fr"/>
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+
+
+
+<opener>
+<dateline><pb n="p.1" facs="https://api.nakala.fr/iiif/10.34847/nkl.6cb2wtu4/ff9fc9b1a015b0ab1757a3313140c16bced56a55/full/full/0/default.jpg"/> Ce <date>21 août 1850.</date></dateline>
+<salute>Mon cher <persName>Monsieur</persName>,</salute>
+</opener>
+
+
+<p>Je prends la liberté de vous adresser <persName>M. Fajans</persName><note place="bottom">Suite à son arrivée à Paris, Maximilien Fajans étudia la peinture auprès d’Ary Scheffer et la lithographie aux côtés d’Emile Lassalle (<hi rend="it">Nouvelles lettres</hi>,p. 69-70).</note>, jeune artiste polonais qui est venu à <placeName>Paris</placeName> dans le but surtout d’apprendre les procédés de l’imprimerie lithographique et de voir les personnes les plus habiles à dessiner sur pierre. Vous pensez bien que pour ce dernier article, j’ai pensé tout de suite à vous. Serai-je indiscret en vous priant de l’accueillir favorablement : il m’est recommandé par des personnes pour qui j’ai une grande vénération et auxquelles je désirerais bien être agréable<note place="bottom">Il s’agirait des relations polonaises de Delacroix, tels Anna Sapieha Czartoryska et Albert Grzymala.</note> ; vous seriez donc bien aimable de l’accueillir et de plus, de le présenter à <persName>M. Bertauts</persName><note place="bottom">C’est auprès de la maison Bertauts que Fajans pu participer à l’album réunissant cent trente reproductions d’œuvres de la collection Moreau,<hi rend="it">Collection de tableaux modernes tirés du cabinet de M. Adolphe Moreau.</hi></note>, afin qu’il puisse prendre les renseignements nécessaires pour établir une presse à Varsovie et en tirer parti. Comme <persName>M. Bertauts</persName> est le plus habile et que de plus, je vous ai entendu dire que c’était un excellent homme, <pb n="p.2" facs="https://api.nakala.fr/iiif/10.34847/nkl.6cb2wtu4/c83ff2364c58272cf60eebec6561323ab4a58583/full/full/0/default.jpg"/> le but de <persName>M. Fajans</persName> serait complètement rempli et j’en verrais avec bien du plaisir augmenter encore les obligations que je vous ai déjà.</p>
+<p>Je suis passé à <placeName>Bruxelles</placeName> pendant que vous y étiez, à ce qu’on m’a dit<note place="bottom">Souffrant, Delacroix décida d’aller prendre les eaux à Ems, occasion pour lui de visiter Bruxelles à l’aller et au retour. Il quitte Paris le samedi 6 juillet 1850 pour rester à Bruxelles jusqu’au mercredi 10 juillet (<hi rend="it">Journal</hi>,p. 517, 522). Il y revient le lundi 12 août jusqu’au mercredi 14 (<hi rend="it">Journal</hi>,p. 544-545).</note>. J’étais tellement pressé, ayant à peine séjourné et voulant tout revoir, que j’ai eu le regret de ne pouvoir vous chercher. J’ai été émerveillé comme je le suis de plus en plus toutes les fois que je vais dans ce pays<note place="bottom">Delacroix s’était notamment rendu en Belgique en septembre 1839 en compagnie d’Elisa Boulanger, plus tard épouse d’Auguste Cavé.</note>.</p>
+
+
+<closer>
+<salute>Adieu <persName>mon cher Monsieur</persName>, recevez avec mes excuses l’expression de mes sentiments bien affectueux et de mon sincère dévouement.</salute>
+<signed>Eugène Delacroix</signed>
+</closer>
+
+<postscript>
+<p>Soyez assez bon pour donner à <persName>mon jeune dessinateur</persName> des conseils sur la lithographie. Je l’envoie à la source et quelques mots de vous à propos lui épargneront bien des recherches.</p></postscript>
+</body>
+  </text>
+</TEI>

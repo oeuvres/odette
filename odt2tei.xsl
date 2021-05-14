@@ -319,7 +319,12 @@ case encountered, seems logic, but not fully tested
           </xsl:otherwise>
         </xsl:choose>
       </xsl:attribute>
+      <xsl:apply-templates/>
     </divGen>
+  </xsl:template>
+  <xsl:template match="text:table-of-content-source"/>
+  <xsl:template match="text:index-body">
+    <xsl:apply-templates/>
   </xsl:template>
   <!--
 
@@ -510,6 +515,13 @@ case encountered, seems logic, but not fully tested
         <xsl:when test="normalize-space(.) = ''">
           <xsl:value-of select="$lf"/>
           <lb type="line"/>
+        </xsl:when>
+        <!-- asterisms -->
+        <xsl:when test="translate(normalize-space(.), '*  ', '') = ''">
+          <xsl:value-of select="$lf"/>
+          <ab type="dinkus">
+            <xsl:apply-templates/>
+          </ab>
         </xsl:when>
         <xsl:when test="$class = 'term' or $class = 'meta'">
           <xsl:if test=". != ''">
@@ -1343,8 +1355,8 @@ to facilitate subsequent groupings.
   <!-- Spacing -->
   <xsl:template match="text:s">
     <xsl:choose>
+      <!-- Bad -->
       <!-- <text:p text:style-name="Footnote"><text:s/><text:tab/>L&apos; -->
-      <xsl:when test="ancestor::text:note"/>
       <!-- Bad rule
       <xsl:when test="not(preceding-sibling::node()[normalize-space(.) != ''])"/>
       -->

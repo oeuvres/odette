@@ -226,6 +226,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="c" name="quote" element="quote"/>
   <style level="c" name="quotec" element="quote"/>
   <style level="c" name="quotecar" element="quote"/>
+  <style level="c" name="refletter" element="ref" attribute="type" value="letter"/>
   <style level="c" name="rswork" element="rs" attribute="type" value="work"/>
   <style level="c" name="s" element="s"/>
   <style level="c" name="seg" element="seg"/>

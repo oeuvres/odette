@@ -18,6 +18,7 @@ Normalisation finale d’une lettre de Delacroix. Par défaut, tout est recopié
     | tei:teiHeader//tei:physDesc/tei:accMat[starts-with(., '{') and contains(., '}')]
     | tei:teiHeader//tei:history[tei:provenance[starts-with(., '{') and contains(., '}')]]
     | tei:teiHeader//tei:sourceDesc/tei:msDesc/tei:msIdentifier/tei:repository[. = '{cotefonds}']
+    | tei:teiHeader//tei:sourceDesc/tei:msDesc/tei:msIdentifier/tei:idno[. = '{cote}']
     | tei:teiHeader//tei:listBibl[tei:bibl[starts-with(., '{') and contains(., '}')]]
     | //tei:correspAction[@type='sent']/tei:placeName[starts-with(., '{') and contains(., '}')]
     | //tei:correspAction[@type='sent']/tei:date[starts-with(@when, '{') and contains(@when, '}')]
@@ -54,11 +55,16 @@ Normalisation finale d’une lettre de Delacroix. Par défaut, tout est recopié
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-  <xsl:template match="tei:measure[@type='page']">
+  <xsl:template match="tei:emph">
+    <hi rend="it">
+      <xsl:apply-templates/>
+    </hi>
+  </xsl:template>
+  <xsl:template match="tei:measure[@unit='page']">
     <xsl:copy>
       <xsl:copy-of select="@*"/>
       <xsl:attribute name="quantity">
-        <xsl:value-of select="count(/tei:TEI/tei:text/tei:body//tei:pb)"/>
+        <xsl:value-of select="count(//tei:body//tei:pb)"/>
       </xsl:attribute>
     </xsl:copy>
   </xsl:template>
