@@ -523,6 +523,13 @@ case encountered, seems logic, but not fully tested
             <xsl:apply-templates/>
           </ab>
         </xsl:when>
+        <!-- asterisms -->
+        <xsl:when test="translate(normalize-space(.), '-—–  ', '') = ''">
+          <xsl:value-of select="$lf"/>
+          <ab type="hr">
+            <xsl:apply-templates/>
+          </ab>
+        </xsl:when>
         <xsl:when test="$class = 'term' or $class = 'meta'">
           <xsl:if test=". != ''">
             <xsl:value-of select="$lf"/>

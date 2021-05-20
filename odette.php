@@ -337,7 +337,7 @@ class Odette {
     else if(isset($_REQUEST['download'])) $download=true;
     else $download=false;
 
-    $model = '';
+    $model = 'default';
     if(isset($_REQUEST['model'])) $model=$_REQUEST['model'];
 
     $odt=new Odette($file);
@@ -417,7 +417,7 @@ class Odette {
 
     $model = trim($_SERVER['argv'][0], '- ');
     if(isset($models[$model])) array_shift($_SERVER['argv']);
-    else $model = null;
+    else $model = "default";
     
     $lastc = substr($_SERVER['argv'][0], -1);
     if ('/' == $lastc || '\\' == $lastc) {

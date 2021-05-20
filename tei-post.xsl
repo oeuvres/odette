@@ -534,10 +534,12 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
             <xsl:attribute name="type">chapter</xsl:attribute>
           </xsl:if>
             -->
+          <!--
           <xsl:attribute name="subtype">
             <xsl:text>level</xsl:text>
             <xsl:value-of select="count(ancestor-or-self::tei:div)"/>
           </xsl:attribute>
+          -->
           <xsl:apply-templates/>
         </xsl:copy>
       </xsl:otherwise>
