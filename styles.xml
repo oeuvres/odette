@@ -212,6 +212,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="c" name="italic1" element="i"/>
   <style level="c" name="lieu" element="placeName"/>
   <style level="c" name="linenumbering" element="num"/>
+  <style level="c" name="milestone" element="milestone" doc="true"/>
   <style level="c" name="name" element="name" doc="true"/>
   <style level="c" name="num" element="num" doc="true"/>
   <style level="c" name="pagenumber" element="num"/>
