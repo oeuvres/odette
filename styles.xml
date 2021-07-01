@@ -98,6 +98,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="label" element="label" doc="true"/>
   <style level="p" name="labeldateline" element="label" attribute="type" value="dateline" doc="true"/>
   <style level="p" name="labelhead" element="label" attribute="type" value="head" doc="true"/>
+  <style level="p" name="labelquestion" element="label" attribute="type" value="question" doc="true"/>
   <style level="p" name="labelsalute" element="label" attribute="type" value="salute" doc="true"/>
   <style level="p" name="labelspeaker" element="label" attribute="type" value="speaker" doc="true"/>
   <style level="p" name="line" element="l"/>
@@ -118,11 +119,13 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="q" element="q" doc="true"/>
   <style level="p" name="quotations" element="p" parent="quote"/>
   <style level="p" name="quote" element="p" parent="quote" rend="keep" doc="true"/>
+  <style level="p" name="quoteauthor" element="p" parent="quote" rend="keep" attribute="resp" value="author"/>
   <style level="p" name="quotedateline" element="dateline" parent="quote" doc="true"/>
   <style level="p" name="quotel" element="l" parent="quote" doc="true"/>
   <style level="p" name="quotelindent" element="l" parent="quote" attribute="rend" value="indent"/>
   <style level="p" name="quotesalute" element="salute" parent="quote" doc="true"/>
   <style level="p" name="quotesigned" element="signed" parent="quote" doc="true"/>
+  <style level="p" name="quotesource" element="p" parent="quote" rend="keep" attribute="resp" value="author"/>
   <style level="p" name="quotetop" element="p" parent="quote" rend="keep"/>
   <style level="p" name="refrain" element="l" attribute="rend" value="refrain"/>
   <style level="p" name="role" element="role" parent="castItem" doc="true"/>

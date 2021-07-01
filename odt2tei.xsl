@@ -117,8 +117,8 @@ Best usage of output could be as an input for other filters (regular expressions
         </body>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:processing-instruction name="xml-stylesheet"> type="text/xsl" href="../Teinte/tei2html.xsl"</xsl:processing-instruction>
-        <xsl:processing-instruction name="xml-model"> href="http://oeuvres.github.io/Teinte/teinte.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"</xsl:processing-instruction>
+        <xsl:processing-instruction name="xml-stylesheet"> type="text/xsl" href="../teinte/tei2html.xsl"</xsl:processing-instruction>
+        <xsl:processing-instruction name="xml-model"> href="http://oeuvres.github.io/teinte/teinte.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"</xsl:processing-instruction>
         <xsl:if test="function-available('date:date-time')">
           <xsl:comment>
             <xsl:text>Odette: </xsl:text>
@@ -308,6 +308,7 @@ case encountered, seems logic, but not fully tested
   </xsl:template>
   <!-- Section générée -->
   <xsl:template match="text:table-of-content | text:alphabetical-index | text:user-index">
+    <!--
     <divGen>
       <xsl:attribute name="type">
         <xsl:choose>
@@ -321,6 +322,7 @@ case encountered, seems logic, but not fully tested
       </xsl:attribute>
       <xsl:apply-templates/>
     </divGen>
+    -->
   </xsl:template>
   <xsl:template match="text:table-of-content-source"/>
   <xsl:template match="text:index-body">
@@ -514,7 +516,7 @@ case encountered, seems logic, but not fully tested
         <!-- empty para -->
         <xsl:when test="normalize-space(.) = ''">
           <xsl:value-of select="$lf"/>
-          <lb type="line"/>
+          <space unit="line" quantity="1"/>
         </xsl:when>
         <!-- asterisms -->
         <xsl:when test="translate(normalize-space(.), '*  ', '') = ''">
@@ -555,17 +557,17 @@ case encountered, seems logic, but not fully tested
               <xsl:variable name="element" select="normalize-space($mapping/@element)"/>
               <xsl:value-of select="$lf"/>
               <xsl:element name="{$mapping/@parent}" namespace="http://www.tei-c.org/ns/1.0">
+                <xsl:if test="$mapping/@attribute != ''">
+                  <xsl:attribute name="{$mapping/@attribute}">
+                    <xsl:value-of select="$mapping/@value"/>
+                  </xsl:attribute>
+                </xsl:if>
                 <xsl:value-of select="$lf"/>
                 <xsl:element name="{$element}" namespace="http://www.tei-c.org/ns/1.0">
                   <xsl:call-template name="lang"/>
                   <xsl:if test="$mapping/@keep = 'true' and $rendkeep != ''">
                     <xsl:attribute name="rend">
                       <xsl:value-of select="$rendkeep"/>
-                    </xsl:attribute>
-                  </xsl:if>
-                  <xsl:if test="$mapping/@attribute != ''">
-                    <xsl:attribute name="{$mapping/@attribute}">
-                      <xsl:value-of select="$mapping/@value"/>
                     </xsl:attribute>
                   </xsl:if>
                   <!-- numbered line -->

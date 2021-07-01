@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://oeuvres.github.io/teinte/teinte.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="ddr-articles.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-stylesheet type="text/css" href="http://oeuvres.github.io/teinte/author-tei.css"?>
+<?xml-stylesheet type="text/xsl" href="../teinte/tei2html.xsl"?>
 <TEI xml:lang="fr" xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader>
     <fileDesc>
       <titleStmt>
-        <title>{Title}</title>
-        <author key="{author}"/>
+        <title>{title}</title>
+        <author key="Rougemont, Denis de (1906-1985)">Denis de Rougemont</author>
       </titleStmt>
       <editionStmt>
-        <edition>{publisher}</edition>
-        <respStmt>
-          <name>{Transcription}</name>
-          <resp>Transcription</resp>
-        </respStmt>
+        <edition>Rougemont 2.0</edition>
       </editionStmt>
       <publicationStmt>
-        <publisher>{publisher}</publisher>
-        <date when="2021"/>
-        <idno>{filename}</idno>
+        <publisher>Université de Genève</publisher>
         <availability status="restricted">
-          <licence target="http://creativecommons.org/licenses/by-nc-nd/3.0/fr/"/>
+          <licence target="https://creativecommons.org/licenses/by-sa/4.0/deed.fr"/>
         </availability>
       </publicationStmt>
       <sourceDesc>
@@ -27,12 +23,12 @@
       </sourceDesc>
     </fileDesc>
     <profileDesc>
+      <creation>
+        <date from="{from}" to="{to}"/>
+      </creation>
       <langUsage>
         <language ident="fr"/>
       </langUsage>
-      <creation>
-        <date when="{date}"/>
-      </creation>
     </profileDesc>
   </teiHeader>
   <text>
