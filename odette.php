@@ -89,7 +89,7 @@ class Odette {
       // find a transfo pack for tei to html
       $pars = array(
         'xslbase' => null,
-        'theme' => '../../teinte/',
+        'theme' => 'http://oeuvres.github.io/teinte/',
       );
       $xsl=dirname(dirname(__FILE__)).'/teinte/tei2html.xsl';
       if (!file_exists($xsl)) {
@@ -176,7 +176,7 @@ class Odette {
       array("\n<$1"),
       $xml
     );
-    
+
     $this->loadXML($xml);
 
     $zip->close();
@@ -197,18 +197,18 @@ class Odette {
 
     // odt > tei
     $this->transform(dirname(__FILE__).'/odt2tei.xsl', $pars);
-    
+
     $this->doc->preserveWhiteSpace = true;
     $this->doc->formatOutput = false; // after multiple tests, keep it
     $this->doc->substituteEntities=true;
 
-    
+
     $xml=$this->doc->saveXML();
-    
+
     // regularisation of tags segments, ex: spaces tagged as italic
     $preg=self::sed_preg(file_get_contents(dirname(__FILE__).'/tei.sed'));
     $xml = preg_replace($preg[0], $preg[1], $xml);
-    
+
     $model_xml = realpath(dirname(__FILE__)."/".$model."/".$model.".xml");
 
     if (!file_exists($model_xml)) {
@@ -219,10 +219,10 @@ class Odette {
     // $model_xml = "file:///".$model_xml;
     $pars=array();
     $pars['model'] = str_replace('\\', '/', $model_xml);
-    
+
     $this->loadXML($xml);
 
-    
+
     // TEI regularisations and model fusion
     $this->transform(dirname(__FILE__).'/tei-post.xsl', $pars);
 
@@ -291,7 +291,7 @@ class Odette {
     $this->xsl->load($xslFile);
     $this->proc->importStyleSheet($this->xsl);
     // transpose params
-    if($pars && count($pars)) { 
+    if($pars && count($pars)) {
       foreach ($pars as $key => $value) {
         if (!$value) $value = '';
         $this->proc->setParameter('', $key, $value);
@@ -374,7 +374,7 @@ class Odette {
     echo $xml;
     exit;
   }
-  
+
   public static function models()
   {
     $glob = glob(dirname(__FILE__)."/*", GLOB_ONLYDIR|GLOB_MARK);
@@ -387,8 +387,8 @@ class Odette {
     }
     return $models;
   }
-  
-  
+
+
   /**
    * Apply code from Cli
    */
@@ -399,7 +399,7 @@ class Odette {
       "html"=>".html",
     );
     $models = self::models();
-    
+
     array_shift($_SERVER['argv']); // shift first arg, the script filepath
     if (!count($_SERVER['argv'])) exit("
     usage     : php -f odette.php (".implode('|', array_keys($formats)).")? (".implode('|', array_keys($models)).")? destdir/? *.odt
@@ -418,7 +418,7 @@ class Odette {
     $model = trim($_SERVER['argv'][0], '- ');
     if(isset($models[$model])) array_shift($_SERVER['argv']);
     else $model = "default";
-    
+
     $lastc = substr($_SERVER['argv'][0], -1);
     if ('/' == $lastc || '\\' == $lastc) {
       $destdir = array_shift($_SERVER['argv']);
@@ -520,7 +520,7 @@ class Web
     else $pars = array($default);
     return $pars;
   }
-  
+
     /**
    * build a clean query string from get or post, especially
    * to get multiple params from select
