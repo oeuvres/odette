@@ -1,0 +1,993 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://oeuvres.github.io/teinte/teinte.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="fr">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Le Journal des Soldats Blessés aux Yeux</title>
+        <principal>E. Brieux</principal>
+        <author>Eugène Brieux</author>
+<author>René Vallery-Radot</author>
+<author>Dr Morax</author>
+<author>Paul Emard</author>
+<author>Mme Galeron de Calonne</author>
+<author>J. de Villedon</author>
+<author>Dr Cosse</author>
+<author>Auguste Descormes</author>
+<author>Ernest Tiffereau</author>
+<author>Coupe</author>
+<author>Léon Bobb</author>
+<author>Jacques Bouillon</author>
+<author>Jean-Marie Fourcade</author>
+<author>Fernand Gouny</author>
+<author>Marcel Bardonnet</author>
+<author>Jacques Guérin</author>
+<author>E. Moussy</author>
+      </titleStmt>
+      <editionStmt>
+        <edition>2021</edition>
+        <respStmt>
+          <name>{transcripteur}</name>
+          <resp>Transcription</resp>
+        </respStmt>
+      </editionStmt>
+      <publicationStmt>
+        <publisher>Médiathèque Valentin Haüy</publisher>
+        <availability status="restricted">
+          <licence target="https://creativecommons.org/publicdomain/zero/1.0/deed.fr"/>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <publisher>Administration, Les Annales, 51 rue Saint Georges Paris</publisher>
+<publisher>Imprimerie Chaix II, boulevard Saint-Michel Paris -1184-18</publisher>
+          <dim>24 x 15,5 cm </dim>
+<dim>24 pages numérotées + 2 pages</dim>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr"/>
+      </langUsage>
+      <creation>
+        <date when="1916-11"/>
+      </creation>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+
+
+<space unit="line" quantity="1"/>
+
+<pb n="n.p."/>
+<p>N°1</p>
+<p>Novembre 1916</p>
+<p><seg rend="strong">Le Journal des Soldats Blessés aux Yeux</seg></p>
+<p>Ce Journal, qui paraît une fois par mois, n’est pas mis dans le commerce</p>
+<p>Il est exclusivement réservé aux soldats blessés aux yeux, à qui il est envoyé gratuitement, et aux personnes qui s’intéressent à eux</p>
+<p>Directeur</p>
+<p>M. Brieux, de l’Académie française 26, Rue Victor-Massé, Paris</p>
+<p>Administration Les annales 51, rue Saint-Georges Paris</p>
+
+<pb n="n.p."/>
+<div>
+<head>Brosses, chaises et paniers !</head>
+<index>
+<term type="contributeur">E. Brieux</term>
+
+<term type="sujet">Noms personnels et de famille</term>
+
+<term type="sujet">Artisanat. Arts et Métiers</term>
+</index>
+<p>Nous publierons successivement les noms de tous nos camarades rentrés dans leurs foyers et y exerçant un métier.</p>
+<p>Nous les recommandons à tous les amis des soldats blessés aux yeux.</p>
+<p>Chacun d’eux voudra, non seulement n’avoir pas d’autre fournisseur mais être un commis-voyageur pour le brossier, le chaisier et le vannier établi dans son voisinage.</p>
+<p>Voici notre première liste :</p>
+<p>Arhuro, Alfred, 22<hi rend="sup">e</hi> d’infant., a quitté l’A. V. H. le 28 mai 1916, habite à Ploharnel, canton de Quiberon (Morbihan), fait brosserie et chaiserie.</p>
+<p>Bibois, Jean, 35<hi rend="sup">e</hi> d’infant., a quitté l’A. V. H. le 30 octobre 1915, habite, 53, rue d’Etretat, le Havre (Seine-Inférieure), fait brosserie et chaiserie.</p>
+<p>Cagnard, Maxime, 21<hi rend="sup">e</hi> territ., a quitté l’A. V. H. le 4 avril 1916, habite, 67, rue Ganterie à Rouen (Seine-Inférieure), fait brosserie.</p>
+<p>Cyssau, Omer, 16<hi rend="sup">e</hi> chass., a quitté l’A. V. H. le 13 juin 1916, habite Renescure (Nord), fait brosserie et vannerie.</p>
+<p>Delsol, Eugène, 30<hi rend="sup">e</hi> batt. d’inf. légère d’Afrique (Croix de guerre), a quitté le 24 décembre 1915 l’A. V. H., habite chez ses parents, 255, rue de Vaugirard, Paris, fait brosserie.</p>
+<p>Devarrieux, Émile, 24<hi rend="sup">e</hi> d’infant., a quitté l’A. V. H. le 17 juin 1916, habite, 36, rue Deshais, à Oissel (Seine-Inférieure), fait brosserie.</p>
+<p>Dumonter, Alphonse, 1<hi rend="sup">er</hi> zouaves, a quitté l’A. V. H. le 13 juillet 1916, habite aux Souperons, par Saint-Désiré (Allier), fait brosserie et chaiserie.</p>
+<p>Féret, Marcel, 7<hi rend="sup">e</hi> zouaves, a quitté l’A.V.H. le 4 septembre 1916, habite, 45, rue de Paris, à Saint-Étienne-du-Rouvray (Seine-Inférieure), fait chaiserie et brosserie.</p>
+<p>Fignon, Charles-Léon, 94<hi rend="sup">e</hi> d’infant., a quitté l’A. V. H le 11 juin 1916, habite à Nogent-l’Artaud (Aisne), fait brosserie et chaiserie.</p>
+<p>Frimbaud, Auguste, 100<hi rend="sup">e</hi> d’infant., a quitté l’A. V. H. le 25 octobre 1915, habite la Jonchère (Haute-Vienne), fait brosserie.</p>
+<p>Hamel, Jean-Louis, 167<hi rend="sup">e</hi> d’infant., a quitté brosserie l’A. V. H. le 14 mars 1916, habite Marbache (Meurthe-et-Mosellle), fait brosserie</p>
+<p>Houot, Louis, sergent au 17<hi rend="sup">e</hi> chass. à pied, a quitté l’A. V. H. le 15 octobre 1916, habite cité la Tessière, à Bar-sur-Seine (Aube), fait brosserie.</p>
+<p>Joncheret, François, 1<hi rend="sup">er</hi> colonial, a quitté l’A. V. H. le 18 février 1916, habite 4, rue d’Aguesseau, à Boulogne-sur-Seine, fait grosse brosserie.</p>
+<p>Labarre, Albert, 161<hi rend="sup">e</hi> d’infant., a quitté l’A. V. H. en mai 1916, habite 23, rue Washington, Paris, fait brosserie et chaiserie.</p>
+<p>Lamure, Jean-Pierre, 28<hi rend="sup">e</hi> chass., a quitté l’A. V. H. le 11 avril 1916, habite chez ses parents, 60, rue Bonnel, à Lyon (Rhône), fait brosserie et chaiserie.</p>
+<p>Maître, François, infirmier, 24<hi rend="sup">e</hi> section, a quitté l’A. V. H. le 15 octobre 1916, habite, 16, rue de la Corderie, à Paris, fait brosserie et chaiserie.</p>
+<p>Nicard, Germain, 90<hi rend="sup">e</hi> territ., a quitté l’A. V. H. le 26 février 1916, habite, 5, impasse Damesme, Paris, fait chaiserie et brosserie.</p>
+<p>Noble, Paul, 1<hi rend="sup">er</hi> chass., a quitté l’A. V. H. le 2 octobre 1916, habite à Bagneux-la-Fosse (Aube), fait brosserie et chaiserie.</p>
+<p>Piquemal, François, 80<hi rend="sup">e</hi> d’infant., a quitté l’A. V. H. le 18 juin 1916, habitait à Alliat, par Niaux (Ariège), a appris la brosserie (décédé).</p>
+<p>Poubane, Pierre, 70<hi rend="sup">e</hi> d’infant., a quitté l’A. V. H. le 31 mai 1916, habite chez ses parents, route de Veern, à Rennes (Ille-et-Vilaine), fait brosserie.</p>
+<p>Sabier, Richard, caporal au 54<hi rend="sup">e</hi> d’infant., a quitté l’A. V. H. le 31 décembre 1915, habite à Boran (Oise), fait brosserie et chaiserie.</p>
+<p>Thiberge, Gustave, 17<hi rend="sup">e</hi> d’infant., a quitté l’A. V. H. le 18 mars 1916, habite chez ses parents à Maizeret (Sarthe), fait brosserie et chaiserie.</p>
+<p>Tricaud, Joseph, 24<hi rend="sup">e</hi> d’infant., a quitté l’A. V. H. le 19 février 1916, habite, 75, rue Émile-Raspail, à Arcueil-Cachan, fait brosserie, chaiserie et filet.</p>
+
+<pb n="1" xml:id="p1"/>
+</div>
+<div>
+<head>Journal des soldats blessés aux yeux</head>
+<div>
+<head>Notre But</head>
+<index>
+<term type="sujet">Aide sociale et publique</term>
+</index>
+<p>
+<!-- motasem alrahabi : 2021-07-11T20:22:00
+Consignes d’accessibilité : utiliser les listes puces de Word.-->Ce journal a pour but de créer un lien : 
+</p>
+<list type="ol" rend="1">
+<item>Entre tous les soldats blessés aux yeux ;</item>
+<item>Entre les Directeurs des écoles de rééducation ;</item>
+<item>Entre les blessés et les personnes qui s’intéressent à eux.</item></list>
+<p>Nous publierons :</p>
+<list type="ol" rend="1">
+<item>La liste de tous les blessés aux yeux présents dans les écoles de rééducation ; de ceux qui en sont sortis et de ceux qui sont rentrés dans leurs foyers ;</item>
+<item>Un rapport de chacun des Directeurs de nos écoles donnant les renseignements sur ce qui a été fait chez lui pendant le mois précédent, posant, s’il le désire, des questions à ses collègues; contenant enfin les observations ou les suggestions qu’il croira nécessaires. D’autres articles émanant de personnes compétentes pourront également être insérés ;</item>
+<item>Une courte notice sur chacune des œuvres s’intéressant aux soldats aveugles. Cette notice sera rédigée par le Directeur de chaque œuvre.</item></list>
+<p>J’espère ainsi réaliser une union cordiale entre les Filiales de Reuilly et entre les sociétés.</p>
+<p>J’avais d’abord pensé à faire imprimer ce journal en Braille, mais beaucoup de nos camarades ne connaissent pas cette écriture et n’auraient trouvé personne, dans leur entourage qui la connût.</p>
+<p>Je le publie donc en noir, certain qu’il se trouvera toujours quelqu’un pour leur faire la lecture, une fois par mois, de ces pages écrites pour eux.</p>
+<p>Sans doute, on intéressera chacun en recherchant si, sur les listes de nos élèves, ne se trouve pas quelque soldat de son régiment. Dans ce cas, des rapports s’établiront entre l’ancien et le nouveau blessé ; des lettres seront échangées, en noir ou en Braille, et l’isolement de chacun en sera diminué.</p>
+<p>Je cherche aussi à réaliser une action pratique.</p>
+<p>Les premiers numéros contiendront les noms de tous ceux qui, rentrés dans leurs foyers, fabriquent des brosses, des balais, des paniers, raccommodent des chaussures, etc., et, comme leur adresse aussi sera publiée, il y a lieu d’espérer que des personnes de la région s’intéresseront à eux, tout au moins pour acheter leurs produits.</p>
+<p>Je ferai également connaître le nom et l’adresse de chaque sortant lors de son départ de l’école.</p>
+<p>Ceux de nos camarades qui le demanderont auront droit à une réclame, gratuite, bien entendu.</p>
+<p>Notre journal contiendra enfin des noms de fournisseurs, cela ne sera pas inutile en ce moment où il est si difficile de se procurer des matières premières. Et il va de soi que je resterai à la disposition de nos lecteurs pour leur donner — autant, qu’il sera en mon pouvoir — tous les renseignements dont ils pourraient avoir besoin.</p>
+<p>Je fais appel à tous pour m’aider à la rédaction de ce journal.</p>
+<p>J’ai dit ce que j’attendais de nos Directeurs et des Présidents, mais j’espère bien, de plus, recevoir d’eux ou des personnes compétentes, des articles sur tel ou tel sujet intéressant nos camarades.</p>
+<p>Et ces camarades eux-mêmes devront être mes collaborateurs. Je voudrais que tous ceux qui croient avoir quelque chose à dire, prissent la peine de m’écrire, en Braille ou en noir. Nous devons tous poursuivre l’amélioration de nos écoles, de nos œuvres... et de notre journal. Je ne puis promettre qu’il sera fait droit à toutes les réclamations, mais je puis donner l’assurance qu’elles seront toutes examinées avec soin. Je ne puis dire que tous les conseils seront suivis, mais ils seront tous écoutés.</p>
+<p>Ce n’est pas tout.</p>
+<quote>
+<p>Ne nous laissons pas plaindre, mais laissons-nous aider.</p></quote>
+
+<pb n="2" xml:id="p2"/>
+<p>Il faut penser aux nouveaux blessés, il faut penser à ceux qui sont encore découragés, désespérés, même. Si je leur dis, ce qui est vrai, que même, avec un bandeau sur les yeux, on peut être cultivateur, ouvrier brossier, cordonnier, vannier, ajusteur-mécanique, façonneur en verrerie, il me faudra bien du temps pour le faire croire, et bien des efforts : j’en sais quelque chose. Mais si on leur lit, dans ce journal, la lettre d’un blessé comme eux, qui donnera son nom, son adresse, le numéro de son ancien régiment, qui affirmera qu’il peut travailler, qu’il travaille, et qu’il gagne ainsi quelque argent, et qu’il est heureux ; et qu’on peut tout de même être heureux malgré ces blessures — alors les nouveaux, les désespérés arriveront à le croire très vite ; la période si douloureuse du passage de la vie d’autrefois à celle de demain, sera beaucoup moins longue, elle sera même, souvent, à peu près supprimée. On s’écrira, on demandera des renseignements complémentaires, des précisions, et il en résultera, je crois, beaucoup de bien.</p>
+<p>En somme, je supplie ceux qui sont adaptés de tendre la main à ceux qui ne le sont pas ; ceux qui souffrent moins de soulager ceux qui souffrent encore beaucoup.</p>
+<p>Il faudra donc qu’on m’écrive des lettres, du genre de celles qu’on lira plus loin, où l’on s’efforcera de réconforter les récents camarades par des paroles de bonne humeur et de confiance et surtout par le détail de ce que l’on fait, de ce que l’on gagne, et — j’insiste sur ce point — par la révélation des petits trucs que l’on aura imaginés pour se tirer d’affaire même dans les petites circonstances de la vie.</p>
+<p>Et comme tout travail mérite salaire, je prie ces collaborateurs d’accepter une petite rémunération — deux sous la ligne par lettre publiée. Cela ne les enrichira pas, mais paiera le timbre poste et le papier, aussi quelques bonbons pour les enfants de ceux qui en ont, des cigarettes pour les fumeurs, et pour les autres... ce qu’ils voudront.</p>
+<p>Je prie tous mes lecteurs de ne considérer ce numéro que comme un essai. J’espère faire mieux, grâce à leur concours.</p>
+<p>Reste la question des abonnés.</p>
+<p>Il n’y en a pas.</p>
+<p>Je veux dire que ce journal n’est pas mis dans le commerce ; il est envoyé gratuitement à tous nos camarades (que ceux qui seraient oubliés n’aient pas peur de réclamer !) ; les personnes qui se sont intéressées à nos soldats blessés aux yeux, et dont j’aurai les noms, le recevront aussi (que les oubliés réclament également !). Les sommes qu’elles auront versées iront à notre caisse de secours, créée, remplie, — et assez bien remplie, ma foi, — par les souscripteurs qui ont répondu à l’appel si chaleureux et touchant fait jadis par Mme Brisson — qui a le génie du bien — dans les Annales.</p>
+<p>Au nom de tous, je tiens à la remercier, et à remercier ceux qui nous ont envoyé des dons avec tant d’empressement, d’intelligente bonté, et de délicatesse.</p>
+<byline>Brieux.</byline>
+</div>
+<div>
+<head>Une bonne nouvelle</head>
+<index>
+<term type="auteur">E. Brieux</term>
+
+<term type="sujet">Aide sociale et publique</term>
+</index>
+<p>Il est arrivé qu’un soldat blessé qui avait un œil perdu et l’autre compromis n’était proposé que pour une pension de la 5<hi rend="sup">e</hi> catégorie.</p>
+<p>J’ai porté devant les autorités compétentes les réclamations qui m’ont été faites à ce sujet et j’ai lieu d’espérer qu’avant peu de temps une circulaire ministérielle prescrira une meilleure interprétation de la loi.</p>
+<byline>B.</byline>
+<quote>
+<p>Les voyants sont trop orgueilleux de leurs yeux.</p></quote>
+
+<pb n="3" xml:id="p3"/>
+</div>
+</div>
+<div>
+<head>Les œuvres</head>
+<div>
+<head>Les amis des soldats aveugles</head>
+<index>
+<term type="contributeur">René Vallery Radot</term>
+
+<term type="sujet">Aide sociale et publique</term>
+
+<term type="sujet">Première Guerre mondiale</term>
+
+<term type="sujet">Soins des malades et des blessés</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+
+<term type="sujet">Pensions.</term>
+</index>
+<p>Dès le commencement de la guerre, l’Hospice National des Quinze-Vingts, fidèle à ses généreuses traditions, avait accueilli et soigné les premiers soldats aveugles. Une ambulance avait été organisée par les soins des membres de la Commission Consultative. Mais chaque jour de cette guerre faite par l’Allemagne, guerre que l’Histoire appellera le plus grand attentat commis contre l’humanité, arrivaient plus nombreux les détachements de soldats qui, d’un pas hésitant et troublé, pénétraient dans la cour de cette vieille caserne des Mousquetaires, devenue la demeure des Quinze-Vingts, marchaient à tâtons dans les couloirs, apprenaient peu à peu à être aveugles, essayaient de s’accoutumer à vivre dans une nuit sans fin.</p>
+<p>Devant ce défilé toujours croissant, le Ministère de l’Intérieur organisa, 99 bis, rue de Reuilly, dans les locaux inoccupés d’un ancien et vaste pensionnat, une maison que, par un euphémisme voulu, on appela Maison de Convalescence. Deux cents soldats aveugles pouvaient y être reçus. L’Hospice des Quinze-Vingts prit à sa charge le loyer de l’immeuble et certaines dépenses d’organisation et de fonctionnement. Le Ministère de la Guerre, d’accord avec le Ministère de l’Intérieur, décida l’allouer 2 fr. 50 par homme et par jour. Les soldats auraient ainsi la sécurité du vivre et du couvert et une certaine part d’entretien. Mais que deviendraient-ils dans les longues journées de leur hospitalisation? Quelles sollicitudes d’ordre à la fois collectif et particulier pourraient les entourer? Tous ces soldats ne risquaient-ils pas d’être en pleine oisiveté, souvent en plein chagrin, et quelques-uns peut-être en plein désespoir ?</p>
+<p>C’est alors qu’un groupement, attiré vers eux, si dignes d’une sympathie poignante, résolut de fonder une œuvre due à l’initiative privée et qui s’appellerait : Les Amis des Soldats Aveugles.</p>
+<p>Si grands que puissent être les efforts de l’État dans le domaine de l’aide et du soutien, ils ne sauraient suffire. À chaque instant, l’État est arrêté par des règles fixes qui s’imposent. L’initiative privée a, au contraire, des latitudes qui lui donnent une liberté d’action rapide. S’agit-il d’une décision immédiate et d’intérêt général à prendre ? Tandis que l’action administrative risque d’être suspendue, si nul crédit n’est ouvert dans un budget spécial, l’initiative privée, lorsque la question rentre dans les statuts de son œuvre et dans les ressources de son budget, peut intervenir avec une prompte et précieuse efficacité. Est-il une preuve plus démonstrative de cette puissance d’initiative privée que les interventions immédiates et bienfaisantes dues à l’Institut Pasteur, fondé avec cette double et noble préoccupation : apporter à l’État un concours toujours prêt en gardant son indépendance.</p>
+<p>Toutes proportions gardées, c’était quelque chose d’approchant qui pouvait être tenté par les amis des soldats aveugles. Forte de l’appui des pouvoirs publics, l’œuvre adjuvante et discrète fit ses débuts le 29 mars 1915.</p>
+<p>Le Directeur de l’hygiène et de l’assistance publiques en France, M. Brisac, désigna pour diriger la Maison de la rue de Reuilly, fondée par l’État, M. Paul Emard, qui allait être au premier rang des membres de notre Comité. Autour de lui se groupèrent trois membres de la Commission consultative de l’Hospice National des Quinze-Vingts, trois représentants des cultes catholique, protestant et israélite et dix autres membres animés du même désir, d’un même sentiment, d’une même activité, pour atteindre le but que sans la moindre hésitation, dès la première heure, nous nous étions proposé :</p>
+<p>« Venir en aide aux soldats aveugles par blessures de guerre, leur faciliter l’apprentissage ainsi que l’exercice d’un métier et même la fondation d’un foyer. » Ces trois termes très simples, qui paraissent aujourd’hui si naturels, furent alors vivement combattus par certains esprits. Avec des vues toutes différentes, ils trouvaient que ces grandes victimes de la guerre avaient assez fait, et que seules des allocations en argent devaient intervenir. Quant aux projets de mariages, c’était, disaient-ils, une pure utopie.</p>
+<p>Qu’importait ! Si nous étions dans la vérité, les faits se chargeraient de répondre. Ces contradicteurs de bonne foi seraient alors ramenés par l’évidence, et qui sait ? préconiseraient peut-être un jour les initiatives qu’ils étaient en train de blâmer.</p>
+<quote>
+<p>Nous n’avons qu’un ennemi, l’ennui.</p></quote>
+
+<pb n="4" xml:id="p4"/>
+<p>Notre programme put bientôt se traduire mieux qu’en paroles et en écrits, par des actes. Qui ne se souvient des quarante premiers soldats aveugles de Reuilly, se suivant à la file, comme dans le célèbre tableau des aveugles de Breughel et, comme eux, apparaissant avec une variété si tragique d’expressions? Le travail ne serait-il pas le consolateur et le soutien par excellence ?</p>
+<p>Notre Société avait acheté immédiatement une immense provision de matières premières. C’était surtout des balles de chiendent pour fabriquer des brosses. Quand des soldats, après quelques hésitations, commencèrent, — dirigés par un professeur aveugle comme eux, — à prendre des petites touffes de chiendent, à les entrer, à les fixer dans les trous de bois de brosses, à aligner les rangs et qu’enfin une brosse se fit peu à peu, hirsute, mais complète, ce fut un enchantement. Un travail était donc possible. L’habileté de mains pouvait avec le temps suppléer à la vision.</p>
+<p>Après la brosserie, le Directeur organisa les ateliers de cannage et de paillage de chaises. Bientôt le génie militaire entreprit et concéda à notre Société, à titre temporaire, des baraquements qui permirent d’organiser pour la Maison de convalescence de vastes ateliers. Notre Société, fidèle à sa grande tâche adjuvante, compléta les traitements des professeurs qui, presque tous frappés de cécité, pouvaient exercer ainsi une double action par leur exemple et leur don d’enseignement. Le soldat aveugle devient l’homme qui peut travailler, qui le veut, qui le demande, et qui a bientôt la fierté d’accomplir rapidement une besogne confiée.</p>
+<p>Atelier de cordonnerie où se font des ressemelages solides, bons à l’user ; atelier de tonnellerie où des tonneaux et des bacs donnent au fond du jardin de Reuilly l’aspect d’un coin de petit village bourguignon, au moment, des vendanges ; atelier d’ajustage de pièces d’automobiles où des soldats aveugles polissent en excellents ouvriers des pièces brutes qui leur sont apportées, enlèvent les aspérités et les bavures — tous ces enseignements préparent les soldats aveugles aux métiers d’avenir et de sécurité. Qu’ils fassent ensuite des travaux de distraction et de fantaisie comme des broderies en macramé, des corbeilles et des petits paniers de raphia, des bracelets et des bagues en perles, ce sont là jeux, amusements et gains, mais qui doivent être regardés comme hors rang des besognes durables, non soumises au caprice et aux variations de la mode.</p>
+<p>Aux cours de dactylographie sont venus s’ajouter des cours de chorale, de plain chant d’harmonium, de violon, de flûte, de piano, de mandoline, des leçons aussi pour accordeurs de pianos. Et pour terminer cet ensemble de leçons si diverses données dans la Maison annexe des Quinze-Vingts, le Braille qui, au commencement du séjour des soldats aveugles, était peu étudié, est aujourd’hui lu et écrit par presque tous les pensionnaires de Reuilly. Ils attendent avec impatience la remise du communiqué, tiré chaque jour en Braille par la presse Vaughan.</p>
+<p>Les foyers qui ont été fondés à Reuilly se sont élevés à vingt-six. Grâce à la générosité d’une personne voulant garder l’anonymat, mais qui prend notre œuvre comme intermédiaire pour remettre un cadeau de cinq cents francs, les budgets de nos jeunes ménages reçoivent une facilité de première installation. Si l’émiettement de petits secours a des inconvénients de toutes sortes, une subvention large dans une phase décisive est la vraie manière de secourir. Préoccupations quotidiennes d’ordre collectif et d’ordre individuel sous toutes les formes ; sollicitations sans cesse en éveil ; achats complets d’outillages, puis dons d’outillages à ceux qui rentrent chez eux, leur métier en mains, tels sont les modes d’action de notre œuvre.</p>
+<p>Le concours d’amis très fidèles; les témoignages de sympathie généreuse qu’elle a reçus, non seulement en France, mais de toutes les parties du monde ; le décret du 3 juillet 1916 qui l’a reconnue d’utilité publique, tout lui impose des devoirs de plus en plus grands. Créée comme œuvre de guerre et aussi comme œuvre d’après la guerre et pour une durée illimitée, elle ne cessera de rester en relations avec ceux qui, rentrés dans leurs foyers et disséminés dans toute la France, donneront de plus en plus le double exemple de la bravoure militaire et du labeur patient et quotidien. Lorsque nos soldats aveugles nous écrivent : « Le moral est bon, » que ces simples mots révèlent de grandes choses !</p>
+<byline>René Vallery-Radot.</byline>
+<p>P.-S. — Cette notice serait incomplète si elle n’était pas suivie de quelques chiffres. Les dépenses de l’année dernière, de la fin de mars au 31 décembre 1915 étaient de 66.228 fr.70 auxquelles il faut ajouter les dépenses du 1<hi rend="sup">er</hi> janvier 1916 au 6 octobre, qui se sont élevées à 164.123 fr., soit ensemble 230.351 fr. 70.</p>
+<quote>
+<p>Le travail chasse l’ennui et la nuit.</p></quote>
+
+<pb n="5" xml:id="p5"/>
+</div>
+<div>
+<head>L’association Valentin Haüy (9, Rue Duroc, Paris)</head>
+<index>
+<term type="contributeur">Dr Morax</term>
+
+<term type="sujet">Soin des malades et des blessés. Société d’entraide</term>
+
+<term type="sujet">Aide sociale et publique</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+
+<term type="sujet">Formation Professionnelle</term>
+</index>
+<p>À fin août 1916, l’A. V. H. connaissait les noms de 1.300 soldats aveugles, dont elle possédait les fiches. Ces fiches sont répertoriées dans les dossiers. Nous correspondons d’une manière suivie avec 900 soldats et officiers dont la cécité est certaine.</p>
+<p>Plus de 600 militaires ont été visités de la part de l’A. V. H. par ses délégués aveugles ou par des personnes très habituées aux aveugles. Actuellement encore nous faisons visiter d’une façon suivie 80 militaires encore en traitement dans les hôpitaux.</p>
+<p>Dès qu’un soldat aveugle est rentré chez lui, l’A. V. H. l’envoie visiter, si possible, par un aveugle intelligent, afin de connaître la situation, les besoins, les désirs du soldat, pour donner les indications utiles si le soldat désire la rééducation, l’A. V. H. fait le nécessaire, soit dans une de ses formations (rue Duroc, Lyon-Caluire, Montpellier), soit en lui indiquant le moyen d’entrer dans un autre établissement. Plus de 150 aveugles ont été visités ainsi.</p>
+<div>
+<head>Massage</head>
+<p>Sept soldats particulièrement aptes à recevoir cet enseignement ont suivi cette année des cours de massothérapie, d’anatomie et de physiologie, organisés rue Duroc, et professés par deux médecins aveugles : (les D<hi rend="sup">rs</hi> Fabre et Ferrier), dont le premier s’est fait une spécialité de massage. Ils ont suivi également les exercices pratiques du Grand-Palais, sous le contrôle d’un médecin militaire et avec la collaboration de deux masseurs diplômés.</p>
+</div>
+<div>
+<head>Accord de pianos</head>
+<p>L’A. V. H. a organisé à Montluçon, sous la direction de M. Dechaux, accordeur aveugle diplômé, une école d’accord pour six militaires que leurs aptitudes désignent tout spécialement. Dans cette école, outre l’étude très approfondie des règles scientifiques de l’accord et de la construction des pianos et harmoniums, les élèves sont tout particulièrement préparés par un enseignement pratique aux travaux d’entretien et de réparation, que nécessite l’exercice de cette profession.</p>
+</div>
+<div>
+<head>Culture</head>
+<p>L’A. V. H. donne aux cultivateurs vivant chez eux les indications nécessaires pour continuer l’exercice de leur profession en les faisant visiter par des cultivateurs aveugles, qu’une longue pratique a préparés à ce rôle d’instructeurs, et en les aidant pécuniairement pour l’achat d’animaux et de machines aratoires, locations de terre.</p>
+<p>Grâce au généreux concours de la Société d’Aviculteurs de France, l’A. V. H. a pu obtenir la création d’une section spéciale à l’École d’Aviculture de Gambais, par Houdan (Seine-et-Oise). Nous avons pu déjà aider deux anciens élèves de cette école à s’installer à leur compte, comme éleveurs.</p>
+</div>
+<div>
+<head>Brossiers</head>
+<p>57 apprentis brossiers, vanniers, chaisiers, sont passés ou se trouvent dans nos ateliers de la rue Duroc.</p>
+<p>39 soldats étaient passés au 1<hi rend="sup">er</hi> juillet par nos ateliers de Lyon-Caluire, et 26 par celui de Montpellier.</p>
+</div>
+<div>
+<head>Patronage</head>
+<p>En outre, l’A. V. H. vient en aide soit en payant leurs pensions ou en leur fournissant des matières premières et de l’outillage, à un grand nombre de soldats rééduqués dans d’autres établissements. C’est ainsi qu’elle a distribué par centaines : tablettes pour écriture Braille, guide-mains pour l’écriture au crayon, livres de lecture, méthode spéciale pour l’enseignement du Braille, du Capitaine Mouchard, machines à couper les brosses, outillages de chaisiers, sans parler du papier spécial pour l’écriture Braille, des montres, jeux de cartes, machines à écrire et des secours en matières premières : chiendent, bois de brosses, de balais, scies, tampico, piassava, osier, etc., etc.</p>
+<p>L’A. V. H. constitue un trousseau à chaque soldat aveugle à la fin de son apprentissage. Un chiffre donnera une idée de l’importance de la rémunération du travail des apprentis, quand on saura que dans les ateliers de la rue Duroc, pour une fabrication d’objets d’une valeur de 21.133 fr., les apprentis de l’A. V. H. ont reçu 10.537 fr. 30.</p>
+</div>
+<div>
+<head>Dactylographie</head>
+<p>Enfin, elle enseigne la dactylographie à tous ceux de ses militaires qui peuvent l’utiliser et imprime en Braille des livres spéciaux à leur usage.</p>
+<quote>
+<p>Plaindre n’est pas consoler.</p></quote>
+
+<pb n="6" xml:id="p6"/>
+</div>
+<div>
+<head>Société des Ateliers d’Aveugles (9, Rue De l’Echelle, Paris)</head>
+<p>La Société des Ateliers d’Aveugles est une des plus anciennes, — sinon la plus ancienne des Sociétés d’Aveugles en France.</p>
+<p>Fondée en 1881 par M. Lavanchy-Clarke, elle fut reconnue d’utilité publique en 1885. Elle compte donc déjà 35 années d’existence. À l’époque de sa création, aucun atelier n’existait pour les aveugles adultes. Quelques centaines d’enfants recevaient une instruction et une éducation professionnelle à l’Institution Nationale des jeunes aveugles et dans quelques établissements charitables dus à l’initiative privée. En outre, l’Hospice National des Quinze-Vingts était réservé à trois cents aveugles âgés d’au moins quarante ans, et à leurs familles. C’étaient les privilégiés. Les autres, abandonnés à leur infortune, étaient condamnés à la mendicité... Beaucoup d’entre eux avaient été frappés de cécité après les années de l’enfance, en plein exercice de leur activité. Rien n’était fait pour eux ; aucune porte ne leur était ouverte.</p>
+<p>C’est cette lacune que la Société des Ateliers d’Aveugles voulut combler. Elle eut l’honneur de créer la première École Professionnelle d’aveugles adultes en France.</p>
+<p>Son premier Atelier-École (brosserie, chaiserie, cannage, etc.) fut ouvert rue Basfroi, puis le local devenant trop exigu, l’École fut transférée, en 1884, rue Jacquier, dans un immeuble du à la générosité de Mme Furtado-Heine.</p>
+<p>En 1912, cet immeuble fut uniquement consacré à la sparterie et à la fabrique des paillassons ; un atelier de brosserie fut créé à Saint-Jùst-en-Chaussée (Oise). Cet Atelier-École est entouré de cottages pour loger les apprentis.</p>
+<p>Notre Conseil d’administration s’apprêtait à donner à cette colonie, toute l’extension nécessaire, lorsque la guerre éclata. Depuis deux ans, Saint-Just est dans la zone de guerre, à la limite des régions envahies. Nous n’avons donc pu y recueillir les aveugles de la guerre, comme nous l’espérions.</p>
+<p>En attendant que nous puissions reprendre à Saint-Just nos travaux interrompus, nous avons dû créer un petit atelier de brosserie à Saint-Mandé. Dirigé par un directeur des plus compétents et connaissant à fond les aveugles, cet atelier est appelé à rendre de grands services. Nos grands blessés de la guerre y fraterniseront avec les autres aveugles dans une vie de famille, que la Société des Ateliers d’Aveugles rendra aussi douce que possible.</p>
+<byline>Le Président de la Société des A. A. Dr Morax.</byline>
+<quote>
+<p>Au lieu de nous plaindre, cherchez à nous comprendre.</p></quote>
+</div>
+<div>
+<head>Pour le foyer du soldat aveugle</head>
+<p>L’Association « Pour le Foyer du Soldat Aveugle », déclarée à la Préfecture de Police, le 24 juin 1915, sous le n° 156.848, Journal officiel du 11 juillet 1915, dont le siège social est 64, rue du Rocher à Paris, s’est constituée dans le but précis de compléter la pension de l’État, quand le soldat aveugle rentré dans ses foyers, a des charges de famille nombreuses, des mutilations, des maladies et qu’il se trouve dans l’incapacité totale ou partielle de travailler. Elle s’adresse également aux soldats aveugles dont le travail mérite d’être encouragé.</p>
+<p>Cette Association s’efforce de suivre chacun de ses protégés, à la sortie des maisons de convalescence où ils sont en traitement, ou des ateliers de rééducation professionnelle où ils reprennent contact avec le travail, jusqu’à leur installation définitive dans leurs foyers où elle souhaite continuer à s’intéresser à eux, en les entourant de toute la sollicitude matérielle et morale à laquelle ils ont droit.</p>
+<p>Les maires des communes de France ayant été avisés par la circulaire adressée aux Préfets, du but poursuivi par l’Association, peuvent lui signaler les soldats aveugles qui leur paraissent être dans les conditions requises. Un questionnaire doit être rempli, signé et examiné par la Sous-Commission du Travail du Foyer du Soldat Aveugle. Dès que l’enquête paraît suffisante, un vote au bulletin secret détermine, après un examen définitif du dossier, l’allocation accordée pour un an, et renouvelable, variable de 100 à 500 francs.</p>
+<p>Le nombre de soldats aveugles actuellement bénéficiaires est, à la date du 3 novembre, de 264, ce qui représente une somme dépassant 68.000 francs.</p>
+<p>Entre toutes les victimes douloureuses de la guerre en est-il de plus émouvante, de plus digne de notre gratitude, de notre appui et de notre respect que le Soldat Aveugle ?</p>
+<p>Il résume à la fois tout l’héroïsme et toutes les ténèbres.</p>
+<p>Aimons-le ! Aidons-le !</p>
+<p>L’État donne à ceux, qui pour nous ont perdu la lumière, le pain assuré par la reconnaissance du pays. Avec l’État, des institutions admirables, en rééduquant les aveugles, en leur apprenant un métier, préparent au plus grand nombre un meilleur avenir.</p>
+<p>Notre rôle n’entre en lutte avec aucune activité bienfaisante. Il prend modestement sa place</p>
+<quote>
+<p>Au lieu de nous plaindre, cherchez à nous comprendre.</p></quote>
+
+<pb n="7" xml:id="p7"/>
+<p>à côté des soutiens des aveugles et s’adresse aux plus malheureux d’entre eux. Puisque même parmi ces déshérités il y a des aggravations de misère, certains étant, par surcroît, des mutilés, des malades, des êtres moins heureusement doués qui, malgré leur effort, ne pourront ajouter aucun salaire à leur pension, allons vers ceux-là.</p>
+<p>Rejoignons-Ies à leur foyer, auprès des êtres chers à jamais invisibles.</p>
+<p>Ils seront nombreux, hélas ! les aveugles de la guerre !</p>
+<p>Que chacun de nous adopte un aveugle. Qu’il mette à son service, outre une allocation annuelle et renouvelable de 100 à 500 francs, les témoignages multiples d’une discrète affection, qu’il le guide parfois, qu’il veille sur lui toujours.</p>
+<p>Ainsi, respectueusement, fidèlement, nous essaierons de faire moins sombre le Foyer du Soldat Aveugle.</p>
+</div>
+<div>
+<head>L’aide aux Aveugles de Guerre</head>
+<p>L’objet de notre Association est d’appeler à elle les soldats aveugles, rééduqués ou non, afin de leur procurer un soutien immédiat, moral et matériel, par l’entremise de différentes organisations sociales groupées sous la Direction d’un Comité Central. Notre but, c’est la recherche des moyens qui pourront apporter un remède à toutes les misères des « yeux clos ».</p>
+<p>À Paris, les soldats aveugles et les borgnes se réunissent tous les dimanches à notre Siège social, où des distractions sont organisées, où des réunions et des goûters sont préparés pour eux. La première de ces réunions a été inaugurée par Mme Raymond Poincaré et l’élite de la société parisienne. Les plus grands artistes avaient bien voulu prêter leur généreux concours et depuis cette époque ils renouvellent sans cesse leur gracieuse collaboration.</p>
+<p>En outre, ils rencontrent des personnalités compétentes, avocats, médecins, capables de les conseiller, de les aider, et surtout de les guider dans leur situation nouvelle.</p>
+<p>Le Comité prend à la charge de l’Œuvre un nombre d’aveugles correspondant à ses ressources ; il les aide, il les assiste, et leur achète leur travail afin de leur assurer la vie matérielle, durant les périodes difficiles des débuts et du chômage.</p>
+<p>Les aveugles rééduqués et les borgnes de Paris, de province ou des pays alliés, trouvent au Siège de l’Association un office de placement qui les mettra en rapport avec les commerçants et les familles susceptibles de les faire travailler ou de les établir.</p>
+<p>Une villa offerte par Mme la Comtesse Orloff-Davidoff est installée à Menton, pour recevoir principalement nos aveugles et borgnes tuberculeux.</p>
+<p>Un vestiaire est organisé par l’« Aiguille Française » (Vestiaire National) Œuvre sous la présidence de Mme la Baronne Maurice Fauqueux. Ce vestiaire se charge d’habiller complètement les familles intéressantes des soldats aveugles ou borgnes de la guerre. Le vestiaire et l’ouvroir qui fonctionnent tous les jeudis, 2, rue de Balzac, reçoivent avec reconnaissance tous les dons en nature que l’on voudra bien leur adresser. Ces dons sont reçus au siège social, 2, rue de Balzac. Ce siège social, rappelons-le, nous a été offert très aimablement par Mme Drake del Castillo. Il sert à abriter notre Association et les différentes sections qui la compose.</p>
+</div>
+<div>
+<head>L’abri du Soldat Aveugle, Siège Social : 10, rue du Commandant-Marchand, Paris.</head>
+<p>Cette Œuvre a pour but de secourir les soldats aveugles réformés, en leur faisant apprendre un métier, en les hospitalisant pendant la durée de leur rééducation, en les aidant ensuite à se procurer un emploi et en donnant un abri à ceux qui n’auraient pu retrouver ou créer leur foyer.</p>
+<p>Elle permet au soldat aveugle, non seulement de retrouver ses moyens d’action et sa valeur morale, en lui procurant un métier, mais aussi de reprendre sa place dans la société, en l’aidant à créer son foyer.</p>
+<p>« L’Abri du Soldat Aveugle » n’est pas une œuvre temporaire qui cessera d’exister lorsque la guerre sera terminée : il faut prévoir, en effet, le cas le plus intéressant, celui du blessé dont la maison n’aura pu être construite, et qui restera éloigné de tout foyer familial. À celui-là, l’Œuvre offrira un abri définitif, dans lequel, après sa rééducation, l’aveugle pourra continuer à vivre, formant avec ses camarades une sorte de petite association, apportant, une part de son gain au fonds social constitué par l’Œuvre, ayant, de ce fait, le sentiment de n’être à la charge de personne.</p>
+<p>« L’Abri du Soldat Aveugle », installé, 10, rue du Commandant-Marchand, peut recevoir quinze pensionnaires auxquels on enseigne la brosserie, la vannerie et le cannage de tout genre.</p>
+<quote>
+<p>Mon fils, c’est pour toi que j’ai donné mes yeux. Pour qu’ils ne Voient pas ce que les miens ont Vu.</p></quote>
+
+<pb n="P. 8"/>
+<p>Le Comité est composé de la façon suivante :</p>
+<p>Mmes Marthe Brandès, Présidente. — Eugène Étienne. — la Marquise de Mun. —-Henri Jumel. — Jacques Sée. — D<hi rend="sup">r</hi> Henri de Rothschild.</p>
+<p>Les pensionnaires actuels sont :</p>
+<p>Arbaizard, Louis. — Sublet, Judé. — Chéneau, Louis. — Cohen, Jacques. — Lecuyer, Clovis. — Erbetat. — Bakour, Ismaël. — Urvoy, Louis. — Mousty, Jean. — Damalaine. — Montfaucon, François. — Gambert, François.</p>
+</div>
+<div>
+<head>Prêt d’honneur aux Aveugles de la Guerre</head>
+<p>L’Office Central des Œuvres de Bienfaisance, dont les initiatives charitables ne se comptent plus, ne pouvait rester étranger aux efforts de toute nature qui viennent soulager les malheureuses victimes de la guerre Après avoir joué un rôle actif dans la répartition des fonds provenant de la Journée des Orphelins, après avoir donné son patronage et le concours de ses bureaux à l’Œuvre des Eglises dévastées des pays envahis, après avoir organisé, dès les premiers jours de mai 1915, l’Œuvre des « Prêts d’Honneur », elle a créé une section spéciale du « Prêt d’Honneur aux aveugles de la guerre » pour faciliter leur établissement et leur mise au travail.</p>
+<p>« Plaindre n’est pas consoler » a dit M. Brieux et le Comité, composé de membres du Bureau de l’Office Central et de personnalités dont les noms se retrouvent partout où il y a du bien à faire a voulu agir et agir vite. Son but est de faciliter l’établissement et la mise au travail des aveugles de la guerre, de les aider à s’établir après leur rééducation, de leur donner confiance dans la vie pour retrouver toute leur valeur sociale dans la dignité du travail et enfin pour qu’ils puissent se constituer un foyer.</p>
+<p>Pour cela, une mise de fonds est nécessaire et l’Œuvre la leur fournira en leur offrant « un prêt d’honneur » sans intérêts (de 1.500 francs maximum) qu’ils rembourseront sur le prix de leur travail. Une partie de ce prêt pourra être fournie en nature (matières premières et outils). Trois années seront accordées au soldat aveugle pour se libérer et toute demande de délai sera examinée avec la plus grande bienveillance.</p>
+<p>L’Œuvre a déjà reçu des concours importants et qui augmentent chaque jour. La Commission, dans ses dernières séances, a accordé à plusieurs aveugles plus de 7.000 francs de prêts.</p>
+<p>La Commission du Prêt d’Honneur est constituée ainsi qu’il suit :</p>
+<p>Président d’honneur :</p>
+<p>M. Léon Devin, Président du Conseil d’administration de l’Office Central des Œuvres de Bienfaisance.</p>
+<p>Bureau :</p>
+<p>Président : M. Foumier-Sarlovèze, Vice-Président de l’Office Central.</p>
+<p>Vice-Présidents :MM. le Baron des Ratours ; Valléry-Radot ; Mme Alfred Poisson, Membres du Comité de l’Office Central.</p>
+<p>Secrétaire général : M. de Goyon, Administrateur, Directeur de l’Office Central.</p>
+<p>Secrétaire-adjointe : Mlle Suzanne Poisson.</p>
+<p>Membres du Comité :</p>
+<p>MM. Paul Bourget, de l’Académie Française. — Brieux, de l’Académie Française. — le Baron Davillier, du Comité de l’Office Central. — Gaultier de Clagny. — Herriot, Sénateur. Maire de Lyon. — Pouget de Saint-André. —— Rivollet, Membre du Comité de l’Office Central. — Védic, Membre du Comité de l’Office Central.</p>
+<p>Mmes la Comtesse de Chambuse. — Achille Cochard. — Charles Desplanques. — la Comtesse d’Elva. — Gervese. — la Comtesse Charles de Leusse. — La Marquise de Montrichard. — Mlles Suzanne de Montrichard. — J.-P. Polaillon. —- Mme Ribières. — Mlle Ribières. Mmes la Princesse Soutzo. — la Princesse de la Tour d’Auvergne Lauruguais. — la Duchesse de Tréville. — Mme Vlahoutzi-Slatiniano. — Mlle Henri de Wendel.</p>
+<p>Les demandes et les dons peuvent être adressés à M. l’Administrateur-Directeur de l’Office Central des Œuvres de Bienfaisance, 175, boulevard Saint-Germain, avec la mention spéciale : Section du Prêt d’Honneur aux aveugles de la guerre.</p>
+<quote>
+<p>Ne nous dites pas que nous avons été des héros. Vous ne savez pas quand il nous a fallu le plus de courage.</p></quote>
+
+<pb n="9" xml:id="p9"/>
+</div>
+</div>
+</div>
+<div>
+<head>Les Écoles de Rééducation</head>
+<div>
+<head>École de la Rue de Reuilly</head>
+<index>
+<term type="lieu">Paris</term>
+
+<term type="contributeur">Paul Emard</term>
+
+<term type="sujet">Formations Professionnelles</term>
+
+<term type="sujet">Soins des malades et des blessés. Société d’entraide</term>
+
+<term type="sujet">Artisanat. Arts et Métiers</term>
+</index>
+<p>La Maison de Convalescence des Soldats aveugles, annexe de l’Hospice National des Quinze-Vingts, fondée sur l’initiative de M. Brisac, directeur de l’Assistance et de l’Hygiène publiques, agissant au nom de M. le Ministre de l’Intérieur, a été ouverte le 29 mars 1915, 99 bis rue de Reuilly.</p>
+<p>Sa création résultait d’une entente entre les Ministères de l’Intérieur et de la Guerre ; l’action de l’État étant en cette circonstance puissamment aidée par la collaboration d’une œuvre née de l’initiative privée, « Les Amis des Soldats Aveugles », qui tint son assemblée générale constitutive le jour même de l’ouverture de la Maison et qui choisit comme Président, M. René Vallery-Radot.</p>
+<p>Les premiers pensionnaires étaient au nombre de 40, On pensait d’abord n’avoir qu’à les distraire et les consoler. On ne tarda pas à comprendre que la meilleure distraction et la consolation la plus efficace était le travail. Avec l’appui très agissant des «  Amis des Soldats Aveugles », qui avaient mis l’apprentissage d’un métier en tête de leur programme d’action, la Maison de Convalescence devint Maison de rééducation. Les premiers efforts portèrent sur les métiers classiques : brosserie, cannage, filet, vannerie. En même temps on initiait les pensionnaires à la lecture et à l’écriture Braille.</p>
+<p>Bientôt on essaya de nouveaux métiers. Voici quels sont ceux enseignés actuellement aux 200 pensionnaires de la Maison et sur lesquels il suffira aujourd’hui de donner quelques détails.</p>
+<p><label>Ajustage mécanique</label>.— Le travail de cet atelier consiste dans l’ajustage et le finissage des pièces mécaniques livrées à l’atelier brutes de machine-outil. Les résultats obtenus dans ce métier, nouveau pour les aveugles, sont inespérés : on procède en ce moment à l’agrandissement de l’atelier devenu trop exigu. Le cours compte actuellement 12 élèves.</p>
+<p>La création et l’entretien de cet atelier, sont dus à la générosité de la Colonie Cubaine de Paris et à l’appui technique de la Maison Panhard.</p>
+<p><label>Brosserie</label>. — Le métier est trop connu pour qu’il soit nécessaire d’en parler longuement. Tous les pensionnaires qui sont rentrés dans leurs foyers après un apprentissage suffisant, gagnent très, convenablement leur vie.</p>
+<p>Le cours compte 53 élèves.</p>
+<p><label>Cannage et paillage de chaises de ville</label>. —- D’après notre expérience tout au moins, ces métiers ne semblent pas devoir procurer, à ceux qui les apprennent, un salaire correspondant aux difficultés et à la longueur de l’apprentissage.</p>
+<p>Le cours de cannage compte 21 élèves.</p>
+<p>Le cours de paillage compte 9 élèves.</p>
+<p><label>Chant d’église</label>. — Ce cours comprend deux parties : Etude du plain-chant et étude de l’harmonium. Le but poursuivi est de former des chantres qui pourront ajouter au salaire d’un métier normal les bénéfices éventuels procurés par la pratique du lutrin. Le cours d’harmonium ne vise pas à former des organistes, mais à permettre aux chantres et à eux seuls, de s’accompagner à l’orgue.</p>
+<p>Le cours compte 10 élèves.</p>
+<p><label>Cordonnerie</label>. — La cordonnerie donne des résultats excellents. La clientèle est constituée par les habitants du quartier, qui ne laissent pas l’atelier chômer. Il ne s’agit pas ici de former des cordonniers travaillant dans le neuf, mais seulement des ouvriers capables de faire des ressemelages et qui, l’expérience le prouve, gagneront convenablement leur vie.</p>
+<p>Le cours compte 12 élèves.</p>
+<p><label>Massage</label>. — L’École des Masseurs aveugles de Reuilly, est due à l’initiative de Mme Léopold Kahn. Le cours de massage proprement dit est complété par un cours d’anatomie. Des résultats pratiques ont été obtenus en assez grand nombre, notamment pendant la saison dernière à Évian et à Vichy, par cinq de nos pensionnaires.</p>
+<p>Le cours compte 32 élèves.</p>
+<p><label>Montage des roues d’aéroplane</label>. — Un essai heureux a été tenté dans cette voie. Un pensionnaire de Reuilly, ayant appris la fabrication des roues d’aéroplane, est actuellement employé à la Maison Farman, où il gagne un salaire journalier de 8 francs.</p>
+<quote>
+<p>Devant un aveugle, beaucoup de voyants sont des aveugles.</p></quote>
+
+<pb n="10" xml:id="p10"/>
+<p><label>Tonnellerie</label>. — Ce métier promet d’être un des bons métiers d’aveugles. L’apprentissage en est relativement facile pour ceux ayant déjà travaillé le bois. La fabrication des pièces de vin, des bacs à arbustes, des tonnelets à vinaigre, est également facile et rémunératrice. L’atelier a dû être récemment agrandi.</p>
+<p>Le cours compte 5 élèves.</p>
+<p><label>Vannerie</label>. — La vannerie donne depuis quelques mois surtout, des résultats très satisfaisants. Les élèves se restreignent à la fabrication de quelques modèles de vente courante. Le professeur mutilé voyant est M. Bartel, ancien élève de l’École de Fay Billot.</p>
+<p>Le cours compte 11 élèves.</p>
+<p><label>Lecture et écriture Braille</label>. — Des leçons sont données en ces deux matières, les livres étant fournis par l’imprimerie Braille, du système Ernest Vaughan, installée à Reuilly même, aux frais de l’Œuvre Les Amis des Soldats Aveugles et de la Société Philanthropique d’Impressions pour Aveugles.</p>
+<p>Deux sortes d’ouvrages sont imprimés : livres de lecture ou de distraction, livres techniques et cours complémentaires pour les différents métiers : massage, chant d’église, etc.</p>
+<p>Des leçons de dactylographie sont également données aux pensionnaires, afin de leur permettre, soit de faire plus commodément leur correspondance privée, soit d’être mieux armés dans l’avenir lorsqu’ils auront à écrire à leurs clients ou à leurs fournisseurs.</p>
+<p>Des essais sont faits en ce moment pour l’utilisation des aveugles comme téléphonistes.</p>
+<p>Des leçons de musique et d’instruments sont données. Ici il ne s’agit plus de métier mais de distraction. Les instruments appris sont : le piano, l’harmonium, le violon, la flute, la mandoline, le piston.</p>
+<p>Dans leurs heures de liberté et en dehors des apprentissages réguliers, certains pensionnaires exécutent des ouvrages de filet, de macramé et de raphia, qui ne sauraient être considérés comme des métiers permettant un salaire normal et durable.</p>
+<p>Enfin des leçons d’escrime intéressent et distraient des pensionnaires qui puisent dans cet exercice un réconfort physique et parfois moral.</p>
+<byline>Paul Emard.</byline>
+</div>
+<div>
+<head>Association Valentin Haüy, 9, Rue Duroc.</head>
+<index>
+<term type="lieu">Paris</term>
+
+<term type="lieu">Allier</term>
+
+<term type="contributeur">Mme Galeron de Calonne</term>
+
+<term type="sujet">Artisanats. Arts et Métiers</term>
+
+<term type="sujet">Soins des malades et des blessés</term>
+
+<term type="sujet">Formation Professionnelle</term>
+</index>
+<p>L’Association Valentin Haüy, fondée en 1889, fut reconnue d’utilité publique en 1891.</p>
+<p>Dès sa création, les Directeurs de l’Association s’attachaient à faire apprendre un métier aux personnes frappées de cécité à l’âge adulte. Ils organisèrent à son siège un très modeste atelier de brosserie et de chaiserie où on enseignait ces métiers à ceux qui, pour diverses raisons ne pouvaient les apprendre dans d’autres établissements.</p>
+<p>Dès les premiers mois de la guerre, on s’est occupé activement à l’Association Valentin Haüy de la rééducation des soldats aveugles.</p>
+<p>En mai 1915, un atelier fut ouvert à quelques blessés qui purent y apprendre la brosserie.</p>
+<p>Cependant de nouveaux locaux furent aménagés pour les soldats aveugles dont on confierait la rééducation à l’Association Valentin Haüy.</p>
+<p>Après une entente avec l’Association des Dames Françaises et l’autorisation des administrations compétentes, une section spéciale fut organisée à l’hôpital 252, à proximité des ateliers. Vingt apprentis militaires y sont actuellement logés et nourris.</p>
+<p>A ces vingt internes, s’ajoutent quelques demi-pensionnaires en nombre variable : soldats réformés habitant Paris et préférant vivre dans leur famille.</p>
+<p>Les professions enseignées sont : la brosserie, la chaiserie, la vannerie, l’étude du Braille, la dactylographie et le massage.</p>
+<p>Parmi les premiers apprentis figurait un soldat aveugle amputé de I’avant-bras gauche.</p>
+<p>L’Association s’occupa de trouver pour ce mutilé, un outillage spécial, lui permettant de faire seul et complètement tous les genres de balais et de brosses.</p>
+<p>L’Association eut la grande satisfaction d’arriver à un résultat tel qu’on ne peut trouver aucune différence, comme qualité et rapidité du travail, entre le travail de ces amputés et celui de leurs camarades moins éprouvés.</p>
+<p>Deux autres manchots, dont l’un du bras droit, terminent actuellement leur apprentissage à l’aide de ce même matériel.</p>
+<quote>
+<p>Il y a des voix qui pour nous sont lumineuses.</p></quote>
+
+<pb n="11" xml:id="p11"/>
+<div>
+<head>Elèves masseurs à l’Association Valentin Haüy :</head>
+<p>Boudot, Jean-Joseph, sergent au 5<hi rend="sup">e</hi> colonial, habite : 14, rue Mayet, Paris.</p>
+<p>Pagenel, Albert, brigadier au 3<hi rend="sup">e</hi> chass. à cheval, habite : 14, rue Mayet, Paris.</p>
+<p>Sausotte, Pierre, 21<hi rend="sup">e</hi> d’infant., habite : 14, rue Mayet, Paris.</p>
+<p>Dangas, André, sergent au 14<hi rend="sup">e</hi> d’infant., habite : 14, rue Mayet, Paris.</p>
+<p>Gudefin, Marcel, 145<hi rend="sup">e</hi> d’infant., habite : 7. rue de Suez, Paris.</p>
+<p>Vaxelaire, Lucien-Henri, 158<hi rend="sup">e</hi> d’infant., habite : 181, rue Béliard, Paris.</p>
+</div>
+<div>
+<head>Militaires apprenant l’accord, 13, rue Raquin, à Montluçon (Allier).</head>
+<p>Martin, Jean, 98<hi rend="sup">e</hi> d’infant., depuis février 1916.</p>
+<p>Sibiril, Pierre-Marie, caporal au 42<hi rend="sup">e</hi>d’inf. coloniale, depuis le 27 septembre 1916.</p>
+</div>
+<div>
+<head>Liste des militaires en cours d’apprentissage au 20 Octobre 1916, à l’Association Valentin Haüy :</head>
+<p>Internes logés, Hôpital annexe 512, 22, rue Masseran.</p>
+<p>Bertrand, Léon, 325<hi rend="sup">e</hi> d’infant. — Cado, Pierre-Marie, 62<hi rend="sup">e</hi> d’infant. — Caplot, Émile, 328<hi rend="sup">e</hi> d’infant. — Cheutin, Jules, 150<hi rend="sup">e</hi> d’inf. —<space rend="tab">    </space>Escudié, Antonin, sergent au 2<hi rend="sup">e</hi> génie. — Fontelay, Alcide, 4<hi rend="sup">e</hi> zouaves. — Gaudey, Henri, 174<hi rend="sup">e</hi> d’infant. — Kérangall, Vincent, 2<hi rend="sup">e</hi> d infant. — Le Borgne, Laurent, 7<hi rend="sup">e</hi> d’inf. — Ledain, Joseph-Marie, 4<hi rend="sup">e</hi> zouaves. — Morizet, Charles, 134<hi rend="sup">e</hi> d’infant. — Micaud, Achille, 50<hi rend="sup">e</hi> d’infant. — Padellec, Hipolyte, 1<hi rend="sup">er</hi> fusiliers marins. — Quéré, Yves, 71<hi rend="sup">e</hi> d’inf. — Robic, Louis, 2<hi rend="sup">e</hi> col. — Sarret, Aimé, 13<hi rend="sup">e</hi> chass. — Simon, François, 74<hi rend="sup">e</hi> d’infant. — Thierry, Pierre, 22<hi rend="sup">e</hi> d’artill. — Verdure, Eugène, 147<hi rend="sup">e</hi> d’infant. — Warin, Louis, sergent, 4<hi rend="sup">e</hi> zouaves. — Cochon, François-Augustin, 18<hi rend="sup">e</hi> chass. à pied.</p>
+<p>Demi-pensionnaires :</p>
+<p>Budufé, Simon, 417<hi rend="sup">e</hi> d’inf. — Poirier, Victor, 19<hi rend="sup">e</hi> chass. — Sailllot, Jean-Henri, sergent, 329<hi rend="sup">e</hi> d’infant.</p>
+</div>
+<div>
+<head>Société des Ateliers d’Aveugles</head>
+<p>Liste des soldats aveugles ayant passé dans nos ateliers ou y étant encore actuellement.</p>
+<p>Fillion, Ernest-Alphonse, (lieu de recrutement : Blois), entré à l’École en octobre 1915, sorti en décembre 1915. (Apprentissage : sparterie.)</p>
+<p>Alison, Elie-Eugène, (lieu de recrutement : Orléans), entré à l’École pour y apprendre la sparterie, le 10 janvier 1916, sorti en avril 1916.</p>
+<p>Papa, Marc, (Suisse, engagé volontaire dans la Légion Etrangère, puis naturalisé Français), entré à l’École pour y apprendre la sparterie, le 3 avril 1916, y est encore en qualité d’ouvrier.</p>
+<p>Guth, Désiré-Paul, (lieu de recrutement : Nancy), entré à l’École pour y apprendre la sparterie, en mai 1916 ; vient de passer ouvrier.</p>
+<p>Langel, Jean-Marie-Albert, (lieu de recrutement : Bordeaux), entré à l’École en qualité d’apprenti en sparterie, en juin 1916 ; passera sous peu ouvrier.</p>
+<p>Mme Galeron De Calonne, la poétesse sourde et aveugle a bien voulu nous autoriser à reproduire cette admirable poésie :</p>
+</div>
+<div>
+<head>Qu’importe ?</head>
+<p>Je ne te vois plus, soleil qui flamboies,</p>
+<p>Pourtant des jours gris je sens la pâleur ;</p>
+<p>J’en ai la tristesse : il me faut tes joies.</p>
+<p>Je ne te vois plus, soleil qui flamboies.</p>
+<p>Mais j’ai ta chaleur.</p>
+<p>Je ne la vois plus, la splendeur des roses.</p>
+<p>Mais le ciel a fait la part de chacun :</p>
+<p>Qu’importe l’éclat ? J’ai l’âme des choses.</p>
+<p>Je ne la vois plus, la splendeur des roses.</p>
+<p>Mais j’ai leur parfum.</p>
+<p>Je ne le vois pas, ton regard qui m’aime.</p>
+<p>Lorsque je le sens sur moi se poser.</p>
+<p>Qu’importe ? Un regret serait un blasphème</p>
+<p>Je ne le vois pas, ton regard qui m’aime,</p>
+<p>Mais j’ai ton baiser.</p>
+<p>Mes yeux sont fermés, mais qu’importe l’Ombre ?</p>
+<p>P ai trop de rayons et j’ai trop de jour</p>
+<p>Pour qu’il puisse faire en moi jamais sombre.</p>
+<p>Mes yeux sont fermés, mais qu’importe l’Ombre,</p>
+<p>Puisque j’ai l’amour ?</p>
+<byline>Mme Galeron De Calonne</byline>
+<quote>
+<p>Nous avons horreur de votre pitié. La pitié humilie.</p></quote>
+
+<pb n="12" xml:id="p12"/>
+</div>
+</div>
+<div>
+<head>Le Phare de France, 14, rue Daru, Paris.</head>
+<index>
+<term type="lieu">Paris</term>
+
+<term type="contributeur">J. de Villedon</term>
+
+<term type="sujet">Aide sociale et publique</term>
+
+<term type="sujet">Éducation Professionnelle</term>
+</index>
+<p>Fondé en 1915, par le Comité Franco-Américain, pour les Aveugles de la Guerre. Il est installé actuellement dans un ancien hôtel, avec un beau jardin. On peut y loger 45 hommes.</p>
+<p>Son but, comme celui de toutes les œuvres similaires, est de mettre les aveugles en état de s’occuper utilement et de gagner leur vie, non seulement par des métiers manuels, mais le plus possible par des occupations intellectuelles. Les pensionnaires du Phare de France apprennent d’abord à lire et à écrire le Braille ; certains apprennent la machine à écrire et la sténodactylographie. Ils arrivent à une grande habileté dans l’usage de la machine à écrire. Ils complètent souvent ces connaissances par celle d’une langue vivante. De nombreux professeurs sont à leur disposition pour leur enseigner la langue de leur choix.</p>
+<p>Des métiers manuels artistiques leur sont enseignés, modelage et poteries décorées, confection de tapis de haute laine, bordure pour tapisseries anciennes, tissage d’étoffes riches, etc. Quelques-uns apprennent à confectionner, à l’aide de machines à tricoter, des chandails, ceintures et à faire des filets. Enfin, comme ailleurs, le massage est enseigné.</p>
+<p>Dans l’intervalle de ces travaux, les hommes peuvent fréquenter une salle de gymnastique. Plusieurs fois par semaine, un bon professeur d’escrime est à leur disposition. L’éducation physique est dirigée soigneusement par un bon professeur suédois. Tous apprennent le patinage à roulettes ; après ces exercices violents ils peuvent passer dans une salle de douches.</p>
+<p>Il y a une imprimerie avec une presse électrique, où l’on fait actuellement imprimer un petit journal mensuel en Braille, et où l’on va imprimer des livres en Braille.</p>
+<p>Les pensionnaires jouissent d’une salle de musique où leur sont donnés des concerts et d’autres soirées artistiques ; et s’ils le désirent, ils peuvent recevoir des leçons de chant ou de musique instrumentale.</p>
+<p>Enfin, le Phare de France, ne demande pas mieux que de suppléer la rééducation de chaque pensionnaire, de n’importe quelle façon, qui puisse lui donner le plus d’indépendance possible.</p>
+<p>Naturellement, les pensionnaires jouissent de tous les jeux qu’on trouve dans tous les établissements semblables ; cartes, échecs, jeux de dames, dominos, etc., etc.</p>
+<byline>J. de Villedon. Directrice.</byline>
+<div>
+<head>Liste des Blessés hospitalisés pour leur Rééducation, 14, Rue Daru, Paris</head>
+<p>Balester. Jean-Baptiste, 1<hi rend="sup">er</hi> rég. Étranger. — Brassac, Henri, sous-lieutenant, 42<hi rend="sup">e</hi> d’inf. coloniale. — Bourguignon, Octave, aspirant, 61<hi rend="sup">e</hi> d’artill. à pied. — Bocquet, Maurice, brigadier, 1<hi rend="sup">er</hi> rég. d’artill. lourde. — Boue, Marcel, caporal, 51<hi rend="sup">e</hi> chass. alpins. — Cacheux, Paul, 22<hi rend="sup">e</hi> section C. O. A. — Conan, Albert, maréchal des logis, 155<hi rend="sup">e</hi> d’artill. lourde. — Charriaut, Emmanuel, 174<hi rend="sup">e</hi> d’infant. — Couesnon, René, 150<hi rend="sup">e</hi> d’infant. — Dupin, Edouard, sous-lieutenant, 128<hi rend="sup">e</hi> d’infant — Drion, Georges, 85<hi rend="sup">e</hi> d’infant. — Emo, Émile, 72<hi rend="sup">e</hi> d’infant. — Fessart, Gilbert, 72<hi rend="sup">e</hi> d’infant. — Fonchy, Martial, caporal, 71<hi rend="sup">e</hi> d’infant. — François, Maurice, 18<hi rend="sup">e</hi> chass. à pied. — Fabre, Joseph-Pierre, 44<hi rend="sup">e</hi> colonial. — Groussier Jacques, sergent, 282<hi rend="sup">e</hi> d’infant. mitrailleuse. — Gautier, René, sergent, 1<hi rend="sup">er</hi> gat. chass. à pied. — Gousse, François, 103<hi rend="sup">e</hi> d’infant. —- Guillam, Edmond, aspirant, 118<hi rend="sup">e</hi> d’infant. — Lagarde, Osmin, adjudant, 126<hi rend="sup">e</hi> d’infant. -— Laffargue, Aristide, lieutenant, 31<hi rend="sup">e</hi> colonial. — Marchand, Florentin, adjudant, 265<hi rend="sup">e</hi> d’infant. — Parnadaud, Jules, caporal-fourrier, 65<hi rend="sup">e</hi> d’infant. — Pletinckx, Robert, 1<hi rend="sup">er</hi> Etranger. — Pellerin, Henri, caporal-fourrier, 87<hi rend="sup">e</hi> d’inf. — Poli, Pierre, caporal, 155<hi rend="sup">e</hi> d’infant. — Radou, Georges, caporal, 10<hi rend="sup">e</hi> génie. — Rouquette, Pierre, caporal, 122<hi rend="sup">e</hi> d’infant. — Robert, Maurice, sous-lieutenant, 23<hi rend="sup">e</hi> bat. chass. à pied. — Sire, Jules, capitaine, 37<hi rend="sup">e</hi> d’infant. —<space rend="tab">    </space>Sklarg, Kalman, 1<hi rend="sup">er</hi> rég. Étranger. — Sallerin, Paul, commandant, 126<hi rend="sup">e</hi> d’infant. — Sabiani, Yavier, sous-lieutenant, 155<hi rend="sup">e</hi> d’infant. — Stohr, Victor, sergent, 40<hi rend="sup">e</hi> d’infant. — Tihon, Pierre, caporal, 94<hi rend="sup">e</hi> d’infant. — Viguier, Paul, sergent, 143<hi rend="sup">e</hi> d’infant. — Lansquenet, Émile, sergent-major, 95<hi rend="sup">e</hi> d’infant.</p>
+<p>Tout soldat blessé aux yeux qui en fera la demande recevra gratuitement la brochure de M. Brieux. « Lettres aux Soldats blessés aux yeux », imprimée en noir ou en Braille.</p>
+<quote>
+<p>Les Voix geignardes nous font grincer les dents.</p></quote>
+
+<pb n="P. 13"/>
+</div>
+</div>
+<div>
+<head>École de Chartres</head>
+<index>
+<term type="lieu">Chartres</term>
+
+<term type="contributeur">D<hi rend="sup">r</hi> Cosse</term>
+
+<term type="sujet">Aide sociale et publique</term>
+
+<term type="sujet">Soin des malades et des blessés</term>
+
+<term type="sujet">Travail Social</term>
+
+<term type="sujet">Education Professionnelle</term>
+</index>
+<p>C’est avec un véritable sentiment de fierté que nous revendiquons l’honneur d’avoir fait connaître à M. Brieux, au Centre Ophtalmologique de Chartres, les premiers aveugles. Lorsqu’il créait en juillet 1915, le premier atelier, nous étions loin de soupçonner l’ampleur que prendrait un jour cette importante et méthodique organisation de la rééducation professionnelle des aveugles de la guerre, que notre pays possède actuellement.</p>
+<p>L’École de Chartres a été organisée dans les locaux occupés par l’Hôpital n°47, où fonctionne le Centre Régional Ophtalmologique. Elle a reçu ses premiers élèves en juillet. Elle est dirigée par un Comité de cinq membres, présidé par M. Brieux et a pour Directeur M. Lesage, professeur honoraire de Lycée.</p>
+<p>La gestion et l’entretien de l’École, relèvent l’Hôpital n°47, qui fournit aux élèves les soins médicaux, la nourriture, l’entretien, le chauffage, le personnel infirmier, etc... Nos élèves sont considérés par l’hôpital comme des hospitalisés ordinaires, se divisant en deux catégories : les aveugles non encore réformés, qui sont hospitalités dans les mêmes conditions que tous les autres malades de l’hôpital, pour le compte du Service de Santé et les aveugles réformés, qui sont hospitalisés à titre de remboursement du prix de journée, par l’Administration de l’École.</p>
+<p>Ainsi, le Comité Directeur se trouve débarrassé de tous les soucis de la question matérielle et n’a à envisager que le côté technique de sa tâche : la rééducation professionnelle de ses élèves. Le Comité, son Président et le Directeur de l’École entretiennent les meilleures relations avec le médecin-chef, les médecins et l’officier gestionnaire de l’hôpital et ce système fonctionne à la grande satisfaction de tous, y compris les élèves.</p>
+<p>L'enseignement donné à l’École comprend, outre le Braille, la brosserie : chiendent, coco, soie, etc. ; la chaiserie : rempaillage, cannage et rotinage ; la cordonnerie.</p>
+<p>Le contremaître brossier est un aveugle antérieur à la guerre, le contremaître chaisier est un aveugle de guerre, le contremaître cordonnier est un soldat auxiliaire du 26<hi rend="sup">e</hi> d’artillerie, mis à la disposition de l’École par M. le Général Faurie, commandant en chef de la 4<hi rend="sup">e</hi> Région. Nos trois professeurs apportent le plus grand dévouement à leur tâche et sont aimés de leurs Élèves.</p>
+<p>Deux jeunes filles de Chartres sont chargées de l’enseignement du Braille, que tous nos élèves apprennent indistinctement. Nous avons facilement vaincu la résistance de certains d’entre eux à apprendre la lecture et l’écriture en points et nous espérons qu’il continuera à en être ainsi dans la suite.</p>
+<p>La brosserie produite à l’École est entièrement achetée par le Service de Santé de la 4<hi rend="sup">e</hi> Région à un prix calculé de telle sorte qu’il représente le prix des matières premières employées, le salaire des élèves et les déchets d’apprentissage.</p>
+<p>La chaiserie et la cordonnerie sont exécutées sur commandes provenant des grandes administrations civiles ou militaires de Chartres.</p>
+<p>Les élèves reçoivent un salaire qui représente à peu près la différence entre le prix de vente et le prix des matières premières. Chaque semaine, leurs travaux sont reçus par les contremaîtres qui écartent les productions défectueuses; l’estampille de l’École est apposée sur les produits acceptés et les élèves reçoivent une somme représentant la moitié du produit de leur salaire de la semaine, l’autre moitié leur est envoyée dès leur arrivée dans leur famille.</p>
+<p>Nous donnons à nos élèves les plus grandes facilités pour recevoir leurs parents ou aller chez eux en permission, dans les limites ou ces visites et déplacements ne gênent pas leur apprentissage.</p>
+<p>Nous facilitons les mariages projetés par nos élèves et l’installation à Chartres de leur ménage. Leurs femmes sont placées dans les hôpitaux de Chartres, comme femmes de ménage. Ils sont logés dans une propriété mise gratuitement à leur disposition, par l’un de nous. Ils vivent ainsi en élèves externes, venant le matin et repartant après la soupe du soir. Déjà un ménage est dans ces conditions et dans quelques jours, nous en aurons un second.</p>
+<p>La discipline de l’École est aussi paternelle que possible. Elle relève du médecin-chef de l’Hôpital n°47, qui s’efforce de la rendre telle que les élèves ne se sentent pas dans un hôpital militaire, mais au contraire, qu’ils aient l’impression d’un milieu familial où chefs, maîtres et élèves sont entre eux en toute confiance et vivent en bonne camaraderie.</p>
+<p>Nous tenons à affirmer que cette méthode nous a donné les meilleurs résultats, car à Chartres, malgré le nombre déjà important des élèves, jamais l’un d’eux n’a donné lieu à la moindre plainte et n’a été l’objet du moindre reproche.</p>
+<byline>Dr Cosse.</byline>
+<quote>
+<p>N’ayez donc pas peur de nous parler de la lumière !</p></quote>
+
+<pb n="14" xml:id="p14"/>
+</div>
+<div>
+<head>École Nationale d’Osiériculture et de Vannerie de Fayl-Billot</head>
+<index>
+<term type="lieu">Fayl-Billot</term>
+
+<term type="sujet">Aide sociale et publique</term>
+
+<term type="sujet">Soins des malades et des blessés. Sociétés d’entraide</term>
+
+<term type="sujet">Éducation professionnelle</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+</index>
+<p>Sections des Mutilés de Guerre.</p>
+<p>L’École Nationale d’Osiériculture et de Vannerie fut créée à Fayl-Billot en 1905. Elle a pour but de former des jeunes gens connaissant la culture de l’osier et l’industrie de la vannerie.</p>
+<p>Depuis la guerre, en dehors de la Section des élèves réguliers, deux sections ont été organisées à cette École pour apprendre à nos braves mutilés de guerre la fabrication de Ia vannerie.</p>
+<list type="ol" rend="1">
+<item>Section des Mutilés voyants, créée en septembre 1915 ;</item>
+<item>Section des Mutilés aveugles, créée en mars 1916.</item></list>
+<p>L’École admet des Mutilés des diverses régions. Ceux dont la pension est liquidée sont instruits, couchés et nourris gratuitement à l’École. Une retenue journalière de 1 fr. 20 est faite à ceux qui touchent l’indemnité de vivres de 1 fr. 70 en attendant la liquidation de leur pension de retraite. Tous les produits fabriqués par les mutilés leur appartiennent; ils sont vendus par l’École à leur profit. La petite somme représentant leur gain pendant l’apprentissage, leur est versée au moment de leur sortie de l’École.</p>
+<p>La durée de l’apprentissage est de 3 mois pour les Mutilés voyants et de 6 mois au moins, pour les Mutilés aveugles. Il est accordé des prolongations d’apprentissage à ceux qui en manifestent le désir, chaque fois que cela est possible.</p>
+<p>On peut apprendre à l’École tous les genres de vannerie : grosse vannerie, vannerie fine, vannerie de luxe. L’homme, à son entrée à l’École, choisit le genre de vannerie qui lui convient. Au moment de sa sortie, deux cas se présentent :</p>
+<list type="ol" rend="1">
+<item>L’homme rentrera chez lui pour y vivre au sein de sa famille, il fabriquera alors de la vannerie pour une maison qui lui aura été indiquée par l’École. Celle-ci intervient même souvent pour fixer les prix de cette vannerie qui sera fabriquée à domicile ;</item>
+<item>L’homme, sur les indications de l’École, se rendra chez un fabricant de vannerie et y fera un ou deux objets qu’il a appris à confectionner. Là encore, l’École intervient au point de vue du salaire. Dans ce dernier cas on dirige autant que possible les hommes vers les régions où ils sont nés.</item></list>
+<p>L’École de Fayl-Billot prépare en outre des contremaîtres de vannerie, qu’elle choisit parmi les élèves mutilés. C’est ainsi, jusqu’alors elle a fourni des contremaîtres de vannerie aux Sections suivantes de Mutilés de guerre :</p>
+<p>Hospice National des Quinze-Vingts ;</p>
+<p>École des Blessés de guerre de Clermont-Ferrand ;</p>
+<p>École des Blessés de guerre de Limoges ;</p>
+<p>École des Blessés de guerre de Rodez ;</p>
+<p>École des Blessés de guerre de Nevers ;</p>
+<p>École des Blessés de guerre de Nice ;</p>
+<p>École des Blessés de guerre du Havre.</p>
+<p>À ces futurs contremaîtres, il est donné, en plus de l’enseignement pratique de la vannerie, des leçons spéciales sur l’osiériculture, la technologie vannière, la conduite d’un atelier.</p>
+<p>Les buts de l’École sont les suivants :</p>
+<list type="ol" rend="1">
+<item>Assurer une situation à tout mutilé rééduqué ;</item>
+<item>Le suivre après sa sortie de l’École pour le conseiller si possible, le guider, lui venir en aide si besoin est. De là les rapports constants qui doivent s’établir entre l’École et le Mutilé, rapports qui ont les plus grands avantages.</item></list>
+<p>En province, d’autres écoles encore sont ouvertes dans les villes suivantes :</p>
+<p>Amiens ; Bayonne ; Bordeaux ; Caen ; Clermont-Ferrand ; Dijon ; Lyon ; Marseille ; Montpellier ; Nantes ; Saint-Brieuc ; Toulouse ; Tours.</p>
+<p>Nous en parlerons dans nos prochains numéros.</p>
+<quote>
+<p>Ne nous parlez pas de résignation : nous ne sommes pas des vaincus</p></quote>
+
+<pb n="15" xml:id="p15"/>
+</div>
+</div>
+<div>
+<head>Ceux qui sont rentrés chez eux</head>
+<div>
+<head>Les cultivateurs</head>
+<index>
+<term type="date">1916-06-05</term>
+
+<term type="date">1916-07-01</term>
+
+<term type="lieu">Mercurol</term>
+
+<term type="lieu">Cussac</term>
+
+<term type="lieu">Salagnon</term>
+
+<term type="contributeur">Auguste Descormes</term>
+
+<term type="contributeur">Ernest Tiffereau</term>
+
+<term type="contributeur">Coupe</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+
+<term type="sujet">Agriculture</term>
+
+<term type="sujet">Soin des malades et des blessés. Sociétés d’entraide</term>
+</index>
+<div>
+<head>Copie de la lettre de Descormes Auguste.</head>
+<dateline>Mercurol, le 5 Juin 1916.</dateline>
+<salute>Monsieur,</salute>
+<p>Je suis vraiment touché de l’intérêt que me porte l’Association Valentin Haüy et je vais essayer de vous donner quelques détails sur mes occupations.</p>
+<p>Il faut d’abord que je vous dise que je n’ai qu’une toute petite propriété, et que si j’ai voulu essayer de la cultiver encore, plutôt que d’apprendre un métier, c’est que, à la campagne, l’aveugle jouit d’une plus grande indépendance qu’à l’a ville. Je peux vaquer à mes petits travaux, aller et venir, sortir seul, sans avoir besoin de guide, et, ce qui est plus important encore, c’est que la vie y est moins chère. Je ne vous cacherai pas cependant qu’au commencement, j’ai éprouvé de grandes déceptions. Par la pensée, je voyais tout mon travail, mais pour l’exécuter c’était autre chose. Mes doigts n’avaient pas encore la sensibilité et l’adresse qu’ils ont aujourd’hui. L’arrachage des betteraves a été mon premier travail. J’ai fait ensuite des fossés le long des rangées de vignes, pour enfouir du fumier. J’ai fait des trous pour remplacer des arbres et des pieds de vigne. Je peux bêcher, c’est moi-même qui ai fait ma pépinière de plants de vigne peur l’année prochaine. J’ai taillé une partie de mes arbres, pêchers et abricotiers. Je me rends parfaitement compte des branches que j’ai à couper ou à laisser et de la forme que je donne à l’autre. Tous les jours je fauche un peu de fourrage pour mes lapins, car j’en ai fait un peu l’élevage. En ce moment, je suis occupé à attacher la vigne. C’est un travail que je fais très bien. Dans une vingtaine de jours on coupera les blés et je crois que je pourrai faire les gerbes et les lier.</p>
+<p>Dans l’intérieur d’une grande ferme, un aveugle peut se rendre très utile en soignant les animaux; il peut très bien leur distribuer la nourriture. C’est moi qui soigne mon cheval, et bien qu’il soit jeune et un peu fougueux, je ne le crains pas.</p>
+<p>Je m’occupe de la cave, je soutire mon vin et le mets en bouteille ; je coupe du bois et je peux faire une foule de petits travaux qui, dans leur ensemble, sont très utiles.</p>
+<p>Aussi, à tous mes camarades cultivateurs qui sont atteints de cécité comme moi, je conseille de retourner aux champs ; ils retrouveront encore beaucoup d’occupations sans trop changer leur vie.</p>
+<p>Je me propose, pour cet hiver, quand il fera mauvais temps et que je ne pourrai sortir, d’apprendre le Braille ; mais pour le moment il fait trop beau pour rester dedans.</p>
+<salute>Agréez, Monsieur, mes salutations empressées.</salute>
+<byline>Signé : Descormes Auguste à Mercurol par Tain (Drôme) Ancien soldat au 75e d’infant. 5e Comp.</byline>
+</div>
+<div>
+<head>Lettre adressée à M. l’Abbé Moureau de Bordeaux.</head>
+<salute>Monsieur le Directeur,</salute>
+<p>Je m’empresse de vous écrire cette lettre que vous m’avez demandée, puisse ce modeste écrit être utile à ceux qui ont glorieusement perdu la vue en défendant la patrie.</p>
+<p>1895. — Je rentrais à l’Institution des jeunes aveugles de Bordeaux en janvier 1896, où je restais dix-huit mois, durant lesquels j’appris à lire et à écrire en Braille, puis le cannage et rempaillage des sièges. En 1899 j’allais voir, vous me parliez alors d’un aveugle auquel vous aviez fait apprendre la brosserie. Nous allions le voir et il fut convenu que je viendrais apprendre ce métier.</p>
+<p>Durant dix-huit mois je restais à l’atelier que vous aviez fondé à Montferrand puis à Bordeaux, puis assurant de mon mieux les fonctions de chef d’atelier.</p>
+<p>Durant ce temps, chaque année, je prenais des vacances ; d’abord en juin pour rentrer les foins, je m’occupais à faner, à charger les charrettes.</p>
+<p>J’en prenais d’autres pour les vendanges, je m’occupais soit à dégrapper ou à porter la vendange, c’est après avoir bien réfléchi, mais aussi le cœur bien gros, que je quittais l’atelier en 1909.</p>
+<p>Deux raisons m’obligeaient à partir : d’abord il fallait donner à la propriété qui souffrait de la mévente des vins un nouveau rendement et pour cela il fallait que je fusse chez moi. Mon</p>
+<quote>
+<p>Sous certaines paroles de pitié, nous devinons l’orgueil du Voyant.</p></quote>
+
+<pb n="16" xml:id="p16"/>
+<p>premier soin fut d’acheter quatre vaches et actuellement mon petit troupeau se compose de onze têtes, tant génisses que vaches laitières.</p>
+<p>C’est moi qui, matin et soir, m’occupe de les traire ; de faire le pansage et de leur donner à manger.</p>
+<p>Pendant la journée, je fais de la brosserie ou bien je vais travailler aux vignes, car, sauf la taille, le sulfatage et le soufrage, on peut tout faire.</p>
+<p>On peut aussi trouver un assez bon rendement dans la basse-cour, avec l’élevage des canards et des poules.</p>
+<p>Je pensais aussi à me faire une famille, et depuis longtemps déjà, je pensais à celle que je désirerais pour compagne de ma vie.</p>
+<p>C’est grâce à vous. Monsieur le Directeur, à qui je dois tout ce que je suis, que j’ai pu réaliser mes projets.</p>
+<p>Je souhaite à tous ceux qui ont perdu la vue pendant cette terrible guerre, une compagne aussi aimable, aussi douce et aussi dévouée que ma chère Marguerite.</p>
+<salute>Recevez, monsieur le Directeur, l’expression de mes sentiments respectueux et reconnaissants.</salute>
+<byline>Votre tout dévoué. Ernest Tiffereau à Cussac</byline>
+</div>
+<div>
+<head>Lettre adressée à Mme Ollier-Chatin de Lyon-Caluire.</head>
+<dateline>Salagnon, par Morestel (Isère). Le 1er Juillet 1916.</dateline>
+<salute>Madame,</salute>
+<p>Ainsi que je vous l’avais promis, je viens vous donner de mes nouvelles et vous dire que je suis bien content d’être venu m’installer à la campagne. Pour 100 francs par an, nous avons loué une petite maison et 4.000 mètres de terrain, plus qu’il ne m’en faut !... Je travaille, je vends assez bien mes brosses, et surtout je m’occupe beaucoup de mon jardin, ce qui m’est une grande distraction. Pour le cultiver, voici comment j’ai procédé. Je l’ai divisé en deux parties égales par un chemin au milieu. Pour le tracer, j’ai pris un cordeau de toute sa longueur, je l’ai divisé en faisant un nœud à chaque mètre. Je laisse ce cordeau toujours tendu dans mon allée centrale, il me sert de guide. Tous les cinq nœuds, j’ai tendu d’autres cordeaux, pour tracer mes allées transversales de 10 m. de long sur 4 m. de large, ce qui me fait des platebandes très régulières où j’ai planté des pois, des haricots, des carottes, des choux, des salades, des ails. J’en ai vingt. Pour les pommes de terre, ayant toujours mon cordeau devant moi, je bêche à mesure et plante mes pommes de terre à une distance égale marquée par un bâton qui me sert de mesure et en suivant le cordeau jusqu’au bout.</p>
+<p>Pour arroser, je me guide par des piquets placés en tête de chaque carré et portant une étiquette en Braille, sur une petite plaque de zinc et en suivant l’indispensable cordeau.</p>
+<p>Pour ensemencer, lorsque ce sont de petites graines, des carottes par exemple, je mêle à chaque poignée de graines, dix poignées de sable ou de cendre, je les secoue fortement dans une caissette ou boîte en fer-blanc, afin de les bien mélanger, puis je les dépose, par pincée, dans des raies creusées à l’avance avec un bâton, au lieu de les jeter comme on le fait habituellement et ces raies me permettent ensuite de contrôler très facilement la présence des mauvaises herbes qui, naturellement se trouvent en dehors de mes raies.</p>
+<p>Je fais moi-même la récolte de mes pommes de terre et de tous mes légumes. Je soigne tout seul ma vigne, je l’ai taillée et sans me flatter elle est très belle. Je la travaille en barrière. Pour tout ce travail de jardinage, j’éprouve une bien plus grande facilité de le faire à genoux. Grâce à mes étiquettes placées en tête de chaque carré, je sais toujours où je me trouve, au point où je m’arrête dans ma petite promenade. Il est bien petit mon jardin, mais je vous assure que j’y ai passé bien des heures et que le temps ne m’y dure jamais.</p>
+<p>J’allais oublier de vous dire que nous avons, depuis que je vous ai vue, acheté d’eux lapins et une jolie chèvre qui nous suit comme un chien, même dans nos tournées de vente, lorsque nous n’allons pas trop loin. Elle nous donne trois litres de lait, ma femme fait des fromages et nous serions très tranquilles, si nous n’avions parfois la malencontreuse visite des poules du voisin, ce voisinage est terrible, ces malfaisantes bêtes me donnent le cauchemar. Pendant le dernier voyage que nous avons fait à Lyon, elles m’ont dévoré en 48 heures, une superbe plate-bande de haricots, prêts à donner leurs fleurs et quand je suis rentré, il ne restait plus que les queues de mes haricots. Ah ! les vilaines bêtes que j’aurais du plaisir à leur tordre le cou !</p>
+<byline>Signé : Coupe (Filetier, Chansonnier Vannier). Élève de l’Association Valentin Haüy de l’école de Lyon.</byline>
+<quote>
+<p>On ferme tes yeux pour mieux Voir en soi-même.</p></quote>
+
+<pb n="17" xml:id="p17"/>
+</div>
+</div>
+<div>
+<head>École d’Agriculture</head>
+<index>
+<term type="date">1916-10-16</term>
+
+<term type="date">1916-08-31</term>
+
+<term type="date">1916-10-09</term>
+
+<term type="date">1916-08-07</term>
+
+<term type="lieu">Sept-Fons</term>
+
+<term type="lieu">Carpentras</term>
+
+<term type="lieu">Fiers de l’Orne</term>
+
+<term type="lieu">Bayonne</term>
+
+<term type="lieu">Bruge</term>
+
+<term type="contributeur">Bobb, Léon</term>
+
+<term type="contributeur">Jacques Bouillon</term>
+
+<term type="contributeur">Paul Veyrier</term>
+
+<term type="contributeur">Jean-Marie Fourcade</term>
+
+<term type="contributeur">Fernand Gouny</term>
+
+<term type="sujet">Soin des malades et des blessés. Société d’entraide</term>
+
+<term type="sujet">Education professionnelle</term>
+
+<term type="sujet">Agriculture</term>
+</index>
+<dateline>Sept-Fons, le 16 Octobre 1916. </dateline>
+<salute>Monsieur Brieux,</salute>
+<p>Mon Supérieur, Dom Chautard, m’avise des difficultés que vous éprouvez à nous recruter des aveugles de guerre pour la rééducation agricole, parce qu’ils ne peuvent nous être envoyés avant leur réforme, et que, aussitôt, réformés, ils ne songent qu’à retourner dans leur famille. Cette difficulté vient de ce que notre établissement, présentant comme objectif une rééducation nouvelle, paraît nécessiter les formalités de mutation d’hôpital, chose très difficile en effet. Mais je considère cette difficulté sans objet, la rééducation que nous entreprenons n’exigeant nullement un stage prolongé ici ; quinze jours au maximum suffisent, ainsi que l’ont démontré plusieurs expériences ; par suite, je pense qu’il serait aisé de nous envoyer à titre de permission ou mieux de convalescence ; pour dix ou quinze jours, les aveugles non encore réformés et désireux de faire leur rééducation agricole. Celle-ci est d’un effet moral si précieux, qu’elle mérite excellemment le concours de toutes les bonnes volontés et elle est, en même temps, d’une telle facilité pour le sujet, que nul ne devrait hésiter à en faire l’essai. Quoi de plus simple, en effet, que notre Œuvre ? Embellir la vie de l’aveugle en le rendant aux champs, qu’il a toujours aimés, voilà notre but ; lui fournir l’occasion d’exercer son métier dans les dépendances de la ferme au jardin, aux champs, voilà nos moyens ; ajoutez à cela l’appoint indispensable des encouragements qui leur sont prodigués ici, surtout par le clairvoyant qui nous guide et qui a merveilleusement profité des leçons de M. Radouan, et vous aurez une idée exacte de notre Œuvre. Il ne s’agit donc pas, vous le voyez, d’apprendre un nouveau métier à l’aveugle ; nous ne cherchons qu’à réveiller en lui le goût de sa profession ; une fois amorcé, nous le laissons évoluer à l’aise, applaudissant à son initiative, et cette méthode le fait avancer bien plus rapidement qu’une théorie savante nais imposée. Vous connaissez le résultat qu’obtient M. Bouillon, dont vous avez lu la lettre ; M. Vielhomme pourra vous fournir des renseignements analogues concernant Joseph Petit, à qui j’eus, de plus, le bonheur d’enseigner le Braille en six leçons d’une heure environ, il acquit assez pour continuer seul désormais.</p>
+<p>J’espère que cet exposé succinct fera s’évanouir la difficulté dont je parlais plus haut, et que, suivant en cela les inspirations de votre cœur généreux, vous ajouterez encore à vos bienfaits pour les aveugles en nous en envoyant quelques-uns.</p>
+<salute>Je vous présente l’hommage de mon profond respect et de ma religieuse reconnaissance.</salute>
+<byline>Signé : Bobb, Léon, aveugle de guerre, en religion fm Thomas, ancien soldat-brancardier au 9e Zouaves, 5e Compagnie.</byline>
+<dateline>Le 31 Août 1916. </dateline>
+<salute>Monsieur Brieux,</salute>
+<p>Je vais quitter Sept-Fons et vous rends compte de mon séjour.</p>
+<p>Un aveugle qui travaille la terre, cela me semblait un non-sens, il y a encore trois semaines. J’étais alors, ainsi que ma mère, sceptique sur ce point. Et cependant mon séjour à Sept-Fons, m’a prouvé que je me trompais.</p>
+<p>Je serai à mon retour, sur une propriété d’environ 50 hectares, toute en herbe, où l’on pratique surtout l’élevage. Mais j’aurai aussi un jardin potager. Je vous dirai donc en quelques mots, ce que j’ai pu faire à l’étable, à la porcherie, au poulailler en plus du jardin.</p>
+<p>À l’étable, j’ai fait plus que je ne faisais auparavant. J’ai appris à tirer les vaches. J’ai réappris à les soigner ainsi que les porcs, à leur donner nourriture et boisson, à renouveler leur litière.</p>
+<p>Pour le poulailler, j’ai commencé par le nettoyer à fond. Ce nettoyage consistait à démonter le perchoir, à gratter le parquet de ciment, à balayer, à charger le fumier sur une brouette et à conduire cette brouette. Ensuite j’ai fait la préparation et la distribution de la pâtée, puis la récolte des œufs. J’ai aussi nettoyé avec une houe une cour envahie par les mauvaises herbes.</p>
+<p>Dans le jardin, j’ai réappris d’abord à bêcher. On couche une planche sur le terrain à travailler et on enfonce la bêche en tenant le dos de l’outil contre la planche. Une fois la passe finie, on recule la planche de 15 ou 20 centimètres, et ainsi de suite. Seulement il faut « regarder » souvent avec la main si la terre est émiettée et si le fossé reste ouvert. Après avoir travaillé le terrain, j’ai repiqué des poireaux que j’avais préalablement préparés. Le long d’un cordeau ou d’une tringle j’ai pratiqué un petit sillon. C’est dans ce sillon et avec une fiche, que j’ai planté à intervalles réguliers mes poireaux. Arrivé au bout de la ligne, je</p>
+<quote>
+<p>Si je suis le plus frappé, j’ai le droit d’être le plus fier.</p></quote>
+
+<pb n="18" xml:id="p18"/>
+<p>recule mon cordeau ou ma tringle de 30 centimètres et je recommence. Pour les choux, la salade, etc., la méthode est la même ; la cueillette des haricots à rames ou en plate-bandes est facile. De même la récolte de la salade et des autres légumes.</p>
+<p>Je suis satisfait de mon séjour à Sept-Fons, persuadé que ce que j’ai obtenu, d’autres peuvent l’obtenir également ici, grâce aux encouragements que l’on y rencontre. Ce dernier facteur est très important pour la réussite de l’essai proposé. Il ne s’agit pas en effet, d’apprendre un nouveau métier, mais d’être convaincu qu’on peut exercer son ancienne profession agricole à l’aide de moyens spéciaux adaptés à son nouvel état. C’est cette conviction et ces moyens que j’ai trouvés ici et qui m’ont grandement réconforté.</p>
+<p>C’est précisément ce qui manque à l’entourage que nous avons ordinairement. Les clairvoyants eux aussi, auraient grand besoin de rééducation. Ils vous plaignent, vous serrent les mains, pleurent... « Pauvre ami... Qu’est-ce que vous pouvez faire ?... » Pour eux, nous sommes bons à écorcher des refrains populaires ou des chansons patriotiques avec un petit chien et une clarinette, sur les grands squares où sur les ponts. Pauvres gens... Ils ne nous connaissent pas. Chacun a sa manière d’y voir. Et s’ils étaient charitables, ils chercheraient à nous persuader qu’entre eux et nous il n’y a pas de différence.</p>
+<p>Ces clairvoyants rééduqués, je les ai trouvés à Sept-Fons, aussi j’en pars plein de confiance dans l’avenir.</p>
+<salute>Agréer, monsieur Brieux, mes respectueux hommages.</salute>
+<byline>Signé : Jacques Bouillon, 1er Génie, réformé, Adresse : 66, Rue de la Boule à Fiers de l’Orne (Eure)</byline>
+<p>Fragment d’une lettre de M. Paul Veyrier, demeurant à Carpentras, « Aux Capucins » (Vaucluse), du 3<hi rend="sup">e</hi> zouaves.</p>
+<p>« Je m’occupe un peu des gros travaux de la campagne, chose que je n’aurai jamais cru pouvoir faire ; j’ai suivi vos bons conseils, et je suis parvenu à faire des petites choses qu’il m’est un peu difficile, mais je réussis tout de même. Je vous remercie beaucoup de tout cela. »</p>
+<dateline>Bayonne, le 9 Octobre 1916. </dateline>
+<salute>Monsieur Brieux,</salute>
+<p>Lorsque j’étais encore dans les hôpitaux et qu’on venait me parler d’un travail possible sans la vue, je ne voulais rien entendre. Je croyais la vie sans but. Il est vrai qu’à cette époque « j’avais la conviction de retrouver la vue, et jusqu’à mon arrivée à Bayonne je n’ai rien voulu faire.</p>
+<p>C’est seulement ici en me rendant compte de ce que faisaient mes camarades, en les voyant gais et courageux, que je me suis remis à espérer. Les personnes qui m’entouraient me conseillaient et me montraient à faire, en touchant, les choses les plus faciles, me rendirent en cette circonstance le plus grand service. Rendu confiant par mes premiers succès, je me décidais à continuer. J’ai employé du mieux que j’ai pu mon temps à l’école de Bayonne. J’ai appris le cannage, le rempaillage, à faire les chaises en gros rotin, et la brosserie. Je suis maintenant heureux de rentrer dans ma famille avec des métiers qui m’occuperont et me rapporteront, je l’espère, de quoi augmenter un peu ma pension.</p>
+<p>Je compte aider mon beau-père à travailler la vigne et faire ce que je pourrai dans la culture. Durant la courte permission que j’ai passée à Goutx, j’ai pu constater que je pouvais encore bien des choses dans les champs et les habitants m’ont assuré que je ne manquerai jamais de travail.</p>
+<p>Si j’avais été obligé de rentrer dans mon pays aussitôt guéri, je me serai trouvé bien malheureux.</p>
+<p>Aujourd’hui, je n’ai plus les mêmes idées en tête ; j’ai appris à vivre sans les yeux et je remercie bien sincèrement les personnes qui se sont occupées de moi.</p>
+<byline>Signé : Jean-Marie Fourcade, 135e Infant. territoriale, 5e Comp., adresse : Ensabathe à Goutx par Fleurance (Gers)</byline>
+<quote>
+<p>Le « Journal des Blessés aux yeux n’est pas mis dans le commerce ; il est adressé à ces blessés et aux personnes qui s’intéressent à eux.</p>
+<p>Ne pleurez pas sur moi, je ne suis pas mort.</p></quote>
+
+<pb n="19" xml:id="p19"/>
+<dateline>Bruges, le 7 Août 1916.</dateline>
+<salute>Cher Monsieur,</salute>
+<p>Je vous remercie de votre bonne lettre et vous prie de m’excuser de n’avoir pas répondu plus tôt. Je serais si heureux de vous donner quelques détails, afin d’en faire profiter mes camarades.</p>
+<p>À mon retour d’Allemagne, j’ai eu la bonne chance d’être visité par Mme A. Léon, de Bordeaux, œ qui m’a beaucoup encouragé. Cette dame m’a présenté son fils aveugle depuis l’âge de 6 ans qui, malgré son infirmité, est professeur au Lycée, celui-ci m’a donné les premières notions de lecture et écriture Braille.</p>
+<p>En rentrant chez moi à ma réforme, j’ai continué à me perfectionner, maintenant je lis et écris à peu près et je sais un peu l’abrégé.</p>
+<p>Quant au jardinage, je n’ai pu encore m’en occuper sérieusement, ma mère est vieille et en peut pas être constamment avec moi pour me guider à mon ouvrage. Cependant, pour me distraire, je vais chercher de l’eau à un puits situé à 30 mètres de la maison. Je soigne les poules, je donne le picotin aux animaux, je les étrille, je tire le vin en bouteilles, je cire mes souliers, je scie du bois ; l’an dernier, j’ai égrené le maïs, les haricots, avec quelqu’un dans le jardin je bêcherais, je râclerais l’herbe, je ferais maintes petites choses bien utiles. Et à la vigne je puis la lier et tirer les cavaillons.</p>
+<p>Lorsque mon frère, qui est prisonnier, retournera, j’espère encore l’aider un peu à son travail. À présent, puisque je suis seul, j’ai décidé d’aller comme pensionnaire au Phare de Bordeaux, où j’apprends la brosserie et les chaises. Plus tard, je pense m’installer et lorsque je n’aurai rien à faire dehors, je m’occuperai dedans.</p>
+<p>Voici ce que je compte faire et si ces indications peuvent élire utiles à quelqu’aveugle, je vous autorise à lui adresser ma lettre.</p>
+<salute>Veuillez agréer, etc...</salute>
+<byline>Fernand Gouny, 344e d’infant. 23e Comp., chemin du Carros, Bruges (Gironde)</byline>
+<quote>
+<p>Nous sollicitons de nos camarades l’envoi de lettres semblables destinées à réconforter les nouveaux blessés. Celles qui seront publiées seront payées dix centimes la ligne.</p></quote>
+</div>
+<div>
+<head>Dactylographie</head>
+<index>
+<term type="lieu">Vivans</term>
+
+<term type="contributeur">Marcel Bardonnet</term>
+
+<term type="sujet">Education professionnelle</term>
+
+<term type="sujet">Aspects particuliers de l’éducation</term>
+</index>
+<div>
+<head>Lettre adressée par M. Marcel Bardonnet, à Vivans (Loire) à Madame Dorel, de Lyon.</head>
+<salute>Madame Dorel,</salute>
+<p>Mme Chatin me prie de vous communiquer dans une lettre, les points de repère que j’utilise pour l’usage de la machine à écrire pour les lettres et factures à entête.</p>
+<p>Les points de repère diffèrent suivant la machine que l’on se sert et il faut arriver à se les faire soi-même, de façon à pouvoir écrire seul sans avoir besoin de personne pour placer ni corriger le papier. On reconnaît facilement le côté imprimé aux légers reliefs de l’entête de lettre, ce qui permet de bien placer la lettre ; on arrive à bien écrire sur la première ligne de l’imprimé à l’aide d’un petit carton fait par un voyant et que l’on conserve, ce carton se place au-dessus du cylindre et comme la longueur du papier qui doit déborder ensuite pour la date et le quantième à bien placer sur la ligne, on utilise la petite règle graduée placée devant le marteau frappeur et le quantième de l’année est inscrit un certain nombre de crans après la sonnerie ; pour les factures, la façon d’opérer est à peu près la même mais un peu plus compliquée, le tout est de pratiquer beaucoup. J’ai trouvé de la reliure à faire et on m’a même parlé de me procurer du travail à la machine à écrire après la guerre, mais maintenant je vais avoir quelque occupation au dehors et je préfère, surtout que M. Dufour m’a recommandé le grand air le plus possible dans mon traitement que je suis ; il est nécessaire à un aveugle de faire un stage dans une institution plus ou moins long, selon le cas de la personne, mais il arrive très souvent que l’on compte trop sur les personnes si dévouées qui s’occupent de ces institutions et l’on croit la vie pas facile une fois chez soi ; mais avec un peu de volonté et de persévérance, surtout à la campagne où un aveugle trouvera toujours quelque occupation, malgré que le travail qu’il pourra faire sera peu rémunéré, la vie n’y étant pas très chère, l’existence sera toujours assez facile.</p>
+<byline>Signé : Marcel Bardonnet, 7e Génie, 15/11 Comp.</byline>
+<p>Mme Dorel fait observer qu’une manière très simple de faire reconnaître l’endroit de l’envers du papier, est de le marquer d’un point ou de deux points en relief dans le coin.</p>
+<quote>
+<p>Tout bonheur que la main n’atteint pas, n’est qu’un rêve.</p></quote>
+
+<pb n="20" xml:id="p20"/>
+</div>
+</div>
+<div>
+<head>Mécanicien (École de Reuilly)</head>
+<index>
+<term type="date">1916-10-13</term>
+
+<term type="lieu">Reuilly</term>
+
+<term type="contributeur">Perrot</term>
+
+<term type="sujet">Education professionnelle</term>
+
+<term type="sujet">Pension</term>
+
+<term type="sujet">Soin des malades et des blessés. Sociétés d’entraide</term>
+</index>
+<p>Le sergent Lefebvre, sous-officier rengagé de l’infanterie coloniale est entré, il y a quelques mois, dans l’usine d’aéroplanes Farman, à Boulogne, comme monteur. Son travail consiste à monter les rayons métalliques des roues d’avions.</p>
+<p>Jusqu’à présent, un infirmier conduisait Lefebvre, le matin de Reuilly à l’usine et retournait le chercher le soir, mais à partir de la semaine prochaine, Lefebvre quittera Reuilly et s’établira avec sa femme, à proximité de l’usine.</p>
+<p>Il pourra alors travailler dix heures par jour.</p>
+<p>Le salaire de Lefebvre est, actuellement de 0 fr. 75 de l’heure. Il va être porté à 0 fr. 80 l’heure.</p>
+<p>J’ai vu, la semaine dernière, Lefebvre travaillant à l’usine. Le chef des ateliers et le contremaître se sont déclarés très satisfaits de lui.</p>
+<p>Nous espérons qu’un autre de nos aveugles mécanicien, sera prochainement accepté chez Farman, comme apprenti.</p>
+<p>Le métier d’ajusteur-mécanicien est accessible à tous les mutilés des yeux armés de courage et de persévérance et quelque soit leur passé manuel ou intellectuel.</p>
+<p>On croit trop souvent, par erreur, qu’il est indispensable d’avoir été ajusteur précédemment à la blessure. Il est bien certain, en effet, qu’un mécanicien de métier ayant fait de l’ajustage avec principe est avantagé, mais, au contraire, le métallurgiste qui limait pour blanchir le métal sans avoir à observer une forme absolue et une mesure précise et qui doit d’abord se défaire d’une mauvaise habitude avant de se familiariser avec la méthode nouvelle, peut être considéré comme désavantagé.</p>
+<p>Cependant les résultats obtenus à ce jour, sont la confirmation indéniable que ce métier nouveau chez les aveugles est possible pour tous ceux qui voudront lui accorder le temps nécessaire à l’apprentissage, quel que soit leur métier précédent. Nous avons à l’atelier, des ouvriers qui, après trois mois d’apprentissage, effectuent des travaux utiles qui leur sont rétribués.</p>
+<p>Chaque ouvrier travaillant au prix correspondant à celui des ouvriers voyants dans les ateliers de fabrication, il lui sera loisible de travailler dans un atelier quelconque de construction mécanique, son apprentissage terminé.</p>
+<p>Si la précision de l’ouvrier aveugle est égale à celle de l’ouvrier voyant, le rendement sera de 70 à 80 0/0.</p>
+<dateline>Reuilly, le 13 Octobre 1916. </dateline>
+<byline>Signé : Perrot, Professeur d’ajustage</byline>
+</div>
+<div>
+<head>Coiffeur</head>
+<index>
+<term type="lieu">Vichy</term>
+
+<term type="contributeur">Jacques Guérin</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+
+<term type="sujet">Soin des malades et des blessés. Sociétés d’entraide</term>
+</index>
+<salute>Monsieur,</salute>
+<p>J’ai vu Citerne, le coiffeur aveugle de Saint-Germain-des-Fossés ; il est exact qu’il rase sans difficulté les clients qui se confient à lui, car il ne propose jamais ses services. Il en a ainsi déjà rasé une centaine sans le moindre accident. Pour la coupe des cheveux, la difficulté est plus grande, et elle est presque insurmontable pour Citerne, qui a eu la main gauche très abîmée, et ne peut longtemps tenir le peigne. Mais le côté pratique de la question n’est pas celui-là : beaucoup de gens auront toujours peur de se faire raser par un aveugle, tandis qu’ils lui confieront volontiers des postiches à faire. Citerne s’est remis à ce travail dont il s’acquitte parfaitement ; il estime, qu’un coiffeur bien au courant de son métier avant de devenir aveugle, peut gagner ainsi cinq francs par jour, en travaillant pour une maison de gros par exemple. Il semble tout indiqué d’aiguiller vos deux sujets dans cette voie : je regrette qu’ils ne puissent se rencontrer avec Citerne qui leur donnerait des indications utiles et leur prouverait, par son exemple, la possibilité de la chose.</p>
+<byline>Signé : Jacques Guérin, 130, Boulevard National à Vichy.</byline>
+<p>Nom et adresse du coiffeur : Citerne, David, sergent au 298<hi rend="sup">e</hi> d’infanterie. Dans ses foyers à Saint-Germain-des-Fossés.</p>
+</div>
+<div>
+<head>Brossier (à l’Hôpital)</head>
+<index>
+<term type="date">1916-04-07</term>
+
+<term type="lieu">Val de Grâce</term>
+
+<term type="contributeur">E. Moussy</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+
+<term type="sujet">Soin des malades et des blessés. Sociétés d’entraide</term>
+</index>
+<dateline>le 7 avril 1916.</dateline>
+<salute>Monsieur,</salute>
+<p>Puisque, grâce à votre initiative, nous avons eu le bonheur d’être occupés et distraits à la fois, depuis quelque temps, je me fais un devoir de vous communiquer le résultat que j’ai obtenu personnellement cette dernière semaine, dans notre atelier du Val-de-Grâce.</p>
+<p>J’ai donc le plaisir de vous annoncer, monsieur, que sans le moindre surmenage, je suis arrivé à confectionner 100 brosses de chiendent dans mes six jours : ce qui, vous le savez, porte ma gratification à 20 francs, et je n’exagèrerai rien en vous assurant que je pourrais faire beaucoup plus.</p>
+<salute>Veuillez croire, etc.</salute>
+<byline>Signé : E. Moussy, 4e Génie, 13e Comp. Val-de-Grâce</byline>
+<quote>
+<p>L’ennui est la nuit intérieure.</p></quote>
+
+<pb n="21" xml:id="p21"/>
+</div>
+<div>
+<head>À qui vendrai-je mes brosses et mes balais</head>
+<index>
+<term type="contributeur">E. Brieux</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+
+<term type="sujet">Soin des malades et des blessés. Sociétés d’entraide</term>
+</index>
+<p>Aux camarades cultivateurs, nous avons dit:</p>
+<p>« Vous pourrez beaucoup faire à la terre, pIus que vous ne croyez, mais pas tout ce que vous faisiez avant votre blessure. Vous aurez des loisirs. Il ne faudra pas rester à ne rien faire, parce que le cafard est fils de la rêverie, qui est fille de l’oisiveté. Nous allons donc vous enseigner deux ou trois petits métiers faciles, que vous pourrez exercer chez vous et qui vous rapporteront quelque argent. Pour cela, il convient d’entrer dans une école de rééducation. Vous en sortirez quand vous saurez faire un peu de cordonnerie, de vannerie, de chaiserie et de brosserie. »</p>
+<p>Pour les trois premiers métiers, tout va bien, ou à peu près ; on trouve toujours autour de soi des chaussures à ressemeler, des paniers à faire et quelques chaises à rempailler.</p>
+<p>Mais il y a les brosses. Ceux qui habitent une ville ou même un gros bourg, trouvent des clients assez facilement : il n’en est pas de même pour les autres, pour ceux qui sont établis dans un petit village.</p>
+<p>Ce sont ceux-là qui disent :</p>
+<p>— À qui vendrai-je mes brosses et mes balais ? On m’a donné un outillage, j’ai eu du chiendent, j’ai fait des brosses, et maintenant qu’elles sont faites, je ne sais plus quoi en faire.</p>
+<p>Il faut d’abord suivre les conseils que j’ai donnés dans mes « Lettres aux soldats blessés aux yeux. »</p>
+<p>Pour la vente de tes produits, tu essaieras de te débrouiller tout seul. Tu as dû entendre parler du système D ; ce sera le moment de l’appliquer. Tu te mettras à faire la brosse et le balai les plus ordinaires, ceux dont on se sert le plus et qu’on remplace le plus souvent. Tu tâcheras de te trouver des commis-voyageurs gratuits. Ce sera par exemple, le facteur, le boulanger, le marchand de journaux, à qui tu pourras faire cadeau d’une brosse, qu’ils ne manqueront pas de montrer dans leurs tournées. Si cela ne te suffit pas, tu écriras aux maires voisins, aux conseillers généraux, à ton député, au directeur de l’hôpital le plus proche et tu lui demanderas de t’envoyer un échantillon des brosses à fournir et le prix qu’il les paie.</p>
+<p>Mais tout cela peut rester sans résultat. J'ai parlé de cette situation à M. Justin Godart, le Sous-Secrétaire d’État à la Santé. Il est un de nos grands amis, il l’a prouvé et ne demande qu’à le prouver encore.</p>
+<p>Il y aurait peut-être une combinaison. Mais pour savoir si elle doit réussir, si par exemple, on peut acheter les brosses produites par nos camarades sans clients, il nous faut connaître la quantité dont nous aurons ainsi à trouver l’écoulement.</p>
+<p>Donc, que chacun de ceux qui sont dans cette situation, m’écrive et me dise combien de brosses, environ, il lui restera chaque semaine. Nous lui chercherons un acheteur.</p>
+<p>Mais il est bien entendu qu’il ne s’agit — pour le moment tout au moins — que d’une aide à donner aux cultivateurs qui, dans leur petit coin, sont dans l’impossibilité de trouver eux-mêmes une clientèle.</p>
+<byline>B.</byline>
+</div>
+<div>
+<head>Petit bottin à l’usage des brossiers</head>
+<index>
+<term type="sujet">Artisanat. Arts et métiers </term>
+
+<term type="sujet">Services sociaux. Travail social. Associations</term>
+</index>
+<div>
+<head>Fournitures pour brosserie.</head>
+<p>(Nous donnons ces adresses à titre d’indications, sans pouvoir affirmer que ces maisons ont actuellement les fournitures qu’on pourrait leur demander en temps ordinaire.)</p>
+<p>Audran, 3, rue des Lions (IV<hi rend="sup">e</hi> art), Métro Saint-Paul. Plaqueur de brosses.</p>
+<p>Boucaud, 8, rue du Dahomey (XI<hi rend="sup">e</hi> arr.) Métro Reuilly. Bois de brosses.</p>
+<p>Benedetto, 4, rue Mercœur (XI<hi rend="sup">e</hi> art), Métro Philippe-Auguste.</p>
+<p>Bouchon et Laforge, 34, boul. Beaumarchais, (III<hi rend="sup">e</hi> art), Métro Bastille. Tél. Roquette : 27-51, Bourrelets feutrés.</p>
+<p>Boulanger, 110, rue Vieille - du - Temple (III<hi rend="sup">e</hi> art), Métro Hôtel-de-Ville. Tél. Archives : 10-31.</p>
+<p>Briquet, 27, rue Saint-Sébastien (XI<hi rend="sup">e</hi> art), Métro Richard-Lenoir. Perceur de brosses fines.</p>
+<p>Bouckaert, 37 bis, rue de Montreuil (XX<hi rend="sup">e</hi> art). Métro Nation. Bois et fournitures pour meubles.</p>
+<p>Cheville, 22, rue des Francs-Bourgeois (III<hi rend="sup">e</hi> art), Métro Saint-Paul. Tél. Archives : 20-61.</p>
+
+<pb n="22" xml:id="p22"/>
+<p>Cleriot, 80, rue Montmartre (II<hi rend="sup">e</hi> art), Métro Les Halles. Tél. Gutenberg : 25-29.</p>
+<p>Deseglise, 11, rue du Perche (III<hi rend="sup">e</hi> art), Métro Saint-Paul.</p>
+<p>Girard, 63, rue de Bagnolet, (XX<hi rend="sup">e</hi> art), Métro Bagnolet.</p>
+<p>Lancieux, 13, rue du Renard, IV<hi rend="sup">e</hi> art), Métro Hôtel-de-Ville. Plaqueur.</p>
+<p>Mandot, 21, passage Étienne-Delaunay (II<hi rend="sup">e</hi> art), Métro Bagnolet.</p>
+<p>Nicolas, 99, bd de Charonne (XI<hi rend="sup">e</hi> art), Métro Avron. Tél. Roquette : 58-32.</p>
+<p>Patou, 43, rue des Toumelles (III<hi rend="sup">e</hi> art). Métro Bastille. Tél. Archives : 03-68.</p>
+<p>Person, 7, rue Brantôme (III<hi rend="sup">e</hi> art), Métro Les Halles. Plaqueur.</p>
+<p>Pinaudier, 18, rue de la Folie-Méricourt (XI<hi rend="sup">e</hi> art), Métro Richard-Lenoir. Bois de brosses industrielles.</p>
+<p>Paulard, 57, rue de la Grange-aux-Belles (X<hi rend="sup">e</hi> art), Métro Lancry. Tél. Nord : 17-63. Matières premières en gros seulement.</p>
+<p>Ponsin, 52, bd Richard-Lenoir (XI<hi rend="sup">e</hi> art). Métro Richard-Lenoir. Tél. Roquette : 20-89. Outillages, laitons, clous, vis, etc.</p>
+<p>Rougier, 114-116, rue du Temple (III<hi rend="sup">e</hi> ar), Métro : Hôtel-de-Ville. Tél. Archives: 13-16. Outillages, laitons, clous, vis, etc.</p>
+<p>Roulleau, 8, rue Alibert (X<hi rend="sup">e</hi> art), Métro : République. Tél. Nord : 22-74.</p>
+<p>Saint Frères, 8, rue du Louvre (I<hi rend="sup">er</hi> art), Métro : Louvre. Ficelles variées. La maison livre à partir de 5 kg des ficelles assorties.</p>
+<p>Simonin-Cuny, 6, rue de Braque (III<hi rend="sup">e</hi> art), Métro : Hôtel-de-Ville. Tél. Archives: 31-61.</p>
+<p>Weill, 1, rue de Marseille (X<hi rend="sup">e</hi> art), Métro: Lancry.</p>
+<p>Queau, 44 bis, rue de la Voûte (XIII<hi rend="sup">e</hi> art), Métro : Porte de Vincennes. Bois de balais.</p>
+</div>
+<div>
+<head>Maisons principales en province.</head>
+<p>Boutemps, bois, à Saint-Sauveur, par Béthisy (Oise).</p>
+<p>Cheville, bois, à Béthisy-Saint-Pierre (Oise).</p>
+<p>Bodevin, bois, à Hermes (Oise), Manches à balais, garde-robes, lavettes.</p>
+<p>Pequeux, bois, à Béthisy-St-Pierre (Oise). Patte, bois, à Aumale (Seine-Inférieure). Ruff et Cie, Nantes, 41, quai de Versailles.</p>
+</div>
+</div>
+<div>
+<head>Fournitures pour cannage rotinage &amp; rempaillage de chaises</head>
+<index>
+<term type="sujet">Artisanat. Arts et métiers </term>
+
+<term type="sujet">Services sociaux. Travail social. Associations</term>
+</index>
+<p>Société Française des produits du Rotin, à Malaunay (Seine-Inférieure). Canne extra, moyenne et courante. Dépôt à Paris, 126, rue de Charenton. Adresse télégraphique : Rottin-Malaunay, Tél. à Malaunay, n° 11.</p>
+<p>Ganot Frères, à Melun (Seine-et-Marne). Tél. Melun : 59. Canne moyenne et très courante.</p>
+<p>Ganot, 91, rue.de Montreuil (XI<hi rend="sup">e</hi> art), Tél. Roquette : 17-30. Rotin. Prix actuel de la canne très ordinaire 6 à 9 fr. le kg. Cette qualité valait avant la guerre 4 à 5 fr.</p>
+<p>La Maison Ganot et la Société des Produits du Rotin, expédient par colis de 5 kgs au minimum pour le détail et font le gros à partir de 50 kgs.</p>
+</div>
+<div>
+<head>Renseignements et conseils pratiques</head>
+<index>
+<term type="sujet">Artisanat. Arts et métiers </term>
+
+<term type="sujet">Services sociaux. Travail social. Associations</term>
+</index>
+<div>
+<head>Tarifs postaux.</head>
+<p>1° Tarif spécial réduit pour l’envoi par la poste des lettres, journaux et livres en écriture Braille :</p>
+<p>Jusqu’à 30 grammes, 2 centimes</p>
+<p>De 30 à 50 gr, 3 centimes</p>
+<p>De 50 à 100 gr, 5 centimes</p>
+<p>De 100 à 500 gr, 10 centimes</p>
+<p>500 à 1000 gr, 15 centimes</p>
+<p>1000 jusqu’à 3.500 gr 5 centimes</p>
+<p>en plus par 500 grammes.</p>
+<p>2° Tarifs des échantillons sans valeur (non recommandés) 5 centimes par 50 gr. ou fraction de 50 gr. jusqu’à 500 gr.</p>
+<p>Recommandés: Augmentation de 10 centimes donnant droit à un récépissé et à une indemnité de 10 fr. en cas de perte.</p>
+
+<pb n="23" xml:id="p23"/>
+</div>
+</div>
+<div>
+<head>École de Reuilly</head>
+<index>
+<term type="sujet">Noms personnels et de famille </term>
+
+<term type="sujet">Education professionnelle</term>
+</index>
+<div>
+<head>Population de l’École au 25 octobre 1916</head>
+<p>Crépin, Joseph-Albert, 1<hi rend="sup">re</hi> cl., G. V. C., groupe C. — Arnaud, André, 2<hi rend="sup">e</hi> cl., 22<hi rend="sup">e</hi> d’infant. — Delaunay, Albert, 2<hi rend="sup">e</hi> cl., 129<hi rend="sup">e</hi> infant. — Chupin, Jean-Marie, 2<hi rend="sup">e</hi> cl., 114<hi rend="sup">e</hi> d’infant. — Broutin, Ernest, 2<hi rend="sup">e</hi> cl., 120<hi rend="sup">e</hi> d’infant. — Bony, Firmin, 2<hi rend="sup">e</hi> cl., 4<hi rend="sup">e</hi> zouaves. — Manpey, Marie-Joseph, 2<hi rend="sup">e</hi> cl., 169<hi rend="sup">e</hi> d’inf. — Fouet, Jean, 2<hi rend="sup">e</hi> cl., 330<hi rend="sup">e</hi> d’infant., Pisson, Charles, caporal, 120<hi rend="sup">e</hi> d’infant. — Chouquet, Victor, 2<hi rend="sup">e</hi> cl., 146<hi rend="sup">e</hi> d’infant. — Marlin, Émile, caporal, 147<hi rend="sup">e</hi> d’infant. — Brun, Camille, caporal, 23<hi rend="sup">e</hi> chass. alpins. — Manche, Émile, 2<hi rend="sup">e</hi> cl., 1<hi rend="sup">er</hi> zouaves. — Seguin, Léon, 2<hi rend="sup">e</hi> cl., 167<hi rend="sup">e</hi> d’infant. — Moutfaucon, François, 2<hi rend="sup">e</hi> cl., 134<hi rend="sup">e</hi> d’infant. — Gelin, Jules, 2<hi rend="sup">e</hi> classe, 117<hi rend="sup">e</hi> d’infant. — Rousseau, Pierre, 1<hi rend="sup">re</hi> cl., 77<hi rend="sup">e</hi> d’infant. — Mauriceau, Louis, 2<hi rend="sup">e</hi> classe, 66<hi rend="sup">e</hi> d’infant. — Cordier, Ernest, 2<hi rend="sup">e</hi> cl., 43<hi rend="sup">e</hi> d’infant. — Truy, Gustave, 2<hi rend="sup">e</hi> cl., 120<hi rend="sup">e</hi> d’infant. — Ribourtout, Maurice, 2<hi rend="sup">e</hi> cl., 46<hi rend="sup">e</hi> d’artill de campagne. — Loridan, Maurice, 2<hi rend="sup">e</hi> cl., 147<hi rend="sup">e</hi>  d’infant. — Jeansoulé, Jean, 2<hi rend="sup">e</hi> cl., 23<hi rend="sup">e</hi> d’artill. de campagne. — Bour, Georges, 2<hi rend="sup">e</hi> cl. 150<hi rend="sup">e</hi> d’infant. — Ray, Camille, 1<hi rend="sup">re</hi> cl., 45<hi rend="sup">e</hi> bat. de chass. à pied. — Michon, Louis, caporal, 134<hi rend="sup">e</hi> d’infant. — Massot-Pellet, Joseph, 2<hi rend="sup">e</hi> cl., 140<hi rend="sup">e</hi> d’infant. — Mouret, Léon, 2<hi rend="sup">e</hi> cl., 87<hi rend="sup">e</hi> d’infant. — Gérard, Edouard, 2<hi rend="sup">e</hi> cl., 167<hi rend="sup">e</hi> d’infant. — Vierstraete, Auguste, 2<hi rend="sup">e</hi> cl., 23<hi rend="sup">e</hi> d’infant. — Favret, René, caporal, 226<hi rend="sup">e</hi> d’infant. — Leroux, Aimé, 2<hi rend="sup">e</hi> cl., 8<hi rend="sup">e</hi> d’infant. — Desœuvre, Paul, 2<hi rend="sup">e</hi> cl., 113<hi rend="sup">e</hi> d’infant. — Artus, Jean, 2<hi rend="sup">e</hi> cl., 113<hi rend="sup">e</hi> infant. — Palmaro, Louis, 1<hi rend="sup">re</hi> cl., 22<hi rend="sup">e</hi> d’inf. George, Léon, 2<hi rend="sup">e</hi> cl., 151<hi rend="sup">e</hi> d’infant. — Rion, Elie, sergent, 8<hi rend="sup">e</hi> d’infant, coloniale. — Tocquard, Joseph, 2<hi rend="sup">e</hi> cl., 169<hi rend="sup">e</hi> d’infant. — Madaire, Albert, 2<hi rend="sup">e</hi> cl., 113<hi rend="sup">e</hi> d’infant. — Fabre, Antoine, 1<hi rend="sup">re</hi> cl., 22<hi rend="sup">e</hi> d’infant, coloniale. Truchot, François, 2<hi rend="sup">e</hi> cl., 31<hi rend="sup">e</hi> bat. chass. à pied. — Ferrari, Louis, 2<hi rend="sup">e</hi> cl., 173<hi rend="sup">e</hi> d’infant. — Faille, Léon, sergent, 1<hi rend="sup">er</hi> d’infant. — Plateau, André, 2<hi rend="sup">e</hi> cl. 10<hi rend="sup">e</hi> génie. — Demalaine Henri, 2<hi rend="sup">e</hi> cl., 205<hi rend="sup">e</hi> d’infant. — Mattei, Charles, caporal, 14<hi rend="sup">e</hi> bat. chass. à pied. — Mengin, Charles, 2<hi rend="sup">e</hi> cl, 8<hi rend="sup">e</hi> bat. chass. à pied. — Romant, Étienne, 2<hi rend="sup">e</hi> cl., 328<hi rend="sup">e</hi> d’infant. — Clément, René, 2<hi rend="sup">e</hi> cl., 160<hi rend="sup">e</hi> d’infant. — Dardié, Gabriel, 2<hi rend="sup">e</hi> cl., 3<hi rend="sup">e</hi> zouaves. — Johannsen, Raymond, 2<hi rend="sup">e</hi> cl, 19<hi rend="sup">e</hi> bat. chass. à pied. — Guérin, Gaston, sergent, 161<hi rend="sup">e</hi> d’infant., — Chambenois, Georges, 1<hi rend="sup">re</hi> cl., 122<hi rend="sup">e</hi> d’infant. Grillet, Louis, 2<hi rend="sup">e</hi> cl., 113<hi rend="sup">e</hi> d’infant — Vaudelin, Claudius, 2<hi rend="sup">e</hi> cl., 5<hi rend="sup">e</hi> d’infant, coloniale. — Doré, Léon, 2<hi rend="sup">e</hi> cl., 154<hi rend="sup">e</hi> d’infant. — Laurent, Jean, 2<hi rend="sup">e</hi> cl., 83<hi rend="sup">e</hi> d’infant. — Benel, Edouard, caporal, 4<hi rend="sup">e</hi> zouaves. — Pernelle, Hippolyte, 2<hi rend="sup">e</hi> cl., 176<hi rend="sup">e</hi> d’infant. — Thomas, Arsène, 2<hi rend="sup">e</hi> cl., 87<hi rend="sup">e</hi> d’infant. — Trémège, Émile, 2<hi rend="sup">e</hi> cl., 142<hi rend="sup">e</hi> d’infant. — Blaise, André, 10<hi rend="sup">e</hi> chass. à pied. — Gergaud, Pierre, 2<hi rend="sup">e</hi> cl., 64<hi rend="sup">e</hi> d’infant. — Obitz, Adrien, adjudant, 169<hi rend="sup">e</hi> d’infant. — Poirot, Alexandre, 2<hi rend="sup">e</hi> cl., 172<hi rend="sup">e</hi> d’infant. — Branger, Henri, 2<hi rend="sup">e</hi> cl, 169<hi rend="sup">e</hi> d’infant. — Nicomette, Arthur, 2<hi rend="sup">e</hi> cl., 154<hi rend="sup">e</hi> d’infant. — Ledernez, Ernest, 2<hi rend="sup">e</hi> cl., 356<hi rend="sup">e</hi> d’infant. — Dufour, Louis, 2<hi rend="sup">e</hi> cl, 56<hi rend="sup">e</hi> d’inf. — Rottée, Paul, sergent, 74<hi rend="sup">e</hi> d’infant. — Lajous, Henri, adjudant-chef, 143<hi rend="sup">e</hi> d’infant. — Hédouin, Paul, 2<hi rend="sup">e</hi> cl, 6<hi rend="sup">e</hi> rég. d’artill. à pied. — Lardans, Gustave, 1<hi rend="sup">re</hi> cl., 21<hi rend="sup">e</hi> d’inf. coloniale. — Boulanger, Louis, 2<hi rend="sup">e</hi> cl, 110<hi rend="sup">e</hi> d’infant. — Dubost, Pierre, 2<hi rend="sup">e</hi> classe, 42<hi rend="sup">e</hi> d’infant. — Dumonpion, Français, maître-pointeur, 52<hi rend="sup">e</hi> d’artill. — Richard, Célestin, 2<hi rend="sup">e</hi> cl., 154<hi rend="sup">e</hi> d’infant. — Lécuyer, Clovis, 2<hi rend="sup">e</hi> classe, 61<hi rend="sup">e</hi> d’artill. — Bénard, Emilien, 2<hi rend="sup">e</hi> cl, 22<hi rend="sup">e</hi> tarrit. — Pélissier, Marcel, sergent, 64<hi rend="sup">e</hi> d’infant. — Flandre, Marceau, 2<hi rend="sup">e</hi> cl., 120<hi rend="sup">e</hi> d’infant. — Drapeau, Henri, 2<hi rend="sup">e</hi> cl., 16<hi rend="sup">e</hi> dragons. — Graux, Aimé, 2<hi rend="sup">e</hi> cl., 48<hi rend="sup">e</hi> d’artill. — Lartisien, Constant, 2<hi rend="sup">e</hi> cl., 15<hi rend="sup">e</hi> chass. à cheval. — Martin, Paul, 2<hi rend="sup">e</hi> cl., 276<hi rend="sup">e</hi> d’infant. — Néhou, Louis, 2<hi rend="sup">e</hi> cl., 28<hi rend="sup">e</hi> d’infant. — Boucher, Émile, 2<hi rend="sup">e</hi> cl., 168<hi rend="sup">e</hi> d’infant. — Salmon, Victor, 2<hi rend="sup">e</hi> cl., 161<hi rend="sup">e</hi> d’infant. — Michelet, Eloi, 2<hi rend="sup">e</hi> cl., 149<hi rend="sup">e</hi> d’infant. — Delafosse, Gratien, 2<hi rend="sup">e</hi> cl., 161<hi rend="sup">e</hi> d’infant. — Dupuis, Joseph, 2<hi rend="sup">e</hi> classe, 39<hi rend="sup">e</hi> d’infant. — Verbrigghe, Joseph, 1<hi rend="sup">re</hi> cl., 25<hi rend="sup">e</hi> bat. chass. à pied. — Citron, Pierre, sergent, 53<hi rend="sup">e</hi> d’infant. — Potereau, Jean, caporal, 53<hi rend="sup">e</hi> d’infant, coloniale. — Raveleau, Mercel, 2<hi rend="sup">e</hi> cl., 6<hi rend="sup">e</hi> d’infant. — Alquier, Gustave, 1<hi rend="sup">re</hi> cl., 125<hi rend="sup">e</hi> d’infant. — Vivot, Charles, 2<hi rend="sup">e</hi> cl., 109<hi rend="sup">e</hi> d’infant. — Delforge, Antoine, 2<hi rend="sup">e</hi> cl., 96<hi rend="sup">e</hi> d’infant. — Moteau, Jean, 2<hi rend="sup">e</hi> cl., 31<hi rend="sup">e</hi> bat. chass. à pied. — Prévost, Léopold, 2<hi rend="sup">e</hi> cl., 315<hi rend="sup">e</hi> d’infant. — Saya Tahar, 2<hi rend="sup">e</hi> cl., 9<hi rend="sup">e</hi> tirailleurs. — Monnerie, Gabriel, 1<hi rend="sup">re</hi> clssse, 121<hi rend="sup">e</hi> chass. — Grauby, Jean, 1<hi rend="sup">re</hi> cl., 1<hi rend="sup">er</hi> zouaves. — Godin, Adrien, 2<hi rend="sup">e</hi> cl., 1<hi rend="sup">er</hi> d’infant. — Bellevenne, Paul, caporal, 1<hi rend="sup">er</hi> zouaves. —- Pouille, Boniface, 2<hi rend="sup">e</hi> cl., 22<hi rend="sup">e</hi> section, La Tour-Maubourg. — Vochel, Fernand, 2<hi rend="sup">e</hi> cl., 329<hi rend="sup">e</hi> d’infant. — Grosbois, Georges, caporal-fourrier, 10<hi rend="sup">e</hi> d’infant. — Mombœuf, Adrien, sergent, 108<hi rend="sup">e</hi> d’infant. — André, Auguste, 2<hi rend="sup">e</hi> cl., 6<hi rend="sup">e</hi> d’artill. à pied. — Brun,</p>
+
+<pb n="24" xml:id="p24"/>
+<p>Joseph, sergent-fourrier, 405<hi rend="sup">e</hi> d’infant. —— Lefebvre, Georges, sergent, 1<hi rend="sup">er</hi> colonial.-Bur, André, caporal, 67<hi rend="sup">e</hi> d’infant. — Rouvreau, Gabriel, caporal, 101<hi rend="sup">e</hi> d’infant. — Rocken, Frédéric, caporal, 39<hi rend="sup">e</hi> d’infant. — Valladeau, Georges, 2<hi rend="sup">e</hi> cl., 4<hi rend="sup">e</hi> d’infant. — Leperlier, Charles, sergent, 3<hi rend="sup">e</hi> zouaves. — Mohamed ben Bekouch, 2<hi rend="sup">e</hi> cl., 6<hi rend="sup">e</hi> tirailleurs. — Rivelois, Jules, 2<hi rend="sup">e</hi> cl., 87<hi rend="sup">e</hi> d’infant. — Mercier, Robert, 2<hi rend="sup">e</hi> cl., 113<hi rend="sup">e</hi> d’infant. — Machavoine, Charles, 2<hi rend="sup">e</hi> cl., 204<hi rend="sup">e</hi> d’infant. — Aranowski, Israël, 2<hi rend="sup">e</hi> cl., 112<hi rend="sup">e</hi> d’infant. — Depeige, Ursain, caporal, 75<hi rend="sup">e</hi> d’infnat. — Picaud, Louis, caporal, 94<hi rend="sup">e</hi> d’infant. — Gatillon, Eugène, caporal, 68<hi rend="sup">e</hi> d’infant. — Varinot. Paul, 1<hi rend="sup">re</hi> cl., 279<hi rend="sup">e</hi> d’infant. — Seebacher, Albert, 2<hi rend="sup">e</hi> cl., 2<hi rend="sup">e</hi> bat. chass. à pied. — Erb, Jules, adjudant, 150<hi rend="sup">e</hi> d’infant. — Hutin, Lucien, 2<hi rend="sup">e</hi> cl., 168<hi rend="sup">e</hi> d’inf. — Berton, Théophile, 2<hi rend="sup">e</hi> cl., 243<hi rend="sup">e</hi> d’infant. — Jouguelaird, Émile, 2<hi rend="sup">e</hi> cl., 364<hi rend="sup">e</hi> d’infant. — Rémond, Louis, 2<hi rend="sup">e</hi> cl., 3<hi rend="sup">e</hi> zouaves. — Hadot, Gaston, 2<hi rend="sup">e</hi> cl., 106<hi rend="sup">e</hi> d’infant. — Lechapt, André, 1<hi rend="sup">re</hi> cl., 154<hi rend="sup">e</hi> d’infant. — Aubry, Charles, 2<hi rend="sup">e</hi> cl., 152<hi rend="sup">e</hi> d’infant. — Garrec, Jean, 2<hi rend="sup">e</hi> cl., 6<hi rend="sup">e</hi> génie. — Albespy, Charles, caporal, 4<hi rend="sup">e</hi> d’infant, coloniale. — Castagné, Théodore, 2<hi rend="sup">e</hi> cl., 207<hi rend="sup">e</hi> d’infant. — Gonnet, Claude, 2<hi rend="sup">e</hi> classe, 10<hi rend="sup">e</hi> chass. à pied. — Sabin, Louis, 2<hi rend="sup">e</hi> cl., 130<hi rend="sup">e</hi> d’infant. — Gohiec, Budoc, 2<hi rend="sup">e</hi> cl., 62<hi rend="sup">e</hi> d’infant. — Hemery, Pierre, 2<hi rend="sup">e</hi> cl., 116<hi rend="sup">e</hi> d’infant. — Hutinet, Albert, 2<hi rend="sup">e</hi> cl., 360<hi rend="sup">e</hi> d’infant. — Béda, Pierre, 2<hi rend="sup">e</hi> cl, 58<hi rend="sup">e</hi> d’artill. — Thuilliez, Henri, caporal, 273<hi rend="sup">e</hi> d’infant. — Le Goff, Joseph, 2<hi rend="sup">e</hi> cl., 262<hi rend="sup">e</hi> d’infant. —- Paradis, Gabriel, 2<hi rend="sup">e</hi> cl., 42<hi rend="sup">e</hi> d’infant. — Vanbeslaert, Jean, 2<hi rend="sup">e</hi> cl, 154<hi rend="sup">e</hi> d’infant. — Pierre, Maurice, caporal, 51<hi rend="sup">e</hi> d’infant. — Bruckmann, Georges, 2<hi rend="sup">e</hi> cl., 30<hi rend="sup">e</hi> d’artill. de campagne. — Pluchot, Antoine, 2<hi rend="sup">e</hi> cl., 48<hi rend="sup">e</hi> d’inf. — Jolis, Edmond, 2<hi rend="sup">e</hi> cl., 2<hi rend="sup">e</hi> d’artill. lourde. — Ballery, Georges, 2<hi rend="sup">e</hi> cl., 37<hi rend="sup">e</hi> territ. — Framery, Paul, 2<hi rend="sup">e</hi> cl., 208<hi rend="sup">e</hi> d’infant. — Watier, Edouard, adjudant, 282<hi rend="sup">e</hi> d’infant. — Carion, Yves, sergent, 2<hi rend="sup">e</hi> d’infant. coloniale. — Pichenot, Eugène, sergent, 367<hi rend="sup">e</hi> d’infant. —- Baudouin, Victor, 2<hi rend="sup">e</hi> cl., 21<hi rend="sup">e</hi> d’infant, coloniale. — Lemaire, Albert, 2<hi rend="sup">e</hi> cl., 274<hi rend="sup">e</hi> d’inf. — Tuloup, Eugène, 2<hi rend="sup">e</hi> cl., 69<hi rend="sup">e</hi> d’infant. — Maison, René, 2<hi rend="sup">e</hi> cl, 156<hi rend="sup">e</hi> d’infant. — Grossemy, Georges, 2<hi rend="sup">e</hi> cl, 27<hi rend="sup">e</hi> d’artillerie de campagne. — Deflandre, Constant, 2<hi rend="sup">e</hi> cl., 236<hi rend="sup">e</hi> d’infant. — Leriche, Henri, 2<hi rend="sup">e</hi> cl., 165<hi rend="sup">e</hi> d’inf. —<space rend="tab">    </space>Anselot, Victor, 2<hi rend="sup">e</hi> cl., G. V. C., corps d’origine : 84<hi rend="sup">e</hi> d’infant. — Piérot, Pierre, 2<hi rend="sup">e</hi> cl., 354<hi rend="sup">e</hi> d’infant. — Lévy, Fernand, caporal, 149<hi rend="sup">e</hi> d’infant. — Blondel, Séverin, 2<hi rend="sup">e</hi> cl., 5<hi rend="sup">e</hi> d’infant. — Dubos, Gaston, 2<hi rend="sup">e</hi> cl., 4<hi rend="sup">e</hi> cuirassiers. — Claudion, Paul, Caporal, 66<hi rend="sup">e</hi> d’infant. — Jouanne, Henri, 2<hi rend="sup">e</hi> cl, 72<hi rend="sup">e</hi> d’inf. — Hubert, Eugène, caporal, 205<hi rend="sup">e</hi> d’infant. — Beaumont, Lucien, 1<hi rend="sup">re</hi> cl., 79<hi rend="sup">e</hi> d’infant. — Pellier, Albert, 2<hi rend="sup">e</hi> cl., 51<hi rend="sup">e</hi> d’infant. — Bataille, Édouard, 2<hi rend="sup">e</hi> cl., 14<hi rend="sup">e</hi> territ. — Paris, Gustave, sergent, 129<hi rend="sup">e</hi> territ. — Léger, Jules, tambour, 287<hi rend="sup">e</hi> d’infant. — Amar, Joseph, 2<hi rend="sup">e</hi> cl., 1<hi rend="sup">e</hi> Étranger. — Bouquin, Louis, 2<hi rend="sup">e</hi> cl., 7<hi rend="sup">e</hi> d’infant. coloniale. — Moreau, Adolphe, caporal, 112<hi rend="sup">e</hi> d’infant. — Bonamy, Eugène, 2<hi rend="sup">e</hi> cl., 3<hi rend="sup">e</hi> bat. chass. à pied. — Morel, Léon, 2<hi rend="sup">e</hi> cl., 276<hi rend="sup">e</hi> d’infant. — Allais, Pierre, 1<hi rend="sup">re</hi> cl., 77<hi rend="sup">e</hi> d’infant. — Delaplace, Désiré, 2<hi rend="sup">e</hi> cl., 365<hi rend="sup">e</hi> d’infant. — Odoul, André, 2<hi rend="sup">e</hi> cl., 403<hi rend="sup">e</hi> d’infant. — Darmancourt, Edouard, 2<hi rend="sup">e</hi> cl., 119<hi rend="sup">e</hi> d’infant. — Laurent, Ernest, 2<hi rend="sup">e</hi> cl., ,82<hi rend="sup">e</hi> d’infant. — Hugueny, Raymond, 2<hi rend="sup">e</hi> cl., 67<hi rend="sup">e</hi> d’infant. — Sylvain, Lucien, 1<hi rend="sup">re</hi> cl., 23<hi rend="sup">e</hi> colonial. — Thèbes, Albert, 2<hi rend="sup">e</hi> cl., 24<hi rend="sup">e</hi> colonial. — Petit, André, 2<hi rend="sup">e</hi> cl., 120<hi rend="sup">e</hi> d’infant. Falaise, Paul 2<hi rend="sup">e</hi> cl, 18<hi rend="sup">e</hi> territ. — Noël, Henri, adjudant, 167<hi rend="sup">e</hi> d’infant. — Goujon, Gaston, 2<hi rend="sup">e</hi> cl., 31<hi rend="sup">e</hi> d’infant. — Gouazé, Jean, sous-lieutenant, 12<hi rend="sup">e</hi> d’infant. — Baranger, Daniel, brigadier, 52<hi rend="sup">e</hi> d’artill. de campagne. — Delacroix, Léon, sergent, 51<hi rend="sup">e</hi> d’infant. — Augé, Jean, 1<hi rend="sup">re</hi> cl., 12<hi rend="sup">e</hi> d’infant. — Josse Vincent, 2<hi rend="sup">e</hi> cl., 265<hi rend="sup">e</hi> d’infant. — Gladieux, Gaston, 2<hi rend="sup">e</hi> cl, 130<hi rend="sup">e</hi> d’infant. — Kallenbrun Paul, 2<hi rend="sup">e</hi> cl, 169<hi rend="sup">e</hi> d’infant. — Guy, Maurice 2<hi rend="sup">e</hi> cl., 282<hi rend="sup">e</hi> d’infant. — Pillon, Pierre, 2<hi rend="sup">e</hi> cl., 2<hi rend="sup">e</hi> section d’infirmiers militaires. — Launay Eugène, 2<hi rend="sup">e</hi> cl., 113<hi rend="sup">e</hi> d’nfant. —— Thuet, Paul 2<hi rend="sup">e</hi> cl., 72<hi rend="sup">e</hi> d’infant. — Cuperlier, Gustave, adjudant, 361<hi rend="sup">e</hi> d’infant. -— Lapoule, Gaston 2<hi rend="sup">e</hi> cl., 367<hi rend="sup">e</hi> d’infant. — Peyret, Lucien, 2<hi rend="sup">e</hi> cl., 14<hi rend="sup">e</hi> section d’infirmiers militaires. — Dubois Charles, 2<hi rend="sup">e</hi> cl, 289<hi rend="sup">e</hi> d’nifant. — Bastide, Guillaume, 2<hi rend="sup">e</hi> cl., 167<hi rend="sup">e</hi> d’infant.</p>
+</div>
+<div>
+<head>Blessés aux yeux Rentrés dans leurs foyers</head>
+<p>Lheureux, Jean-Baptiste, 2<hi rend="sup">e</hi> cl., 328<hi rend="sup">e</hi> d’inf. Crécy-en-Ponthieu (Somme). — Bégoin, Ulysse, 2<hi rend="sup">e</hi> cl., 263<hi rend="sup">e</hi> d’infant., 22, rue de Bordeaux, Angoulême. — Amblard, Henri, caporal, 161<hi rend="sup">e</hi> d’infant., 112, avenue d’Italie, Paris. — Livet, Auguste, caporal, 25<hi rend="sup">e</hi> territ. Saulge-le-Bruant (Mayenne). — Ecal, Jean, maréchal des logis, 3<hi rend="sup">e</hi> rég. d’artill., 13, rue Viernet, Béziers. — Luc, Camille, 2<hi rend="sup">e</hi> cl., 169<hi rend="sup">e</hi> d’infanterie, Xeuilly (Meurthe-et-Moselle). Bréda, Alcide, 2<hi rend="sup">e</hi> cl., 29<hi rend="sup">e</hi> bat. de chass. à pied, 95, rue de Niel, Bar-le-Duc. — Degeuse, Marcel, 2<hi rend="sup">e</hi> cl., 72<hi rend="sup">e</hi> d’infant., Rollen pont, près d’Auchy-les-Herdin (Pas-de-Calais) — Lebarbier, Henri, sergent, 224<hi rend="sup">e</hi> d’infant <hi rend="color_ff0000">9</hi>, rue Traversière, Courbevoie. — Sanchagrin Jean, 2<hi rend="sup">e</hi> cl., 14<hi rend="sup">e</hi> d’infant., Saint-Martial, pa</p>
+<space unit="line" quantity="1"/>
+</div>
+</div>
+</div>
+</body>
+  </text>
+</TEI>

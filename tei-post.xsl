@@ -65,6 +65,9 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
               <xsl:when test="normalize-space(.) != ''">
                 <xsl:apply-templates/>
               </xsl:when>
+              <xsl:when test="normalize-space(@key) != ''">
+                <xsl:value-of select="normalize-space(@key)"/>
+              </xsl:when>
               <xsl:otherwise>
                 <xsl:value-of select="$el"/>
               </xsl:otherwise>
@@ -77,13 +80,19 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-  <!-- value in attribute -->
+  <!-- value in attribute (should be unique) -->
   <xsl:template match="@*[starts-with(., '{') and contains(., '}') and normalize-space(substring-after(., '}')) = '']" mode="model">
     <xsl:variable name="key" select="translate(., $ABC, $abc)"/>
     <xsl:attribute name="{name()}">
       <xsl:choose>
-        <xsl:when test="$meta[@type = $key] and normalize-space($meta[@type = $key]) != ''">
-          <xsl:value-of select="normalize-space($meta[@type = $key])"/>
+        <xsl:when test="normalize-space($meta[@type = $key]) != ''">
+          <xsl:variable name="value">
+            <xsl:apply-templates select="$meta[@type = $key]"/>
+          </xsl:variable>
+          <xsl:value-of select="normalize-space($value)"/>
+        </xsl:when>
+        <xsl:when test="normalize-space($meta[@type = $key]/@key) != ''">
+          <xsl:value-of select="normalize-space($meta[@type = $key]/@key)"/>
         </xsl:when>
         <xsl:otherwise>
           <xsl:value-of select="normalize-space(.)"/>

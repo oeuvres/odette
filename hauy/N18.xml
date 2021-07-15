@@ -1,0 +1,1068 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://oeuvres.github.io/teinte/teinte.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="fr">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Le Journal des Soldats Blessés aux Yeux</title>
+        <principal>E. Brieux</principal>
+        <author>Eugène Brieux</author>
+<author>Bruno Bertoni</author>
+<author>Jean Liotaud</author>
+<author>Jules Duché</author>
+<author>Henri Bordier</author>
+<author>Louis Assemat</author>
+<author>Duquenne</author>
+<author>J.-M. Hourcade</author>
+<author>Tessier</author>
+<author>Joachim Vauy</author>
+<author>H. Viellet</author>
+<author>Raoul Cartier</author>
+<author>L. Delmas</author>
+<author>Joseph Le Bourlant</author>
+<author>Coulomb </author>
+<author>A. Fauvel</author>
+<author>Pannetrat </author>
+<author>F. Dallet</author>
+<author>Bobb</author>
+<author>P. Le Stunf</author>
+<author>Trul</author>
+<author>O. Herbaut</author>
+<author>E. Fort</author>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Médiathèque Valentin Haüy</publisher>
+        <availability status="restricted">
+          <licence target="https://creativecommons.org/publicdomain/zero/1.0/deed.fr"/>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <publisher>{publicateur}</publisher>
+          <dim>24 x 15,5 cm </dim>
+<dim>24 pages numérotées + 4 pages</dim>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fr"/>
+      </langUsage>
+      <creation>
+        <date when="1918-04"/>
+      </creation>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+
+
+<space unit="line" quantity="1"/>
+
+<pb n="n.p."/>
+<p>N° 18</p>
+<p>Avril 2018</p>
+<div>
+<head>Le Journal des Soldats Blessés aux Yeux</head>
+<p>Ce Journal, qui parait une fois par</p>
+<p>mois, n’est pas mis dans le commerce</p>
+<p>Il est exclusivement réservé aux</p>
+<p>soldats blessés aux yeux, à qui</p>
+<p>il est envoyé gratuitement, et aux</p>
+<p>personnes qui s’intéressent à eux</p>
+<p>Directeur-gérant –</p>
+<p>M. Brieux, de l’Académie française</p>
+<p>26, Rue Victor-Massé, Paris</p>
+<p>Administration</p>
+<p>35, Boulevard du Château Neuilly-sur-Seine</p>
+
+<pb n="n.p."/>
+</div>
+<div>
+<head>Liste des Donateurs pour les Soldats Blessés aux Yeux Mois de Mars 1918 Les Souscriptions de 20 francs au moins donnent droit à l’envoi du journal.</head>
+<index>
+<term type="contributeur">E. Brieux</term>
+
+<term type="sujet">Aide sociale et publique</term>
+</index>
+<p>MM. Moureaux, Porte et Cie, Maisons-Alfort : 500</p>
+<p>Mme Berthe Welch, San-Francisco : 1.142</p>
+<p>Mlle Marguerite Dunhels, Londres : 1.000</p>
+<p>Mme Hayera, à Hostens, 20 fr. — Mme S. Broussaud, à Cordeaux, 300 fr.—M. Guillois, à Ermont (Seine-et-Oise), 20 fr. — Mlle Camille Mangin, Union des Femmes de France, Croix-Rouge, Comité de Roanne, 500 fr.— M. Emilio Fabra, Buenos-Aires, 25 fr. — M. V. Gazel, Paris, 20 fr. — Comité des Dames Françaises de Montevideo, 666 fr. — Mme B. Besançon, Paris, 20 fr. — Mme Ribau, Paris, 10 fr. — Mme Albert Dupuy, à Envermeu (Seine-Inférieure), 25 fr. — Souscription au 3<hi rend="sup">e</hi> Emprunt de la Défense Nationale des Classes de Mathématiques, de Philosophie, de Première A, B, C, de Seconde D, de Cinquième A, de Cinquième B, du Collège Rollin, 12, avenue Trudaine, six titres de rente de 4 fr., un titre de rente de 8 fr. — M. le Général Florentin, Paris, 100 fr. — Une Mère de Famille, 5 fr. — La Ligue Française de l’Enseignement, Paris, 100 fr. — Le Cours Complémentaire 2<hi rend="sup">e</hi> année, Paris, 20 fr. — M. Gallois, interprète, attaché à l’Ambassade de France de Tokio, Japon, 5o fr. — Souscription faite à l’occasion d’une cérémonie sur les tombes des soldats morts pour la France, par la Société « Le Souvenir Lorrain », Épinal, 5o fr. — Anonyme L. M., 500 fr. — M. V. Lemenager Paris, 100 fr. — Collecte faite par Mme Deschizeaux, Alexandrie, 300 fr. — Anonyme, 25 fr. — Mme Simon, à Paris, 20 fr. -Miss Valler, à Londres, 12 fr. 5o. — M. E. Joseph, Paris, 2 fr. 5o. — M. Consil, Paris, 20 fr. — M. Grabenssaetter, Paris, 20 fr. — Mme P. M., « En mémoire de sa Grand-Mère », 25 fr. — M. Dairiens, Toulon, 25 fr. — La Classe de 1<hi rend="sup">re</hi> du Lycée Hoche à Versailles, un titre de rente de 4 fr. — Les Élèves de Mme Marconnet, Cours Sauriel, à Saint-Etienne, 5 fr. — M. Eugène d’Eichthal, Paris, 20 fr. — Mme Marcel Compin, Bourbon-Lancy, 20 fr. — Mme Marthe Villemin, Alexandrie, Egypte, 150 fr. — Cotisation d’un groupe d’Élèves du Lycée de jeunes filles de Besançon, un titre de rente de 15 fr. — M. C. Brechon, 10 fr. — « Bourguignonne », 25 fr. — Mme Mallard, Infirmière-Major à Rennes, 20 fr. — Les élèves de l’Ecole de Filles, 18, rue Saint-Benoît à Paris, 20 fr. -M. le Docteur Dor, à Lyon, 50 fr. — Le institutrices de l’École Maternelle, à Paris, 30 fr. — M. M. Leneru, Paris, 20 fr. — M. Tastavin, à Douzère (Drôme), 20 fr. — M. et Mme V. Brossier, à Béhuard (Maine-et-Loire), 20 fr. — M. et Mme Edme Viellard, Paris, 20 fr. — MM. E. et C. Biquard, Buenos-Aires, 120 fr. —</p>
+</div>
+<div>
+<head>Liste des souscriptions transmise par les Annales</head>
+<index>
+<term type="contributeur">E. Brieux</term>
+
+<term type="sujet">Aide sociale et publique</term>
+</index>
+<p>Union des Femmes de France, Comité de Barcelone, transmis par Mme Lecante, Présidente : 1.000</p>
+<p>Mme Alexander, Paris, 20 fr. — M. Pierre Cordahi, Alexandrie, 5 fr. — Anonyme de Lyon (M. Bosson à Lyon), 5 fr. — Mme Jouvenel, Nice, 5 fr. — Mme Anna Rampont, à Tessin (Suisse), 20 fr. — Mlle M. Estivin, Paris, 3 fr. — M. et Mme Alban-Goumard, à Chalon-sur-Saône, 5 fr. — M. R. Dade, Châlette (Loiret), 25 fr. — Mme Blanc, Oran, 5 fr. — Mlle Made-Jenny Cadelys, Mont-Saint-Aignan, 10 fr. — M. Espenant, Toulouse, 5 fr. — Mme et Mlle Toudy, Paris,1 fr. — M. André Debuissert, 320<hi rend="sup">e</hi> d’Infanterie, S. P. 99, 4 fr. — Mme Bernot, Ferryville (Algérie), 4 fr. 90. — Mlle Hélène Plessonnier, Vinzelles-les-Mâcon, 1 fr. — Mme Sallebœuf, Bordeaux, 5 fr. — Mlle M. Noirot, Eaubonne, (Seine-et-Oise), 5 fr. — Les Petites Élèves de l’École de Vallourdin, Toulon, 20 fr. — Anonyme, G. B., 50 fr. — Anonyme, 100 fr. — Les Élèves de l’École de Massat-Liers (Ariège), 5 fr. — Concert organisé par les conscrits de la Classe 1919, transmis par le Maire de Valentigney (Doubs), 50 fr. — Quête faite par les enfants Bulauraut et Noblet, à Saint-Rouve-de-Jeux, (Saône-et-Loire), 19 fr. — Mme Marie Schenker, 1109-14 th Street NW<space rend="tab">    </space> Washington D. C., 50 fr. — Mme Albertini Paris, 5 fr. — Deux abonnés à Camarsac (M. et Mme Ferrand), (Gironde), 20 fr. — Mlle Lafont et ses Élèves, Le Seurt, par Saint-Paul-de-Jarral, (Ariège), 15 fr. — M. Marty, Clichy, 10 fr. -— M. A. S., 20 fr. — Le Commandant et Mme Barault, Versailles, 25 fr. -Matinée artistique offerte le 3 mars à la population de Montfort-l’Amaury par les blessés de l’hôpital auxiliaire 17, 450 fr. — M. E. Bernard, Président du Tribunal, Château Gontier (Mayenne), 50 fr. — M. de Pierreux à Roanne, 50 fr. — Mme Taffoureau, Paris 10 fr. — Mme E. G. Picard, Paris, 10 fr- Anonyme à Grandsaigne, Saint-Rémy-sur-Durolle (P.-de-D.), 10 fr. — La Classe de 1<hi rend="sup">re</hi> D du Lycée Ampère à Lyon, un titre de rente de 4 fr. — Les Élèves de Mme C. Sabtier, Cours Sauriel, à <hi rend="bg_ffff00">S</hi>aint-Étienne, 7 fr.</p>
+
+<pb n="n.p."/>
+</div>
+<div>
+<head>Comité français Du Permanent Blind Relief War Fund for Soldiers and Sailors (fondé par M. et Mme George Kessler) Entrepôt des Matières premières 35, Boulevard du Château, Neuilly-sur-Seine (Seine) Note du magasinier</head>
+<index>
+<term type="lieu">Neuilly-sur-Seine</term>
+
+<term type="contributeur">« Vieux copain de magasinier »</term>
+
+<term type="sujet">Première Guerre mondiale</term>
+
+<term type="sujet">Soin des malades et des blessés. Sociétés d’entraide</term>
+</index>
+<p>« Un caporal c’est un légume :</p>
+<p>Ça gueule, ça boit, ça chique, ça fume. »</p>
+<p>Je parie que vous ne reconnaissez pas les paroles de la breloque, du moins celles que nous chantions autrefois lorsque je faisais mon service au 69<hi rend="sup">e</hi> plongeurs à cheval.</p>
+<p>Aujourd’hui, on a dû changer à cause des gosses des écoles, car à Paris la breloque est un air connu de tous. Alors, comme le patron ne laisserait pas imprimer les paroles que vous savez certainement, j’adopte les nouvelles pour vous apprendre que les « godasses » sont encore venus « en espadrille » pour nous barber. Mais on s’en fout à l’Entrepôt autant que de la grosse « Béthasse ».</p>
+<p>Non, mais croyez-vous que c’est une vie ce truc-là et si vous avez un peu de cœur, je suis sûr que vous le plaignez votre vieux bon zig de magasinier. Songez, mes pauvres vieux, à tous les malheurs qui me tombent sur la coloquinte à cause de ces cochons de Boches. Je m’esquinte à compter vos bois, à peser votre chiendent et à ficeler vos ballots pour que vous n’attendiez pas. Tous les matins je charge la guimbarde, vous savez le corbillard remorqué par les canassons qui veulent rien savoir pour sucer l’essence de la radouille. On arrive à la gare. On décharge le barda et, quand tout prêt, le chef de gare vient nous dire qu’il veut rien savoir pour aujourd’hui, qu’il peut rien prendre et qu’il faudra repasser deux ou trois jours plus tard. J’ai beau lui raconter que vous êtes des poilus épatants, les enfants du patron ; que si vous avez pas vos ballots, vous pourrez pas turbiner ; que je vas me faire enlever par le gestionnaire et le toubib. Il veut rien savoir et faut rappliquer à l’Entrepôt, sans avoir pu faire d’expédition. Chaque fois qu’ça nous arrive, on revient en chantant la chanson que vous connaissez aussi bien que moi : « Il est... veinard le chef de gare. » Ça nous soulage et ça le fout en rogne l’homme à la casquette blanche et au drapeau rouge !</p>
+<p>Tout ça c’est pour vous dire qu’il faut pas nous en vouloir si en ce moment on a quéque fois du retard dans les livraisons, mais ça dure pas, puisque maintenant le trafic, comme dit ce rigolard de coiffeur-planton-cycliste, est rétabli.</p>
+<p>Puisque je vous parle de nos embêtements d’expédition, faut que je vous redise encore de pas oublier sur votre commande de nous donner vos prénoms. Figurez-vous que vous êtes des tas qui s’appelez Durand ou Dupont, alors si vous dites pas que vous êtes Ugène ou Gaspard, nous, on se fout dedans et on envoie à Ugène le truc à Gaspard, et à Gaspard le fourbi à Ugène. Tout çà, ça fait des mic-macs à la peau d’toutou et on s’y rconnaît plus.</p>
+<p>Manquez pas non plus de bien nous dire la gare destinatrice, celle où faut envoyer les colis. Y en a qui oublient, alors, nous qu’on est pas calé en orthographe, tout le monde n’est pas d’l’Académie dans notre administration, on se gourre et v’la les chichis qui commencent avec les gratte-papiers des bureaux.</p>
+<p>Enfin, vous serez bien gentils de nous donner les dimensions exactes des bois de brosses que vous voulez. Quand vous le dites pas, nous qu’avons toujours plus de courage à boire un verre de pinard qu’à travailler, on vous envoie le premier bois qui nous tombe sous la main. Vous rouspétez, le patron suit le mouvement, le toubib et le gestionnaire s’en mêlent et qui c’est qui trinque ? c’est votre</p>
+<byline>Vieux copain de magasinier.</byline>
+
+<pb n="n.p."/>
+<p>Paris — Imprimerie chaix (succursale B), 11 boulevard Saint-Michel — 1184-18.</p>
+
+<pb n="1" xml:id="p1"/>
+</div>
+<div>
+<head>Le Journal des Soldats Blessés aux Yeux</head>
+<index>
+<term type="contributeur">E. Brieux</term>
+
+<term type="sujet">Aide sociale et publique</term>
+</index>
+<p>Le “Journal des Soldats Blessés aux Yeux” n’est pas mis dans le commerce : il est adressé gratuitement à tous ces blessés, et aux souscripteurs de vingt francs au moins.</p>
+<p>Nous faisons appel à la collaboration de tous, sous forme de critiques, de conseils ou d’articles.</p>
+</div>
+<div>
+<head>À nos nouveaux camarades</head>
+<index>
+<term type="contributeur">E. Brieux</term>
+
+<term type="sujet">Aide sociale et publique</term>
+</index>
+<p>Nous voici revenus aux jours les plus graves de la guerre.</p>
+<p>Depuis la fin de mars, nos soldats combattent.</p>
+<p>Beaucoup sont frappés.</p>
+<p>Le nombre de nos camarades blessés aux yeux va s’accroître.</p>
+<p>Il faudra les réconforter.</p>
+<p>Je laisse donc aujourd’hui la meilleure place de notre journal à nos camarades afin que les nouveaux venus de notre énergique et douloureuse famille soient réconfortés par l’exemple de leurs aînés.</p>
+<p>Habituellement, je supprime dans leurs lettres, autant que possible, les paroles de reconnaissance qu’ils veillent bien m’adresser : c’est affaire entre eux et moi. Je n’ai pas eu le courage de faire subir la même amputation à toutes les lettres suivantes. Il est nécessaire en effet que nos nouveaux camarades sachent quel concours empressé et quelle affection ils trouveront, après leurs blessures.</p>
+<p>Les remerciements qui me sont adressés, vont non pas à moi, mais à toutes nos œuvres, à nos directeurs d’écoles, à nos oculistes, aux infirmières, aux nobles amies et amis des soldats blessés aux yeux.</p>
+<p>Que nos nouveaux enfants le sachent bien, leurs mains tendues dans la nuit trouveront tout de suite de nombreuses mains avides de dévouement, qui ne se contenteront pas d’une étreinte, mais les conduiront, les soutiendront jusqu’au moment béni où ils pourront n’avoir plus besoin d’elles qu’accidentellement.</p>
+<p>Car on peut, même privé de la vue, vivre une existence digne et heureuse.</p>
+<p>Je n’oserais pas écrire cela si nos camarades ne le disaient eux-mêmes.</p>
+
+<pb n="2" xml:id="p2"/>
+<div>
+<head>Le travail et l’amour de la famille</head>
+<index>
+<term type="date"/>
+
+<term type="lieu">Nice ?</term>
+
+<term type="contributeur">Bruno Bertoni</term>
+
+<term type="sujet">Première Guerre mondiale</term>
+
+<term type="sujet">Aide sociale et publique</term>
+
+<term type="sujet">Aspects particuliers de l’éducation</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+
+<term type="sujet">Soin des malades et des blessés. Sociétés d’entraide</term>
+</index>
+<salute>Monsieur,</salute>
+<p>Vous me faites le grand honneur de vouloir connaître ce que nous autres, aveugles de la guerre, pouvons penser du sort qui nous est fait. Pour mon compte, je m’empresse de vous le dire.</p>
+<p>D’abord c’est l’occasion pour moi de vous témoigner mon entière reconnaissance, car vous n’arriverez jamais à comprendre tout le bien que vous m’avez fait, à moi, en particulier.</p>
+<p>Niçois, lorsque aux Dardanelles mes paupières se sont fermées pour toujours, je revins auprès de mes parents et grâce à Dieu, aux dames plutôt de l’œuvre de « Pour nos Soldats aveugles ». Là on m’a encouragé, précisément par vous-même, monsieur Brieux, c’est-à-dire par vos belles lettres qui ont tout de suite éclairé mon noir chemin. Parce qu’il n’y a pas à dire le contraire, vos bons conseils qui m’étaient lus et relus par vos protectrices de l’œuvre, m’ont ressuscité, il faut l’avouer, j’ai compris qu’il me fallait utiliser une vie longue peut-être et passer le mieux possible les jours si longs, si longs et tellement tristes lorsque tout est noir et qu’on ne s’occupe à rien.</p>
+<p>Je consentis à apprendre le Braille. Je réussis en peu de temps à lire et à écrire malgré les moments d’amer découragement qui viennent souvent surprendre ma bonne volonté. Mais les exhortations si douces de mon ange gardien, je veux dire de ma maîtresse de Braille, que Dieu bénisse, me ramenaient à mes sages résolutions.</p>
+<p>J’aime la musique ; sachant lire et écrire, je désirais étudier le piano. L’œuvre me procura un professeur et un piano. Mais je me rendis compte que j’arriverai trop tard à faire un pianiste-organiste. Je me rejetai alors sur l’accordage de piano qui me fut enseigné par les soins de l’œuvre, je pus assez vite commencer à accorder, sous la surveillance du maître.</p>
+<p>Sur ces entrefaites, la Providence m’avait réservé un plus grand bonheur : j’avais retrouvé fidèle ma chère petite fiancée d’avant la guerre, et elle avait voulu devenir la courageuse compagne de l’aveugle que je suis. Notre travail à nous deux suffit à notre ménage. Jeune fille, ma femme excellait dans la fabrication des pâtes alimentaires ; moi, je n’y entendais rien, parce que chauffeur-automobiliste de mon métier.</p>
+<p>Mais de même que j’avais essayé de jouer du piano, je tâchai de mettre les mains à la pâte, et j’ai mieux réussi J’aide bien ma femme dans le travail facilité, il est vrai par la machine que nous possédons par l’intervention de mon œuvre. Elle m’a fait avoir au Prêt d’Honneur au Soldat aveuglé l’argent nécessaire à l’achat de mon materiel.</p>
+<p>Et maintenant, comme qui dirait que tout le soleil de mon pays m’est entré dans le cœur, et depuis une quinzaine de jour j’ai l’immense joie d’être père</p>
+
+<pb n="3" xml:id="p3"/>
+<p>d’un beau petit; par le toucher, je sais qu’il est mignon, bien bâti.</p>
+<p>Il m’apporte les meilleures tendresses, celles que bien des voyants peuvent m’envier, et je suis fier d’avoir donné à la France, à qui j’ai sacrifié mes yeux, un futur défenseur.</p>
+<p>Si, parmi mes camarades d’infortune, il y en a qui se désespèrent, je les engage à se rapprocher à vous, monsieur Brieux, ainsi qu’aux belles âmes de nos Françaises, si bonnes et qui nous tendent leurs mains secourables. Ils seront vraiment étonnés que, privé de la vue, l’on puisse encore se trouver heureux sur terre. Pour cela m’est avis que deux choses suffisent, le travail et l’amour de la famille.</p>
+<byline>Bruno Bertoni, du 1er d’infanterie (Médaille militaire et Croix de guerre).</byline>
+</div>
+<div>
+<head>À la campagne</head>
+<index>
+<term type="date">1918-02-21</term>
+
+<term type="lieu">Saint-Savournin</term>
+
+<term type="contributeur">Jean Liotaud</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+</index>
+<dateline>Saint-Savournin, le 21 février 1918.</dateline>
+<salute>Cher monsieur Brieux,</salute>
+<p>Comme je vous l’avais promis, je vous écris pour vous faire savoir les débuts de mon installation chez moi ; pour le moment, ça va très bien, et je suis très satisfait de mon travail ; j’espère qu’à l’avenir, cela ira encore mieux. Je fais mes deux douzaines de couffins par semaine.</p>
+<p>Je vous dirai, aussi, cher monsieur Brieux, que j’ai vu mon propriétaire qui a été très satisfait. Je vous dirai aussi que je suis très bien dans mon village, car je suis tout près de mes parents et de tous mes amis, et nous ne languissons pas du tout, et pour quelqu’un qui est aveugle, il vaut cent fois mieux qu’il aille habiter la campagne, car il y a moins de danger, et l’on a vite fait connaissance avec tous les gens du pays, et l’on a plus d’aide que dans les grandes villes.</p>
+<p>Je souhaite que tous les camarades qui sont dans ma position prennent la résolution d’aller à la campagne.</p>
+<salute>Cher monsieur Brieux, nous nous joignons tous pour vous envoyer tous nos remerciements, et je vous serre cordialement la main.</salute>
+<byline>Jean Liotaud, à Saint-Savournin (Bouches-du Rhône).</byline>
+</div>
+<div>
+<head>Un aveugle cordonnier</head>
+<index>
+<term type="date">1918-01-24</term>
+
+<term type="lieu">Choloy</term>
+
+<term type="contributeur">Jules Duché</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+</index>
+<dateline>Choloy, 24 janvier 1918.</dateline>
+<salute>Cher monsieur Brieux,</salute>
+<p>En réponse à votre lettre que j’ai reçue hier, et qui m’a fait plaisir, où vous me demandez pour mon travail de cordonnerie, j’ai au pays plus de travail que je ne pourrais faire, car toutes les personnes qui ont vu mon travail sont stupéfaites de voir un aveugle travailler aussi bien ; mais l’ennui que j’ai, c’est de ne pas pouvoir avoir l’argent pour acheter les cuirs et la clouterie en plus de l’outillage, car il me faudrait en cordonnerie :</p>
+<p>Du cuir pour ressemelages d’hommes, car ces deux cuirs sont de différentes épaisseurs ; ce sont les mêmes prix, mais l’un est plus avantageux que l’autre, et ils valent l’un comme l’autre 12 fr. 50 le kilog., et pour un cordonnier, il ne faut pas moins d’un carré de cuir de chaque ; il faut aussi ce que l’on appelle du « flan », pour faire des « chiqués » sous bout ou sous semelle, pour la garniture des semelles de chaussures. Il faut aussi pour le collage des pièces de la colle bouchon, et du cuir bascine (?) noir et jaune pour la réparation de différentes chaussures, pour la clouterie également, de toutes dimensions, et pointue pour chevillage.</p>
+<p>Pour tous ces objets dont je vous parle, j’ai bien trouvé cela à Toul en achetant mon cuir par kilog., mes pointes par demi-quart. Il faut donc, cher monsieur Brieux, que chaque fois que j’ai réparé une paire de chaussures, je retourne à Toul pour</p>
+
+<pb n="4" xml:id="p4"/>
+<p>faire un second achat, quand j’ai encore assez d’argent. Je serais si heureux d’avoir toutes ces matières à l’avance pour pouvoir travailler franchement, mais pour cela, eh bien ! travailler et être sûr de pouvoir augmenter un peu mon salaire pour élever ma chère petite famille.</p>
+<p>À Toul où je prends cette matière, je me suis renseigné sur l’ensemble qu’il me faut pour bien travailler, car je suis déjà bien connu, et l’on me quitte bien souvent de petites choses, et je trouve à Toul tout ce que je veux, et pour cela il faudrait que je dispose d’une certaine somme ; hélas, comme cette somme, je ne puis la fournir, je suis donc forcé de rester sans travail. Cher monsieur Brieux, je viens à l’instant même de finir une paire de chaussures d’enfants, je vous la fais parvenir par la poste à seule fin que vous puissiez vous-même constater mon travail, et vous voudrez bien me la renvoyer après visite de votre part, et fait voir aussi à toutes les personnes qui voudraient en prendre connaissance, car je peux dire que je suis heureux d’avoir appris en trois mois et demi le métier de cordonnier, cousage et collage des pièces. Et dans l’attente, cher monsieur Brieux, que vous vous rendiez compte de mon travail,</p>
+<salute>Recevez donc, monsieur Brieux, de mes six enfants et de Mme Duché et de moi tous nos remerciements et notre plus profond respect.</salute>
+<salute>Cordialement à vous.</salute>
+<byline>M. Jules Duché, à Choloy, par Toul (Meurthe-et-Moselle).</byline>
+</div>
+<div>
+<head>Remerciez tous nos amis!</head>
+<index>
+<term type="date">1918-01-06</term>
+
+<term type="lieu">Châteaudun</term>
+
+<term type="contributeur">Henri Bordier</term>
+
+<term type="sujet">Première Guerre mondiale</term>
+
+<term type="sujet">Aide sociale et publique</term>
+
+<term type="sujet">Aspects particuliers de l’éducation</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+
+<term type="sujet">Soin des malades et des blessés. Sociétés d’entraide</term>
+</index>
+<dateline>Châteaudun, 6 janvier 1918.</dateline>
+<salute>Cher monsieur Brieux,</salute>
+<p>Ayant perdu la vue comme, hélas ! trop de mes camarades, par suite d’explosion d’obus en octobre 1916, j’en fus très affecté et je me demandai ce que j’allais devenir.</p>
+<p>Dans mon premier hôpital, à l’Hôtel-Dieu à Paris, je rencontrai un M. Brieux que je ne connaissais pas du tout.</p>
+<p>Oui, mais ce M. Brieux était averti que j’étais tout nouveau arrivé du front. Alors, il pensa que j’avais besoin d’avoir le moral remonté, et c’est ce qu’il essaya de faire en me racontant que rien n’était perdu, et que comme cultivateur je pourrais retourner aux champs, puis que je ferais des brosses, raccommoderais des souliers, et rempaillerais des chaises.</p>
+<p>Moi, sous mon bandeau, j’écoutais mais je ne pensais pas tout à fait la même chose. J’ai tant réfléchi que je m’en rappelle encore, et après son départ, je me suis renseigné auprès de mes camarades borgnes pour savoir de quoi il s’agissait. Faire des brosses, rempailler des chaises, diriger la charrue, raccommoder des souliers et être aveugle... Je me demandais si j’avais bien compris quand, quelques jours après, on m’annonça la mise en batterie de plusieurs établis de brossiers dans une salle voisine.</p>
+<p>Une personne vint me chercher et m’emmena dans cette salle où j’ai rencontré plusieurs camarades aveugles avec qui je n’avais que très peu parlé. Un … professeur de brosserie à qui l’on m’a présenté, et une foule de personnes qui avait l’air content. Vivement, on me donnait l’emplacement des outils de travail … avec beaucoup d’explications, j’arrivais avec l’aide du professeur, à commencer la première brosse, et ses compliments et récompenses m’ont fait prendre goût au métier et j’ai continué sans savoir où cela me mènerait.</p>
+<p>Pendant mon séjour dans cet hôpital, j’ai obtenu une convalescence de trois mois pendant laquelle je ne faisais que me promener.</p>
+<p>Je rentrai ensuite dans divers hôpitaux et j’ai fini par échouer à Chartres, dans une école de rééducation où j’ai trouvé quelques camarades.</p>
+<p>Comme je ne voulais rien savoir de la culture, de braves gens qui s’intéressaient à moi m’ont fait comprendre que je devais apprendre tout ce qu’on enseigne à cette école.</p>
+<p>Ce qui fut dit fut fait, et comme j’ai la tête dure, il m’a fallu quatorze mois pour tout apprendre : brosserie, cannage et repaillage de chaises, raccommodage de chaussures, dactylo, Braille et son abrégé.</p>
+
+<pb n="5" xml:id="p5"/>
+<p>Je finis ma rééducation le 1<hi rend="sup">er</hi> septembre 1917.</p>
+<p>Je fus installé par les soins du Comité Franco-Américain dans la petite ville de Châteaudun, à proximité de ma famille. Je n’ai rien à dire du début de mon commerce car je commence un bail assez long, et je ne parlerai que si je suis assez adroit pour le faire prospérer. Toutefois, sans vous détailler ce que je fais, je dois vous dire que je travaille continuellement. Je suis content de pouvoir si bien me tirer d’affaire.</p>
+<p>Revenons à ce M. Brieux... Non, je ne le connaissais pas, il m’a parlé à Paris, à l’H-Dieu, aux Quinze-Vingts, à Reuilly et enfin à Chartres.</p>
+<p>Partout et toujours, il était parmi nos camarades, leur conseillant la rééducation, ce qui était la meilleure façon de nous soustraire à l’ennui d’abord, et ensuite une question d’existence que goûtent ceux qui comme moi sont rentrés chez eux.</p>
+<p>Cher monsieur Brieux, il n’y a pas doute, c’est bien vous qui êtes venu me parler en 1916. C’est alors que je vous reconnais une telle valeur que je n’ose plus vous écrire.</p>
+<p>Cependant, avant de terminer, je tiens à vous remercier de vous être dépensé pour la rééducation de mes camarades aveugles, et je conseillerai à ceux-ci de se perfectionner dans leur travail pendant leur séjour à l’école, car après il est trop tard.</p>
+<p>Je sais que nous avons beaucoup d’amis, hélas ! trop nombreux pour que je puisse leur écrire.</p>
+<p>Aussi, monsieur Brieux, je vous prie de les remercier pour moi, car c’est grâce à eux que je suis gentiment installé.</p>
+<salute>Et avec mes remerciements les plus complets, recevez, etc.</salute>
+<byline>Henri Bordier, Ecole de Chartres, installé à Châteaudun (Eure-et-Loir)<space rend="tab">    </space></byline>
+</div>
+<div>
+<head>On chante en travaillant</head>
+<index>
+<term type="date">1918-01-03</term>
+
+<term type="lieu">Montpellier</term>
+
+<term type="contributeur">Louis Assemat</term>
+
+<term type="sujet">Première Guerre mondiale</term>
+
+<term type="sujet">Aide sociale et publique</term>
+
+<term type="sujet">Aspects particuliers de l’éducation</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+</index>
+<dateline>Montpellier, le 3 janvier 1918.</dateline>
+<p>Louis Assemat, aveugle de guerre à l’École de rééducation de Montpellier, à monsieur Brieux, de l’Académie Française, Paris.</p>
+<byline>Monsieur Brieux,</byline>
+<p>Depuis de longs mois je languissais dans la famille, je restais dans l’inaction, parce que je croyais qu’un aveugle n’était plus qu’un être inutile. Cependant, sur les instances pressantes de camarades que j’avais connus jadis, et qui comme moi ont payé de leurs yeux leur dette à la Patrie, je me suis décidé à faire comme eux et à entrer dans une école professionnelle. Je suis à Montpellier depuis huit jours, et je suis enchanté d’y être. On y chante en travaillant, tout le monde est gai, et le cafard est banni des ateliers. Mais ce qui m’a le plus surpris, c’est de voir les camarades se raser eux-mêmes. Mais comment faites-vous ? leur ai-je dit C’est avec le rasoir de M. Brieux, m’a-t-on répondu. Et quelqu’un ajoute : Ce bienfaiteur l’offre gracieusement à tous les aveugles qui en font la demande. À cet effet, j’ai l’honneur de vous prier de vouloir bien m’envoyer cet objet utile autant qu’indispensable.</p>
+<salute>Daignez agréer, monsieur Brieux, avec mes remerciements anticipés, l’hommage de mon plus profond respect.</salute>
+<byline>Louis Assemat, à l’Ecole de Montpellier.</byline>
+</div>
+<div>
+<head>« Jamais je n’aurais cru... »</head>
+<p><hi rend="color_0070c0"><hi rend="b">Date: 1918-01-10</hi></hi></p>
+<p><hi rend="color_0070c0"><hi rend="b">Lieu: Eu</hi></hi></p>
+<p><hi rend="color_0070c0"><hi rend="b">Contributeur: Duquenne</hi></hi></p>
+<p><hi rend="color_0070c0"><hi rend="b">Sujet: Artisanat. Arts et métiers</hi></hi></p>
+<dateline>Eu, le 10 janvier 1918.</dateline>
+<salute>Monsieur Brieux,</salute>
+<p>Je peux vous affirmer, monsieur Brieux, que mon fils commence à bien travailler à rempailler les chaises ainsi qu’à les canner. Je vous serai toujours reconnaissant d’avoir fait apprendre un métier à mon fils aveugle. Jamais je n’aurais cru qu’un aveugle puisse travailler aussi bien.</p>
+<salute>Recevez, monsieur Brieux, les vœux de bonne année de toute ma famille et de votre tout dévoué.</salute>
+<byline>Duquenne, maison Briquentin, Eu (Seine-Inférieure).</byline>
+</div>
+<div>
+<head>« La vie s’ouvrait bien noire »</head>
+<index>
+<term type="date">1917-12-30</term>
+
+<term type="lieu">Paris ?</term>
+
+<term type="contributeur">J.-M. Hourcade</term>
+
+<term type="sujet">Aspects particuliers de l’éducation</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+
+<term type="sujet">Soin des malades et des blessés. Sociétés d’entraide</term>
+</index>
+<dateline>30 décembre 1917.</dateline>
+<byline>Monsieur Brieux,</byline>
+<p>Au début de la blessure de mon mari, qui lui arriva trois mois après notre mariage, la vie s’ouvrait bien noire pour lui et pour moi, nos débuts en ménage</p>
+
+<pb n="6" xml:id="p6"/>
+<p>n’étaient pas bien gais, et, je pensais que jamais je ne serais capable de lui remonter le moral, car moi-même j’en avais besoin, au point que ma santé en fut bien ébranlée. Mais, grâce à vous, monsieur Brieux, tous ces nuages ont disparu. Depuis que j’ai fait votre connaissance à l’hôpital de Chartres, où mon mari était en traitement et où il a reçu les soins dévoués de MM. les docteurs Cosse et Delort, nous avons, lui et moi, repris courage. Vous nous avez montré tant de sympathie, inspiré tant de confiance dans un avenir encore possible d’être heureux, que cette confiance dissipa notre incertitude et que maintenant nous réalisons les plans que vous nous faisiez entrevoir à cette époque. Surtout depuis la création de votre maison de tricotage où mon mari est actuellement, nous sommes à la porte de notre rêve, car nous caressions vraiment la possibilité de travailler ensemble et à notre compte aussitôt la guerre finie, sans même savoir dans quoi et comment, et voilà que nos chers désirs vont se réaliser malgré l’affreuse blessure de mon mari.</p>
+<p>Vous savez, il n’est plus le même depuis qu’il travaille, et j’ai même peur qu’il arrive à mieux aimer sa machine que sa femme.</p>
+<p>Si je regarde au passé, même au mois d’août dernier avant qu’il rentre à Neuilly, je ne reconnais plus son caractère : il avait hâte à cette époque d’entreprendre son apprentissage, se demandant si vraiment il était possible de faire quelque chose étant aveugle. Je l’encourageais de mon mieux, mais moi-même je n’étais pas certaine.</p>
+<p>Enfin, un jour que j’étais à bout d’arguments, j’eus l’idée de l’emmener voir M. Cosse, alors que la maison de Neuilly était nouvellement ouverte.</p>
+<p>Cette visite fit sur nous deux une grande impression, car, à mon grand étonnement, au lieu de trouver M. Cosse à son bureau, il était en train d’ajuster lui-même une machine à tricoter, les mains graissées d’huile et sans paraître avoir peur de les salir davantage.</p>
+<p>Pour un médecin chef, cela me paraissait étrange, mais en même temps cela me fit comprendre toute la grandeur de cette simplicité. Quand, en nous retournant j’expliquai tout à mon mari, il me dit : « Tu sais, ce n’est pas tous les officiers chefs de service qui agissent ainsi. Il y en a beaucoup à la place de M. Cosse qui mettraient un mécanicien ; vraiment, il a de la bonne volonté. » Peut-être je vais vous ennuyer par tout ce bavardage, mais je voudrais que mes lignes vous disent combien vous nous avez fait de bien. Je termine donc en vous demandant de bien vouloir remercier de notre part toutes les personnes qui font quelque chose pour les aveugles.</p>
+<p>Puisse l’année 1918 vous apporter de grandes satisfactions dans votre œuvre.</p>
+<salute>Croyez, monsieur Brieux, à toute notre admiration ; veuillez agréer nos salutations bien sincères.</salute>
+<byline>J.-M. Hourcade, 67, rue d’Argout.</byline>
+</div>
+<div>
+<head>De grandes consolations Extrait d’une lettre de Tessier, au Bernard, par Longeville (Vendée).</head>
+<index>
+<term type="date">1917-12-24</term>
+
+<term type="lieu">Le Bernard</term>
+
+<term type="contributeur">Tessier</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+</index>
+<dateline>Le Bernard, 24 décembre 1917</dateline>
+<p>... Je vous avoue qu’avec de telles occupations, aux chaises, aux brosses, à la b et à la lecture de différents journaux, l’ennui ne peut pas arriver à faire ma connaissance, du fait d’un tel boulot.</p>
+<p>Je vous assure que mes parents et amis sont consolés à mon sujet, ils ne se demandent plus ce que je pourrais faire, ils m’ont vu à l’œuvre, et ils sont convaincus maintenant que, sans la lumière, on peut encore tenir une place utile dans la vie.</p>
+<p>Que tous mes camarades récemment blessés le sachent bien aussi et qu’ils ne s’effrayent pas de la vie nouvelle dont ils vont devenir l’objet ; de grandes consolations les attendent au foyer familial.</p>
+</div>
+<div>
+<head>Un Cultivateur</head>
+<index>
+<term type="date">1917-12-22</term>
+
+<term type="lieu">Le Hâle</term>
+
+<term type="contributeur">Joachim Vauy</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+</index>
+<dateline>Le Hâle, 22 décembre1917</dateline>
+<p>... Combien j’ai été heureux, il y a huit jours aujourd’hui, d’avoir reçu votre m…nique à raser. Je me suis dit tout de suite.</p>
+
+<pb n="7" xml:id="p7"/>
+<p>« Demain, je pourrai dormir une heure et même deux heures plus tard que les autres dimanches. Je pourrai me raser tout seul. »</p>
+<p>Je suis à trois kilomètres de la ville (de Pontivy). Alors, il fallait que je parte à huit heures du matin pour me raser avant la messe de onze heures, et même bien souvent onze heures passaient et je n’étais encore rasé : Exempt de messe ; alors, quoi, ah! c’était la barbe, c’est le cas de le dire.</p>
+<p>Moi, je suis réformé et rentré chez moi depuis le 18 juin. J'ai fait mon apprentissage à l’École que dirige ce bon M. Thomas, j’ai appris le métier de bouif ou cordonnier. Je suis aussi chez ma mère, dans une ferme, et ça fait qu’il manque beaucoup de bras pour la cultiver, cette ferme. Justement, moi qui en ai deux, et deux solides, je vous l’assure, je les aide aux durs travaux, ce que je peux faire, quoi.</p>
+<p>Toujours est-il que je ne m’en fais pas une miette. Il y a aussi une grande année de pommes à cidre et, comme tous les Bretons, je l’aime tant ! J’aide à moudre, à tourner le moulin. Là, y a pas besoin de voir clair, ça fait que souvent je fais plus que ma part, parce qu’ici il y a une habitude, dans les villages, on s’aide. Ici, on est quatre fermes, et tous les soirs, jeunes garçons qui sont rares (moi qui suis jeune aussi) et jeunes filles qui ne sont pas rares, elles autres, on va les uns chez les autres. Alors, on tourne les moulins pour moudre les pommes, et chacun son tour. Moi ne qui vois pas quand mon tour arrive, ils me disent : «À ton tour, Joachim ». Mais, je m’en fous, je suis plus fort qu’eux.</p>
+<p>Cher monsieur Brieux, je laisse tout ça et je vais au boulot.</p>
+<salute>Au revoir, monsieur, et merci beaucoup à la prochaine.</salute>
+<byline>Joachim Vauy, au Hâle, Pontivy (Morbihan).</byline>
+</div>
+<div>
+<head>Les journées passent sans qu’on s’en aperçoive</head>
+<index>
+<term type="date">1917-12-02</term>
+
+<term type="lieu">Gy</term>
+
+<term type="contributeur">H. Viellet</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+</index>
+<dateline>Gy, 2 décembre 1917.</dateline>
+<byline>Monsieur Brieux,</byline>
+<p>C’est ma femme qui écrit pour moi, pendant que je suis en train de faire des brosses pour la gendarmerie, car je vous ai déjà dit que j’avais reçu mon couteau, ainsi que le tréteau, malgré qu’il me manque le resté de l’outillage.</p>
+<p>Mon frère, qui revient du Tonkin, et que je n’avais pas vu depuis huit ans, m’a organisé une espèce d’établi, et me coupe mon chiendent.</p>
+<p>Je ne puis vous dire assez, monsieur Brieux, combien je suis heureux de travailler auprès de ma chère femme ; l’on n’écoutera jamais assez vos recommandations et vos encouragements pour que les aveugles apprennent un métier, car c’est une grande distraction, en même temps qu’un gain. Les journées passent sans qu’on s’en aperçoive, et si j’ai un débouché pour mon travail, je serai encore bien heureux. Tous les clients pour qui j’ai travaillé pendant ma permission sont très contents de mes brosses.</p>
+<salute>Recevez, etc.</salute>
+<byline>H. Viellet.</byline>
+</div>
+<div>
+<head>On les admire aussi sur le front</head>
+<index>
+<term type="date">1917-12-29</term>
+
+<term type="lieu">Châteaudun</term>
+
+<term type="contributeur">Raoul Cartier</term>
+
+<term type="sujet">Première Guerre mondiale</term>
+
+<term type="sujet">Soin des malades et des blessés. Sociétés d’entraide</term>
+</index>
+<dateline>Le 29 décembre 1917.</dateline>
+<salute>Bien chère maman de guerre,</salute>
+<p>C’est avec plaisir que j’ai reçu, il y a deux jours, votre intéressante brochure Le Journal des Soldats blessés aux yeux. Vraiment, quelle merveille que cette école de rééducation, et quelle douce consolation pour ces pauvres mutilés d’être choyés et soulagés dans leur malheur ! comme tout y est bien compris, et avec quelle délicatesse !</p>
+<p>J’ai fait part de votre intéressant journal à plusieurs de mes camarades ; je le ferai lire encore à beaucoup d’autres, afin de leur montrer que nous ne sommes pas abandonnés, que derrière nous il est encore de braves cœurs pour panser nos plaies ; quel réconfort moral, si vous saviez !</p>
+<p>Si je vous disais que certains avaient les larmes aux yeux de voir tant de dévouement, et surtout la délicatesse déployée, afin de satisfaire les désirs de chacun, sans froisser leur amour-propre, vous ne sauriez croire la réaction que cela a produite en nous.</p>
+
+<pb n="8" xml:id="p8"/>
+<p>Je me rappelle que dans l’après-midi nous avions eu une discussion au sujet de la paix; vous savez qu’il existe toujours, malheureusement, de ces pauvres têtes qui voient tout en noir, et qui à elles seules font plus de mal que les faits eux-mêmes. Eh bien, le soir, quand je leur ai lu votre brochure, ils n’étaient plus aussi butés. Je vous prie, ma chère maman, dites à vos généreux collaborateurs de propager ces journaux sur le front : ils sont plus réconfortants pour le poilu que les plus beaux discours de la Chambre, car là l’homme qui réfléchit, l’homme qui a un peu de cœur, est pénétré de la confiance que vous vous efforcez de nous communiquer ; pour moi, ce journal fera le tour de ma compagnie lorsque j’irai au repos, je n’aurai pas de discours à faire, je dirai simplement à un copain : Lis ça, mon pote, et de l’un à l’autre, sans bruit, il fera son effet, mais j’aurai soin de recommander qu’on ne l’abîme pas, car c’est pour moi un doux souvenir que j’emporterai à mes parents comme chacune de vos lettres.</p>
+<byline>Raoul Cartier, Cie de mitrailleuses 2/31,31e d’infanterie</byline>
+</div>
+<div>
+<head>Travaillez !</head>
+<index>
+<term type="date">1917-11-03</term>
+
+<term type="lieu">Florensac</term>
+
+<term type="contributeur">L. Delmas</term>
+
+<term type="sujet">Aspects particuliers de l’éducation</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+
+<term type="sujet">Soin des malades et des blessés. Sociétés d’entraide</term>
+</index>
+<dateline>Florensac, 3 novembre 1917,</dateline>
+<salute>Monsieur le Président,</salute>
+<p>Je serais heureux, Monsieur le Président, de pouvoir encourager par quelques mots, dans notre bon journal des blessés aux yeux, mes chers camarades qui ont encore des hésitations pour se refaire une nouvelle existence. Je me trouve presque heureux depuis ma sortie de notre bonne école de Montpellier où tous les professeurs, sous la bienveillante direction de l’éminent professeur M. Truc, rivalisent de zèle et de dévouement pour nous donner tous les moyens de vivre encore heureux.</p>
+<p>Je fais des brosses en quantité, et ma fillette, qui a appris comme moi le rempaillage des chaises, m’aide dans ce travail que je fais avec plus de plaisir, ayant une compagne. De plus, je travaille à la vannerie et mes paniers se vendent très bien dans notre pays où les gens travaillent au dehors.</p>
+<p>Je voudrais le leur dire, à tous ceux qui ont été atteints comme moi : « Travaillez et vous verrez comme la vie vous paraitra encore belle, et comme vous ne regretterez plus d’avoir donné à la Patrie le plus précieux de vos organes. »</p>
+<salute>Recevez, etc.</salute>
+<byline>L. Delmas.</byline>
+<quote>
+<p>Mes chers camarades,</p>
+<p>Ceux qui viennent d’être frappés comme vous l’avez été ont besoin de vous.</p>
+<p>Ils ont besoin que vous les réconfortiez.</p>
+<p>Rappelez-vous les premiers jours qui ont suivi votre blessure.</p>
+<p>Rappelez-vous votre angoisse et votre désespoir. Il faut les épargner aux nouveaux venus.</p>
+<p>Ecrivez-moi.</p>
+<p>Ecrivez-moi des lettres que je publierai et qu’on leur lira.</p>
+<p>Consolez-les.</p>
+<p>Réconfortez-les en leur disant ce que vous faites, en leur racontant vos efforts et vos succès.</p>
+<p>Ils ont besoin de vous, je vous le répète.</p>
+<p>Personne n’a autant que vous le droit de leur parler ni le pouvoir de les soulager.</p></quote>
+
+<pb n="9" xml:id="p9"/>
+</div>
+<div>
+<head>La Concurrence</head>
+<index>
+<term type="date">1918-04-22</term>
+
+<term type="lieu">Pontivy</term>
+
+<term type="contributeur">Joseph Le Bourlant</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+</index>
+<dateline>Pontivy, le 22 mars 1918.</dateline>
+<byline>Monsieur Brieux,</byline>
+<p>Le sous-lieutenant Chounet, bien qu’il ne soit pas brossier, veut bien défendre notre cause dans votre journal, mais il le fait d’une manière qui n’est pas ordinaire.</p>
+<p>Nous apprenons que plusieurs camarades favorisés de commandes importantes se font aider, pour aller plus vite et gagner davantage, par des femmes et des enfants voyants auxquels ils apprennent leur métier.</p>
+<p>— Bravo ! dit Chounet. Voilà des débrouillards, mes amis, imitez-les !</p>
+<p>— Mais n’aurait-il pas mieux valu s’adresser d’abord aux camarades aveugles du voisinage qui manquent de travail?</p>
+<p>— Çà, répond Chounet, c’est leur affaire ; les voyants emploient bien les aveugles pour en bénéficier. Pourquoi les aveugles n’en feraient-ils pas autant avec les voyants?</p>
+<p>— Mais, quand ces voyants auront appris leur métier, le nombre des brossiers ne sera-t-il pas considérable, et ne sera-ce pas la misère pour tous ?</p>
+<p>— Si cela arrive, réplique Chounet sans se troubler, vous n’avez qu’à vous en prendre aux directeurs d’école qui vous ont appris un métier devenu encombré. Ce n’est pas plus difficile que cela !</p>
+<p>Ne pensez-vous pas, monsieur Brieux, que Chounet a voulu rire et en bon méridional faire une galéjade?</p>
+<p>Tout de même, notre plainte, dont M. Thomas s’est fait l’écho, méritait, croyons-nous, une réponse plus sérieuse.</p>
+<salute>Recevez, etc.</salute>
+<byline>Joseph Le Bourlant, en permission à Pontivy. </byline>
+</div>
+<div>
+<head>Si vous faites usage d’un œil artificiel</head>
+<index>
+<term type="contributeur">Coulomb</term>
+
+<term type="sujet">Ophtalmologie</term>
+</index>
+<div>
+<head>Soignez votre cavité oculaire</head>
+<p>Matin et soir, faites un lavage de la cavité oculaire avec la solution suivante employée chaude :</p>
+<p>Gros sel : Une cuillerée à café.</p>
+<p>Eau bouillie : Un litre.</p>
+<p>En cas d’irritation conjonctivale, faites pendant 4 ou 5 jours, le soir en vous couchant, des applications de compresses chaudes et bouillies.</p>
+</div>
+<div>
+<head>Soignez votre œil artificiel</head>
+<p>Lavez-vous soigneusement les mains avant mettre ou d’enlever votre œil artificiel.</p>
+<p>Mettez votre pièce le matin et retirez-la tous les soirs.</p>
+<p>Entretenez-la dans un état de propreté parfaite : lavez-la aussitôt après l’avoir ôtée et essuyez-la avec un linge fin.</p>
+<p>Si votre pièce a été souillée en tombant à terre ou par un contact malpropre, désinfectez-la.</p>
+<p>Pour cela, faites-la bouillir pendant dix minutes, en ayant soin de la plonger dans l’eau froide, d’élever doucement la température du liquide et de laisser ensuite ce dernier, après extinction du foyer, reprendre peu à peu la température de la chambre.</p>
+<p>Vous pouvez encore immerger l’œil artificiel pendant quelques secondes dans la solution de Gram et le rincer ensuite à l’eau bouillie.</p>
+<p>Le liquide de Gram se compose de :</p>
+<p>Iode : 1 gr.</p>
+<p>Iodure de potassium : 2 gr.</p>
+<p>Eau : 300 gr.</p>
+<p>Pendant la nuit, renfermez la pièce dans une petite boîte, ne la laissez pas séjourner dans un verre d’eau.</p>
+<p>S’il vous arrive de briser votre œil artificiel, mettez-en soigneusement de côté tous les débris. La pièce reconstituée pourra servir de modèle pour en faire une semblable.</p>
+<p>Si votre pièce est usée ou si elle a été brisée, et que vous ayez quitté l’école de rééducation, demandez-en le renouvellement par lettre non affranchie au Directeur du Service de Santé de la région que vous habitez et attendez des instructions.</p>
+<p>Vous vous éviterez ainsi tout dérangement inutile.</p>
+<byline>Coulomb.</byline>
+
+<pb n="10" xml:id="p10"/>
+</div>
+</div>
+<div>
+<head>Allocation des yeux artificiels</head>
+<index>
+<term type="contributeur">E. Brieux</term>
+
+<term type="sujet">Ophtalmologie</term>
+
+<term type="sujet">Soin des malades et des blessés. Sociétés d’entraide</term>
+</index>
+<p>Fréquemment je reçois des lettres où des camarades me demandent ce qu’<hi rend="bg_ffff00">il</hi> doivent faire pour obtenir le remplacement de leurs yeux artificiels. Dans le numéro du Journal des Blessés aux yeux de janvier 1917 j’ai inséré la circulaire de M. le Sous-Secrétaire d’Etat du Service de Santé militaire relative à cette délivrance et je crois devoir en rappeler la substance pour ceux de nos camarades qui l’auraient oubliée ou qui n’auraient pas reçu ce numéro.</p>
+<p>Tout blessé a droit, pour chaque œil énucluéé, à l’allocation de deux yeux artificiels à titre de première mise.</p>
+<p>Il a droit, en outre, à deux yeux de remplacement par an, après la première année écoulée.</p>
+<p>Les blessés porteurs d’yeux artificiels seront munis, par les soins du centre d’ophtalmologie qui les appareillera pour la première fois, d’un livret d’appareillage semblable à celui qui est distribué aux autres mutilés.</p>
+<p>Tout blessé ayant besoin d’yeux artificiels doit, s’il ne le possède déjà, réclamer un livret d’appareillage au centre ophtalmologique où il a été soigné. Pour la délivrance des pièces de remplacement il devra se présenter au centre ophtalmologique le plus voisin de sa résidence, mention de l’indication de ce centre est indiquée sur le livret d’appareillage.</p>
+<p>À chaque changement de domicile il doit informer le centre auquel il est rattaché pour que sa mutation soit faite et qu’il soit inscrit au nouveau centre dont il dépendra.</p>
+</div>
+<div>
+<head>Notre Caisse</head>
+<index>
+<term type="contributeur">E. Brieux</term>
+
+<term type="sujet">Soin des malades et des blessés. Sociétés d’entraide</term>
+</index>
+<p>En Caisse au 28 Février : 117.623 10</p>
+<p>Reçu du 1<hi rend="sup">er</hi> au 31 Mars : 8.340 35</p>
+<p>= 125.963 45</p>
+<p>Dépenses du 1<hi rend="sup">er</hi> au 31 Mars : 10.854 75</p>
+<p>En Caisse au 31 Mars : 115.108 70</p>
+</div>
+<div>
+<head>Mariages et naissances</head>
+<index>
+<term type="contributeur">E. Brieux</term>
+
+<term type="sujet">Soin des malades et des blessés. Sociétés d’entraide</term>
+</index>
+<div>
+<head>Mariages</head>
+<p>Notre camarade Maurice Pierre nous annonce son mariage avec Mlle Irma Vizier qui a été célébré le 9 mars.</p>
+<p>Notre camarade Alphonse Gable nous annonce son mariage avec Mlle Marthe Cocqueberg, le 16 mars.</p>
+<p>Notre camarade Isembard, hôpital des Quinze-Vingts, nous annonce son mariage avec Mlle Yvonne Dufournier. La cérémonie a eu lieu à l’église Saint-Honoré-d’Eylau, le 2avril.</p>
+<p>Notre camarade Francis Henriet nous annonce son mariage avec Mlle Henriette Bourgoin, le 8 avril.</p>
+<p>Notre camarade Antoine Pluchot nous fait part de son mariage, qui a été célébré le 12 mars.</p>
+<p>Notre camarade Henri Savigny nous part de son mariage, avec Mlle Germaine Gendron, le 20 avril.</p>
+<p>Notre camarade Gambert nous fait part de son mariage avec Mlle Joséphine Bonnefoy, le 27 décembre 1917.</p>
+<p>Notre camarade Paul Debarnot nous fait part de son mariage avec Mlle Marguerite Bierman, le 27 avril prochain.</p>
+<p>Notre camarade François Sauvage nous fait part de son prochain mariage, le 16 avril.</p>
+</div>
+<div>
+<head>Naissances</head>
+<p>M. et Mme Coarer nous annoncent la naissance de leur petite fille Marianne, le 19 février. M. et Mme Teyssier nous annoncent la naissance de leur petite fille.</p>
+<p>M. et Mme Cabasson nous annoncent la naissance de leur fils Robert le 15 mars.</p>
+<p>Notre camarade Nestor Coulaud nous annonce la naissance, le 14 février, d’un gros garçon : Joseph-Jaurès.</p>
+<p>M. et Mme J. Mousty nous annoncent la naissance de leur petite fille Renée-Hélène.</p>
+<p>M. et Mme Horlon nous annoncent la naissance de leur petite fille Madeleine le 13 mars.</p>
+<p>M. et Mme Chanial nous annoncent la naissance de leur fils Jean-Baptiste, le11 mars.</p>
+<p>M. et Mme R. Bruneau, nous annoncent la naissance de leur quatrième enfant, Anne-Marie le 22 mars.</p>
+<p>M. et Mme Albert Prevost nous annoncent la naissance de leur petite fille Suzanne.</p>
+<p>M. et Mme Jean Potereau, nous annoncent la naissance de leur fils Ludovic, le 26 mars.</p>
+
+<pb n="11" xml:id="p11"/>
+</div>
+</div>
+</div>
+<div>
+<head>Les Instituteurs privés de la vue</head>
+<index>
+<term type="contributeur">E. Brieux</term>
+
+<term type="contributeur">A. Fauvel</term>
+
+<term type="date">1917-11-06</term>
+
+<term type="lieu">Saint-Brieuc</term>
+
+<term type="sujet">Éducation</term>
+
+<term type="sujet">Aspects particuliers de l’éducation</term>
+</index>
+<p>Voici trois lettres bien intéressantes, et bien émouvantes, et qui font grand honneur à ceux qui les ont écrites. Je m’excuse d’en avoir retardé la publication aussi longtemps, mais notre journal est petit et ne paraît que tous les mois.</p>
+<p>J’avais d’abord reçu la lettre de notre camarade M. Fauvel, et j’en avais été attristé. J'ai pensé que nul, mieux que MM. Dallet et Pannetrat, ne pouvait y répondre, et je la leur ai communiquée.</p>
+<p>Nos lecteurs les liront toutes trois, je pense, avec admiration et respect, ainsi que je l’ai fait moi-même :</p>
+<dateline>Saint-Brieuc, 6 novembre, 1917.</dateline>
+<salute>Cher monsieur Brieux,</salute>
+<p>Vous m’avez demandé de venir dire à mes camarades blessés aux yeux ce que je pensais de l’avenir des instituteurs aveugles dans l’enseignement primaire. Tout en me rendant compte de ce que nous pouvons faire dans une classe, je ne partage cependant pas le bel optimisme des camarades qui sont venus avant moi expliquer dans le journal ce qu’ils ont fait et le succès de leurs méthodes.</p>
+<p>Comment je suis devenu instituteur? Ancien élève de l’École Normale de Rennes, je quittai cet établissement, après avoir obtenu mon brevet supérieur, pour trouver, dans l’industrie, l’application de mes quelques succès de dessinateur. Ma blessure est venue interrompre cette carrière qui s’annonçait bien, et je songeai alors à rentrer dans l’enseignement. Par l’intermédiaire de M. Pécaut, je fus nommé instituteur intérimaire à Binic, dans les Côtes-du-Nord, auprès de cette grande Bleue que nous aimons tant en Bretagne et dont les murmures chassaient les instants de cafard. J’y restai de janvier à juillet 1916. À cette époque je vins à Saint-Brieuc, où une école de rééducation venait de s’ouvrir, et j’enseignai à mes camarades ce Braille, appris à Reuilly, qui me rendait tant de services. J’exerçai toutes les après-midi dans une école primaire de la ville, et je passai en février dernier, avec succès, l’épreuve écrite du certificat d’aptitude pédagogique avec l’aide du poinçon et de la machine à écrire.</p>
+<p>De cette période, il m’est resté beaucoup d’espérances, certes ; mais je me suis rendu compte que je ne pouvais tenir avec avantage la place d’un instituteur voyant.</p>
+<p>Deux choses sont à conserver à l’école, le travail et la discipline.</p>
+<p>Le travail, à part, bien entendu, l’écriture et le dessin, ne présente pas pour nous de grosses difficultés, étant donné les connaissances acquises et les procédés de repérage marqués par mon collègue Dallet. Les corrections mutuelles atténuent beaucoup l’impossibilité de faire en classe les corrections nécessaires, mais cette impossibilité est cause de maintes tromperies en arithmétique. Mais enfin j’estime que nous pouvons, au point de vue de l’enseignement proprement dit, tenir notre place. Reste la question discipline.</p>
+<p>Cette discipline, qui « fait la force principale des armées », fait aussi celle de nos classes. Or, elle présente de nombreuses difficultés.</p>
+<p>Deux cas peuvent se produire : ou bien le maître est seul (c’était le mien), ou bien il a, dans une classe contiguë, l’assistance de sa femme, c’est celui de Dallet.</p>
+<p>Dans le premier cas, la discipline ne peut être contenue : au début, l’enfant aura pour son maître aveugle une déférence et une obéissance instinctives, mais hélas ! l’immobilité n’est pas le propre de l’enfant ; cet âge, sans pitié, se rendant vite compte de l’impossibilité dans laquelle est le maître d’assurer une surveillance complète, saura trouver le moyen de dérouter son ouïe trop sensible. On y pare un instant par des interrogations nombreuses sur les leçons faites, mais comment attraper du premier coup celui qui ne suit pas ?</p>
+<p>Le second cas présente quelques avantages, mais aussi de nombreux inconvénients. Certes, tant que le maître ou la</p>
+
+<pb n="12" xml:id="p12"/>
+<p>maîtresse voisins viennent à la porte, il y a du silence dans le petit monde des pupitres, mais sitôt l’ombre disparue, les petits conciliabules et les polichinelles recommencent, l’enfant s’en aperçoit alors plus vite encore que dans le premier cas de l’infirmité de son maître, et il est impossible de surveiller ainsi deux classes à la fois sans que le travail et la discipline en souffrent. On va me répondre, on désigne des moniteurs. J’ai fait mieux : j’ai institué, avec galons à l’appui, des caporaux et un sergent chargés d’assurer la discipline dans la classe. Pendant un mois j’ai été tranquille, mais à la fin je me suis aperçu que le pot de vin fonctionnait en classe comme ailleurs, et que quelques billes empêchaient souvent un élève d’être puni et que les vengeances s’assouvissaient parfois par des délations injustifiées ; qu’ils soient grands ou petits, jamais les enfants ne se souviendront longtemps qu’ils doivent à leur maître aveugle un grand respect, et cette question de discipline sera pour nous un écueil quasi insurmontable.</p>
+<salute>Croyez que j’ai moi-même beaucoup pleuré mes illusions d’une première semaine charmante, et veuillez me croire votre bien dévoué.</salute>
+<byline>A. Fauvel, Ex-chasseur au 3e Bataillon, Professeur à l’école des soldats aveugles, Saint-Brieuc.</byline>
+<p>P.-S. — Remarquez que j’ai laissé de côté la question pourtant si importante des relations avec les parents d’élèves. La routine et le parti pris de beaucoup d’entre eux, qui ne voyaient en nous que des épaves, seront une source de difficultés peut-être encore plus grandes que la question discipline.</p>
+<div>
+<head>Une réponse</head>
+<index>
+<term type="date">1917-11-13</term>
+
+<term type="lieu">Chaumont</term>
+
+<term type="contributeur">Pannetrat</term>
+
+<term type="sujet">Aspects particuliers de l’éducation</term>
+</index>
+<dateline>Chaumont, 13 novembre 1917.</dateline>
+<salute>Monsieur Brieux,</salute>
+<p>Je vous dirai tout d’abord que c’est un peu de votre faute si je ne vous ai pas répondu plus vite, car j’ai reçu votre lettre juste au moment du départ du docteur Monthus. Vous savez trop l’affection que j’avais pour lui pour ne pas comprendre toute la peine que m’a fait ce changement, dont d’ailleurs je ne devrais que me réjouir puisqu’il montre que vous avez su apprécier les hautes qualités de celui que je dois considérer, avec vous, comme un vrai bienfaiteur. Ceci dit, je réponds à la lettre du camarade Fauvel.</p>
+<p>S’il n’y a pas nécessité, peut-être serait-ce bon (à mon humble avis) de ne pas publier sa lettre empreinte d’un trop noir pessimisme, et qui pourrait décourager ceux qui voudraient nous suivre, Dallet et moi. Il est vrai que nous avons entrepris notre tâche tous les deux dans des conditions je dirai presque favorables.</p>
+<p>Lui, avec sa femme, dans son pays même d’avant-guerre, dans une école de filles, et moi avec l’aide constante de ma femme. Je constate de plus en plus, en effet, que la discipline faite par un maître aveugle réduit à lui-même est impossible, ou tout au moins très difficile, surtout s’il a une classe nombreuse.</p>
+<p>Les moyens employés pour obtenir la discipline sont nombreux : occupations assidues des élèves, repérage de certains élèves plus turbulents, etc. Mais tout cela ne remplace pas deux yeux qui fouillent la classe dans ses moindres détails. Nous sommes arrivés, tous les deux, ma femme et moi, à avoir une discipline parfaite, un travail régulier en ne laissant aucune occasion de marquer notre commune autorité ; les enfants sentent très bien que rien ne nous échappe, ni comme mouvements, ni comme bruits et que leur plus simple parti est de se tenir tranquilles et de travailler.</p>
+<p>La question des moniteurs, envisagée par le camarade Fauvel, est complètement à laisser de côté.</p>
+<p>Pour ce qui est du rapport avec les familles, je ne suis pas de l’avis de notre camarade. Depuis que je suis ici, un certain nombre de parents sont venus m’exprimer toute la satisfaction de savoir leurs enfants entre nos mains. Il faut vous dire que le camarade Fauvel a entrepris une tâche plutôt ardue, étant donné, d’après ce que j’ai lu sur la lettre, qu’il n’avait pas la vocation de l’enseignement. Or, notre métier n’est pas quelconque ; il est, comme me le disait ce matin un collègue, un apostolat, et il faut vraiment aimer les</p>
+
+<pb n="13" xml:id="p13"/>
+<p>enfants et avoir leur instruction et leur éducation à cœur pour supporter les ennuis et vaincre les difficultés qui peuvent se présenter.</p>
+<p>Dans la circonstance et pour le cas que je présente, il est à remarquer que j’ai déjà vingt ans d’exercice dans l’enseignement et que je me trouve dans mon élément au milieu de mes élèves. Je ne comprends pas comment le camarade Fauvel, qui a réussi dans une localité de janvier à juillet 1916, puis à Saint-Brieuc même, en arrive aujourd’hui à pousser des gémissements sur la non-possibilité d’exercer sa profession.</p>
+<p>Je ne sais si j’ai répondu dans le sens que vous vouliez, mais les résultats obtenus par Dallet et moi jusqu’à présent montrent assez, je crois, que ce n’est pas du bluff, comme a l’air de le croire le camarade Fauvel. Un petit voyage à Saint-Brévin-les-Pins, finira par le convaincre.</p>
+<p>Maintenant je vous demande pardon de vous en avoir dit si long sur ce sujet, mais je voudrais prouver qu’il est toujours possible d’arriver à un but quand on a de l’énergie, de la bonne volonté et l’amour son métier.</p>
+<salute>Recevez, monsieur Brieux, l’assurance de mon plus profond respect.</salute>
+<byline>Pannetrat, Instituteur, 58, rue de Buxereuilles, Chaumont (Haute-Marne).</byline>
+</div>
+<div>
+<head>Autre réponse</head>
+<index>
+<term type="date">1917-11-15</term>
+
+<term type="lieu">Saint-Brévin</term>
+
+<term type="contributeur">F. Dallet</term>
+
+<term type="sujet">Aspects particuliers de l’éducation</term>
+
+<term type="sujet">Services sociaux. Travail social. Associations</term>
+</index>
+<dateline>Saint-Brévin, 15 novembre 1917.</dateline>
+<salute>Monsieur,</salute>
+<p>Je n’ai pas répondu immédiatement à votre lettre, parce qu’elle est arrivée au moment où la santé de mon petit garçon nous donnait d’assez vives inquiétudes. Je vais essayer de me faire pardonner ce retard en écrivant longuement.</p>
+<p>Je suis flatté, monsieur, de l’estime que vous me témoignez en me demandant d’apprécier la lettre de mon collègue Fauvel. Je dois vous avouer que je vous aurais donné mon avis, même si vous ne l’aviez pas demandé, lorsque j’aurais trouvé la communication de Fauvel dans le Journal des Blesses aux yeux. Il ne faut pas laisser passer de semblables paroles sans en atténuer le pessimisme.</p>
+<p>Et maintenant, par quel bout commencer ? Ce qui m’a frappé avant tout dans la lettre de Fauvel, c’est qu’il n’avait jamais enseigné lorsque après sa blessure il a dû renoncer à sa profession de dessinateur. Il lui fallait une grande énergie pour se lancer à tâtons dans une voie qu’il n’avait jamais fréquentée. Mais s’il partait vaillamment, il n’en allait pas moins vers l’inconnu, n’ayant, pour guider ses pas hésitants sur un terrain malaisé, que les notions de pédagogie théorique et de psychologie acquises à l’École Normale. Dans l’enseignement, les débuts sont pénibles. Quand je me reporte en pensée à ma première année d’exercice, il y a quelque douze ans, je la revois comme une suite d’hésitations, de tâtonnements, d’espérances, d’espoirs démesurés et de profondes déceptions. Je me souviens surtout de longues périodes de découragement, semblables à celles que m’ont dit avoir eues d’autres instituteurs, devenus pourtant des maîtres d’élite. Si donc quelque chose m’étonne, ce n’est pas le découragement momentané de mon camarade, mais l’énergie dont il a fait preuve, en poursuivant aussi longtemps une tentative qui en eût rebuté d’autres.</p>
+<p>Autre difficulté : au moment où il prit son poste, les œuvres qui nous transcrivent des textes en Braille étaient encore, pour la plupart, dans les limbes, et je doute qu’il ait pu copier tous les recueils d’exercices et les plans de leçons constituant le minimum indispensable à la direction d’une classe. Avait-il prévu les difficultés par avance et avait-il songé aux moyens d’y parer ? Connaissait-il bien la classe où il allait exercer ? En un mot, savait-il où il allait, et de quels moyens il disposait pour franchir les obstacles ?</p>
+<p>Ce qui m’étonne plus que le reste, c’est qu’il ait osé du premier coup se charger d’une classe où il était absolument isolé, privé des conseils et de l’assistance d’un collègue voyant.</p>
+<p>Quand j’ai repris un poste, j’avais derrière moi dix ans de pratique, mais je n’aurais pas voulu tenter, l’expérience. Pour que Fauvel ait pu travailler dans de</p>
+
+<pb n="14" xml:id="p14"/>
+<p>telles conditions pendant six mois, il lui a fallu une volonté et un désir de réussir qui ne doivent pas l’avoir quitté.</p>
+<p>Je n’ai pas voulu critiquer, monsieur, en écrivant ce qui précède. J’ai voulu seulement faire remarquer les conditions défavorables dans lesquelles se trouvait mon camarade.</p>
+<p>On ne peut pas dire que Fauvel ait perdu son optimisme. Il s’était tout bonnement fait des illusions que la réalité a tuées et dont il lui reste une amère déception. Il raille un peu le « bel optimisme » que je partage avec Veillet et Pannetrat. Il a tort, car la confiance que j’ai fait partager à ces deux amis est nourrie de faits et non d’illusions. Il faut que Fauvel la partage, et je lui demande pour aujourd’hui de réfléchir à ce qui suit :</p>
+<p>Dans la première lettre que je vous ai adressée, monsieur, je vous disais n’avoir repris une classe qu’après six mois de choix de textes, de transcriptions, de recherches de procédés, d’essais faits dans la classe de ma femme et en sa présence, etc., etc. La question des textes ne se pose plus. Les collègues aveugles qui veulent reprendre du service dans l’enseignement, n’ont qu’à choisir ou à faire choisir des textes en noir, à les adresser à l’Association Valentin-Haüy ou à M<hi rend="sup">me</hi> Meyer avec leurs instructions, pour recevoir peu après la transcription désirée. M<hi rend="sup">me</hi> Meyer peut déjà mettre à leur disposition des manuels de classe. M<hi rend="sup">me</hi> Bouchard, de Limoges, M<hi rend="sup">me</hi> Malet, de Béziers, M<hi rend="sup">me</hi> Paulart, du Mans, etc., etc., toutes en relations avec M<hi rend="sup">me</hi> Meyer, nous ont depuis longtemps offert leur aide dévouée. Pour ce qui est des procédés, je crois inutile de répéter ce qui a déjà été dit.</p>
+<p>La grosse affaire est toujours l’obtention d’une classe où un aveugle puisse travailler avec fruit. Cette classe devra être peu nombreuse, composée de grands élèves et ne pas compter plus de deux divisions. Inutile de dire pourquoi peu nombreuse. Les élèves devront avoir dix ans, ou plus, parce que des enfants plus jeunes sont incapables d’effort personnel et parce que la discipline ne leur est imposée que grâce à des moyens hors de portée d’un aveugle. Je reparlerai plus loin de la question discipline. Je note en passant que Pannetrat a pris à Chaumont une classe nombreuse avec des enfants de sept ou huit ans. Il réussira, parce que M<hi rend="sup">me</hi> Pannetrat sera constamment présente dans la salle, mais à cette condition seulement. La multiplication des divisions n’est pas un écueil qui doive nous briser. J'ai moi-même trois divisions : certificat, cours supérieur, brevet, et cela ne m’a pas empêché d’avoir aux examens de l’an passé, des succès plus que satisfaisants. Mais Veillet, qui m’a vu à l’œuvre, vous dira au prix de quel travail. Je ne souhaite à aucun camarade une classe semblable et j’avoue que j’aspire à moins d’épuisement. Il existe dans chaque département des classes comme celle que je considère comme la classe idéale. Nous en refusera-t-on une ?</p>
+<p>Que l’on en donne une à Fauvel, qu’il y entre avec tout le Braille indispensable, avec des méthodes et des procédés éprouvés et bien à lui, avec une préparation minutieuse du travail journalier, et, après la sortie de 4 heures, nous reparlerons discipline. Il aura constaté que de grands élèves acceptent volontiers une règle dont on leur prouve la nécessité, que l’on ne fait pas en vain appel à leur cœur, qu’une fois piqués d’honneur, ils ne trahissent pas la confiance mise en eux, qu’une leçon substantielle et intéressante n’est jamais troublée par les bavardages, et que, si toutes les minutes sont prises par le travail, un travail bien réglé où rien n’est laissé au hasard, où nulle hésitation, nul tâtonnement, n’apporte la gêne, il constatera, dis-je, que le travail incessant, aisé et attrayant ne laisse pas la plus petite place à la dissipation. Que par surcroît il impose le respect par sa gravité souriante, sa tenue impeccable, son langage châtié de toute vulgarité ; qu’il impose l’estime et l’affection par le spectacle d’une conscience que rien ne fait dévier, d’un cœur plein d’idéal d’une volonté tendue vers un travail ardu ; qu’il sache dire au moment voulu le mot qu’il faut, celui qui ouvre les cœurs et stimule les énergies. Je m’efforce d’obtenir tout cela et, tout imparfait que je sois, j’ai une discipline que plus d’un instituteur</p>
+
+<pb n="15" xml:id="p15"/>
+<p>clairvoyant pourrait m’envier, et cela sans punir, sans faire surveiller les élèves par des élèves, et sans craindre par conséquent le misérable usage des pots de vin dont se plaint Fauvel.</p>
+<p>Les interventions de ma femme sont plus rares que ne le croit mon camarade, et le travail des deux classes n’est nullement troublé par ces interventions. Jugez-en : dans la classe de ma femme les petites bleuettes entrées en octobre ont déjà vu la moitié de leur méthode de lecture ; elles sauront probablement tous les éléments au nouvel an et n’auront plus qu’à faire de I’entraînement. Sa première division, qui comprend les enfants de moins de dix ans, a entamé le programme du certificat qu’elle n’aura plus qu’à réviser l’an prochain dans ma classe. Elle est en avance, pour la majorité des élèves, de près d’une année. Quant à moi, j’ai des résultats indiscutables à étaler : le bulletin d’inspection que vous avez publié ; la réussite de mes trois candidates au certificat, l’une arrivant première du canton, et les autres obtenant 48 et 49 points au lieu des 35 nécessaires à l’admission ; le succès, en octobre, de l’une mes candidates au brevet, l’autre tombant avec un déficit de 4 points sur 70 échec honorable si l’on considère les conditions nouvelles de l’examen). Vous devez sourire, monsieur, en constatant que je vous répète aujourd’hui, dans une lettre qui sera peut-être publiée, ce que je vous demandais de ne pas dire il y a un mois. C’est que je n’avais pas prévu le cas de Fauvel, ni qu’il faudrait opposer aux conclusions d’une expérience faite dans des conditions désavantageuses, les conclusions d’une autre expérience que des circonstances plus heureuses ont permis de mener à bien.</p>
+<p>Pour me résumer, je dirai que Fauvel a fait un faux départ. Il s’est lancé trop vite, sans avoir de carte ou avec un bagage incomplet. À cela il n’y a qu’un remède : qu’il s’arrête, qu’il refasse son sac, et qu’il parte du pied gauche. Ce qu’il a déjà fait montre qu’il ne craint pas sa peine. Il mérite de réussir, et il réussira.</p>
+<p>Si d’ailleurs il n’est pas convaincu par ma lettre, je l’invite à venir chercher des preuves sur place. Il recevra chez moi un accueil cordial. J’invite de même les collègues aveugles qui auraient des doutes. Si tous mes camarades étaient à Paris et Saint-Brévin à la place de Saint-Cloud, je vous dirais, monsieur, de les amener tous dans ma classe. Nous pourrions échanger alors des idées d’où sortiraient pour chacun de nous un peu de lumière et beaucoup de confiance en nos propres forces.</p>
+<p>Je m’excuse, monsieur, d’avoir été aussi long. Si mon bavardage a pu raviver le feu sacré là où il commençait à s’éteindre, je sais d’avance que vous me le pardonnerez.</p>
+<salute>Veuillez agréer, monsieur, mes respectueux hommages.</salute>
+<byline>F. Dallet.</byline>
+</div>
+<div>
+<head>L’aide aux aveugles de guerre (2, rue Balzac, à Paris)</head>
+<index>
+<term type="contributeur">E. Brieux</term>
+
+<term type="sousarticlesujet">Services sociaux. Travail social. Associations</term>
+</index>
+<p>Vient d’ouvrir à Nice une section dont le comité local est sous la présidence d’honneur de M. Bernard, préfet des Alpes-Maritimes, et la présidence effective de S. A. S. la princesse Yourewski, qui a pour objet d’aider les blessés aux yeux rééduqués en leur facilitant l’écoulement de leurs produits par la vente dans un magasin, 26, rue Saint-François-de-Paule, objets fabriqués par eux vendus aux mêmes prix qu’ailleurs.</p>
+<p>Rappelons que ce magasin, qui est tenu uniquement par des personnes bénévoles, est ouvert toute la semaine, même le dimanche, avec l’autorisation spéciale de Monseigneur Chapon, évêque de Nice.</p>
+<p>Parmi les organisateurs les plus dévoués, citons la vicomtesse de Villoutreys, Mme Chauveau et la princesse Paléologue.</p>
+<p>Ajoutons que sur l’initiative du soldat aveugle Invernizzi se fonde à Nice, également 26, rue Saint-François-de-Paule, un club amical des blessés aux yeux du département des Alpes-Maritimes, dont les statuts ont été déposés à la préfecture et qui aura le colonel Aublet comme président.</p>
+<p>Les blessés qui voudraient se mettre en relations directes avec le comité de Nice de « L’Aide aux Aveugles de guerre » peuvent s’adresser à la directrice, Mme Chauveau, 26, rue Saint-François-de-Paule, Nice.</p>
+
+<pb n="16" xml:id="p16"/>
+</div>
+</div>
+<div>
+<head>Conseils d’un Zouave</head>
+<index>
+<term type="date"/>
+
+<term type="lieu">Sept-Fons</term>
+
+<term type="contributeur">Bobb</term>
+
+<term type="sujet">Première Guerre mondiale</term>
+
+<term type="sujet">Éducation professionnelle</term>
+</index>
+<dateline>Sept-Fons, par Dompierre (Allier).</dateline>
+<p>Lettre aux soldats récemment blessés aux yeux.</p>
+<p>Tu viens d’être blessé aux yeux. Sans doute dans le premier trouble causé par ta nouvelle situation tu cherches un réconfort moral. Blessé comme toi, en octobre 1915, j’use de mon droit d’ancienneté et de mon expérience assez longue déjà de la cécité, et je viens te dire avec assurance : « Courage ! Si tu le veux, ta nuit s’éclairera bientôt d’une lumière que nul ne pourra te ravir, parce qu’elle jaillira du fond de ton être comme de sa source. »</p>
+<p>Et ne vas pas crier à l’exagération : tous les camarades rééduqués te tiendront ce langage sous une forme ou sous une autre et exprimeront la même pensée, assez bien résumée dans cette parole qui me surprit d’abord, mais qu’avec le temps je trouve très profonde : « Il y a des aveugles qui voient et des aveugles qui ne voient pas. »</p>
+<p>Ceux-là voient, qui, ayant surmonté courageusement les premières difficultés de la rééducation, sont arrivés à se conduire seuls, non seulement dans les endroits familiers, mais dans les endroits moins connus qu’ils ont soin d’explorer pour en saisir tous les recoins et se choisir des points de repère.</p>
+<p>En gens avisés, ils savent tirer parti du phénomène de la vision interne dont les agents, sens tactile et sens auditif, transmettent rapidement au cerveau une image de l’objet touché ou de la personne entendue. Surtout, ils ont appris un métier, sauvegarde de l’indépendance de l’aveugle et source de distractions et même de vraies joies. En effet, le bonheur que ressent tout homme capable de gagner sa vie et, du même coup, de se rendre utile à ses semblables, l’aveugle l’éprouve bien plus vivement, lui qui a dû mettre à conquérir cette aptitude une double dose d’énergie et de travail.</p>
+<p>Or ce succès remporté malgré des obstacles de prime abord insurmontables fait naître une satisfaction inadmissible bien autrement profitable pour son relèvement moral que les douceurs que lui procure la tendre sollicitude d’infirmières dévouées. Bien loin de moi, tu n’en doutes pas, la plus légère critique à l’égard de ces secondes mères que nous a values la guerre.</p>
+<p>Je salue en elles la France se penchant avec amour sur ses enfants blessés pour sa défense. Pourquoi le glorieux mutilé n’aurait-il pas le droit de se laisser dorloter un peu par la mère-patrie ?</p>
+<p>Prends-y garde toutefois, camarade, il y a pour toi en particulier un danger réel de trop savourer ces gâteries. Bien loin de laisser endormir ton énergie, c’est l’heure ou jamais de la fouetter, si tu veux renaître à une vie nouvelle.</p>
+<p>Courage donc, et persévérance ! Les premiers efforts sont pénibles, il est vrai, mais ce sont les efforts du poussin cherchant à briser sa coquille. Bientôt la prison s’ouvre et le petit être de courir de tous côtés, ne demandant qu’à se développer. Fais de même, mets-toi résolument à l’œuvre, apprends à te guider, fais toi initier à un métier, étudie le Braille. En peu de temps la lumière se fera dans ton esprit et se répandra dans toutes tes facultés et tu ne sauras trop alors bénir ceux qui, en travaillant à ta rééducation, auront ainsi décuplé ta puissance de vivre.</p>
+<salute>Ton affectionné frère d’armes,</salute>
+<byline>Bobb, ex-zouave au 9e de marche,Établissement de Sept-Fons,par Dompierre-sur-Besbre (Allier)</byline>
+<quote>
+<p>Tout soldat blessé aux qui en fera la demande recevra gratuitement la brochure de M. Brieux : « Lettres aux Soldats blessés aux yeux » imprimée en noir ou en Braille.</p></quote>
+
+<pb n="17" xml:id="p17"/>
+</div>
+<div>
+<head>Nos Écoles de Rééducation Rapports semestriels (Suite)</head>
+<div>
+<head>École de Saint-Brieuc (Côtes-du-Nord)</head>
+<index>
+<term type="contributeur">E. Brieux</term>
+
+<term type="sujet">Aspects particuliers de l’éducation</term>
+
+<term type="sujet">Éducation professionnelle</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+
+<term type="sujet">Soin des malades et des blessés. Sociétés d’entraide </term>
+</index>
+<p>L'École de rééducation professionnelle des soldats aveugles bretons, ouverte le 23 juillet 1916, a reçu jusqu’à ce jour 96 élèves : 35 complètement aveugles ; 6, à peine capables se conduire ; 25, doués d’une vue suffisante pour les aider utilement dans leurs différents métiers.</p>
+<p>De nos 66 élèves, 4, insuffisamment guéris, ont dû être dirigés sur des hôpitaux spéciaux pour y recevoir de nouveaux soins ; 5 nous quittés, après un court séjour, pour entrer dans les écoles de leurs régions; 37, après un apprentissage complet, pour retourner dans leurs familles.</p>
+<p>Les métiers enseignés à l’École sont la brosserie, la chaiserie (cannage, rotinage et paillage) ; la cordonnerie et la vannerie. Ce dernier métier a pris, depuis quelques mois, grâce au maître habile qui le dirige, un développement assez important : nos élèves ont abordé la vannerie fine, de luxe, et les acheteurs trouvent qu’ils y réussissent à merveille.</p>
+<p>Les cordonniers et les vanniers se recrutent principalement parmi les soldats dont les yeux ne sont pas tout à fait éteints. Nous voudrions qu’il en fût de même partout et que l’on réservât la brosserie aux vrais aveugles. Nous craignons, en effet, si l’on agit autrement, que le nombre des brossiers ne devienne beaucoup trop considérable, depuis, surtout, que certains aveugles brossiers, pour accroître leurs gains, ont pris imprudemment, pour aides, au dehors, des femmes et des enfants voyants, auxquels ils apprennent leur métier.</p>
+<p>Des leçons de Braille et de dactylographie sont données à tous ceux qui paraissent aptes à en profiter.</p>
+<p>La vie à l’intérieur de l’École est, comme par le passé, très laborieuse, très régulière et très calme, ce qui n’en chasse pas la bonne humeur.</p>
+<p>On s’y intéresse beaucoup aux « anciens » qui nous ont quittés et les nouvelles qu’on en reçoit chaque jour ne contribuent pas médiocrement à maintenir le moral excellent. Ce sont d’abord, les lettres des cinq camarades qui se sont mariés dans l’année. Quoique très discrètes, ces lettres nous laissent entendre que les auteurs sont parfaitement heureux, ce qui est de bon augure pour les autres mariages qui sont déjà projetés ! — Avec les cinq mariages de nos camarades, nous avons enregistré quatre naissances. Quelques-uns trouveront peut-être que c’est peu ; mais qu’ils se rassurent, 1918 s’annonce plein de promesses !</p>
+<p>Presque toutes les lettres de nos « anciens » sont également réconfortantes. Car presque toutes nous apprennent que leur travail est apprécié et que les clients sont nombreux. Dans plusieurs lettres je relève cette phrase : « J’ai plus de commandes que je n’en puis livrer » et cette phrase est très rassurante pour ceux qui vont bientôt nous quitter.</p>
+<p>Ce succès dont nous sommes très satisfaits et un peu fiers est dû sans doute à la valeur de nos ouvriers bretons ; mais il est dû aussi, nous ne l’oublions pas, à l’appui que, dès leur sortie de l’École, ils trouvent dans les œuvres généreuses qu’a su grouper autour d’eux notre « Grand Ami ! » C’est donc à lui et à ceux que son apostolat nous a gagnés que vont, en cette fin d’année, et nos remerciements et nos vœux !</p>
+<p>Ils vont aussi aux professeurs très habiles et très dévoués qui ont dirigé l’apprentissage de nos élèves et aux contremaîtres infirmiers qui se sont donnés corps et âme à leur tâche souvent bien délicate, et cela avec d’autant plus de mérite qu’aucun d’eux n’a encore à solliciter même les galons de caporal, quand beaucoup de leurs camarades des hôpitaux voisins ont déjà ceux de sergent !</p>
+<div>
+<head>Élèves présents</head>
+<p>Le Teuff (Julien), 317<hi rend="sup">e</hi> d’Infanterie. — Auffret (Joseph), 7<hi rend="sup">e</hi> Colonial. — Deniel (Charles), arsenal de Brest. — Goudal (Jules), 219<hi rend="sup">e</hi> d’Infanterie. — Guéguan (Albert), 1<hi rend="sup">er</hi> Zouaves. — Quéméner (Jean), 17<hi rend="sup">e</hi> d’Infanterie. — Barbier (Jean), ...<hi rend="sup">e</hi> Colonial. — Lhermitte (Jean), 101<hi rend="sup">e</hi> d’Infanterie. — Laîné (Jean), 2<hi rend="sup">e</hi> d’Infanterie. — Querrien (Jean), 62<hi rend="sup">e</hi> d’Infanterie. — Thomas (Pierre), 41<hi rend="sup">e</hi> Colonial. — Guéguen (François), 1<hi rend="sup">er</hi> Colonial. — Mauny (Albert), 25<hi rend="sup">e</hi> d’Infanterie. — Durand (Eugène),</p>
+
+<pb n="18" xml:id="p18"/>
+<p>136<hi rend="sup">e</hi> d’Infanterie. — Le Viavant (Marc), 41<hi rend="sup">e</hi> d’Artillerie. — Dumont (Louis), 120<hi rend="sup">e</hi> d’Artillerie lourde. — Leroux (Jean), 247<hi rend="sup">e</hi> d’Infanterie. — Girard (Auguste), 71<hi rend="sup">e</hi> d’Infanterie. — Calvez (Laurent), 71<hi rend="sup">e</hi> d’Infanterie. — Lannéval (Pierre), 86<hi rend="sup">e</hi> Territorial d’Infanterie. — Lévêque (Armand), 102<hi rend="sup">e</hi> d’Infanterie.</p>
+</div>
+<div>
+<head>Élèves rentrés dans leurs foyers</head>
+<p>Sauvage (François), Saint-Aubin-du-Cormier (Ille-et-Vilaine).</p>
+<p>Mauny (Pierre), Guichon (Ille-et-Vilaine).</p>
+<p>Cagneul (François), Saint-Aubin-du-Cormier.</p>
+<p>Frénay (Mathurin), Trémuzen-en-Loudéac (Côtes-du-Nord).</p>
+<p>Le Cam (Yves), rue du Légué, Saint-Brieuc.</p>
+<p>Toudic (Jean), Lannion.</p>
+<p>Trotel (Ernest), Corseul (Côtes-du-Nord).</p>
+<p>Grall (Sébastien), Saint-Pol-de-Léon.</p>
+<p>Maho (Joachim), Gunen (Morbihan).</p>
+<p>Moisan (Mathurin), Pluvigné (Morbihan).</p>
+<p>Pasquiou (Yves), Saint-Carré-en-Lanvellec (Côtes-du-Nord).</p>
+<p>Robert (Julien), Marcillé-Robert (Ille-et-Vilaine).</p>
+<p>Pirault (Louis), Tranain (Côtes-du-Nord).</p>
+<p>Bouguen (Jean), Plouvern, par Pleuzévédé (Finistère).</p>
+<p>Tallec (Jules), Bannalec (Finistère).</p>
+<p>Bizemont (de) (André), Rennes.</p>
+<p>Dolo (Léon), Plémet (Côtes-du-Nord).</p>
+<p>Nogès (Joseph), évacué, hôpital N° 5, Rennes.</p>
+<p>Blaire (Julien), évacué sur le Centre neurologique de Bourges.</p>
+<p>Louesdon (Gabriel), Bréhan-Loudéac (Morbihan).</p>
+<p>Coat (Jacques), Bedilis (Finistère).</p>
+<p>Argouarch (Guillaume), Plouénan (Finistère).</p>
+<p>Huet (Francis), Saint-Aubin-du-Parail (Ille-et-Vilaine).</p>
+<p>Depincé (Pierre), 6, route de Châtillon, Rennes.</p>
+<p>Bodilis (Louis), Saint-Pol-de-Léon.</p>
+<p>Labbé (Barthélemy), Saint-Yvi (Finistère).</p>
+<p>Valy (Joachim), au Hâle, Pontivy.</p>
+<p>Le Serrec (Yves), Rostrenen.</p>
+<p>Gautier (Paul), Chalandray (Manche).</p>
+<p>Baron (Jean), Ile-de-Croix.</p>
+<p>Hubert (Théodore), Yvignac (Côtes-du-Nord).</p>
+<p>Ramadour (Félix), évacué sur le Centre de Bordeaux.</p>
+<p>Le Bars (François), Louargat (Côtes-du-Nord).</p>
+<p>Turgot (Gustave), Vernix (Manche).</p>
+<p>Gicquel (Fernand), 113, avenue du Mail-d’Onges (Rennes).</p>
+<p>Chancé (Joseph), Sàtnt-Germain-sur-Ille (Ille-et-Vilaine)</p>
+<p>Bénéat (Yves), Pleunévez-Lo-Christ (Finistère).</p>
+<p>Delourmel (Constant), Épron, par Nouvoitou (Ille-et-Vilaine).</p>
+<p>Monceau (Louis), Sablé (Sarthe).</p>
+<p>Briquet (Pierre), Vanves (Seine).</p>
+<p>Souty (Jules), Reviers (Calvados).</p>
+<p>Véron (Louis), Billy-Berclau (Pas-de-Calais)</p>
+<p>Morlet (André), Saint-Jean-sur-Tourbe (Marne).</p>
+<p>Thébault (Léon), Janzé (Ille-et-Vilaine).</p>
+<p>Le Garlantézec (Édouard), Pont-Melvez (Côtes-du-Nord).</p>
+</div>
+</div>
+<div>
+<head>École de rééducation de la Persagotière à Nantes</head>
+<index>
+<term type="lieu">Nantes</term>
+
+<term type="contributeur">P. Le Stunf</term>
+
+<term type="sujet">Éducation professionnelle</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+
+<term type="sujet">Services sociaux. Travail social. Associations</term>
+</index>
+<p>À la fin de cette longue année de guerre 1917, il nous est agréable de constater qu’elle a été bien employée à l’École de rééducation des soldats aveugles de « La Persagotière » installée dans les superbes locaux de l’institution des jeunes aveugles de la Loire-Inférieure.</p>
+<p>Nous sommes heureux de pouvoir dire que nos élèves nous ont donné toutes les satisfactions par leur excellent moral, par Ieur bonne conduite, leur désir de s’instruire et de se créer une situation,</p>
+<p>Au cours de l’année qui vient de s’écouler, 29 élèves ont quitté notre École pour s’installer au pays natal comme chaisiers, brossiers ou vanniers, mais le plus grand nombre avait la connaissance parfaite de 2 ou 3 métiers.</p>
+<p>Plusieurs ont trouvé des postes spéciaux très avantageux : un comme téléphoniste a la mairie de Nantes, qui, avec sa pension de retraite, lui rapporte près de 4.000 francs par an, un autre aux chantiers de Bretagne, un troisième à l’arsenal de Lorient et un quatrième enfin concierge dans une école, où on a monté, en plus, un atelier de chaiserie et brosserie.</p>
+<p>Tous les élèves sortis et placés continuent à rester en relations étroites et suivies avec l’École : ils écrivent fréquemment, exposent leurs besoins, leurs desiderata, et l’École se tient à leur entière disposition pour leur procurer du travail, pour leur envoyer des matières premières, et au besoin les instruments qui peuvent leur manquer. Ceux qui sont installés à la campagne ont aidé à la moisson, à la cueillette des pommes de terre, à la fabrication du cidre, au grand étonnement de leurs voisins, obligés de renoncer à l’idée commune et fausse qu’un aveuglé n’est plus bon à rien.</p>
+
+<pb n="19" xml:id="p19"/>
+<p>Notre excellent camarade, l’adjudant Deville, installé vannier et chaisier à Villereal (Lot-et-Garonne), nous écrit qu’en aidant aux travaux de l’agriculture, il a gagné pendant le seul mois d’août plus de 700 francs et que les mois suivants, jusqu’à maintenant, il a gagné de 7 à 8 francs par jour. Et il engage ses camarades de l’École à s’armer de courage, à le prendre comme exemple, en les invitant à retourner au plus vite au pays natal, où ils seront parfaitement capables de fonder un foyer et d’élever leur famille.</p>
+<p>Son appel a été entendu et plusieurs de nos élèves ont contracté mariage dans le courant de l’année et quelques-uns ont déjà de petits héritiers beaux et bien portants.</p>
+<p>Grâce à M. Brieux et à l’aide américaine, nous avons pu leur louer une maison agréable, leur acheter un très joli mobilier, et notre association leur a procuré ce qui pouvait leur manquer encore.</p>
+<p>Les derniers mois de l’année ont vu enfin l’aboutissement de deux projets qui nous tenaient à cœur depuis longtemps, mais que nous ne pouvions réaliser, faute de fonds, c’est-à-dire la création d’une prime d’assiduité au travail et la fondation de l’Association des Amis des Soldats aveugles de la XI<hi rend="sup">e</hi> région. Cette association a pour but de prendre en tutelle tous les aveugles des départements de Loire-Inférieure, du Morbihan et du Finistère, de rester en rapports constants avec eux, de pourvoir à leur installation, de leur procurer des matières premières, de leur acheter, si possible, une petite maison, puis, bientôt, de créer à Nantes un magasin central, en pleine ville, qui centralisera les commandes, qui fera les ventes. L’association aura en plus un ou deux délégués qui visiteront nos anciens élèves et se rendront compte de leur état physique et moral, de leurs besoins, etc...</p>
+<p>Grâce aux largesses de généreux donateurs, nous espérons la réussite parfaite de notre entreprise.</p>
+<p>Nous ne pouvons terminer cet exposé sans remercier du fond du cœur tous les puissants amis qui nous ont aidés, pendant l’année, de leurs conseils et de leur bourse : en premier lieu M. Brieux, de l’Académie française, puis la Commission de secours aux blessés de Loire-Inférieure, l’Association Valentin Haüy, les Amis des Soldats aveugles, le Comité américain, les artistes charitables qui ont donné à notre profit de brillants concerts, les dames de Nantes, qui ont sorti et promené les aveugles, celles qui leur ont fait fréquemment de la musique agréable, celles qui récemment ont contribué à la réussite d’une tombola qui leur a rapporté près de 5.000 francs.</p>
+<p>Le seul desideratum que nous ayons à exprimer est celui que nos amis ne nous abandonnent pas et qu’ils continuent à nous entourer de leur généreuse influence.</p>
+<p>Nous leur promettons en revanche notre entier dévouement à notre œuvre si belle.</p>
+<byline>P. Le Stunf, Médecin-Major en Chef.</byline>
+<div>
+<head>Élèves présents</head>
+<p>Bouyer, (Jean), 135<hi rend="sup">e</hi> d’Infanterie. — Charier, (Paul), 63<hi rend="sup">e</hi> d’Infanterie. — Cloerec, (Victor), 82<hi rend="sup">e</hi> d’Infanterie. — Drion, (Louis), 407<hi rend="sup">e</hi> d’Infanterie. — Durand (J.-B.), 135<hi rend="sup">e</hi> d’Infanterie. — Epaud, (Raphaël), 4<hi rend="sup">e</hi> Zouaves. — Fleurisson, (Louis), 90<hi rend="sup">e</hi> d’Infanterie. — Gambert, (François), 106<hi rend="sup">e</hi> d’Infanterie. — Grondin, (Pierre), 109<hi rend="sup">e</hi> d’Infanterie. — Hillairet, (Clovis), 12<hi rend="sup">e</hi> d’Infanterie. — Laine, (Louis), 3<hi rend="sup">e</hi> Bataillon de chasseurs. — Layec, (Pierre), 116<hi rend="sup">e</hi> d’Infanterie. — Le Carret, (Alphonse), 54<hi rend="sup">e</hi> d’Infanterie coloniale. — Le Guevel, (Louis), 81<hi rend="sup">e</hi> d’Infanterie Territoriale. — Le Magadur, (François), 251<hi rend="sup">e</hi> d’Infanterie. — Leroux, (Jean), 168<hi rend="sup">e</hi> d’Infanterie. — Le Trouher, (Joseph), 3<hi rend="sup">e</hi> d’Infanterie Coloniale. — Michaud, (René), 251<hi rend="sup">e</hi> d’Infanterie. — Pairaud, (Pierre), 11<hi rend="sup">e</hi> d’Artillerie lourde. — Perrain, (René), 409<hi rend="sup">e</hi> d’Infanterie. — Perrichon, (Clerc), 317<hi rend="sup">e</hi> d’Infanterie. — Piron, (Joseph), 77<hi rend="sup">e</hi> d’Infanterie. — Rineau, (Xavier), 293<hi rend="sup">e</hi> d’Infanterie. — Robinet, (Jean), 87<hi rend="sup">e</hi> d’Infanterie. —- Sciellour, (François-Xavier), 7<hi rend="sup">e</hi> d’Artillerie. — Stephan, (Jean), 118<hi rend="sup">e</hi> d’Infanterie. — Teillet, (Alphonse), 38<hi rend="sup">e</hi> d’Infanterie.</p>
+</div>
+<div>
+<head>Élèves rentrés dans leurs foyers</head>
+<p>Aubineau (Auguste), 293<hi rend="sup">e</hi> d’Infanterie, Antigny (Vendée).</p>
+<p>Bonnafoux (Joseph), 86<hi rend="sup">e</hi> d’Infanterie, Saint-Germain-Lembron (Pas-de-Calais).</p>
+<p>Carudel (Louis), 64<hi rend="sup">e</hi> d’Infanterie, Nozay (Loire-Inférieure).</p>
+<p>Charrier (Mathurin), 120<hi rend="sup">e</hi> d’Infanterie, Clisson (Loire-Inférieure).</p>
+<p>Chastaing (Adrien), 126<hi rend="sup">e</hi> d’Infanterie, Louignac (Corrèze).</p>
+<p>Deville (Émile), 130<hi rend="sup">e</hi> d’Infanterie, Villereal (Lot-et-Garonne).</p>
+<p>Devin (Émile), 26<hi rend="sup">e</hi> d’Infanterie, Nantes (Loire-Inférieure).</p>
+<p>Frapsauce (Alexandre), 122<hi rend="sup">e</hi> d’Infanterie, Lorient.</p>
+
+<pb n="20" xml:id="p20"/>
+<p>Gauchet (Louis), 116<hi rend="sup">e</hi> d’infanterie, Nantes (Loire-Inférieure).</p>
+<p>Girardeau (Maximin), 77<hi rend="sup">e</hi> d’infanterie Territoriale, Cholet (Maine-et-Loire).</p>
+<p>Guihard (Louis-Marie), 81<hi rend="sup">e</hi> d’Infanterie Territoriale, Missillac (Loire-Inférieure).</p>
+<p>Guillet (Henri), 51<hi rend="sup">e</hi> d’Artillerie, Nantes.</p>
+<p>Junot (Joseph), 65e d’Infanterie, Augan (Morbihan).</p>
+<p>Kemp (Chrétien), 6<hi rend="sup">e</hi> Génie, Paris.</p>
+<p>Lambert (Ludovic), 56<hi rend="sup">e</hi> d’Infanterie Coloniale, Nantes.</p>
+<p>Le Callonec (Pierre), 51<hi rend="sup">e</hi> d’Infanterie, Saint-Tugdual (Morbihan).</p>
+<p>Le Feure (Julien), 147<hi rend="sup">e</hi> d’Infanterie, Clamart (Seine).</p>
+<p>Le Nahuec (Jean), 102<hi rend="sup">e</hi> d’Infanterie, Le Perray (Seine-et-Oise).</p>
+<p>Le Nouveau (Louis), 17<hi rend="sup">e</hi> d’Infanterie, Ploerdut (Morbihan).</p>
+<p>Le Serrec (Yves), 17<hi rend="sup">e</hi> Bataillon Chasseurs, Rosfrenen (Côtes-du-Nord).</p>
+<p>Masson, (François), 248<hi rend="sup">e</hi> d’Infanterie, Lannion (Côtes-du-Nord).</p>
+<p>Ménager (Gustave), 265<hi rend="sup">e</hi> d’Infanterie, Guérande (Loire-Inférieure).</p>
+<p>Monfort (François), 149<hi rend="sup">e</hi> d’Infanterie, Angers (Maine-et-Loire).</p>
+<p>Monsard (Jean-Marie), 262<hi rend="sup">e</hi> d’Infanterie, Arzon (Morbihan).</p>
+<p>Monnier (Félix), 4<hi rend="sup">e</hi> Zouaves, Nantes.</p>
+<p>Petitjean (Georges), 62<hi rend="sup">e</hi> d’Artillerie, Nantes.</p>
+<p>Picaud (Louis), 9<hi rend="sup">e</hi> d’infanterie, Saint-Nazaire (Indre-Loire).</p>
+<p>Renaudineau (Henri), 26<hi rend="sup">e</hi> d’Infanterie, Machecoul (Indre).</p>
+<p>Turcat (Léon), 41<hi rend="sup">e</hi> d’Infanterie, Nantes.</p>
+</div>
+</div>
+<div>
+<head>École régionale de Montpellier</head>
+<index>
+<term type="lieu">Montpellier</term>
+
+<term type="contributeur">Trul</term>
+
+<term type="sujet">Aspects particuliers de l’éducation</term>
+
+<term type="sujet">Éducation professionnelle</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+
+<term type="sujet">Services sociaux. Travail social. Associations</term>
+
+<term type="sujet">Soin des malades et des blessés. Sociétés d’entraide</term>
+</index>
+<p>L’École de Montpellier a reçu, depuis le 15 septembre 1915 jusqu’au 31 décembre dernier, 64 élèves, dont 31 sont sortis et 33 restent en cours d’études.</p>
+<p>Comme nous l’avons déjà indiqué ici (n° 2, page 21) et dans notre brochure de propagande (8<hi rend="sup">e</hi> édition), l’enseignement professionnel comprend : 1° brosserie, chaiserie, vannerie, cordonnerie ; 2° filet, macramé, raphia ; 3° Braille, dactylo ; 4°musique, gymnastique.</p>
+<p>Le massage, l’accordage, la téléphonie sont exceptionnels et réservés à Paris.</p>
+<p>Le recrutement, d’abord général, est devenu exclusivement régional.</p>
+<p>L’ensemble paraît très satisfaisant à tous égards. Nous n’indiquerons que certains points particuliers et quelques desiderata.</p>
+<div>
+<head>Élèves en ménage</head>
+<p>Les ménages sont au nombre de 33, dont 18 avec enfants et 15, dont un veuf, sans enfants. Parmi les 33 ménages, 20 ont été établis à Montpellier, jusqu’à la fin de l’apprentissage professionnel.</p>
+<p>Nous fournissons gratuitement un logement familial meublé, des suppléments nécessaires de travail, d’alimentation et de vestiaire.</p>
+<p>La constitution de ménages scolaires est une œuvre d’assistance, de solidarité et de patriotisme, qui nous donne les meilleurs résultats typhlophiles.</p>
+</div>
+<div>
+<head>Alimentation et Vestiaire</head>
+<p>En outre de l’entretien matériel, fourni à titre hospitalier par le Service de Santé, nos soldats aveugles reçoivent des suppléments d’alimentation, de friandises, de tabac, de linge et de vêtements. Des sommes importantes y sont consacrées : Alimentation, 7.135 fr. 55 ; costumes et lingerie, 3.983 fr.35.</p>
+</div>
+<div>
+<head>Livrets de Caisse d’Épargne</head>
+<p>Les livrets de Caisse d’épargne sont individuels. Ils ont reçu à l’origine 5 francs pour les célibataires, 10 francs pour les ménages et 10 francs par enfant. Nous y ajoutons, chaque mois, le prix intégral du travail, payé directement, en outre, à chaque aveugle.</p>
+<p>Les livrets comportent actuellement la somme de 995 fr. 50 en dons individuels, et 1.078 fr. 15 de gratifications supplémentaires pour le travail ; en tout : 2.073 fr. 65.</p>
+</div>
+<div>
+<head>Installation et Fournitures</head>
+<p>À la sortie de l’École, outre les dons reçus de diverses sociétés typhlophiles, nous avons fourni l’outillage, les matières premières, la tablette Braille et, en outre, à ceux qui peuvent l’utiliser et l’entretenir une machine dactylographique Remington n° 7.</p>
+<p>Outillage, 1.512 fr. 50 ; matières premières, 1.978 fr. 30 ; 13 machines Remington, 2.440 francs.</p>
+</div>
+<div>
+<head>Théâtre, Concerts, Promenades</head>
+<p>Huit places de théâtre sont réservées aux aveugles et à deux guides à chaque représentation.</p>
+
+<pb n="21" xml:id="p21"/>
+<p>Des concerts intimes ou publics, avec répétition générale, sont organisés, presque chaque mois, à l’École.</p>
+<p>Enfin, des promenades ou excursions ont lieu fréquemment à la campagne et à la mer, chez des typhlophiles. Si la distance est trop grande, des omnibus portent les aveugles, les infirmiers et les dames assistantes, avec le goûter, le déjeuner ou le dîner communs. Ces journées en plein air et de fête, avec les ébats les chants habituels, en toute cordialité familiale, sont particulièrement appréciées. Elles ont entraîné une dépense totale de 919 fr. 55.</p>
+</div>
+<div>
+<head>Bibliothèque</head>
+<p>La bibliothèque Braille est organisée à Montpellier depuis longtemps ; mais elle s’est considérablement enrichie d’un grand nombre d’ouvrages, au cours de ces deux dernières années.</p>
+<p>Le nombre des volumes est actuellement de 371, représentant 169 ouvrages de différents auteurs. Ces livres, fournis gratuitement par les œuvres ou les personnalités typhlophiles, sont non seulement à la disposition des élèves de l’École, mais encore ils sont envoyés aux anciens élèves qui en font la demande. Les frais d’envoi et de retour sont la charge de l’École.</p>
+</div>
+<div>
+<head>Imprimerie</head>
+<p>L’imprimerie par le système Vaughan nous a permis de transcrire et de tirer à vingt-cinq exemplaires deux ouvrages qui ont été envoyés dans les différentes écoles de soldats aveugles.</p>
+<p>Le fonctionnement de ce service a été confié au sous-lieutenant Chounet, aidé de dames et de demoiselles, parmi lesquelles il nous est agréable de citer : Mme Bertrand, Mlles Brelet, Compazieu, Fabry, de Parisot, Silizewitch.</p>
+<p>La direction en a été assurée par M. Brocard, conseiller à la Cour d’appel de Montpellier, membre du Conseil des Écoles-Ateliers.</p>
+<p>En outre des ouvrages qui ont été tirés, notre service d’imprimerie nous a permis, à l’occasion des concerts, par exemple, de composer en Braille le programme, qui a été distribué à nos élèves.</p>
+</div>
+<div>
+<head>Desiderata</head>
+<div>
+<head>Durée de la scolarité</head>
+<p>On a voulu réduire la durée de la scolarité à six mois. C’est insuffisant pour l’ouvrier isolé. Il faut tenir compte des métiers divers, des capacités individuelles, des vacances, des congés, des maladies, etc.</p>
+<p>Nous estimons qu’une bonne scolarité générale et professionnelle exige un an environ, avec variantes individuelles. Nous avons une moyenne de séjour de 14 mois.</p>
+</div>
+</div>
+<div>
+<head>Permutation scolaire</head>
+<p>La régionalité scolaire doit être effective. On ne saurait admettre que certains élèves passent successivement d’une école à une autre et prolongent ainsi, d’une façon abusive, leur scolarité gratuite. Le changement d’école doit être exceptionnel et fortement motivé, après entente entre les Directeurs intéressés.</p>
+</div>
+<div>
+<head>Rémunération uniforme du travail</head>
+<p>Le paiement du travail scolaire, en principe, devrait être unifié. On éviterait ainsi les récriminations intéressées et les concurrences superflues. Il sera toujours possible de récompenser spécialement l’application et la production individuelles.</p>
+</div>
+<div>
+<head>Prix de journée scolaire individuel</head>
+<p>Ce prix devrait être établi, dans chaque école, suivant un mode déterminé et d’une façon intégrale. On supprimerait ainsi de fâcheuses inégalités régionales et quelques abus ; on réaliserait, en outre, de sérieuses économies.</p>
+<p>Le nombre de journées étant de 20.300 et la dépense totale 112.496 fr. 85, notre prix de journée global est actuellement de 5 fr. 54, tous frais compris (installation, outillage, matières premières, entretien, enseignement, etc.) Si l’on déduisait les frais de premier établissement (8.622 fr. 65), d’outillage et de matériel (11.613 fr. 40) et de matières premières (8.086 fr. 40), le prix de journée serait de 4fr. 14.</p>
+<byline>Le Directeur de l’École,Trul.</byline>
+</div>
+</div>
+<div>
+<head>École de la rue Paul (Marseille)</head>
+<index>
+<term type="lieu">Marseille</term>
+
+<term type="contributeur">O. Herbaut</term>
+
+<term type="sujet">Aspects particuliers de l’éducation</term>
+
+<term type="sujet">Éducation professionnelle</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+
+<term type="sujet">Services sociaux. Travail social. Associations</term>
+</index>
+<salute>Monsieur,</salute>
+<p>Connaissant l’intérêt que vous portez aux soldats blessés aux yeux, vos efforts inlassables pour améliorer leur situation, je suis tout heureux de venir vous parler un peu du fonctionnement de notre École et de ses résultats.</p>
+<p>Elle compte actuellement dix-huit mois d’existence, puisqu’elle a été ouverte le</p>
+
+<pb n="22" xml:id="p22"/>
+<p>1<hi rend="sup">er</hi> juillet 1916. 16 élèves sont présents. Au cours de l’année quelques-uns sont rentrés dans leurs familles.</p>
+<p>Les professions enseignées à la rue Paul sont : la brosserie, qui réunit le plus grand nombre d’apprentis, en raison de la facilité du travail ; la sparterie, s’apprenant rapidement et donnant une bonne rémunération, mais ce travail ne peut guère s’exercer qu’à Marseille ou en Provence, les couffins étant employés spécialement dans les savonneries et pour la voirie municipale ; la vannerie donne aussi de bons résultats, mais l’apprentissage en est long et exige de l’adresse et de la persévérance ; le rempaillage des chaises, occupation facile et qui assure à celui qui l’exerce un travail sans chômage, car on trouve toujours des enfants pour monter sur les chaises et préparer de la besogne ; l’accord des pianos, cette profession demande un long apprentissage, nous avons cependant trois élèves.</p>
+<p>Nous avons essayé aussi le ressemelage des chaussures : les résultats paraissaient devoir être très bons, mais l’élève, ayant changé d’avis, a choisi une autre profession malgré les avantages que présentait la première.</p>
+<p>Notre salle d’études est assez fréquentée, la plupart de nos élèves consacrent à la lecture et à l’écriture en Braille quelques heures par jour, les progrès chez quelques-uns sont rapides et plus lents chez d’autres, à cause surtout de leur degré d’instruction.</p>
+<p>La machine à écrire a de nombreux amateurs et je suis très heureux de constater ces dispositions, car nos élèves ont là un moyen rapide de faire eux-mêmes leur correspondance et plusieurs ont acquis une véritable dextérité. Nous avons même la joie de constater qu’un de nos élèves aveugles, amputé de la main droite et des deux jambes, a acquis en un mois de pratique assez d’adresse pour pouvoir se tirer d’affaire tout seul.</p>
+<p>Voilà la partie sérieuse et pratique, mais je dois avouer que la mélancolie n’a pas droit de cité chez nous et que bien souvent les éclats de rire rappellent ceux d’écoliers en vacances. Mais le plus grand succès, la plus grande joie de l’année a certainement été l’annonce que la pension de 1.200 francs, dont vous avez bien voulu prendre l’initiative, était un fait accompli. Cette majoration était tellement désirée que l’on craignait toujours un contretemps fâcheux pouvant en retarder l’adoption, une vague crainte subsistait, mais maintenant tous les doutes sont dissipés et ces chers 1.200 francs sont une certitude absolue.</p>
+<p>Nous ne négligeons aucune occasion de fêtes, les plus fréquentes et les plus appréciées sont : les mariages et les remises de décorations. Les mariages : les élèves sont heureux de voir les camarades fonder un foyer et reprendre ainsi complètement leur place dans la vie avec tous les espoirs d’avenir.</p>
+<p>Combien douces et fraternelles les réunions ayant pour objet de fêter un nouveau décoré. Il semble que c’est là la reconnaissance officielle de la chère Patrie pour le sacrifice que si généreusement lui ont fait ses fils ; pour ces occasions-là un de nos élèves qui possède un talent de violoniste apprécié ne se fait jamais tirer l’oreille pour apporter sa part à ces fêtes.</p>
+<p>Parmi nos blessés aux yeux se trouve un Annamite blessé en Serbie qui nous est arrivé en avril dernier, il s’est mis au travail avec un entrain admirable, avec cela bon camarade, gai et complaisant, mais il y avait une grosse difficulté et bien gênante : il ne parlait pas notre langue et nous ne connaissions pas la sienne, aussi malgré sa bonne volonté et la nôtre nous n’arrivions pas toujours à nous comprendre ; heureusement par des amis nous avons eu le plaisir de connaître une personne de la haute société marseillaise qui par suite d’un long séjour en Indo-Chine parle fort bien la langue annamite, elle nous sert d’interprète avec un entier dévouement et son mari très au courant des affaires coloniales nous a rendu de multiples services.</p>
+<p>Les bonnes volontés ne nous manquent pas, diverses circonstances nous ont empêchés d’en user cette année comme nous l’aurions voulu, mais j’espère bien, l’année prochaine les mettre à contribution pour le plus grand avantage et la plus grande joie de nos élèves.</p>
+<p>Je ne voudrais pas, monsieur, rendre cette lettre trop longue, mais je ne saurais passer sous silence la bienveillance et la générosité de l’Association Valentin Haüy à notre égard non seulement elle a toujours répondu avec bonté à toutes nos demandes, mais encore en nous rendant service elle a l’air d’être notre obligée ; nous sommes heureux de pouvoir lui en exprimer ici notre bien vive reconnaissance.</p>
+<salute>Veuillez agréer, monsieur, avec mes salutations respectueuses, l’expression de mes sentiments les plus dévoués.</salute>
+<byline>Le Directeur, O. Herbaut.</byline>
+
+<pb n="23" xml:id="p23"/>
+<div>
+<head>Élèves présents</head>
+<p>Borla (Joseph). — Chabert (Joseph). — Lotte (Victor). — Lieutaud (Louis). —  Nardy (Louis). — Liotaud (Jean). — Feschet (Eugène). — Raybaud (Charles). — Capitaine (Eugène). — Poulain (Émile). — Le Van-Giang.— Guis (Antonin). — Gueydon (Louis). Ahmed-ben-Mohamed. — Donadieu (Marius). — Kidas (Mohamed).</p>
+</div>
+<div>
+<head>Élèves rentrés dans leurs foyers</head>
+<p>Trique (François). — Mondolini (Pierre). — Bouisse (Charles). — Cabasson (Maurice). — Delfieux (Pierre). — Fauchier (Joseph). — Vichet (Marius). — Briffaut (Georges). — Petit (Joseph). — Dupuy (Marius). — Icard (Victorien). — Chouquet (Eugène). — Gauthier (Raoul). — Violette (François). — Chauller (Clovis). — Coulomb (Joseph).</p>
+</div>
+</div>
+<div>
+<head>Les blessés aux yeux du centre de Bayonne</head>
+<index>
+<term type="lieu">Bayonne</term>
+
+<term type="contributeur">E. Fort</term>
+
+<term type="sujet">Aspects particuliers de l’éducation</term>
+
+<term type="sujet">Éducation professionnelle</term>
+
+<term type="sujet">Artisanat. Arts et métiers</term>
+
+<term type="sujet">Services sociaux. Travail social. Associations</term>
+
+<term type="sujet">Soin des malades et des blessés. Sociétés d’entraide</term>
+</index>
+<p>Il n’y a pas en ce moment de nouveaux blessés aux yeux de la région basque et bayonnaise. Voilà la raison pour laquelle le centre de rééducation professionnelle de Bayonne n’a plus de pupilles de cette catégorie. L’excuse est bonne, il y a lieu, ma foi, de s’en réjouir.</p>
+<p>Mais, voici que se désolent les personnes charitables qui, obéissant à l’impérieux besoin de leur cœur, ne peuvent plus se dévouer auprès de ces infortunés. Lorsque, à la fin de 1915, le maire de Bayonne écrivit à M. Emard, Directeur des Quinze-Vingts, il lui dit qu’il voyait dans l’organisation d’une école de rééducation professionnelle dans notre ville, un grand avantage à garder le soldat atteint de cécité dans son pays, au milieu de ses compatriotes, et à lui conserver ainsi ses habitudes et le langage auquel il est accoutumé. Il fut bien inspiré, on en peut juger par les résultats obtenus.</p>
+<p>Sur 14 de ces blessés, qui furent nos pupilles, pas un ne se plaint trop amèrement aujourd’hui de son sort, bien amélioré par la reprise d’un travail parfois rémunérateur, toujours nécessaire à dissiper l’ennui qui les prend parfois. Ils ne peuvent oublier l’établissement de rééducation quand, revenus chez eux, ils se livrent aux douceurs du foyer familial ! De très rares font le mort, d’autres écrivent, tous sont signalés à des groupements de bienfaisance qui s’intéressent à eux et leur viennent en aide.</p>
+<p>Lapébie, le premier de nos pupilles, continue à avoir beaucoup de travail dans les Landes où il habite toujours. Si nous disons toujours, c’est parce qu’il a quitté le toit paternel pour s’unir à une gentille petite Landaise. Ceux qui s’intéressent aux aveugles de la guerre savent déjà que Lapébie aime les plaisanteries joyeuses. Chacune de ses lettres en contient quelques-unes et, la dernière en date n’est pas des moins amusantes. Il dit qu’il eut trop, beaucoup trop de besogne pendant sa lune de miel, qu’il eût voulu moins troublée par des indiscrets qui semblaient « faire exprès » pour lui apporter, en ce moment-là, rempaillages et cannages.</p>
+<p>Roulet exploite un commerce de vannerie, en collaboration avec un mutilé clairvoyant, ancien apprenti de notre centre. Les deux réunis paraissent très aptes à faire prospérer leur petite industrie.</p>
+<p>Guilhemjouan félicita les compagnons qu’il avait laissés à l’école, de la résolution qu’ils prirent en prenant pioche et pelle pour retourner la terre du potager de l’établissement au moment de la plantation des pommes de terre. « Je vois, leur écrit-il, que les amis ont voulu changer de travail, puisqu’ils se sont mis à cultiver. Je trouve qu’ils ont raison ; moi-même, depuis que j’ai repris mon travail de culture, je me porte mieux. » Plus récemment, il portait à notre connaissance combien « il était heureux des belles et encourageantes lettres des copains (insérées dans le journal de M. Brieux), qui lui donnent un grand réconfort moral. »</p>
+<p>Dachary (J.-B.), de Ayherre (Basses-Pyrénées), travaille beaucoup. Dans une lettre du mois de mai dernier, il dit « qu’il a tellement de besogne qu’il n’en arrivera jamais à bout ».</p>
+<p>Le 20 novembre 1917, il annonce au directeur de l’établissement « qu’il a beaucoup de paniers de commande, tant qu’il en pourra faire pendant six mois ».</p>
+<p>« Comme je ne peux pas, en raison des circonstances, avoir mes meubles plus tôt, écrit Lapébie (Ernest), je ne me marierai qu’au mois de mars. » Encore un qui n’hésite pas à prendre femme et qui ne voit pas l’avenir en sombre. S’il a parfois le cafard, c’est qu’il regrette les bons moments qu’il a passés au centre de Bayonne avec les camarades. Lapébie (Ernest) est un des pupilles les plus adroits parmi ceux qui ont été rééduqués ici ; mais il a trouvé en Labbé son maître.</p>
+<p>Labbé est devenu contremaître à la section des blessés aux yeux du centre de</p>
+
+<pb n="24" xml:id="p24"/>
+<p>Bayonne. Ces deux pupilles émerveillent, autour d’eux, par l’adresse et la rapidité avec lesquelles ils font leurs travaux.</p>
+<p>Lonca se contente de peu de travail manuel, il se livre presque entièrement à ses lectures !.. ce qui lui plaît beaucoup. Il vit avec sa mère dans les Hautes-Pyrénées. Le mariage ne le tracasse pas trop pour le moment. D’une part, la vie chère avec sa seule pension ne lui permettrait pas de faire vivre une femme ; d’autre part, il prétend que trop de femmes de son pays sont illettrées. Comme il reçoit une abondante correspondance en noir, il lui faudrait de préférence une femme... secrétaire.</p>
+<p>Montaulieu, de Tarnos (Landes), a passé de longs mois chez lui avant d’entrer au centre de rééducation professionnelle. Il fut trop longtemps assez malheureux au milieu de la misère des siens, sans une occupation pour le distraire, et augmenter sa faible allocation annuelle. Il a passé sept mois à l’établissement de Bayonne, où il a bien profité de l’enseignement qui lui a été donné. Quand il se présenta pour suivre les cours professionnels, il paraissait déprimé physiquement et moralement miné par le chagrin, sinon par le désespoir. Le voici maintenant revenu à une pleine confiance en l’avenir. Le travail tombe régulièrement chez lui ; il s’occupe sérieusement et peut apporter un supplément appréciable au maigre budget familial.</p>
+<p>Bidau s’est retiré à Anglet, mais s’il demeure peu communicatif, nous savons qu’il retire de réels avantages des bienfaits de la rééducation, qui fut pour lui particulièrement difficile, en raison de plusieurs mutilations gênantes dont il est affligé.</p>
+<p>Fort intelligent, très adroit, et grâce à un ingénieux appareil adapté à son moignon droit, il fait de la brosserie comme tous les autres, bien qu’il soit privé de plusieurs doigts de la main gauche. Il est complètement familiarisé avec les études en Braille.</p>
+<p>Daraspe ne se décide pas à rompre le silence qu’il parait s’être imposé.</p>
+<p>Dachary, de Bidache (B.-P.), continue à être satisfait des travaux qui ne lui manquent pas. Il est revenu à l’école pour apprendre la vannerie et la brosserie.</p>
+<p>De 1915 à 1917, deux pauvres infortunés de nos pupilles ont succombé. L’un, Laboudique, n’a pu survivre aux suites d’une intervention chirurgicale ; l’autre, Camille, miné par une maladie consomptive, s’est éteint dans le charmant village basque où il est né.</p>
+<p>Maintenant que paraît être suspendue momentanément la mission éducatrice qui fut confiée au centre de rééducation professionnelle de Bayonne, il nous est particulièrement agréable de profiter de cette trêve pour donner nos plus vifs remerciements aux personnes qui ont aidé avec tant d’intelligence, de patience et de dévouement à la délicate rééducation des blessés aux yeux. Par la seule rigide et sévère administration officielle, il n’eût pas été possible d’entourer ces infortunés des réconfortantes douceurs et des soins attentionnés que leur prodiguèrent quelques dames de Bayonne, en s’attachant à leurs pas hésitants comme une maman veille à ceux d’un enfant qui chancelle et trébuche encore.</p>
+<p>Par des lectures quotidiennes et l’étude du Braille, elles s’employèrent à leur développement intellectuel. Pour améliorer les conditions un peu rigoureuses de la vie en commun dans un établissement, officiel, elles leur donnèrent à profusion les douceurs d’un foyer familial, qui se traduisirent par des soirées récréatives fréquentes, des gâteries de toutes sortes, une inépuisable générosité Enfin, soucieuses de l’avenir de leurs pupilles, elles se sont engagées à les suivre dans la vie et elles n’y manquent pas.</p>
+<p>Ces dames sont :</p>
+<p>Mmes de Luzarey, Lasserre, Sabattier, Armand Gommës, d’Englesqueville, Ancibure, Clérisse, Lafourcade, Mlles Caudroi</p>
+<p>Taire les noms de ces dames, pour ne point les blesser dans leurs sentiments de modestie eût été une grande déception pour nos blessés aux yeux qui lisent ce journal, car ils auront un réel plaisir à voir ces noms amis associés aux leurs dans ces notes.</p>
+<p>Ils aimeront aussi à confondre dans leurs sentiments de gratitude les membres du conseil d’administration :</p>
+<p>MM. Lebeuf, Dours, Malégarie, Milliaud, Neys, M. Léon, professeur de philosophie atteint de cécité lui-même, Lynch, Lhospital, directeur du centre, et M. Babé, leur contremaître, dont le souvenir reconnaissant ne s’effacera jamais de leur mémoire. Ils savent trop bien combien tous ceux qui les ont approchés se sont employés à rendre meilleure leur existence, qui paraissait ne plus jamais devoir être caressée par le rayonnement heureux du bonheur qu’ils ont su leur faire retrouver.</p>
+<byline>E. Fort, Secrétaire-Administratif</byline>
+<space unit="line" quantity="1"/>
+<space unit="line" quantity="1"/>
+</div>
+</div>
+</body>
+  </text>
+</TEI>

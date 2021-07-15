@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://oeuvres.github.io/Teinte/teinte.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://oeuvres.github.io/teinte/teinte.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xml:lang="fr" xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader>
     <fileDesc>
       <titleStmt>
         <title>{titre}</title>
+        <principal>{createur}</principal>
+        <author>{contributeur}</author>
       </titleStmt>
-      <editionStmt>
-        <edition>2021</edition>
-        <respStmt>
-          <name>{transcripteur}</name>
-          <resp>Transcription</resp>
-        </respStmt>
-      </editionStmt>
       <publicationStmt>
         <publisher>Médiathèque Valentin Haüy</publisher>
         <availability status="restricted">
-          <licence target="https://creativecommons.org/publicdomain/mark/1.0/deed.fr"/>
+          <licence target="https://creativecommons.org/publicdomain/zero/1.0/deed.fr"/>
         </availability>
       </publicationStmt>
       <sourceDesc>
-        <bibl>{source}</bibl>
+        <bibl>
+          <publisher>{publicateur}</publisher>
+          <dim>{format}</dim>
+        </bibl>
       </sourceDesc>
     </fileDesc>
     <profileDesc>

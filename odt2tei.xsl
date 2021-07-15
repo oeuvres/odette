@@ -260,6 +260,7 @@ case encountered, seems logic, but not fully tested
           <xsl:when test="$class = ''"/>
           <xsl:when test="starts-with($class, 'heading')"/>
           <xsl:when test="starts-with($class, 'titre')"/>
+          <xsl:when test="starts-with($class, 'standard')"/>
           <xsl:otherwise>
             <xsl:attribute name="type">
               <xsl:value-of select="$class"/>
@@ -543,7 +544,24 @@ case encountered, seems logic, but not fully tested
                     <xsl:value-of select="$key"/>
                   </xsl:attribute>
                 </xsl:if>
-                <xsl:call-template name="flow"/>
+                <xsl:variable name="value">
+                  <xsl:call-template name="flow"/>
+                </xsl:variable>
+                <xsl:choose>
+                  <!-- front meta -->
+                  <xsl:when test="preceding::text:h">
+                    <xsl:copy-of select="$value"/>
+                  </xsl:when>
+                  <xsl:when test="true()">
+                    <xsl:copy-of select="$value"/>
+                  </xsl:when>
+                  <!-- div meta, keep in attribute -->
+                  <xsl:otherwise>
+                    <xsl:attribute name="key">
+                      <xsl:value-of select="normalize-space($value)"/>
+                    </xsl:attribute>
+                  </xsl:otherwise>
+                </xsl:choose>
               </term>
               <xsl:value-of select="$lf"/>
             </index>
@@ -829,6 +847,7 @@ Listes et tables
             <xsl:when test="$class='Text_20_body'"/>
             <xsl:when test="$class='textbody'"/>
             <xsl:when test="$class='listparagraph'"/>
+            <xsl:when test="$class='listnumber'"/>
             <xsl:otherwise>
               <xsl:attribute name="rend">
                 <xsl:value-of select="$class"/>
@@ -1095,15 +1114,10 @@ to facilitate subsequent groupings.
         <xsl:when test=" starts-with($classtest, 'normal') "/>
         <xsl:when test="starts-with ($classtest, 'notedebasdepage') "/>
         <xsl:when test="starts-with($classtest, 'policepardefaut') "/>
-        <xsl:when test="$classtest = 'titre1car' "/>
-        <xsl:when test="$classtest = 'titre2car' "/>
-        <xsl:when test="$classtest = 'titre3car' "/>
-        <xsl:when test="$classtest = 'titre4car' "/>
-        <xsl:when test="$classtest = 'titolo1carattere' "/>
-        <xsl:when test="$classtest = 'titolo2carattere' "/>
-        <xsl:when test="$classtest = 'titolo3carattere' "/>
-        <xsl:when test="$classtest = 'titolo4carattere' "/>
         <xsl:when test="starts-with($classtest, 'ww') "/>
+        <xsl:when test="starts-with($classtest, 'titre')">label</xsl:when>
+        <xsl:when test="starts-with($classtest, 'titolo')">label</xsl:when>
+        <xsl:when test="starts-with($classtest, 'heading')">label</xsl:when>
         <!-- Normalize style name -->
         <xsl:otherwise>
           <xsl:value-of select="$classtest"/>

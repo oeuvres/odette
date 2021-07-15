@@ -90,6 +90,7 @@ class Odette {
       $pars = array(
         'xslbase' => null,
         'theme' => 'http://oeuvres.github.io/teinte/',
+        // 'theme' => '../../teinte/', // dev
       );
       $xsl=dirname(dirname(__FILE__)).'/teinte/tei2html.xsl';
       if (!file_exists($xsl)) {
