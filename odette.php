@@ -89,18 +89,18 @@ class Odette {
       // find a transfo pack for tei to html
       $pars = array(
         'xslbase' => null,
-        'theme' => 'http://oeuvres.github.io/teinte/',
+        'theme' => 'https://oeuvres.github.io/teinte/',
         // 'theme' => '../../teinte/', // dev
       );
       $xsl=dirname(dirname(__FILE__)).'/teinte/tei2html.xsl';
       if (!file_exists($xsl)) {
-        $xsl="http://oeuvres.github.io/teinte/tei2html.xsl";
+        $xsl="https://oeuvres.github.io/teinte/tei2html.xsl";
       }
       $this->transform($xsl, $pars);
     }
     else {
       return;
-      echo 'Format $format not yet supported. Please create a ticket to ask for a new feature : <a href="http://github.com/oeuvres/Odette/issues">OBVIL GitHub project</a> ';
+      echo 'Format $format not yet supported. Please create a ticket to ask for a new feature : <a href="https://github.com/oeuvres/Odette/issues">OBVIL GitHub project</a> ';
       exit;
     }
     $this->doc->formatOutput=true;
