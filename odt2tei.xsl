@@ -407,6 +407,17 @@ case encountered, seems logic, but not fully tested
       </xsl:choose>
     </xsl:variable>
     <!-- catch rendering information for non semantic style (supposed to be local styling) -->
+    <xsl:if test="$style/style:paragraph-properties/@fo:break-before='page'">
+      <pb type="break-before"/>
+    </xsl:if>
+    <xsl:variable name="margin-top">
+      <xsl:call-template name="mm">
+        <xsl:with-param name="value" select="$style/style:paragraph-properties/@fo:margin-top"/>
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:if test="$margin-top &gt; 10">
+      <space unit="mm" quantity="{$margin-top}"/>
+    </xsl:if>
     <xsl:variable name="align">
       <xsl:variable name="style2" select="key('style', $style/@style:parent-style-name)"/>
       <xsl:choose>
