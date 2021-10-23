@@ -54,7 +54,7 @@ s@</(b|code|em|emph|foreign|hi|i|num|pb|phr|s|sc|seg|strong|tech|title|u)>([\s 
 # <author>Juan Andrea</author> <author>Gilio</author>
 s@</(author|name|persName|surname|sub|sup)>([  ]*)<\1( [^>]+)?>@\2@g
 # exit line break from inline tags
-s@(<lb/>\s*)</(b|em|emph|foreign|hi|i|name|num|phr|s|sc|seg|strong|sub|sup|tech|title|u)>@</\2>\1@g
+s@(<lb/>\s*)</(b|em|emph|foreign|hi|i|name|num|phr|s|sc|seg|strong|tech|title|u)>@</\2>\1@g
 s@(<note[^>]*>) +@$1@g
 s@(<note[^>]*)>\[?nde\]? *@$1 resp="editor">@gi
 s@(<note[^>]*)>\[?nda\]? *@$1 resp="author">@gi
@@ -64,15 +64,14 @@ s@</quote>( *<note[^>]*>.+?</note> *)<quote[^>]*>@$1@g # inline quotes insert no
 # PUNCTUATION
 
 # suppress inline tags with spaces <mark_ffffcc> </mark_ffffcc> =>  (be careful to empty cells, or paras with unbreakable space)
-# will not work in sed
-# <sup>’</sup>
-s@<(bg_[^> ]+|color_[^> ]+|mark_[^> ]+|font_[^> ]+|author|b|code|em|emph|foreign|hi|i|num|phr|s|sc|seg|strong|sub|sup|surname|tech|title|u)( [^>]+)?>([ : \‑\.\(\),\]\[’“”«»]*)</\1>@\3@g
+# keep <sup>’</sup> noise from ABBYY
+s@<(bg_[^> ]+|color_[^> ]+|mark_[^> ]+|font_[^> ]+|author|b|code|em|emph|foreign|hi|i|num|phr|s|sc|seg|strong|surname|tech|title|u)( [^>]+)?>([ : \‑\.\(\),\]\[’“”«»]*)</\1>@\3@g
 # <num>. ii</num> => . <num>ii</num>, <i>— L’Ordene de Chevalerie</i>
 # spaces or punctuation at start of a character tag ?
 # s@<(b|em|emph|foreign|hi|i|num|s|sc|surname|phr|tech|title|u)( [^>]+)?>([ :\,;!?\-\. \)\]*•—–]+)@\3<\1\2>@g
 # exit some punctuation from inline tags !! &amp;
-s@\s*( ;)</(b|emph|foreign|em|hi|i|phr|strong|seg|sub|sup|tech|title|u)>@</\2>\1@g
-s@([  \-\,:!\?]+)</(author|b|em|emph|foreign|hi|i|phr|strong|seg|sub|sup|tech|title|u)>@</\2>\1@g
+s@\s*( ;)</(b|emph|foreign|em|hi|i|phr|strong|seg|tech|title|u)>@</\2>\1@g
+s@([  \-\,:!\?]+)</(author|b|em|emph|foreign|hi|i|phr|strong|seg|tech|title|u)>@</\2>\1@g
 
 # LINKS
 

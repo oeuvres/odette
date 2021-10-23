@@ -254,6 +254,12 @@ Best usage of output could be as an input for other filters (regular expressions
 case encountered, seems logic, but not fully tested         
       <xsl:if test="$style//@fo:break-before='page' or key('style',$styleName )//@fo:break-before='page' or $style//@style:master-page-name or  key('style',$styleName )//@style:master-page-name"><pb/></xsl:if>
       -->
+      <!-- catch page break -->
+      <xsl:if test="$style/style:paragraph-properties/@fo:break-before='page'">
+        <xsl:value-of select="$lf"/>
+        <pb type="break-before"/>
+      </xsl:if>
+      
       <xsl:value-of select="$lf"/>
       <head>
         <xsl:choose>
@@ -408,6 +414,7 @@ case encountered, seems logic, but not fully tested
     </xsl:variable>
     <!-- catch rendering information for non semantic style (supposed to be local styling) -->
     <xsl:if test="$style/style:paragraph-properties/@fo:break-before='page'">
+      <xsl:value-of select="$lf"/>
       <pb type="break-before"/>
     </xsl:if>
     <xsl:variable name="margin-top">
