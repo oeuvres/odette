@@ -8,14 +8,14 @@
         <author key="{author}"/>
       </titleStmt>
       <editionStmt>
-        <edition>{publisher}</edition>
+        <edition>Descriptions de la Chine (XVII<hi rend="sup">e</hi>-XIX<hi rend="sup">e</hi>)</edition>
         <respStmt>
-          <name>{Transcription}</name>
-          <resp>Transcription</resp>
+          <name>Le Roy, Axel</name>
+          <resp>Édition</resp>
         </respStmt>
       </editionStmt>
       <publicationStmt>
-        <publisher>{publisher}</publisher>
+        <publisher>ObTiC</publisher>
         <date when="2021"/>
         <idno>{filename}</idno>
         <availability status="restricted">

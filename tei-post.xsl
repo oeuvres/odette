@@ -370,13 +370,6 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
         <xsl:value-of select="normalize-space($rend)"/>
       </xsl:attribute>
       <xsl:apply-templates/>
-      <xsl:if test="following-sibling::*[1][local-name()='note']">
-        <xsl:for-each select="following-sibling::*[1]">
-          <xsl:copy>
-            <xsl:apply-templates/>
-          </xsl:copy>
-        </xsl:for-each>
-      </xsl:if>
     </hi>
   </xsl:template>
   <!-- Index marks inside segments -->
@@ -585,24 +578,51 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
       <xsl:apply-templates/>
     </note>
   </xsl:template>
-  <!-- For notes, if an anchor, put it as an id -->
+  <!-- Notes with a generated id -->
   <xsl:template match="tei:note">
     <xsl:variable name="prev" select="local-name(preceding-sibling::*[1])"/>
-    <xsl:choose>
-      <!-- Cette note a déjà été copiée dans le conteneur -->
-      <xsl:when test="starts-with( $prev, 'bg_') or starts-with($prev, 'mark_') or starts-with($prev, 'color_')"/>
-      <xsl:otherwise>
-        <xsl:copy>
-          <!-- maybe noisy, better is to manual search/replace in TEI 
-          <xsl:if test="local-name(*[1]) = 'anchor' and not">
-            <xsl:copy-of select="tei:anchor[1]/@xml:id"/>
-          </xsl:if>
-          -->
-          <xsl:copy-of select="@*"/>
-          <xsl:apply-templates/>
-        </xsl:copy>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:copy>
+      <!-- auto id -->
+      <xsl:attribute name="xml:id">
+        <xsl:text>fn</xsl:text>
+        <xsl:choose>
+          <xsl:when test="@resp">
+            <xsl:variable name="resp" select="@resp"/>
+            <xsl:number level="any" count="tei:note[@resp=$resp]" from="/*/tei:text/tei:body"/>
+          </xsl:when>
+          <xsl:when test="@place">
+            <xsl:variable name="place" select="@place"/>
+            <xsl:number level="any" count="tei:note[@place=$place]" from="/*/tei:text/tei:body"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:number level="any" count="tei:note" from="/*/tei:text/tei:body"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:attribute>
+      <xsl:copy-of select="@*"/>
+      <xsl:apply-templates/>
+    </xsl:copy>
+  </xsl:template>
+  <!-- figure with a generated id -->
+  <xsl:template match="tei:figure">
+    <xsl:variable name="prev" select="local-name(preceding-sibling::*[1])"/>
+    <xsl:copy>
+      <!-- auto id -->
+      <xsl:attribute name="xml:id">
+        <xsl:text>fig</xsl:text>
+        <xsl:choose>
+          <xsl:when test="@type">
+            <xsl:variable name="type" select="@type"/>
+            <xsl:number level="any" count="tei:figure[@type=$type]" from="/*/tei:text/tei:body"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:number level="any" count="tei:figure" from="/*/tei:text/tei:body"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:attribute>
+      <xsl:copy-of select="@*"/>
+      <xsl:apply-templates/>
+    </xsl:copy>
   </xsl:template>
   <!-- Wash some inline typo in headings -->
   <xsl:template match="tei:head">

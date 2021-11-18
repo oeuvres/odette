@@ -100,7 +100,7 @@ class Odette {
     }
     else {
       return;
-      echo 'Format $format not yet supported. Please create a ticket to ask for a new feature : <a href="https://github.com/oeuvres/Odette/issues">OBVIL GitHub project</a> ';
+      echo 'Format $format not yet supported. Please create a ticket to ask for a new feature: <a href="https://github.com/oeuvres/Odette/issues">OBVIL GitHub project</a> ';
       exit;
     }
     $this->doc->formatOutput=true;
@@ -319,7 +319,7 @@ class Odette {
           break;
         }
         else if($tmp['name']){
-          echo $tmp['name'],' seems bigger than allowed size for upload in your php.ini : upload_max_filesize=',ini_get('upload_max_filesize'),', post_max_size=',ini_get('post_max_size');
+          echo $tmp['name'],' seems bigger than allowed size by your server for upload in your php.ini: upload_max_filesize=',ini_get('upload_max_filesize'),', post_max_size=',ini_get('post_max_size');
           return false;
         }
       }
@@ -402,7 +402,7 @@ class Odette {
 
     array_shift($_SERVER['argv']); // shift first arg, the script filepath
     if (!count($_SERVER['argv'])) exit("
-    usage     : php -f odette.php (".implode('|', array_keys($formats)).")? (".implode('|', array_keys($models)).")? destdir/? *.odt
+    usage     : php odette.php (".implode('|', array_keys($formats)).")? (".implode('|', array_keys($models)).")? destdir/? *.odt
 
     format?   : optional dest format, default is xml/tei, odtx = xml/odt, html with Teinte
     model?    : a TEI skeleton available for this installation in my_model/my_model.xml
