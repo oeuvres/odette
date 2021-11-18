@@ -291,7 +291,7 @@ case encountered, seems logic, but not fully tested
   <xsl:template match="text:page-number">
     <xsl:value-of select="$lf"/>
     <xsl:value-of select="$lf"/>
-    <pb n="{.}"/>
+    <pb type="page-number" n="{.}"/>
   </xsl:template>
   <!-- if office page break are gnificative, it is here -->
   <xsl:template match="text:soft-page-break">
