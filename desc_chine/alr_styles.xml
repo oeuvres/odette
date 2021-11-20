@@ -1,8 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <teiHeader>
     <fileDesc>
       <titleStmt>
-        <title type="main">{Titre}</title>
-        <author key="{auteur}"/>
+        <title xmlns="http://www.tei-c.org/ns/1.0" type="main">Le <hi rend="italic">Quichotte</hi> au XVIII<hi rend="sup">e</hi> siècle<note xml:id="fn1" place="bottom">C’est une idée très con de mettre une note en &lt;teiHeader&gt; mais c’est pour voir si ça marche.</note></title>
+        <author key="Schopenhauer"/>
       </titleStmt>
       <editionStmt>
         <p>Première édition numérique (Word) réalisée par <persName>Pierre Palpant</persName> dans le cadre du projet <ref target="https://www.chineancienne.fr/">Chine ancienne</ref></p>
@@ -50,7 +51,7 @@
         <language ident="fr">Français</language>
       </langUsage>
       <creation>
-        <date when="{date}"/>
+        <date when="1819"/>
       </creation>
     </profileDesc>
     <revisionDesc>

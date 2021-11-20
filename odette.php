@@ -437,7 +437,7 @@ class Odette {
         else $destfile=dirname($srcfile).'/'.pathinfo($srcfile,  PATHINFO_FILENAME).$ext;
         _log("$count. $srcfile > $destfile");
         if (file_exists($destfile)) {
-          _log("  $destfile already exists, it will not be overwritten, can't know if human value added");
+          _log("OVERWRITE WARNING  $destfile already exists, it will not be overwritten, can't know if human value was added");
           continue;
         }
         $odt=new Odette($srcfile);
