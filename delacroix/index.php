@@ -1,11 +1,15 @@
 <?php
-
-// Soumission en post, lancer la transformation
+// Soumission en post
 if (isset($_POST['post'])) {
-  include(dirname(dirname(__FILE__)).'/odette.php');
-  Odette::doPost();
+  include_once(dirname(__DIR__) . '/php/autoload.php');
+  Oeuvres\Odette\OdtChain::doPost(
+    @$_POST['format'],
+    isset($_POST['download']),
+    basename(__DIR__), // template
+  );
   exit;
 }
+
 ?><!DOCTYPE html>
 <html>
   <head>
@@ -29,7 +33,7 @@ if (isset($_POST['post'])) {
         <form class="gris" enctype="multipart/form-data" method="POST" name="odt" action="index.php">
           <p>Correspondance de Delacroix, conversion des lettres éditées en traitement de textes vers XML/TEI</p>
           <input type="hidden" name="post" value="post"/>
-          <input type="hidden" name="model" value="<?php echo basename(dirname(__FILE__)) ?>"/>
+          <input type="hidden" name="template" value="<?php echo basename(dirname(__FILE__)) ?>"/>
           <div style="margin: 50px 0 20px;">
             <b>1. Fichier odt</b> :
             <input type="file" size="70" name="odt" accept="application/vnd.oasis.opendocument.text"/><!-- ne sort pas ds chrome -->

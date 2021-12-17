@@ -35,7 +35,7 @@ namespace Oeuvres\Odette;
 
 use Exception, DOMDocument, ZipArchive;
 use Psr\Log\{LoggerInterface, LoggerAwareInterface, LogLevel, NullLogger};
-use Oeuvres\Kit\{File, LoggerCli, Xml};
+use Oeuvres\Kit\{File, LoggerCli, Web, Xml};
 
 
 /**
@@ -236,7 +236,7 @@ class OdtChain implements LoggerAwareInterface
             );
             */
         }
-        if (!is_readable($template)) {
+        else {
             $template = __DIR__. "/default.xml";
         }
         // ensure path for windows
@@ -285,44 +285,25 @@ class OdtChain implements LoggerAwareInterface
     /**
      *  Apply code to an uploaded File, or to a default file
      */
-    public static function doPost($format = '', $download = null, $defaultFile = null)
-    {
-        if (!isset($defaultFile)) $defaultFile = dirname(__FILE__) . '/test.odt';
+    public static function doPost(
+        ?string $format = null, 
+        ?bool $download = false,
+        ?string $template = null 
+    ) {
+        if (!array_key_exists($format, self::$formats)) $format = "tei";
+        $ext = self::$formats[$format];
+        $upload = Web::upload();
+        if ($upload && count($upload) && isset($upload['tmp_name'])) {
+            $odtFile = $upload['tmp_name'];
+            $dstName = pathinfo($upload['name'], PATHINFO_FILENAME) . $ext;
+        }
+        else {
+            $odtFile = __DIR__ . "/default.odt";
+            $dstName = "odette" . $ext;
+        }
 
-        do {
-            // a file seems uploaded
-            if (count($_FILES)) {
-                reset($_FILES);
-                $tmp = current($_FILES);
-                if ($tmp['tmp_name']) {
-                    $file = $tmp['tmp_name'];
-                    if ($tmp['name']) $filename = substr($tmp['name'], 0, strrpos($tmp['name'], '.'));
-                    else $filename = "odt2tei";
-                    break;
-                } else if ($tmp['name']) {
-                    echo $tmp['name'], ' seems bigger than allowed size by your server for upload in your php.ini: upload_max_filesize=', ini_get('upload_max_filesize'), ', post_max_size=', ini_get('post_max_size');
-                    return false;
-                }
-            }
-            if ($defaultFile) {
-                $file = $defaultFile;
-                $filename = substr(basename($file), 0, strrpos(basename($file), '.'));
-            }
-        } while (false);
-
-
-        if ($format);
-        else if (isset($_REQUEST['format'])) $format = $_REQUEST['format'];
-        else $format = "tei";
-        if (isset($download));
-        else if (isset($_REQUEST['download'])) $download = true;
-        else $download = false;
-
-        $model = 'default';
-        if (isset($_REQUEST['model'])) $model = $_REQUEST['model'];
-
-        $odt = new OdtChain($file);
-        $odt->format($format, $model);
+        $odt = new OdtChain($odtFile);
+        $odt->format($format, $template);
         $xml = $odt->dom->saveXML();
 
         // headers
@@ -334,13 +315,14 @@ class OdtChain implements LoggerAwareInterface
                 header("Content-Type: text/xml");
                 $ext = 'xml';
             }
-            header('Content-Disposition: attachment; filename="' . $filename . '.' . $ext . '"');
+            header('Content-Disposition: attachment; filename="' . $dstName . '.' . $ext . '"');
             header('Content-Description: File Transfer');
             header('Expires: 0');
             header('Cache-Control: ');
             header('Pragma: ');
             flush();
-        } else {
+        } 
+        else {
             if ($format == 'html') {
                 header("Content-Type: text/html; charset=UTF-8");
             }

@@ -1,27 +1,25 @@
 <?php
 
 /**
- * © 2014 frederic.glorieux@fictif.org et LABEX OBVIL
- * © 2012 frederic.glorieux@fictif.org
- * © 2010 frederic.glorieux@fictif.org et École nationale des chartes
- * LGPL http://www.gnu.org/licenses/lgpl.html
- *
- * This program is a free software: you can redistribute it and/or modify it
- * under the terms of the GNU Lesser General Public License
- * http://www.gnu.org/licenses/lgpl.html
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
+ *  * Part of Teinte https://github.com/oeuvres/teinte
+ * BSD-3-Clause https://opensource.org/licenses/BSD-3-Clause
+ * Copyright (c) 2020 frederic.Glorieux@fictif.org
+ * Copyright (c) 2013 Frederic.Glorieux@fictif.org & LABEX OBVIL
+ * Copyright (c) 2012 Frederic.Glorieux@fictif.org
+ * Copyright (c) 2010 Frederic.Glorieux@fictif.org 
+ *                    & École nationale des chartes
  */
-/**
- * Tools to deal with PHP Http oddities
- */
+
+declare(strict_types=1);
 
 namespace Oeuvres\Kit;
 
 use Exception;
 
+/**
+ * Tools to deal with PHP Http oddities
+ * code convention https://www.php-fig.org/psr/psr-12/
+ */
 class Web
 {
     /** web parameters */
@@ -118,8 +116,13 @@ class Web
      *   "param" => array("valeur1", "", "valeur2")
      *)
      */
-    public static function pars($name = FALSE, $expire = 0, $pattern = null, $default = null, $query = FALSE)
-    {
+    public static function pars(
+        ?string $name = null, 
+        ?int $expire = 0, 
+        ?string $pattern = null, 
+        ?string $default = null, 
+        ?string $query = null
+    ) {
         // store params array extracted from query
         if (!self::$pars) {
             if (!$query) $query = self::query();
@@ -269,7 +272,7 @@ class Web
             $filemtime = filemtime($_SERVER['SCRIPT_FILENAME']);
         }
         $if_modified_since = isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) ? stripslashes($_SERVER['HTTP_IF_MODIFIED_SINCE']) : false;
-        // $if_none_match = isset($_SERVER['HTTP_IF_NONE_MATCH']) ? stripslashes($_SERVER['HTTP_IF_NONE_MATCH']) : false; // etag
+        // $if_none_match = isset($_SERVER['HTTP_IF_NONE_MATCH']) ? stripslashes($_SERVER['HTTP_IF_NONE_MATCH']) : false; // etag
         $modification = gmdate('D, d M Y H:i:s', $filemtime) . ' GMT';
         // tests for 304
         if ($force);
@@ -308,10 +311,10 @@ class Web
     }
     /**
      * Get link to un upload file, by key or first one if no key
-     * return a file record like ine $_FILES
+     * return a file record like in $_FILES
      * http://php.net/manual/features.file-upload.post-method.php
      */
-    public static function upload($key = null)
+    public static function upload($key = null): ?array
     {
         // no post, return nothing
         if ($_SERVER['REQUEST_METHOD'] != 'POST') return false;
@@ -359,7 +362,7 @@ class Web
         else $file = reset($_FILES);
         if (!$file || !is_array($file) || !isset($file['error'])) throw new Exception($mess['nofile'][$lang]);
         // validation, no matter for an exception
-        if ($file['error'] == UPLOAD_ERR_NO_FILE) return false;
+        if ($file['error'] == UPLOAD_ERR_NO_FILE) return null;
         if ($file['error']) throw new Exception($mess[$file['error']][$lang]);
         // return the array to have the tmp link, and the original name of the file, and some more useful fields
         $file["filename"] = pathinfo($file['name'], PATHINFO_FILENAME);

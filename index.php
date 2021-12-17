@@ -1,10 +1,11 @@
 <?php
-// le code pilotant la transformation
-include(dirname(__FILE__).'/odette.php');
-
 // Soumission en post
 if (isset($_POST['post'])) {
-  Odette_Odt2tei::doPost();
+  include_once(__DIR__ . '/php/autoload.php');
+  Oeuvres\Odette\OdtChain::doPost(
+    @$_POST['format'],
+    isset($_POST['download'])
+  );
   exit;
 }
 ?><!DOCTYPE html>
@@ -50,12 +51,13 @@ if (isset($_POST['post'])) {
       </div>
     </form>
 
-    <p>Odette customed for specific projects</p>
+    <p>[fr] Odette, customisations pour des projets éditoriaux</p>
     <ul>
         <?php
     foreach(glob(dirname(__FILE__)."/*", GLOB_ONLYDIR) as $dir) {
       $basename = basename($dir);
       if ($basename[0] == '.' || $basename[0] == '_') continue;
+      if (!is_readable($dir."/".$basename.".xml")) continue;
       echo "<li><a href=\"".$basename."/\">".$basename."</a></li>\n";
     }
      ?>

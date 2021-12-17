@@ -1,9 +1,12 @@
 <?php
-
-// Soumission en post, lancer la transformation
+// Soumission en post
 if (isset($_POST['post'])) {
-  include(dirname(dirname(__FILE__)).'/odette.php');
-  Odette::doPost();
+  include_once(dirname(__DIR__) . '/php/autoload.php');
+  Oeuvres\Odette\OdtChain::doPost(
+    @$_POST['format'],
+    isset($_POST['download']),
+    basename(__DIR__), // template
+  );
   exit;
 }
 ?><!DOCTYPE html>

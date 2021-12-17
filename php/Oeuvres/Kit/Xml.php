@@ -183,10 +183,18 @@ class Xml
         ?string $dst,
         array $pars = null
     ) {
-        $key = realpath($xslFile);
+
+        if (strpos($xslFile, "http") === 0) {
+            $key = $xslFile;
+        }
+        else {
+            $key = realpath($xslFile);
+        }
+        if (!$key) {
+            throw new Exception("XSL file not found\n\"$key\"");
+        } 
         // cache compiled xsl
         if (!isset(self::$transcache[$key])) {
-            File::readable($xslFile, __METHOD__."()");
             $trans = new XSLTProcessor();
             $trans->registerPHPFunctions();
             // allow generation of <xsl:document>
@@ -209,7 +217,10 @@ class Xml
             else {
                 ini_set("xsl.security_prefs",  $prefs);
             }
-            $xsldom = self::load($xslFile);
+            // for xsl through http://, allow net download of resources 
+            $xsldom = new DOMDocument();
+            $xsldom->load($xslFile);
+            self::logLibxml(libxml_get_errors());
             if (!$trans->importStyleSheet($xsldom)) {
                 self::logLibxml(libxml_get_errors());
                 throw new Exception("XSLT, impossible to compile " . $xslFile."\n");
@@ -220,6 +231,7 @@ class Xml
         // add params
         if(isset($pars) && count($pars)) {
             foreach ($pars as $key => $value) {
+                if (!$value) $value = "";
                 $trans->setParameter("", $key, $value);
             }
         }
