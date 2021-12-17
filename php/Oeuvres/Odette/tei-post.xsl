@@ -26,12 +26,12 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
 
 -->
 <xsl:transform exclude-result-prefixes="tei" version="1.1" xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-  <xsl:output encoding="UTF-8" indent="yes" method="xml"/>
+  <xsl:output encoding="UTF-8" indent="no" method="xml"/>
+  <xsl:param name="template"/>
+  <xsl:variable name="tei" select="document($template)"/>
   <xsl:variable name="lf" select="'&#10;'"/>
   <xsl:variable name="ABC">ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÆÈÉÊËÌÍÎÏÐÑÒÓÔÕÖŒÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöùúûüýÿþ,:; ?()/\ ._-{}[]</xsl:variable>
   <xsl:variable name="abc">abcdefghijklmnopqrstuvwxyzaaaaaaeeeeeiiiidnoooooœuuuuybbaaaaaaaceeeeiiiionooooouuuuyyb</xsl:variable>
-  <xsl:param name="model">models/default/default.xml</xsl:param>
-  <xsl:variable name="tei" select="document($model)"/>
   <xsl:variable name="body" select="/*"/>
   <xsl:variable name="meta" select="/*/tei:index/tei:term"/>
   <!-- start  -->
@@ -49,6 +49,13 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
       <xsl:apply-templates mode="model" select="node()|@*"/>
     </xsl:copy>
   </xsl:template>
+  <!-- Copy <body> -->
+  <xsl:template match="node()|@*">
+    <xsl:copy>
+      <xsl:apply-templates select="node()|@*"/>
+    </xsl:copy>
+  </xsl:template>
+  
   <!-- Meta element -->
   <xsl:template match="*[not(*)][text()][starts-with(., '{')][contains(., '}')][normalize-space(substring-after(., '}')) = '']" mode="model">
     <xsl:variable name="key" select="translate(., $ABC, $abc)"/>
@@ -99,12 +106,6 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
         </xsl:otherwise>
       </xsl:choose>
     </xsl:attribute>
-  </xsl:template>
-  <!-- Default identity transformation -->
-  <xsl:template match="node()|@*">
-    <xsl:copy>
-      <xsl:apply-templates select="node()|@*"/>
-    </xsl:copy>
   </xsl:template>
   <!-- Strip meta -->
   <xsl:template match="/*/tei:index"/>

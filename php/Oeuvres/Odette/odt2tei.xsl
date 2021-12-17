@@ -5,27 +5,14 @@
 
 <p>Vous qui entrez, laissez toute espérance ! (de comprendre)</p>
 
-LGPL  http://www.gnu.org/licenses/lgpl.html
+Part of Odette https://github.com/oeuvres/odette
+BSD-3-Clause https://opensource.org/licenses/BSD-3-Clause
 © 2021 Frederic.Glorieux@fictif.org et Optéos
 © 2013 Frederic.Glorieux@fictif.org et LABEX OBVIL
 © 2012 Frederic.Glorieux@fictif.org 
 © 2010 Frederic.Glorieux@fictif.org et École nationale des chartes
 © 2007 Frederic.Glorieux@fictif.org
 © 2005 ajlsm.com (Cybertheses)
-
-<p>
-Cette transformation prend en entrée du XML OpenDocument (ex : OpenOffice.org LibreOffice),
-et produit un TEI générique. L'insistance a porté sur la robustesse du filtre,
-afin de réduire les reprises du stylage dans le traitements de textes (ex : styles utilisateur corrompus).
-L'outil a été développé pour plusieurs éditions savantes (textes manuscrits, dictionnaires)
-sur des fichiers tels qu'envoyés à l'imprimeur (sans modèles de documents, avec peu de stylage).
-Il vise à terme la récupération de textes issus de numérisation avec mise en forme.
-Le résultat XML est optimisé pour des normalisations ultérieures (regroupements, hiérarchies, de niveau caractères et paragraphes).
-Cette transformation peut être branchée directement comme filtre d'export
-OpenOffice, mais cet usage n'est pas le plus conseillé. Le processus est parfois
-long, et peut échouer sans explication, notamment sur des fichiers importants. On tirera mieux parti de
-la sortie en la traitant avec d'autres filtres (expressions régulières, XSLT).
-</p>
 
 <p lang="en-FR">
 This transformation takes as input the OpenDocument XML (eg OpenOffice.org)
@@ -41,10 +28,37 @@ long, and may fail without explanation, especially on important files.
 Best usage of output could be as an input for other filters (regular expressions, XSLT).
 </p>
 
+<p>
+Cette transformation prend en entrée du XML OpenDocument (ex : OpenOffice.org LibreOffice),
+et produit un TEI générique. L'insistance a porté sur la robustesse du filtre,
+afin de réduire les reprises du stylage dans le traitements de textes (ex : styles utilisateur corrompus).
+L'outil a été développé pour plusieurs éditions savantes (textes manuscrits, dictionnaires)
+sur des fichiers tels qu'envoyés à l'imprimeur (sans modèles de documents, avec peu de stylage).
+Il vise à terme la récupération de textes issus de numérisation avec mise en forme.
+Le résultat XML est optimisé pour des normalisations ultérieures (regroupements, hiérarchies, de niveau caractères et paragraphes).
+Cette transformation peut être branchée directement comme filtre d'export
+OpenOffice, mais cet usage n'est pas le plus conseillé. Le processus est parfois
+long, et peut échouer sans explication, notamment sur des fichiers importants. On tirera mieux parti de
+la sortie en la traitant avec d'autres filtres (expressions régulières, XSLT).
+</p>
+
+
 
 -->
 <xsl:transform exclude-result-prefixes="tei odette   office style text table draw fo xlink dc meta number svg chart dr3d math form script ooo ooow oooc dom xforms xsd xsi config rpt of rdfa field" extension-element-prefixes="date exslt php" version="1.0" xmlns="http://www.tei-c.org/ns/1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:date="http://exslt.org/dates-and-times" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:exslt="http://exslt.org/common" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:odette="odt:tei" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:php="http://php.net/xsl" xmlns:rdfa="http://docs.oasis-open.org/opendocument/meta/rdfa#" xmlns:rpt="http://openoffice.org/2005/report" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <!-- Where to project links to pictures and other media -->
+  <xsl:param name="media_dir"/>
+  <xsl:param name="lang">
+    <xsl:choose>
+      <xsl:when test="//office:meta/dc:language">
+        <xsl:value-of select="substring-before(concat(//office:meta/dc:language, '-'), '-')"/>
+      </xsl:when>
+      <xsl:when test="//style:style/style:text-properties/@fo:language">
+        <xsl:value-of select="//style:style/style:text-properties/@fo:language"/>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:param>
   <!-- Nécessaire pour libxml, assure encodage -->
   <xsl:output encoding="UTF-8" indent="yes" method="xml"/>
   <!-- clé sur les styles -->
@@ -79,19 +93,6 @@ Best usage of output could be as an input for other filters (regular expressions
   <xsl:param name="output" select="$body"/>
   <!-- Link to a style sheet with style name mapping with elements -->
   <xsl:variable name="sheet" select="document('styles.xml', document(''))"/>
-  <!-- the filename processed, set by the caller -->
-  <xsl:param name="filename"/>
-  <xsl:param name="mediadir"/>
-  <xsl:param name="lang">
-    <xsl:choose>
-      <xsl:when test="//office:meta/dc:language">
-        <xsl:value-of select="substring-before(concat(//office:meta/dc:language, '-'), '-')"/>
-      </xsl:when>
-      <xsl:when test="//style:style/style:text-properties/@fo:language">
-        <xsl:value-of select="//style:style/style:text-properties/@fo:language"/>
-      </xsl:when>
-    </xsl:choose>
-  </xsl:param>
   <xsl:variable name="lf" select="'&#10;'"/>
   <xsl:variable name="tab" select="'&#9;'"/>
   <xsl:variable name="ABC">ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÆÈÉÊËÌÍÎÏÐÑÒÓÔÕÖŒÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöùúûüýÿþ,:; ?()/\ ._-{}[]</xsl:variable>
@@ -1576,17 +1577,17 @@ Go through unuseful link
     <graphic>
       <xsl:attribute name="url">
         <xsl:choose>
-          <xsl:when test="$mediadir != '' and contains(@xlink:href, 'media/')">
-            <xsl:value-of select="$mediadir"/>
+          <xsl:when test="$media_dir != '' and contains(@xlink:href, 'media/')">
+            <xsl:value-of select="$media_dir"/>
             <xsl:value-of select="substring-after(@xlink:href, 'media/')"/>
           </xsl:when>
-          <xsl:when test="$mediadir != '' and contains(@xlink:href, 'Pictures/')">
-            <xsl:value-of select="$mediadir"/>
+          <xsl:when test="$media_dir != '' and contains(@xlink:href, 'Pictures/')">
+            <xsl:value-of select="$media_dir"/>
             <xsl:value-of select="substring-after(@xlink:href, 'Pictures/')"/>
           </xsl:when>
-          <xsl:when test="$mediadir != '' and contains(@xlink:href, $mediadir)">
-            <xsl:value-of select="$mediadir"/>
-            <xsl:value-of select="substring-after(@xlink:href, $mediadir)"/>
+          <xsl:when test="$media_dir != '' and contains(@xlink:href, $media_dir)">
+            <xsl:value-of select="$media_dir"/>
+            <xsl:value-of select="substring-after(@xlink:href, $media_dir)"/>
           </xsl:when>
           <xsl:otherwise>
             <xsl:value-of select="@xlink:href"/>

@@ -1,4 +1,8 @@
-<teiHeader>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://oeuvres.github.io/teinte/teinte.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-stylesheet type="text/xsl" href="../teinte/tei2html.xsl"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="fr">
+  <teiHeader>
     <fileDesc>
       <titleStmt>
         <title type="main">{Titre}</title>
@@ -57,3 +61,7 @@
       <change when="2021-11-19T12:24:00" who="Axel Le Roy">Révision</change>
     </revisionDesc>
   </teiHeader>
+  <text>
+    <body/>
+  </text>
+</TEI>
