@@ -1,8 +1,9 @@
 <?php
-// Soumission en post
+error_reporting(-1);
+include_once __DIR__ . '/php/autoload.php';
 if (isset($_POST['post'])) {
-  include_once(__DIR__ . '/php/autoload.php');
-  Oeuvres\Odette\OdtChain::doPost(
+  // print_r(\Oeuvres\Odette\OdtChain::formats());
+  \Oeuvres\Odette\OdtChain::doPost(
     @$_POST['format'],
     isset($_POST['download'])
   );

@@ -28,23 +28,24 @@ class LoggerCli extends AbstractLogger
     private $prefix; 
 
     /** Logging levels */
-    private static $levelMapInt = [
-        1 => LogLevel::EMERGENCY,
-        2 => LogLevel::ALERT,
-        3 => LogLevel::CRITICAL,
-        4 => LogLevel::ERROR,
-        5 => LogLevel::WARNING,
-        6 => LogLevel::NOTICE,
-        7 => LogLevel::INFO,
-        8 => LogLevel::DEBUG,
-    ];
+    private static $levelMapInt;
     /** Logging level by name */
     private static $levelMapString;
     /** Default level of message to output */
-    private int $verbosity;
+    private $verbosity;
 
     public static function init()
     {
+        self::$levelMapInt = array(
+            1 => LogLevel::EMERGENCY,
+            2 => LogLevel::ALERT,
+            3 => LogLevel::CRITICAL,
+            4 => LogLevel::ERROR,
+            5 => LogLevel::WARNING,
+            6 => LogLevel::NOTICE,
+            7 => LogLevel::INFO,
+            8 => LogLevel::DEBUG,
+        );
         self::$levelMapString = array_flip(self::$levelMapInt);
         // ensure timezone ()
         if(ini_get('date.timezone')) {

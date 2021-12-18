@@ -36,7 +36,7 @@ class Xml
         | LIBXML_NOCDATA
         // | LIBXML_NOWARNING  // no warn for <?xml-model
     ;
-    private static LoggerInterface $logger;
+    private static $logger;
 
     public static function init()
     {

@@ -52,7 +52,7 @@ class OdtChain implements LoggerAwareInterface
     /** available templates */
     private static $templates;
     /** Somewhere to log in  */
-    private LoggerInterface $logger;
+    private $logger;
     /** keep original odt FilePath for a file context */
     private $odtFile;
     /** FileName without extension for generated contents */
@@ -174,6 +174,7 @@ class OdtChain implements LoggerAwareInterface
         }
         if (!$format) $format = 'tei';
         $this->format($format, $model);
+        File::mkdir(dirname($dstFile));
         $this->dom->save($dstFile);
     }
     /**
