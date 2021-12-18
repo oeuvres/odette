@@ -68,6 +68,11 @@ class OdtChain implements LoggerAwareInterface
         return self::$formats;
     }
 
+    public static function home():string
+    {
+        return dirname(dirname(dirname(__DIR__))).'/';
+    }
+
     /**
      * Constructor, instanciations
      */
@@ -141,7 +146,7 @@ class OdtChain implements LoggerAwareInterface
                 'theme' => 'https://oeuvres.github.io/teinte/theme/',
                 // 'theme' => '../../teinte/', // dev
             );
-            $xsl = dirname(dirname(__FILE__)) . '/teinte/xsl/tei2html.xsl___';
+            $xsl = dirname(self::home()) . '/teinte/xsl/tei2html.xsl';
             if (!is_readable($xsl)) {
                 $xsl = "https://oeuvres.github.io/teinte/xsl/tei2html.xsl";
             }
@@ -221,7 +226,6 @@ class OdtChain implements LoggerAwareInterface
         $preg = self::sed_preg(file_get_contents(__DIR__ . '/tei.sed'));
         $xml = preg_replace($preg[0], $preg[1], $xml);
 
-        $home = dirname(dirname(dirname(__DIR__))).'/';
         $template = null;
         $xsl = null;
         if ($tmpl && isset(self::$templates[$tmpl])) {
@@ -340,8 +344,7 @@ class OdtChain implements LoggerAwareInterface
     public static function templates()
     {
         if (self::$templates) return self::$templates;
-        $home = dirname(dirname(dirname(__DIR__))).'/';
-        $glob = glob($home . "*", GLOB_ONLYDIR | GLOB_MARK);
+        $glob = glob(self::home() . "*", GLOB_ONLYDIR | GLOB_MARK);
         $templates = array();
         foreach ($glob as $dir) {
             $name = basename($dir);
