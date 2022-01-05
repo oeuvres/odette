@@ -613,7 +613,7 @@ case encountered, seems logic, but not fully tested
                   </xsl:if>
                   <xsl:call-template name="flow"/>
                 </xsl:element>
-                <!--
+                <!-- Can’t remember why not that
                 <xsl:value-of select="$lf"/>
                 -->
               </xsl:element>

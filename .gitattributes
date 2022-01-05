@@ -1,5 +1,5 @@
 * text eol=lf
-
+*.md text
 
 # Specific Windows
 *.bat text eol=crlf

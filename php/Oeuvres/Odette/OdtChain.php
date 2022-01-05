@@ -259,7 +259,7 @@ class OdtChain implements LoggerAwareInterface
         if ($xsl) {
             $this->dom = Xml::transformToDoc(
                 $xsl,
-                $this->dom,
+                $this->dom
             );
         }
     }
@@ -405,7 +405,7 @@ Options:
         }
         $tmpl = null;
         if (array_key_exists("t", $options)) {
-            $tmpl = $options['t'];
+            $tmpl = rtrim($options['t'], '/\\');
             if (!array_key_exists($tmpl, $templates)) {
                 exit(
                     "\nTemplate not found: \"$tmpl\"\n"
