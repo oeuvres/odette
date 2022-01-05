@@ -586,17 +586,31 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
     <xsl:copy>
       <!-- auto id -->
       <xsl:attribute name="xml:id">
-        <xsl:text>fn</xsl:text>
         <xsl:choose>
           <xsl:when test="@resp">
+            <xsl:choose>
+              <xsl:when test="@resp = 'author'">fn</xsl:when>
+              <xsl:when test="@resp = 'editor'">fned</xsl:when>
+              <xsl:otherwise>
+                <xsl:value-of select="@resp"/>
+              </xsl:otherwise>
+            </xsl:choose>
             <xsl:variable name="resp" select="@resp"/>
             <xsl:number level="any" count="tei:note[@resp=$resp]" from="/*/tei:text/tei:body"/>
           </xsl:when>
           <xsl:when test="@place">
+            <xsl:choose>
+              <xsl:when test="@place = 'foot'">fn</xsl:when>
+              <xsl:when test="@place = 'bottom'">fn</xsl:when>
+              <xsl:otherwise>
+                <xsl:value-of select="@place"/>
+              </xsl:otherwise>
+            </xsl:choose>
             <xsl:variable name="place" select="@place"/>
             <xsl:number level="any" count="tei:note[@place=$place]" from="/*/tei:text/tei:body"/>
           </xsl:when>
           <xsl:otherwise>
+            <xsl:text>fn</xsl:text>
             <xsl:number level="any" count="tei:note" from="/*/tei:text/tei:body"/>
           </xsl:otherwise>
         </xsl:choose>

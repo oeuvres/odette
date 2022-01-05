@@ -1699,15 +1699,19 @@ Notes
         </xsl:attribute>
       </xsl:if>
       -->
-      <xsl:attribute name="place">
-        <xsl:choose>
-          <xsl:when test="@text:note-class='footnote'">bottom</xsl:when>
-          <xsl:when test="@text:note-class='endnote'">end</xsl:when>
-          <xsl:otherwise>
+      
+      <xsl:choose>
+        <!-- default is footnote, nothing is needed -->
+        <xsl:when test="@text:note-class='footnote'"/>
+        <xsl:when test="@text:note-class='endnote'">
+          <xsl:attribute name="place">end</xsl:attribute>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:attribute name="place">
             <xsl:value-of select="@text:note-class"/>
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:attribute>
+          </xsl:attribute>
+        </xsl:otherwise>
+      </xsl:choose>
       <xsl:apply-templates/>
     </note>
   </xsl:template>
