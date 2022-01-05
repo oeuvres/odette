@@ -67,6 +67,22 @@
 
 
 <p>Les métadonnées ci-dessus seront réinsérées à la place de repectivement {titre}, {auteur}, {date} dans desc_chine.xml</p>
+
+<legend>Légende au-dessus d’une image.</legend>
+
+<p>
+<figure xml:id="fig1" rend="frame"><graphic url="alr_styles-img/10000000000001CD000002B79336E989E27647DB.jpg"/></figure>
+
+Un peu de texte normal.</p>
+<legend>
+<figure xml:id="fig2" rend="frame"><graphic url="alr_styles-img/10000000000001D0000002B65E47DA05BA07D408.jpg"/></figure>
+
+Légende en dessous dans le paragraphe qui contient l’image</legend>
+
+<legend>Légende au-dessus, avec image dans le paragraphe
+<figure xml:id="fig3" rend="frame"><graphic url="alr_styles-img/100000000000025F000001E4CA5DC72DCBCFC374.png"/></figure>
+
+</legend>
 </body>
   </text>
 </TEI>

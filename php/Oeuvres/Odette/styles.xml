@@ -92,7 +92,8 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="index" element="item" parent="index" doc="true"/>
   <style level="p" name="l" element="l" rend="keep" doc="true"/>
   <style level="p" name="lindent" element="l" attribute="rend" value="indent"/>
-  <style level="p" name="legende" element="label"/>
+  <style level="p" name="legend" element="legend"/>
+  <style level="p" name="legende" element="legend"/>
   <style level="p" name="ln" element="l"/>
   <style level="p" name="lpart" element="l" attribute="type" value="part"/>
   <style level="p" name="label" element="label" doc="true"/>
