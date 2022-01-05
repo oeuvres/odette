@@ -61,6 +61,8 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="creator" element="byline"/>
   <style level="p" name="dateline" element="dateline" doc="true"/>
   <style level="p" name="date" element="dateline"/>
+  <style level="p" name="datesjournaux" element="label" attribute="type" value="dateline"/>
+  <style level="p" name="datejournal" element="label" attribute="type" value="dateline"/>
   <style level="p" name="def" element="def" parent="entryFree" doc="true"/>
   <style level="p" name="desc" element="desc" doc="true"/>
   <style level="p" name="dd" element="item" parent="dl"/>
