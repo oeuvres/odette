@@ -534,19 +534,19 @@ case encountered, seems logic, but not fully tested
           </index>
         </xsl:when>
         <!-- empty para -->
-        <xsl:when test="normalize-space(.) = ''">
+        <xsl:when test="normalize-space(.) = '' and not(*)">
           <xsl:value-of select="$lf"/>
           <space unit="line" quantity="1"/>
         </xsl:when>
         <!-- asterisms -->
-        <xsl:when test="translate(normalize-space(.), '*  ', '') = ''">
+        <xsl:when test="normalize-space(.) != '' and translate(normalize-space(.), '*  ', '') = ''">
           <xsl:value-of select="$lf"/>
           <ab type="dinkus">
             <xsl:apply-templates/>
           </ab>
         </xsl:when>
         <!-- asterisms -->
-        <xsl:when test="translate(normalize-space(.), '-—–  ', '') = ''">
+        <xsl:when test="normalize-space(.) != '' and translate(normalize-space(.), '-—–  ', '') = ''">
           <xsl:value-of select="$lf"/>
           <ab type="hr">
             <xsl:apply-templates/>
@@ -658,11 +658,18 @@ case encountered, seems logic, but not fully tested
             <xsl:otherwise>
               <xsl:value-of select="$lf"/>
               <p>
-                <xsl:if test="$rend!='' or $class!=''">
-                  <xsl:attribute name="rend">
-                    <xsl:value-of select="normalize-space(concat($class,' ',$rend))"/>
-                  </xsl:attribute>
-                </xsl:if>
+                <xsl:choose>
+                  <xsl:when test="$class != ''">
+                    <xsl:attribute name="rend">
+                      <xsl:value-of select="normalize-space($class)"/>
+                    </xsl:attribute>
+                  </xsl:when>
+                  <xsl:when test="$rend != ''">
+                    <xsl:attribute name="rend">
+                      <xsl:value-of select="normalize-space($rend)"/>
+                    </xsl:attribute>
+                  </xsl:when>
+                </xsl:choose>
                 <xsl:call-template name="lang"/>
                 <xsl:call-template name="flow"/>
               </p>

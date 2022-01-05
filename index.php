@@ -14,7 +14,7 @@ if (isset($_POST['post'])) {
   <head>
     <meta charset="utf-8"/>
     <title>Odette : Open Document Text &gt; XML/TEI</title>
-    <link rel="stylesheet" href="https://oeuvres.github.io/teinte/theme/layout.css"/>
+    <link rel="stylesheet" href="https://oeuvres.github.io/teinte/theme/teinte.layout.css"/>
   </head>
   <body class="article">
     <header>

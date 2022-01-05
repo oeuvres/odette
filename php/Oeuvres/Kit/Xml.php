@@ -34,19 +34,25 @@ class Xml
         | LIBXML_NONET 
         | LIBXML_NSCLEAN 
         | LIBXML_NOCDATA
-        // | LIBXML_NOWARNING  // no warn for <?xml-model
+        // | LIBXML_NOWARNING  // ? hide warn for <?xml-model
     ;
     private static $logger;
 
+    /**
+     * Intialize static variables
+     */
     public static function init()
     {
         if (!extension_loaded("xsl")) {
-            throw new Exception('PHP xsl extension required. Check your php.ini');
+            throw new Exception("PHP xsl extension required.\nCheck your php.ini. On Debian like systems: sudo apt install php-xml\n");
         }
         self::$logger = new NullLogger();
         libxml_use_internal_errors(true); // keep XML error for this process
     }
 
+    /**
+     * 
+     */
     public static function setLogger(LoggerInterface $logger)
     {
         self::$logger = $logger;
@@ -68,7 +74,7 @@ class Xml
     }
 
     /**
-     * Output the very informative libxml messages by the logger
+     * Output the informative libxml messages by the logger
      */
     public static function logLibxml(array $errors)
     {
@@ -285,19 +291,13 @@ class Xml
                 '@<a class="noteref".*?</a>@', // suppress footnote call
                 '@<[^>]+>@' // wash tags
             ),
-            array(__CLASS__, 'blank'),
+            // blanking a string, keeping new lines
+            function($matches) {
+                return preg_replace("/[^\n]/", " ", $matches[0]);
+            },
             $html
         );
         return $html;
-    }
-    /**
-     * blanking a string, keeping new lines
-     */
-    private static function blank(string $string):string
-    {
-        if (is_array($string)) $string = $string[0];
-        // if (strpos($string, '<tt class="num')===0) return "_NUM_".str_repeat(" ", strlen($string) - 5);
-        return preg_replace("/[^\n]/", " ", $string);
     }
 
 }

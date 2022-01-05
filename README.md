@@ -2,79 +2,98 @@
 
 From text processor odt file, extract all possible information in semantic XML (TEI).
 
-Doc (in French) : http://resultats.hypotheses.org/267
+Doc (in French): http://resultats.hypotheses.org/267
 
-Demo : https://obvil.huma-num.fr/odette/
+Demo: https://obvil.huma-num.fr/odette/
 
 Maybe used with command line
 
-    usage    : php -f Odt2tei.php "*.odt" dest/?
-    "*.odt"  : glob patterns are allowed, but in quotes, to not be expanded by shell "folder/*.odt"
-    dest     : optional dest directory
+php odette.php (options)? "teidir/*.xml"
+Export odt files with styles as XML (ex: TEI)
 
-# Styles
+Parameters:
+globs       : 1-n files or globs
 
-The transformation transpose text processor paragraphs (¶) with some direct formatting with semantic, at paragraph level (left, right, center) and character level (italic, small caps…), but most of informaiton is transmitted by user styles. Below a list of styles known and their xml/tei transposition. Unknown styles are kept in a @rend attribute. Styles are here shown normalized as ascii lower case letter, but real life styles may contain capitals, accents, spaces, or punctuation. For example, **quotesalute** could appears as *&lt;Quote, Salute&gt;* for the user in its word processor (a style for a letter in a citation). 
+Options:
+-h, --help   : show this help message
+-f, --force  : force deletion of destination file
+-d destdir   : destination directory for generated files
+-t template  : a specific template for export among:
+               delacroix, desc_chine, dramabib, galien, hauy, hurlus, merveilles17, rougemont
+--tei        : default, export odt as XML/TEI
+--html       : export odt as html
+--odtx       : export native odt xml (for debug)
+
+# Known styles
+
+The transformation transpose text processor paragraphs (¶) with some direct formatting at paragraph level (left, right, center) and character level (italic, small caps…), but most of information is transmitted by user styles. 
+
+For example, if you use the paragraph style **ab**, or **Ab**, or **&lt;ab&gt;** (nice in the style panel, will be sorted as first), the para will be transformes in the xml
+```xml
+<ab type="ornament">content</ab>
+```
+
+Below a list of normalized style name known, and their xml/tei transposition. Unknown styles are kept in a @rend attribute. Styles are here shown normalized as ascii lower case letter, but real life styles may contain capitals, accents, spaces, or punctuation. For example, **quotesalute** could appears as *&lt;Quote, Salute&gt;* for the user in its word processor (a style for a letter in a citation). 
 
 **ab**
 ```xml
-<ab type="ornament">content</ab>
+<ab type="ornament">content ¶</ab>
 ```
 **address**
 ```xml
 <address>
-  <addrLine>content</addrLine>
+  <addrLine>content ¶</addrLine>
 </address>
 ```
 **argument**
 ```xml
 <argument>
-  <p>content</p>
+  <p>content ¶</p>
 </argument>
 ```
 **bibl**
 ```xml
-<bibl>content</bibl>
+<bibl>content ¶</bibl>
 ```
 **byline**
 ```xml
-<byline>content</byline>
+<byline>content ¶</byline>
 ```
 **camera**
 ```xml
-<camera>content</camera>
+<camera>content ¶</camera>
 ```
 **caption**
 ```xml
-<caption>content</caption>
+<caption>content ¶</caption>
 ```
 **castitem**
 ```xml
 <castList>
-  <castItem>content</castItem>
+  <castItem>content ¶</castItem>
 </castList>
 ```
 **castlist**
 ```xml
-<castList>content</castList>
+<castList>content ¶</castList>
 ```
 **closer**
 ```xml
-<closer>content</closer>
+<closer>content ¶</closer>
 ```
 **dateline**
 ```xml
-<dateline>content</dateline>
+<dateline>content ¶</dateline>
 ```
 **def**
 ```xml
 <entryFree>
-  <def>content</def>
+  <def>content ¶</def>
 </entryFree>
 ```
 **desc**
 ```xml
-<desc>content</desc>
+<desc>content ¶</desc>
 ```
 **docauthor**
 ```xml
@@ -82,175 +101,175 @@ The transformation transpose text processor paragraphs (¶) with some direct for
 ```
 **docimprint**
 ```xml
-<docImprint>content</docImprint>
+<docImprint>content ¶</docImprint>
 ```
 **docdate**
 ```xml
-<docDate>content</docDate>
+<docDate>content ¶</docDate>
 ```
 **eg**
 ```xml
-<eg>content</eg>
+<eg>content ¶</eg>
 ```
 **epigraph**
 ```xml
 <epigraph>
-  <p rend="left, bold…">content</p>
+  <p rend="right italic…">content ¶</p>
 </epigraph>
 ```
 **epigraphl**
 ```xml
 <epigraph>
-  <l>content</l>
+  <l>content ¶</l>
 </epigraph>
 ```
 **entry**
 ```xml
-<entry>content</entry>
+<entry>content ¶</entry>
 ```
 **fw**
 ```xml
-<fw>content</fw>
+<fw>content ¶</fw>
 ```
 **index**
 ```xml
 <index>
-  <item>content</item>
+  <item>content ¶</item>
 </index>
 ```
 **l**
 ```xml
-<l rend="left, bold…">content</l>
+<l rend="center italic…">content ¶</l>
 ```
 **label**
 ```xml
-<label>content</label>
+<label>content ¶</label>
 ```
 **labeldateline**
 ```xml
-<label type="dateline">content</label>
+<label type="dateline">content ¶</label>
 ```
 **labelhead**
 ```xml
-<label type="head">content</label>
+<label type="head">content ¶</label>
 ```
 **labelsalute**
 ```xml
-<label type="salute">content</label>
+<label type="salute">content ¶</label>
 ```
 **labelspeaker**
 ```xml
-<label type="speaker">content</label>
+<label type="speaker">content ¶</label>
 ```
 **lg**
 ```xml
 <lg>
-  <l>content</l>
+  <l>content ¶</l>
 </lg>
 ```
 **opener**
 ```xml
-<opener>content</opener>
+<opener>content ¶</opener>
 ```
 **p**
 ```xml
-<p rend="left, bold…">content</p>
+<p rend="right italic…">content ¶</p>
 ```
 **pb**
 ```xml
-<pb>content</pb>
+<pb n="…"/>
 ```
 **postscript**
 ```xml
 <postscript>
-  <p>content</p>
+  <p>content ¶</p>
 </postscript>
 ```
 **q**
 ```xml
-<q>content</q>
+<q>content ¶</q>
 ```
 **quote**
 ```xml
 <quote>
-  <p rend="left, bold…">content</p>
+  <p rend="right, italic…">content ¶</p>
 </quote>
 ```
 **quotedateline**
 ```xml
 <quote>
-  <dateline>content</dateline>
+  <dateline>content ¶</dateline>
 </quote>
 ```
 **quotel**
 ```xml
 <quote>
-  <l>content</l>
+  <l>content ¶</l>
 </quote>
 ```
 **quotesalute**
 ```xml
 <quote>
-  <salute>content</salute>
+  <salute>content ¶</salute>
 </quote>
 ```
 **quotesigned**
 ```xml
 <quote>
-  <signed>content</signed>
+  <signed>content ¶</signed>
 </quote>
 ```
 **role**
 ```xml
 <castItem>
-  <role>content</role>
+  <role>content ¶</role>
 </castItem>
 ```
 **roledesc**
 ```xml
 <castItem>
-  <roleDesc>content</roleDesc>
+  <roleDesc>content ¶</roleDesc>
 </castItem>
 ```
 **said**
 ```xml
-<said>content</said>
+<said>content ¶</said>
 ```
 **salute**
 ```xml
-<salute>content</salute>
+<salute>content ¶</salute>
 ```
 **salutation**
 ```xml
-<salute>content</salute>
+<salute>content ¶</salute>
 ```
 **set**
 ```xml
 <set>
-  <p>content</p>
+  <p>content ¶</p>
 </set>
 ```
 **signed**
 ```xml
-<signed>content</signed>
+<signed>content ¶</signed>
 ```
 **speaker**
 ```xml
-<speaker>content</speaker>
+<speaker>content ¶</speaker>
 ```
 **stage**
 ```xml
-<stage>content</stage>
+<stage>content ¶</stage>
 ```
 **term**
 ```xml
 <index>
-  <term>content</term>
+  <term>content ¶</term>
 </index>
 ```
 **trailer**
 ```xml
-<trailer>content</trailer>
+<trailer>content ¶</trailer>
 ```
 **abbr**
 ```xml

@@ -1,92 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://oeuvres.github.io/teinte/teinte.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://oeuvres.github.io/teinte/teinte.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-stylesheet type="text/xsl" href="../teinte/tei2html.xsl"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="fr">
   <teiHeader>
     <fileDesc>
       <titleStmt>
-        <title>{Title}</title>
-        <author key="{author}"/>
+        <title type="main">{Titre}</title>
+        <author key="{auteur}"/>
       </titleStmt>
       <editionStmt>
-        <edition>Descriptions de la Chine (XVII<hi rend="sup">e</hi>-XIX<hi rend="sup">e</hi>)</edition>
-        <respStmt>
-          <name>Le Roy, Axel</name>
-          <resp>Édition</resp>
-        </respStmt>
+        <p>Première édition numérique (Word) réalisée par <persName>Pierre Palpant</persName> dans le cadre du projet <ref target="https://www.chineancienne.fr/">Chine ancienne</ref></p>
+        <p>Seconde édition numérique, Paris, <date when="2021">2021</date>dans le cadre de la thèse d'<persName>Axel Le Roy</persName> intitulée <title>Construire les savoirs de la nature. Textes, pratiques et objets naturalistes entre la Chine et l’Europe (1680-1830)</title>. Voir <ref target="http://www.theses.fr/s233004">theses.fr</ref> et <ref target="http://www.theses.fr/s233004">https://obtic.sorbonne-universite.fr/equipe-permanente/axel-le-roy/</ref>ObTIC.</p>
       </editionStmt>
       <publicationStmt>
-        <publisher>ObTiC</publisher>
-        <date when="2021"/>
-        <idno>{filename}</idno>
+        <publisher xml:id="ALR">
+          <forename>Axel</forename>
+          <surname>Le Roy</surname>
+          <affiliation>Doctorant contractuel à la <orgName>Faculté des lettres de Sorbonne Université (Observatoire des textes, des idées et des corpus)</orgName> et chercheur associé à la <orgName>Bibliothèque nationale de France (département des Sciences et techniques)</orgName>
+          </affiliation>
+        </publisher>
+        <date>2021</date>
         <availability status="restricted">
-          <licence target="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr"/>
+          <licence target="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr">Licence Creative Commons Attribution-partage dans les mêmes conditions</licence>
+          <p>Pas d’Utilisation Commerciale — Il s’agit d’encourager l’utilisation et l’amélioration de nos ressources électroniques, pour les intérêts de l’enseignement et de la recherche. Toute autorisation au-delà du champ de cette licence doit être obtenue auprès de nous.</p>
+          <p>Paternité — Toute publication dérivée de ses ressources électroniques comporte : </p>
+          <p><list>
+            <item>un lien vers l’adresse pérenne de la dernière version de la ressource</item>
+            <item>la date du fichier source utilisé</item>
+            <item>le nom de l’auteur de la source.</item>
+          </list></p>
         </availability>
       </publicationStmt>
       <sourceDesc>
-        <bibl>{bibl}</bibl>
+        <biblStruct>{zotero}</biblStruct>
       </sourceDesc>
     </fileDesc>
+    <encodingDesc>
+      <projectDesc>
+        <!-- ALR : Compléter avec la description du projet -->
+        <p/>
+      </projectDesc>
+      <editorialDecl>
+        <p>Zotero : groupe "Construire les savoirs de la zoologie au XVIIIe s. Chine-Europe"<ref n="2408042"/>
+        </p>
+        <p>Geonames<ref xml:base="https://www.geonames.org/"/>
+        </p>
+        <p>IdRef<ref xml:base="https://www.idref.fr/"/>
+        </p>
+      </editorialDecl>
+    </encodingDesc>
     <profileDesc>
       <langUsage>
-        <language ident="fr"/>
+        <language ident="fr">Français</language>
       </langUsage>
       <creation>
         <date when="{date}"/>
       </creation>
     </profileDesc>
+    <revisionDesc>
+      <change when="2021-11-19T12:24:00" who="Axel Le Roy">Révision</change>
+    </revisionDesc>
   </teiHeader>
   <text>
     <body>
 
 <table rend="left"><spanGrp type="colgroup"><span type="col" rend="col1"/></spanGrp>
 <row>
-
 <cell rend="top">
-
 <p><ref target="#table">@</ref></p>
 
-
-
-
-
+<p rend="b"/>
 <p rend="b">DESCRIPTION</p>
-
 <p>GÉOGRAPHIQUE</p>
-
 <p>HISTORIQUE, CHRONOLOGIQUE</p>
-
 <p>POLITIQUE, ET PHYSIQUE</p>
-
 <p><hi rend="b">DE L’EMPIRE DE LA CHINE</hi></p>
-
 <p>ET</p>
-
 <p>DE LA TARTARIE CHINOISE</p>
 
-
-
 <p>Par le père J.B. DU HALDE,</p>
-
 <p>de la Compagnie de Jésus</p>
 
 
-
-
-
 <p>TOME QUATRIÈME</p>
-
 <p>1735</p>
 
 
 
-
-
-
-
-
-</cell>
-</row></table>
-<pb n="2"/>
+</cell></row></table>
+<pb type="break-before" n="2"/>
 <p rend="noindent">à partir de :</p>
 
 <p>DESCRIPTION GÉOGRAPHIQUE, HISTORIQUE, CHRONOLOGIQUE, POLITIQUE, ET PHYSIQUE</p>
@@ -120,7 +122,7 @@
 <p rend="center">www.chineancienne.fr</p>
 
 
-<pb n="3"/>
+<pb type="break-before" n="3"/>
 <p rend="center"><hi rend="color_ff0000">TABLE DES ARTICLES</hi></p>
 <p rend="center">contenus dans ce quatrième volume</p>
 <p rend="lmarg1"><ref target="#c001_obsgeotart"><hi rend="b">Observations géographiques sur la Tartarie</hi></ref>, tirées des Mémoires envoyés par les missionnaires qui en ont dressé la carte,</p>
@@ -150,14 +152,12 @@
 
 <p rend="lmarg1"><ref target="#c010_obsgeothibet"><hi rend="b">Observations géographiques &amp; historiques sur la carte du Thibet</hi></ref>, contenant les terres du Grand lama, &amp; des pays voisins qui en dépendent, jusqu’à la source du Gange, tirées des Mémoires du père Régis.</p>
 <p rend="lmarg1"><ref target="#c011_mots">Explication des mots chinois &amp; tartares</ref> qui se trouvent dans ce quatrième volume. <hi rend="color_ff0000"><note xml:id="fn1" place="bottom">
-
 <p>[Non repris en mode texte : Catalogue d’une partie des latitudes observées et des longitudes qui résultent des mesures géométriques dont on s’est servi pour dresser la carte de la Chine faite par les missionnaires de la Compagnie de Jésus, suivant les ordres de l’empereur Cang-hi.</p>
-
 <p>Le site du PôLiB contient <ref target="http://polib.univ-lille3.fr/data/030/index.html">ici</ref> (choisir 'pagination’) le catalogue ci-dessus, de même d’ailleurs que l’ensemble du volume en mode image, et donc l’ensemble des cartes publiées, aisément consultables et téléchargeables (choisir 'index iconographique') : Carte en 12 feuilles de la Tartarie chinoise — Carte du royaume de Corée — Carte des pays traversés par le capitaine Beerings — Carte en 9 feuilles du Tibet.]</p></note></hi></p>
 
-
+<p rend="lmarg1"/>
 <p rend="center"><ref target="#table">@</ref></p>
-<pb n="4"/>
+<pb type="break-before" n="4"/>
 
 
 
@@ -168,10 +168,13 @@
 
 
 
+<p rend="center noindent">
+<figure xml:id="fig1" rend="frame"><graphic url="duhalde_description_4-img/10000000000002F000000197E38A842F98AB9B0B.jpg"/></figure>
+
+</p>
 
 
-
-<pb n="5"/>
+<pb type="break-before" n="5"/>
 <p rend="center"><hi rend="color_002060">Observations géographiques sur la Tartarie,</hi></p>
 <p rend="center noindent"><hi rend="color_002060">tirées des Mémoires envoyés par les missionnaires qui en ont dressé la carte</hi></p>
 <p rend="right"><ref target="#table">@</ref></p>
@@ -295,7 +298,7 @@
 <p>Ce qui est au-delà de Niptchou, des terres des Moscovites, &amp; du Saghalien oula, vers sa source, n’a été mis sur notre carte, que sur le rapport des Mongous, qui ne demeurent pas loin des limites &amp; des autres Tartares lesquels ont été bien aises d’avoir une idée générale de la situation de leur pays, par rapport à celui qui est hors des bornes de l’empire. Ainsi pour avoir une connaissance certaine &amp; exacte de ces vastes régions, il faut attendre que les Moscovites en aient donné des cartes dressées par des mathématiciens envoyés exprès pour en faire la géographie : car celles qui ont paru jusques ici, ne peuvent avoir été faites que sur des mémoires réglés par les jours de chemin, ou par l’estime, ou sur des relations incertaines, puisque dans la description des limites de cet empire &amp; des pays voisins, on remarque partout des fautes considérables, &amp; encore plus de confusion.</p>
 
 <p rend="center"><ref target="#table">@</ref></p>
-<pb n="6"/>
+<pb type="break-before" n="6"/>
 <p rend="center color_002060">II</p>
 <p rend="center"><hi rend="color_002060">DES TERRES DES MONGOLS ou MONGOUS</hi></p>
 <p rend="right"><ref target="#table">@</ref></p>
@@ -401,8 +404,11 @@
 
 <p rend="center"><ref target="#table">@</ref></p>
 
-<pb n="7"/>
+<pb type="break-before" n="7"/>
+<p rend="center">
+<figure xml:id="fig2" rend="frame"><graphic url="duhalde_description_4-img/10000000000002B4000000CF2B396C2C756D1A69.jpg"/></figure>
 
+</p>
 <p rend="center"><hi rend="color_002060">Observations historiques sur la grande Tartarie</hi></p>
 <p rend="center"><hi rend="color_002060">tirées des Mémoires du père Gerbillon</hi></p>
 <p rend="right"><ref target="#table">@</ref></p>
@@ -609,8 +615,11 @@
 <p>A présent il y a à la vérité garnison dans chacune de ces forteresses : mais dans la plupart, ces garnisons sont fort petites, &amp; toutes de soldats chinois : il n’y en a que quelques-unes des plus considérables, comme sont Fouen fou, Tai tong fou, Yu lin, Ning hia, Siang tcheou, Si ning, &amp; So tcheou, où il y ait un corps nombreux de troupes : mais outre ces forteresses, les montagnes qui sont derrière cette muraille en dedans la Chine défendent assez le pays de l’invasion des Tartares. Ceux qui souhaitent un plus grand détail, le trouveront dans le journal des voyages ; ce qu’on a dit jusqu’ici, suffit pour donner une connaissance générale de la Tartarie, telle que le mérite un pays si vaste &amp; si peu peuplé.</p>
 
 <p rend="center"><ref target="#table">@</ref></p>
-<pb n="8"/>
+<pb type="break-before" n="8"/>
+<p rend="center">
+<figure xml:id="fig3" rend="frame"><graphic url="duhalde_description_4-img/10000000000002F3000001022563E39D1EA473E5.jpg"/></figure>
 
+</p>
 <p rend="center"><hi rend="color_002060">Mémoires géographiques</hi></p>
 <p rend="center color_002060">sur les terres occupées par les princes mongous,</p>
 <p rend="center"><hi rend="color_002060">rangés sous quarante-neuf ki ou étendards</hi></p>
@@ -686,7 +695,7 @@
 <p>Tous ces princes se disent de la maison du principal prince des Tartares Eluths qui habite les bords de la rivière Ilin pira, &amp; qui est connu à Peking sous le nom de Tse vang raptan ou Rabdan. Ainsi le nom de Coconor n’est proprement qu’un nom de pays occupé par une famille de princes eluths, &amp; maintenant subdivisé en plusieurs branches. Les chefs ont été honorés par l’empereur des titres de tsing vang, de kun vang, de cong, de peylé : c’est-à-dire, de régulo, de prince, de duc, de comte, tels que les ont les princes mantcheoux de Peking.</p>
 
 <p rend="center"><ref target="#table">@</ref></p>
-<pb n="9"/>
+<pb type="break-before" n="9"/>
 <p rend="center"><hi rend="color_002060">Remarques</hi></p>
 <p rend="center"><hi rend="color_002060">sur la langue des Tartares Mantcheoux</hi></p>
 <p rend="right"><ref target="#table">@</ref></p>
@@ -768,13 +777,16 @@
 <p>Ainsi finit l’entretien que le père Parrenin eut avec le fils aîné de l’empereur sur la langue tartare, &amp; il suffit, ce me semble, avec ce que j’ai dit auparavant, pour faire connaître le génie de cette langue.</p>
 
 <p rend="center"><ref target="#table">@</ref></p>
-<pb n="10"/>
+<pb type="break-before" n="10"/>
+<p rend="center">
+<figure xml:id="fig4" rend="frame"><graphic url="duhalde_description_4-img/10000000000002D8000000E5699129E9D2E9579F.jpg"/></figure>
 
+</p>
 <p rend="center color_002060">VOYAGES</p>
 <p rend="center"><hi rend="color_002060">DU PÈRE VERBIEST</hi></p>
 <p rend="center"><hi rend="color_002060">à la suite de l’empereur de la Chine</hi></p>
 <p rend="center"><hi rend="color_002060">dans la Tartarie orientale</hi></p>
-<pb n="11"/>
+<pb type="break-before" n="11"/>
 <p rend="center"><hi rend="color_002060">Premier voyage en l’année 1682</hi></p>
 <p rend="right"><ref target="#table"><hi rend="sub">@</hi></ref></p>
 <p><pb ana="src" n="074" xml:id="p074"/> L'empereur de la Chine fit un voyage dans la Tartarie orientale, au commencement de l’année 1682, après avoir apaisé par la mort de trois rois rebelles, une révolte qui s’était formée dans quelques provinces de l’empire. L'un de ces princes révoltés fut étranglé dans la province dont il s’était rendu le maître.</p>
@@ -826,7 +838,7 @@
 <p>Je suis arrivé en parfaite santé à Peking le neuvième jour de juin fort tard, quoique plusieurs soient demeurés malades en chemin, ou soient revenus du voyage blessés &amp; estropiés.</p>
 
 <p rend="center"><ref target="#table">@</ref></p>
-<pb n="12"/>
+<pb type="break-before" n="12"/>
 <p rend="center color_002060">Second voyage du père Verbiest</p>
 <p rend="center color_002060">à la suite de l’empereur de la Chine</p>
 <p rend="center"><hi rend="color_002060">dans la Tartarie occidentale l’an 1683</hi></p>
@@ -873,15 +885,18 @@
 <p>Durant plus de 600 milles que nous avons fait en allant &amp; en revenant, car nous ne sommes pas retournés par la même route, il a fait faire un grand chemin à travers les montagnes &amp; les vallées pour la commodité de la reine mère, qui allait en chaise, il a fait encore jeter une infinité de ponts sur les torrents, couper des rochers, &amp; des pointes de montagnes, avec des peines &amp; des dépenses incroyables.</p>
 
 <p rend="center"><ref target="#table">@</ref></p>
-<pb n="13"/>
+<pb type="break-before" n="13"/>
+<p rend="center">
+<figure xml:id="fig5" rend="frame"><graphic url="duhalde_description_4-img/100000000000030C00000106DE7B1CC8D78E79BC.jpg"/></figure>
 
+</p>
 <p rend="center color_002060">VOYAGES</p>
 <p rend="center color_002060">EN TARTARIE</p>
 <p rend="center"><hi rend="color_002060">DU PÈRE GERBILLON,</hi></p>
 
 <p rend="center">missionnaire français,</p>
 <p rend="center">de la compagnie de Jésus, à la Chine</p>
-<pb n="14"/>
+<pb type="break-before" n="14"/>
 <p rend="center color_002060">Premier voyage en l’année 1688</p>
 <p rend="right"><ref target="#table">@</ref></p>
 <p><pb ana="src" n="087" xml:id="p087"/> Les Moscovites s’étant avancés peu à peu jusques aux frontières de la Chine, bâtirent un fort sur ce grand fleuve que les Tartares nomment Saghalien oula, &amp; les Chinois Yalong kiang. Les Moscovites appelèrent ce fort Albazin, &amp; les Tartares &amp; les Chinois Yacsa, du nom d’une petite rivière, qui se jette en ce lieu là dans le grand fleuve. L'empereur de la Chine envoya des troupes qui prirent &amp; rasèrent ce fort. Les Moscovites le rétablirent un an après : mais ils y furent assiégés une seconde fois : &amp; voyant que cette guerre pourrait avoir de fâcheuses suites pour eux, ils prièrent l’empereur de la Chine de vouloir bien la terminer, &amp; de marquer un lieu pour la conférence de la paix.</p>
@@ -1480,7 +1495,7 @@
 <p rend="center"><ref target="#table">@</ref></p>
 
 
-<pb n="15"/>
+<pb type="break-before" n="15"/>
 <p rend="center color_002060">Second voyage</p>
 <p rend="center color_002060">fait par ordre de l’empereur en Tartarie</p>
 <p rend="center"><hi rend="color_002060">par les pères Gerbillon et Pereira,</hi></p>
@@ -1795,7 +1810,7 @@
 <p>Le 7 nous fûmes presque depuis le grand matin jusqu’au soir avec les plénipotentiaires moscovites, &amp; leur interprète, pour écrire les deux exemplaires latins du traité de paix, parce qu’il fallut encore disputer le terrain, &amp; passer une partie de la journée en allées &amp; venues, pour convenir de quelques formalités, sur lesquelles les Moscovites formaient à tout propos des chicanes.</p>
 <p>Enfin nous achevâmes de mettre au net ces deux exemplaires latins du traité de paix, conçus presque dans les mêmes termes ; toute la différence consistait, en ce que dans l’exemplaire que je dressai pour nos ambassadeurs, l’empereur de la Chine était nommé avant les grands ducs de Moscovie, &amp; nos ambassadeurs avant leurs plénipotentiaires ; au lieu que dans l’exemplaire des Moscovites, ils avaient mis leurs grands ducs en premier lieu, &amp; s’étaient mis eux-mêmes avant nos ambassadeurs.</p>
 <p>Voici une traduction fidèle de l’exemplaire que nous fîmes de notre part, &amp; que nos ambassadeurs donnèrent aux plénipotentiaires moscovites.</p>
-<pb n="16"/>
+<pb type="break-before" n="16"/>
 <p rend="center color_002060">Par ordre du très grand empereur</p>
 <p rend="right"><ref target="#table">@</ref></p>
 <p><pb ana="src" n="201" xml:id="p201"/> Song hotou, capitaine des officiers de la garde du corps, conseiller d’État &amp; Grand du palais.</p>
@@ -2187,7 +2202,7 @@
 
 <p rend="center"><ref target="#table">@</ref></p>
 
-<pb n="17"/>
+<pb type="break-before" n="17"/>
 <p rend="center color_002060">Troisième voyage du père Gerbillon en Tartarie,</p>
 <p rend="center color_002060">fait à la suite de l’empereur de la Chine</p>
 <p rend="center"><hi rend="color_002060">en l’année 1691</hi></p>
@@ -2512,7 +2527,7 @@
 <p>Le 22 l’empereur partit deux heures avant la pointe du jour pour se rendre de bonne heure à Peking, qui n’est éloigné de Chui yn hien que de soixante lys. Après avoir fait environ vingt lys, il fut rencontré avant le jour, par le prince héritier, son fils, qui était parti à minuit de Peking, pour venir au-devant de son père ; ils firent ensemble le reste du chemin, &amp; mangèrent à trente <pb ana="src" n="303" xml:id="p303"/> lys de Peking, dans un village ; Sa Majesté me fit encore l’honneur de m’envoyer des plats de sa table, comme elle avait fait très souvent pendant le voyage, particulièrement les sept ou huit derniers jours qu’elle n’y manqua point soir &amp; matin. Nous arrivâmes à Peking avant midi.</p>
 
 <p rend="center"><ref target="#table">@</ref></p>
-<pb n="18"/>
+<pb type="break-before" n="18"/>
 <p rend="center"><hi rend="color_002060">Cinquième voyage du père Gerbillon en Tartarie,</hi></p>
 <p rend="center color_002060">fait à la suite de l’empereur de la Chine</p>
 <p rend="center"><hi rend="color_002060">en l’année 1696</hi></p>
@@ -2773,7 +2788,7 @@
 <p>Ce général m’ajouta, que cela était arrivé par une disposition particulière du <pb ana="src" n="335" xml:id="p335"/> Ciel, qui avait voulu perdre les Eluths ; car, disait-il, si le Caldan eut voulu s’informer de l’état où nous étions, &amp; qu’il se fut retiré, comme il le pouvait faire, ou qu’il se fut fortifié dans quelque passage étroit, notre armée périssait sans ressource. On dit même qu’un neveu du roi d’Eluth lui avait donné ce conseil, mais qu’il n’y avait pas déféré, il crut qu’il lui serait aise de défaire une armée épuisée de fatigues ; ainsi il vint lui-même la chercher &amp; l’attaquer ; mais comme les soldats de cette armée n’avaient d’autre ressource que celle de vaincre, ils combattirent en désespérés, &amp; remportèrent ainsi la victoire, qui a entraîné la destruction entière de ces Eluths, &amp; de leur roi.</p>
 
 <p rend="center"><ref target="#table">@</ref></p>
-<pb n="19"/>
+<pb type="break-before" n="19"/>
 <p rend="center"><hi rend="color_002060">Sixième voyage du père Gerbillon en Tartarie,</hi></p>
 <p rend="center color_002060">fait à la suite de l’empereur de la Chine</p>
 <p rend="center"><hi rend="color_002060">en l’année 1696</hi></p>
@@ -2982,7 +2997,7 @@
 <p>Le temps fut serein &amp; presque sans vent tout le jour, &amp; fort doux pour la saison.</p>
 
 <p rend="center"><ref target="#table">@</ref></p>
-<pb n="20"/>
+<pb type="break-before" n="20"/>
 <p rend="center"><hi rend="color_002060">Septième voyage du père Gerbillon en Tartarie,</hi></p>
 <p rend="center color_002060">fait à la suite de l’empereur de la Chine</p>
 <p rend="center"><hi rend="color_002060">en l’année 1697</hi></p>
@@ -3171,7 +3186,7 @@
 <p>Le 2 nous fîmes cent-vingt lys, &amp; vînmes coucher à Tchang ping tcheou ; c’est une ville qui est à six lieues de Peking, où l’impératrice douairière &amp; les reines vinrent au-devant de l’empereur.</p>
 <p>Le 4 l’empereur entra à Peking tout triomphant. Tous les cavaliers, &amp; les huit étendards se trouvèrent à son passage, avec toutes les marques de la dignité impériale, &amp; étaient rangés en bel ordre des deux cotés du chemin.</p>
 <p rend="center"><ref target="#table">@</ref></p>
-<pb n="21"/>
+<pb type="break-before" n="21"/>
 <p rend="center"><hi rend="color_002060">Huitième voyage du père Gerbillon en Tartarie,</hi></p>
 
 <p rend="center"><hi rend="color_002060">en l’année 1698</hi></p>
@@ -3493,13 +3508,13 @@
 
 <p rend="center"><ref target="#table">@</ref></p>
 
-<pb n="22"/>
+<pb type="break-before" n="22"/>
 <p rend="center color_002060">Observations géographiques</p>
 <p rend="center"><hi rend="color_002060">sur le royaume de Corée,</hi></p>
 <p rend="center"><hi rend="color_002060">tirées des Mémoires du père Régis</hi></p>
 <p rend="right"><ref target="#table">@</ref></p>
 <p>
-<figure xml:id="fig1" rend="frame"><graphic url="duhalde_description_4-img/100000000000013A000001943C09CAB3D9AF62EE.jpg"/></figure>
+<figure xml:id="fig6" rend="frame"><graphic url="duhalde_description_4-img/100000000000013A000001943C09CAB3D9AF62EE.jpg"/></figure>
 
 <pb ana="src" n="423" xml:id="p423"/> Le royaume de Corée est appelé par les Chinois Kao li <hi rend="color_ff0000"><note xml:id="fn36" place="bottom">Ils disent Kao li koue ; koue signifie royaume.</note></hi>, &amp; par les Tartares Mantcheoux, leurs voisins, Solho <hi rend="color_ff0000"><note xml:id="fn37" place="bottom">Solho kouron, disent les Tartares ; kouron signifie royaume.</note></hi>. On trouve encore dans les livres chinois le nom de Tcha ssien, soit que ce fut alors le nom de la partie occidentale la plus connue, soit que dans ce temps-là on nommât ainsi la ville capitale.</p>
 <p>Je ne crois pas qu’il soit nécessaire de rapporter ici les autres noms qu’on a donnés pour un temps à ce royaume ; il suffit de savoir, que depuis bien des siècles on lui donne communément le nom de Kao li, &amp; qu’on ne trouve point d’autre nom dans l’histoire de la famille impériale Yuen du douzième siècle.</p>
@@ -3573,7 +3588,7 @@
 <p><pb ana="src" n="430" xml:id="p430"/> Le prince reçoit à genoux l’investiture, &amp; fait présent aux envoyés d’un certain nombre de choses déterminées, &amp; d’une somme d’argent qui monte à 800 taëls. Le ministre de Corée apporte ensuite le tribut, &amp; vient battre de la tête contre terre devant l’empereur.</p>
 <p>La princesse même, épouse du roi, ne prend point le titre de reine, qu’après l’avoir reçu de l’empereur. Comme le cérémonial est réglé, il n’y a jamais aucune semence de querelle ni de guerre. C'est ainsi que la Corée jouit depuis un grand nombre d’années des douceurs de la paix.</p>
 <p rend="center"><ref target="#table">@</ref></p>
-<pb n="23"/>
+<pb type="break-before" n="23"/>
 <p rend="center color_002060">Histoire abrégée de la Corée</p>
 <p rend="right"><ref target="#table">@</ref></p>
 <p rend="noindent"><pb ana="src" n="431" xml:id="p431"/> Ce qui se dit ici de la Corée est tiré de trois différents auteurs : d’un théâtre du monde intitulé <hi rend="italic">Tsien kio kiu loui chu</hi> ; de l’abrégé général de chorographie qui a pour titre <hi rend="italic">Quang yu ki</hi> ; &amp; surtout d’une géographie universelle intitulée <hi rend="italic">Fang yu ching lio</hi>. Dans les points essentiels, on s’est contenté de traduire simplement, &amp; on y a ajouté la chronologie qu’on croit être sûre.</p>
@@ -3648,11 +3663,8 @@
 <p>Les Coréens estiment fort les sciences. Quand ils envoient quelqu’un en ambassade, ils lui sont subir avant son départ un examen dans le Tribunal des ministres. Les princesses du sang ne s’y marient qu’aux princes du même sang ; les Grands du royaume observent la même règle à l’égard de leur famille. Sous le règne de Yun, cette coutume fut un peu altérée. Quand des marchands leur apportent des livres à vendre, ils se parent de leurs plus beaux habits, &amp; brûlent des parfums avant que de traiter du prix.</p>
 <p>Le quatrième successeur d’Yun, fut Vang kiai. Il envoyait à tout propos des ambassades aux empereurs, de sorte qu’on ne pouvait fournir aux récompenses ; ce qui fit dire alors que le tribut des Coréens n’apportait nul avantage à la Chine, &amp; lui causait au contraire plusieurs sortes de maux.</p>
 <p>Les Leao de leur côté se plaignaient de ce que les Coréens étant, disaient-ils, leurs esclaves, les empereurs chinois ne laissaient pas de traiter leurs ambassadeurs avec toute sorte de distinction. Les Niutché <hi rend="color_ff0000"><note xml:id="fn46" place="bottom">
-
 <p>Les Niutché s’appelaient anciennement Souchin, c’est-à-dire, du temps de Vou vang, &amp; auparavant sous les Han, ils prirent le nom de Yieou. Sous les Ouei, celui de Ukii. Sous les Souy, ils furent nommés Moko. Sous les Tang postérieurs, ils commencèrent à avoir le nom de Niutching. Les Song changèrent la lettre de tching en celle de tché, parce que tching était le nom d’un empereur tartare de la dynastie des Leao. Au reste ce n’est pas à dire que ces différents noms aient été communs à tous les peuples qui habitaient ce vaste espace de terre, qui est compris entre les fleuves Hoen tong kiang, Helong kiang, la Corée, &amp; la mer Orientale, comme il est aujourd’hui parmi les Chinois ; c’étaient apparemment les noms que se donnaient les peuples dominants dans cette contrée. C’est ainsi qu’ils se peuvent aujourd’hui appeler Mantcheoux, quoique dans le sens propre ce nom ne convienne qu’à une nation peu nombreuse de ce pays-là. C’est ainsi pareillement que les Moko, qui y établirent un puissant État, lui donnèrent le nom de Pohai, &amp; furent créés rois par Tui tsong, empereur de la dynastie des Tang. Les Leao les subjuguèrent aussitôt. Enfin les noms de pays, de ville &amp; de monarchie changent à la Chine &amp; dans la Tartarie orientale au gré des princes. Ainsi on ne doit pas être surpris, si les habitants du même pays se trouvent avoir des noms si différents.</p>
-
 <p>Le Helong kiang, ou bien Oulong kiang, est nommé par les Mantcheoux, Saghalien oula, &amp; par les Moscovites Amour, ou Yamour. Les Chinois ont traduit le mot de Saghalien par he &amp; ou ; car he en langue vulgaire, &amp; ou en langue savante, signifie noir, &amp; long signifie dragon. Ils donnent l’intendance des eaux aux dragons ; de sorte que Ou long kiang signifie le fleuve du dragon noir.</p>
-
 <p>Il est à remarquer que l’m final doit se prononcer à l’espagnole &amp; à la portugaise, comme nous prononçons l’n final dans ces mots <hi rend="italic">pain, vin</hi>. L'n final doit se prononcer comme s’il était double, ou qu’il suivît un é muet, c’est-à-dire, comme nous prononçons <hi rend="italic">une, mine</hi>.</p></note></hi> furent d’abord esclaves des Coréens ; mais les choses changèrent de face, &amp; les Niutché s’étant rendus puissants, les Coréens leur furent soumis à leur tour.</p>
 <p>Kao tsong empereur de la dynastie des Song, qui commença à régner l’an 1127 envoya Houli ambassadeur en Corée, de crainte que les Coréens ne se liguassent avec les Kin, ou Niutché, qui venaient d’éteindre les Leao. Dans le même temps les Kin y envoyèrent Vang tchu, avec des patentes pour créer le roi de Corée, dans l’appréhension pareille où ils étaient, qu’ils ne se joignissent aux Chinois.</p>
 <p>Sous le règne de Li tsong, de la dynastie des Yuen, Tché, roi de Corée, envoya son fils Tching, héritier présomptif de sa couronne, rendre hommage en personne. Mais Tché étant mort, Tching revint aussitôt prendre possession de ses États, dont il reçut la confirmation des Yuen. Depuis l’an de sa création jusqu’à la trente-unième année du règne de Hou bilai, comme le nomment les Tartares (c’est le Coblaï de Marc Pol), ou Chi tsou comme le nomment les Chinois, c’est-à-dire, jusqu’à l’an 1291 il avait payé trente-six fois le tribut.</p>
@@ -3832,14 +3844,14 @@
 <p>On en partit le 25 du même mois, pour se rendre à Petersbourg par le même chemin qu’on était venu ; &amp; on y rentra le premier jour de mars.</p>
 
 <p rend="center"><ref target="#table">@</ref></p>
-<pb n="24"/>
+<pb type="break-before" n="24"/>
 <p rend="center color_002060">Observations géographiques et historiques</p>
 <p rend="center color_002060">sur la carte du Thibet</p>
 <p rend="center"><hi rend="color_002060">contenant les terres du Grand lama, &amp; des pays voisins qui en dépendent, jusqu’à la source du Gange</hi></p>
 <p rend="center"><hi rend="color_002060">tirées des Mémoires du père Régis</hi></p>
 <p rend="right"><ref target="#table"><hi rend="sub">@</hi></ref></p>
 <p>
-<figure xml:id="fig2" rend="frame"><graphic url="duhalde_description_4-img/1000000000000215000001F7864C8F341A711933.jpg"/></figure>
+<figure xml:id="fig7" rend="frame"><graphic url="duhalde_description_4-img/1000000000000215000001F7864C8F341A711933.jpg"/></figure>
 
 <pb ana="src" n="459" xml:id="p459"/> Comme dans ce que nous avons dit de la Tartarie, on a inséré plusieurs particularités qui concernent le Thibet ; qu’on y a parlé des mœurs &amp; des coutumes de ces peuples, de leur façon de vivre, de la forme de leur gouvernement, de leur culte religieux, du souverain pouvoir qu’a le Grand lama, qui est regardé comme une divinité, &amp; qui est le chef de tous les autres lamas, auxquels on porte le plus grand respect, &amp; dont les paroles sont autant d’oracles qui abusent un peuple aveugle &amp; crédule ; il ne reste plus qu’à faire connaître la manière dont on s’y est pris, pour dresser la carte d’une vaste contrée, qui jusqu’ici a été si peu connue, même des plus habiles géographes.</p>
 <p>Il y a environ 30 ans que la division se mit parmi les lamas du Thibet ; les uns avaient pris le chapeau jaune, pour marquer leur attachement à la famille Tai tsing, qui règne maintenant à la Chine ; les autres retenaient le chapeau rouge, qui est la couleur dont s’est toujours servi le Grand lama, lequel a vécu de tout temps dans une parfaite indépendance des empereurs chinois.</p>
@@ -3929,7 +3941,7 @@
 <p>C'est par cette raison que dans la <pb ana="src" n="472" xml:id="p472"/> carte dressée sur les mémoires des lamas, qui demeurent près de la source du Gange, on s’en tient aux noms qu’ils ont marqués, comme étant beaucoup plus sûrs que ceux que marquent des voyageurs, qui ne faisant que passer dans un pays, nous apportent les noms des villes &amp; des rivières si défigurés, qu’ils sont presque méconnaissables.</p>
 
 <p rend="center"><ref target="#table">@</ref></p>
-<pb n="25"/>
+<pb type="break-before" n="25"/>
 <p rend="center color_002060">Explication des mots tartares &amp; chinois</p>
 <p rend="center color_002060">qui se trouvent dans ce quatrième volume</p>
 <p rend="right hanging"><ref target="#table">@</ref></p>
@@ -4038,7 +4050,7 @@
 <p rend="lmarg1">Yuen tchao, nom qu’avaient autrefois les Tartares occidentaux.</p>
 
 <p rend="center"><ref target="#table">@</ref></p>
-
+<p rend="hanging"/>
 </body>
   </text>
 </TEI>

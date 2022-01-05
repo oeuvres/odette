@@ -26,9 +26,9 @@
                 </xsl:attribute>
               </xsl:if>
               <xsl:if test="@rend">
-                <xsl:attribute name="rend">left, bold…</xsl:attribute>
+                <xsl:attribute name="rend">right italic…</xsl:attribute>
               </xsl:if>
-              <xsl:text>content</xsl:text>
+              <xsl:text>content ¶</xsl:text>
             </xsl:element>
             <xsl:text>&#10;</xsl:text>
           </xsl:element>
@@ -41,7 +41,7 @@
               </xsl:attribute>
             </xsl:if>
             <xsl:if test="@rend">
-              <xsl:attribute name="rend">left, bold…</xsl:attribute>
+              <xsl:attribute name="rend">right italic…</xsl:attribute>
             </xsl:if>
               <xsl:text>content</xsl:text>
           </xsl:element>

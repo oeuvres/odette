@@ -146,9 +146,9 @@ class OdtChain implements LoggerAwareInterface
                 'theme' => 'https://oeuvres.github.io/teinte/theme/',
                 // 'theme' => '../../teinte/', // dev
             );
-            $xsl = dirname(self::home()) . '/teinte/xsl/tei2html.xsl';
+            $xsl = dirname(self::home()) . '/teinte/xsl/tei_html.xsl';
             if (!is_readable($xsl)) {
-                $xsl = "https://oeuvres.github.io/teinte/xsl/tei2html.xsl";
+                $xsl = "https://oeuvres.github.io/teinte/xsl/tei_html.xsl";
             }
             $this->dom = Xml::transformToDoc(
                 $xsl,
@@ -214,14 +214,13 @@ class OdtChain implements LoggerAwareInterface
         $this->dom = Xml::transformToDoc(
             __DIR__ . '/odt2tei.xsl',
             $this->dom,
-            array('mediadir' => $this->dstName . '-img/')
+            array('media_dir' => $this->dstName . '-img/')
         );
 
         $this->dom->preserveWhiteSpace = true;
         $this->dom->formatOutput = false; // after multiple tests, keep it
         $this->dom->substituteEntities = true;
         $xml = $this->dom->saveXML();
-
         // regularisation of tags segments, ex: spaces tagged as italic
         $preg = self::sed_preg(file_get_contents(__DIR__ . '/tei.sed'));
         $xml = preg_replace($preg[0], $preg[1], $xml);
@@ -256,14 +255,12 @@ class OdtChain implements LoggerAwareInterface
             $this->dom,
             array("template" => $template)
         );
-        /*
         if ($xsl) {
             $this->dom = Xml::transformToDoc(
                 $xsl,
                 $this->dom,
             );
         }
-        */
     }
 
     /**
