@@ -364,7 +364,7 @@ class OdtChain implements LoggerAwareInterface
         Xml::setLogger($logger);
         $templates = self::templates();
         $help = '
-php odette.php (options)? "teidir/*.xml"
+php odette.php (options)? "../work/*.odt"
 Export odt files with styles as XML (ex: TEI)
 
 Parameters:
