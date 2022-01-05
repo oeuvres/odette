@@ -309,7 +309,7 @@ case encountered, seems logic, but not fully tested
     </xsl:call-template>
     -->
     <xsl:apply-templates select="*"/>
-    <xsl:variable name="last" select="(.//text:h[not(ancestor::text:note|ancestor::table:table|ancestor::text:frame|text:bookmark-end)])[last()]"/>
+    <xsl:variable name="last" select="(.//text:h[not(ancestor::text:note|ancestor::table:table|ancestor::text:frame)])[last()]"/>
     <xsl:call-template name="divClose">
       <xsl:with-param name="n" select="$last/@text:outline-level"/>
     </xsl:call-template>

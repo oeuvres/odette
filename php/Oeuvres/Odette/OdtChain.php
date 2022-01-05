@@ -221,6 +221,8 @@ class OdtChain implements LoggerAwareInterface
         $this->dom->formatOutput = false; // after multiple tests, keep it
         $this->dom->substituteEntities = true;
         $xml = $this->dom->saveXML();
+
+        
         // regularisation of tags segments, ex: spaces tagged as italic
         $preg = self::sed_preg(file_get_contents(__DIR__ . '/tei.sed'));
         $xml = preg_replace($preg[0], $preg[1], $xml);
@@ -248,7 +250,6 @@ class OdtChain implements LoggerAwareInterface
             . str_replace(DIRECTORY_SEPARATOR, "/", $template);
 
         $this->dom->loadXML($xml);
-
         // TEI regularisations and model fusion
         $this->dom = Xml::transformToDoc(
             __DIR__ . '/tei-post.xsl',
