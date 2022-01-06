@@ -5,7 +5,7 @@
   <teiHeader>
     <fileDesc>
       <titleStmt>
-        <title type="main">Le <hi rend="italic">Quichotte</hi> au XVIII<hi rend="sup">e</hi> siècle<note xml:id="fn1" place="bottom">C’est une idée très con de mettre une note en &lt;teiHeader&gt; mais c’est pour voir si ça marche.</note></title>
+        <title type="main">Le <hi rend="italic">Quichotte</hi> au XVIII<hi rend="sup">e</hi> siècle<note xml:id="fn1">C’est une idée très con de mettre une note en &lt;teiHeader&gt; mais c’est pour voir si ça marche.</note></title>
         <author key="Schopenhauer"/>
       </titleStmt>
       <editionStmt>

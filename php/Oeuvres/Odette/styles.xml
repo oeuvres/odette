@@ -13,12 +13,12 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
 @level
   c : char level
   p : para level
-@name  : normalized name of style (lower case, ' '='_'…)
-@element : name of element
-@attribute : optional, an attribute to fill with value
-@value : optional, a value to fill in attribute
-@parent : optional, a parent element, generated to group series of element of same name
-@rend : optional, transmit local rendering like alignement
+@name  : normalized name of style (lower case, no space, no accents)
+@element : name of mainn element to output, ex: <{@element}>
+@attribute : optional, an attribute to create on main element, ex: <{@element} {@attribute}="{@value}"/>
+@value : optional, a value to fill in attribute <{@element} {@attribute}="{@value}"/>
+@parent : optional, a parent element, generated to group series of element of same name, ex: quote/l
+@rend : optional, transmit local rendering like alignement, <quote rend="right"/>
   -->
   <!ATTLIST style
     level (c|p) #REQUIRED 
@@ -29,14 +29,15 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
     parent CDATA #IMPLIED
     rend (keep) #IMPLIED
     doc (true) #IMPLIED
-   >
+  >
 ]>
 <sheet xmlns="odt:tei">
   <style level="p" name="ab" element="ab" attribute="type" value="ornament" doc="true"/>
   <style level="p" name="address" element="addrLine" parent="address" doc="true"/>
   <style level="p" name="addrline" element="addrLine" parent="address"/>
-  <style level="p" name="adcitationrom" element="p" parent="quote" rend="keep" doc="true"/>
-  <style level="p" name="adlocalcitationrom" element="p" parent="quote" rend="keep" doc="true"/>  
+  <style level="p" name="adcitationrom" element="p" parent="quote" rend="keep"/>
+  <style level="p" name="adlocalcitationrom" element="p" parent="quote" rend="keep"/>
+  <style level="p" name="adresume" element="p" parent="argument"/>
   <style level="p" name="argument" element="p" parent="argument" doc="true"/>
   <style level="p" name="auteur" element="byline"/>
   <style level="p" name="author" element="byline"/>
