@@ -1144,6 +1144,10 @@ to facilitate subsequent groupings.
         <xsl:when test="starts-with($classtest, 'titre')">label</xsl:when>
         <xsl:when test="starts-with($classtest, 'titolo')">label</xsl:when>
         <xsl:when test="starts-with($classtest, 'heading')">label</xsl:when>
+        <!-- pb MS.Word -->
+        <xsl:when test="substring($classtest, string-length() - 3) = 'car'">
+          <xsl:value-of select="substring($classtest, 1, string-length() - 3)"/>
+        </xsl:when>
         <!-- Normalize style name -->
         <xsl:otherwise>
           <xsl:value-of select="$classtest"/>
@@ -1858,66 +1862,37 @@ Liens et renvois
       <xsl:call-template name="styleName"/>
     </xsl:param>
     <xsl:variable name="class">
-      <xsl:call-template name="_20_loop">
+      <xsl:call-template name="_loop">
         <xsl:with-param name="string" select="$string"/>
       </xsl:call-template>
     </xsl:variable>
     <xsl:value-of select="translate($class, $ABC, $abc)"/>
   </xsl:template>
-  <xsl:template name="_20_loop">
+  <xsl:template name="_loop">
     <!-- _3c_ : '<',  _3e_ : '>', _2c_ : ',', _20_ : ' ' -->
     <xsl:param name="string"/>
+    
+    <xsl:variable name="hexa">_20_21_22_23_24_25_26_27_28_29_2a_2b_2c_2d_2e_2f_3a_3b_3c_3d_3e_3f_40_5b_5c_5d_5e_5f_60_7b_7c_7d_7e_7f_</xsl:variable>
+    <xsl:variable name="pos" select="string-length( substring-before($string, '_')) + 1"/>
     <xsl:choose>
-      <xsl:when test="contains($string, '_2c_')">
-        <xsl:call-template name="_20_loop">
-          <xsl:with-param name="string" select="substring-before($string, '_2c_')"/>
-        </xsl:call-template>
-        <xsl:call-template name="_20_loop">
-          <xsl:with-param name="string" select="substring-after($string, '_2c_')"/>
+      <xsl:when test="not(contains($string, '_'))">
+        <xsl:value-of select="$string"/>
+        <!-- break -->
+      </xsl:when>
+      <!-- Something like  blah_blah_blah or blah_XX_blah -->
+      <xsl:when test="not(contains($hexa, substring($string, $pos, 4)))">
+        <xsl:value-of select="substring-before($string, '_')"/>
+        <xsl:text>_</xsl:text>
+        <xsl:call-template name="_loop">
+          <xsl:with-param name="string" select="substring-after($string, '_')"/>
         </xsl:call-template>
       </xsl:when>
-      <xsl:when test="contains($string, '_2b_')">
-        <xsl:call-template name="_20_loop">
-          <xsl:with-param name="string" select="substring-before($string, '_2b_')"/>
-        </xsl:call-template>
-        <xsl:call-template name="_20_loop">
-          <xsl:with-param name="string" select="substring-after($string, '_2b_')"/>
-        </xsl:call-template>
-      </xsl:when>
-      <xsl:when test="contains($string, '_3c_')">
-        <xsl:call-template name="_20_loop">
-          <xsl:with-param name="string" select="substring-before($string, '_3c_')"/>
-        </xsl:call-template>
-        <xsl:call-template name="_20_loop">
-          <xsl:with-param name="string" select="substring-after($string, '_3c_')"/>
-        </xsl:call-template>
-      </xsl:when>
-      <xsl:when test="contains($string, '_3e_')">
-        <xsl:call-template name="_20_loop">
-          <xsl:with-param name="string" select="substring-before($string, '_3e_')"/>
-        </xsl:call-template>
-        <xsl:call-template name="_20_loop">
-          <xsl:with-param name="string" select="substring-after($string, '_3e_')"/>
-        </xsl:call-template>
-      </xsl:when>
-      <xsl:when test="contains($string, '_5f_')">
-        <xsl:call-template name="_20_loop">
-          <xsl:with-param name="string" select="substring-before($string, '_5f_')"/>
-        </xsl:call-template>
-        <xsl:call-template name="_20_loop">
-          <xsl:with-param name="string" select="substring-after($string, '_5f_')"/>
-        </xsl:call-template>
-      </xsl:when>
-      <xsl:when test="contains($string, '_20_')">
-        <xsl:call-template name="_20_loop">
-          <xsl:with-param name="string" select="substring-before($string, '_20_')"/>
-        </xsl:call-template>
-        <xsl:call-template name="_20_loop">
-          <xsl:with-param name="string" select="substring-after($string, '_20_')"/>
-        </xsl:call-template>
-      </xsl:when>
+      <!-- Should be blah_20_blah -->
       <xsl:otherwise>
-        <xsl:value-of select=" $string "/>
+        <xsl:value-of select="substring-before($string, '_')"/>
+        <xsl:call-template name="_loop">
+          <xsl:with-param name="string" select="substring($string, $pos+4)"/>
+        </xsl:call-template>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
