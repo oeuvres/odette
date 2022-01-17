@@ -11,7 +11,7 @@ Maybe used with command line
 ~/myrepos $ sudo apt install git php php-cli php-xml 
 ~/myrepos $ git clone https://github.com/oeuvres/odette.git
 ~/myrepos $ cd odette
-~/myrepos $ php odette.php
+~/myrepos/odette $ php odette.php
 
 php odette.php (options)? "teidir/*.xml"
 Export odt files with styles as XML (ex: TEI)
@@ -32,14 +32,19 @@ Options:
 
 # Known styles
 
-The transformation transpose text processor paragraphs (¶) with some direct formatting at paragraph level (left, right, center) and character level (italic, small caps…), but most of information is transmitted by user styles. 
+Odette transpose some text processor direct formatting at paragraph level (left, right, center) and character level (italic, small caps…), but most of information is transmitted by user styles. 
 
-For example, if you use the paragraph style **ab**, or **Ab**, or **&lt;ab&gt;** (nice in the style panel, will be sorted as first), the para will be transformes in the xml
+Text processor styles may be paragraph level (¶) or character level (@). Yous must ensure the level of your styles in your text processor if you want that Odette works well. Microsoft.Office may create linked styles, for example one style name for Quote, allowed for a full paragraph or for quotes of some words inline. This may confused an automat. 
+It is good idea to conceive your template of styles in LibreOffice, you can record your template in docx format and edit texts with MS.Word (but you need to record files in odt at the end to transform it with Odette).
+
+Example of Odette work, if you use the paragraph style **&lt;ab&gt;**, the para will be transformes in the xml
 ```xml
-<ab type="ornament">content</ab>
+<ab type="ornament">My para</ab>
 ```
 
 Below a list of normalized style name known, and their xml/tei transposition. Unknown styles are kept in a @rend attribute. Styles are here shown normalized as ascii lower case letter, but real life styles may contain capitals, accents, spaces, or punctuation. For example, **quotesalute** could appears as *&lt;Quote, Salute&gt;* for the user in its word processor (a style for a letter in a citation). 
+
+## Paragraph level styles
 
 **ab**
 ```xml
@@ -277,99 +282,101 @@ Below a list of normalized style name known, and their xml/tei transposition. Un
 ```xml
 <trailer>content ¶</trailer>
 ```
+## Character level styles
+
 **abbr**
 ```xml
-character… <abbr>content</abbr> …level
+blah… <abbr>@ level</abbr> …blah
 ```
 **add**
 ```xml
-character… <add>content</add> …level
+blah… <add>@ level</add> …blah
 ```
 **actor**
 ```xml
-character… <actor>content</actor> …level
+blah… <actor>@ level</actor> …blah
 ```
 **author**
 ```xml
-character… <author>content</author> …level
+blah… <author>@ level</author> …blah
 ```
 **affiliation**
 ```xml
-character… <affiliation>content</affiliation> …level
+blah… <affiliation>@ level</affiliation> …blah
 ```
 **age**
 ```xml
-character… <age>content</age> …level
+blah… <age>@ level</age> …blah
 ```
 **bibl**
 ```xml
-character… <bibl>content</bibl> …level
+blah… <bibl>@ level</bibl> …blah
 ```
 **c**
 ```xml
-character… <c>content</c> …level
+blah… <c>@ level</c> …blah
 ```
 **code**
 ```xml
-character… <code>content</code> …level
+blah… <code>@ level</code> …blah
 ```
 **corr**
 ```xml
-character… <corr>content</corr> …level
+blah… <corr>@ level</corr> …blah
 ```
 **date**
 ```xml
-character… <date>content</date> …level
+blah… <date>@ level</date> …blah
 ```
 **del**
 ```xml
-character… <del>content</del> …level
+blah… <del>@ level</del> …blah
 ```
 **distinct**
 ```xml
-character… <distinct>content</distinct> …level
+blah… <distinct>@ level</distinct> …blah
 ```
 **email**
 ```xml
-character… <email>content</email> …level
+blah… <email>@ level</email> …blah
 ```
 **emph**
 ```xml
-character… <emph>content</emph> …level
+blah… <emph>@ level</emph> …blah
 ```
 **geogname**
 ```xml
-character… <geogName>content</geogName> …level
+blah… <geogName>@ level</geogName> …blah
 ```
 **gloss**
 ```xml
-character… <gloss>content</gloss> …level
+blah… <gloss>@ level</gloss> …blah
 ```
 **name**
 ```xml
-character… <name>content</name> …level
+blah… <name>@ level</name> …blah
 ```
 **num**
 ```xml
-character… <num>content</num> …level
+blah… <num>@ level</num> …blah
 ```
 **pb**
 ```xml
-character… <pb>content</pb> …level
+blah… <pb>@ level</pb> …blah
 ```
 **persname**
 ```xml
-character… <persName>content</persName> …level
+blah… <persName>@ level</persName> …blah
 ```
 **placename**
 ```xml
-character… <placeName>content</placeName> …level
+blah… <placeName>@ level</placeName> …blah
 ```
 **stage**
 ```xml
-character… <stage>content</stage> …level
+blah… <stage>@ level</stage> …blah
 ```
 **title**
 ```xml
-character… <title>content</title> …level
+blah… <title>@ level</title> …blah
 ```
