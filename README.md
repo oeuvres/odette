@@ -7,6 +7,11 @@ Doc (in French): http://resultats.hypotheses.org/267
 Demo: https://obvil.huma-num.fr/odette/
 
 Maybe used with command line
+```console
+~/myrepos $ sudo apt install git php php-cli php-xml 
+~/myrepos $ git clone https://github.com/oeuvres/odette.git
+~/myrepos $ cd odette
+~/myrepos $ php odette.php
 
 php odette.php (options)? "teidir/*.xml"
 Export odt files with styles as XML (ex: TEI)
@@ -23,6 +28,7 @@ Options:
 --tei        : default, export odt as XML/TEI
 --html       : export odt as html
 --odtx       : export native odt xml (for debug)
+```
 
 # Known styles
 
