@@ -5,9 +5,9 @@ if (isset($_POST['post'])) {
   Oeuvres\Odette\OdtChain::doPost(
     @$_POST['format'],
     isset($_POST['download']),
-    basename(__DIR__), // template
+    basename(__DIR__) // template
   );
-  exit;
+  exit(0);
 }
 ?><!DOCTYPE html>
 <html>
