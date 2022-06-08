@@ -25,7 +25,11 @@ s#<(bg|color|font|mark)_([^>/]+)([ /][^>]*)?>#<hi rend="\1" n="\2"\3>#g
 s#</(bg|color|font|mark)_[^>]+>#</hi>#g
 
 -->
-<xsl:transform exclude-result-prefixes="tei" version="1.1" xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:transform  version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns="http://www.tei-c.org/ns/1.0"
+  xmlns:tei="http://www.tei-c.org/ns/1.0" 
+  exclude-result-prefixes="tei"
+  >
   <xsl:output encoding="UTF-8" indent="no" method="xml"/>
   <xsl:param name="template"/>
   <xsl:variable name="tei" select="document($template)"/>
@@ -637,7 +641,41 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
         </xsl:choose>
       </xsl:attribute>
       <xsl:copy-of select="@*"/>
-      <xsl:apply-templates/>
+      <!-- first -->
+      <xsl:for-each select="node()">
+        <xsl:choose>
+          <xsl:when test="self::tei:graphic">
+            <xsl:value-of select="$lf"/>
+            <xsl:text>  </xsl:text>
+            <xsl:apply-templates select="."/>
+          </xsl:when>
+          <xsl:when test="self::tei:ref[starts-with(., 'http')]">
+            <xsl:value-of select="$lf"/>
+            <xsl:text>  </xsl:text>
+            <graphic url="{normalize-space(.)}"/>
+          </xsl:when>
+        </xsl:choose>
+      </xsl:for-each>
+      <xsl:variable name="head">
+        <xsl:for-each select="node()">
+          <xsl:choose>
+            <xsl:when test="self::tei:lb"/>
+            <xsl:when test="self::tei:graphic"/>
+            <xsl:when test="self::tei:ref[starts-with(., 'http')]"/>
+            <xsl:otherwise>
+              <xsl:apply-templates select="."/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:for-each>
+      </xsl:variable>
+      <xsl:if test="$head != ''">
+        <xsl:value-of select="$lf"/>
+        <xsl:text>  </xsl:text>
+        <head>
+          <xsl:copy-of select="$head"/>
+        </head>
+      </xsl:if>
+      <xsl:value-of select="$lf"/>
     </xsl:copy>
   </xsl:template>
   <!-- Wash some inline typo in headings -->

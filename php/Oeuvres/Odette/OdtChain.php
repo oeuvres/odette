@@ -210,6 +210,9 @@ class OdtChain implements LoggerAwareInterface
             dirname(__FILE__) . '/odt-norm.xsl', 
             $this->dom
         );
+
+
+
         // odt > tei
         $this->dom = Xml::transformToDoc(
             __DIR__ . '/odt2tei.xsl',
@@ -221,7 +224,6 @@ class OdtChain implements LoggerAwareInterface
         $this->dom->formatOutput = false; // after multiple tests, keep it
         $this->dom->substituteEntities = true;
         $xml = $this->dom->saveXML();
-
         
         // regularisation of tags segments, ex: spaces tagged as italic
         $preg = self::sed_preg(file_get_contents(__DIR__ . '/tei.sed'));
@@ -246,8 +248,7 @@ class OdtChain implements LoggerAwareInterface
             $template = __DIR__. "/default.xml";
         }
         // ensure path for windows
-        $template = "file:///" 
-            . str_replace(DIRECTORY_SEPARATOR, "/", $template);
+        $template = "file:///" . str_replace(DIRECTORY_SEPARATOR, "/", $template);
 
         $this->dom->loadXML($xml);
         // TEI regularisations and model fusion

@@ -45,8 +45,50 @@ la sortie en la traitant avec d'autres filtres (expressions régulières, XSLT).
 
 
 -->
-<xsl:transform exclude-result-prefixes="tei odette   office style text table draw fo xlink dc meta number svg chart dr3d math form script ooo ooow oooc dom xforms xsd xsi config rpt of rdfa field" extension-element-prefixes="date exslt php" version="1.0" xmlns="http://www.tei-c.org/ns/1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:date="http://exslt.org/dates-and-times" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:exslt="http://exslt.org/common" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:odette="odt:tei" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:php="http://php.net/xsl" xmlns:rdfa="http://docs.oasis-open.org/opendocument/meta/rdfa#" xmlns:rpt="http://openoffice.org/2005/report" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xlink="http://www.w3.org/1999/xlink"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:transform version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  
+  xmlns="http://www.tei-c.org/ns/1.0"
+  
+  xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0"
+  xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:dom="http://www.w3.org/2001/xml-events"
+  xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0"
+  xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0"
+  xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0"
+  xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0"
+  xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0"
+  xmlns:math="http://www.w3.org/1998/Math/MathML"
+  xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0"
+  xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0"
+  xmlns:ooo="http://openoffice.org/2004/office"
+  xmlns:oooc="http://openoffice.org/2004/calc"
+  xmlns:ooow="http://openoffice.org/2004/writer"
+  xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2"
+  xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+  xmlns:rdfa="http://docs.oasis-open.org/opendocument/meta/rdfa#"
+  xmlns:rpt="http://openoffice.org/2005/report"
+  xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0"
+  xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
+  xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0"
+  xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
+  xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+  xmlns:xforms="http://www.w3.org/2002/xforms"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  
+  xmlns:odette="odt:tei"
+  
+  exclude-result-prefixes="odette
+  chart config dc dom dr3d draw field fo form meta math number of office ooo ooow oooc rdfa rpt script style svg table text xlink xforms xsd xsi"
+  
+  xmlns:exslt="http://exslt.org/common"
+  xmlns:date="http://exslt.org/dates-and-times"
+  xmlns:php="http://php.net/xsl"
+  extension-element-prefixes="date exslt php"
+  >
+  <xsl:import href="odette.xsl"/>
   <!-- Where to project links to pictures and other media -->
   <xsl:param name="media_dir"/>
   <xsl:param name="lang">
@@ -95,8 +137,6 @@ la sortie en la traitant avec d'autres filtres (expressions régulières, XSLT).
   <xsl:variable name="sheet" select="document('styles.xml', document(''))"/>
   <xsl:variable name="lf" select="'&#10;'"/>
   <xsl:variable name="tab" select="'&#9;'"/>
-  <xsl:variable name="ABC">ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÆÈÉÊËÌÍÎÏÐÑÒÓÔÕÖŒÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöùúûüýÿþ,:; ?()/\ ._-{}[]</xsl:variable>
-  <xsl:variable name="abc">abcdefghijklmnopqrstuvwxyzaaaaaaeeeeeiiiidnoooooœuuuuybbaaaaaaaceeeeiiiionooooouuuuyyb</xsl:variable>
   <!-- Shall we infer title from content ? -->
   <xsl:variable name="h" select="//text:h[1]"/>
   <!-- 
@@ -255,11 +295,13 @@ la sortie en la traitant avec d'autres filtres (expressions régulières, XSLT).
 case encountered, seems logic, but not fully tested         
       <xsl:if test="$style//@fo:break-before='page' or key('style',$styleName )//@fo:break-before='page' or $style//@style:master-page-name or  key('style',$styleName )//@style:master-page-name"><pb/></xsl:if>
       -->
-      <!-- catch page break -->
+      <!-- catch page break ? -->
+      <!--
       <xsl:if test="$style/style:paragraph-properties/@fo:break-before='page'">
         <xsl:value-of select="$lf"/>
         <pb type="break-before"/>
       </xsl:if>
+      -->
       
       <xsl:value-of select="$lf"/>
       <head>
@@ -1528,29 +1570,36 @@ Go through unuseful link
         </text:p>
   -->
   <xsl:template match="draw:frame">
-    <xsl:value-of select="$lf"/>
-    <figure rend="frame">
-      <xsl:variable name="image-width">
-        <xsl:call-template name="mm">
-          <xsl:with-param name="value" select="@svg:width"/>
-        </xsl:call-template>
-      </xsl:variable>
-      <xsl:variable name="scale" select=" round(100 * $image-width div $width) div 100"/>
-      <xsl:variable name="x">
-        <xsl:call-template name="mm">
-          <xsl:with-param name="value" select="@svg:x"/>
-        </xsl:call-template>
-      </xsl:variable>
-      <xsl:variable name="align">
-        <xsl:choose>
-          <xsl:when test="$width div ($image-width + $x) &gt; 0.9">right</xsl:when>
-        </xsl:choose>
-      </xsl:variable>
-      <xsl:variable name="rend" select="normalize-space($align)"/>
-      <xsl:apply-templates/>
-    </figure>
-    <xsl:value-of select="$lf"/>
-    <xsl:value-of select="$lf"/>
+    <xsl:choose>
+      <xsl:when test="parent::*/@odette:style ='figure'">
+        <xsl:apply-templates/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$lf"/>
+        <figure rend="frame">
+          <xsl:variable name="image-width">
+            <xsl:call-template name="mm">
+              <xsl:with-param name="value" select="@svg:width"/>
+            </xsl:call-template>
+          </xsl:variable>
+          <xsl:variable name="scale" select=" round(100 * $image-width div $width) div 100"/>
+          <xsl:variable name="x">
+            <xsl:call-template name="mm">
+              <xsl:with-param name="value" select="@svg:x"/>
+            </xsl:call-template>
+          </xsl:variable>
+          <xsl:variable name="align">
+            <xsl:choose>
+              <xsl:when test="$width div ($image-width + $x) &gt; 0.9">right</xsl:when>
+            </xsl:choose>
+          </xsl:variable>
+          <xsl:variable name="rend" select="normalize-space($align)"/>
+          <xsl:apply-templates/>
+        </figure>
+        <xsl:value-of select="$lf"/>
+        <xsl:value-of select="$lf"/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   <xsl:template match="draw:text-box">
     <quote>
@@ -1833,69 +1882,7 @@ Liens et renvois
     -->
   </xsl:template>
   
-  <!-- Find the best semantic name for an automatic style name -->
-  <xsl:template name="styleName">
-    <!-- nom de style, peut être passé en paramètre -->
-    <xsl:param name="name" select="@text:style-name | @class | @draw:style-name | @draw:text-style-name"/>
-    <!-- poignée sur le style à explorer -->
-    <xsl:variable name="style" select="key('style', $name)"/>
-    <!-- nom de style automatique -->
-    <xsl:variable name="style-auto" select="key('style-auto', $name)"/>
-    <!-- obtenir le nom d'un style sémantique, malgré les dérives automatiques  -->
-    <xsl:variable name="styleName">
-      <xsl:choose>
-        <!-- probablement pas un style automatique -->
-        <xsl:when test="not($style-auto)">
-          <xsl:value-of select="$name"/>
-        </xsl:when>
-        <!-- style automatique, prendre le parent -->
-        <xsl:when test="$style/@style:parent-style-name">
-          <xsl:value-of select="$style/@style:parent-style-name"/>
-        </xsl:when>
-      </xsl:choose>
-    </xsl:variable>
-    <xsl:value-of select="normalize-space($styleName)"/>
-  </xsl:template>
-  <!-- Build a CSS class name from an odt style name -->
-  <xsl:template name="class">
-    <xsl:param name="string">
-      <xsl:call-template name="styleName"/>
-    </xsl:param>
-    <xsl:variable name="class">
-      <xsl:call-template name="_loop">
-        <xsl:with-param name="string" select="$string"/>
-      </xsl:call-template>
-    </xsl:variable>
-    <xsl:value-of select="translate($class, $ABC, $abc)"/>
-  </xsl:template>
-  <xsl:template name="_loop">
-    <!-- _3c_ : '<',  _3e_ : '>', _2c_ : ',', _20_ : ' ' -->
-    <xsl:param name="string"/>
-    
-    <xsl:variable name="hexa">_20_21_22_23_24_25_26_27_28_29_2a_2b_2c_2d_2e_2f_3a_3b_3c_3d_3e_3f_40_5b_5c_5d_5e_5f_60_7b_7c_7d_7e_7f_</xsl:variable>
-    <xsl:variable name="pos" select="string-length( substring-before($string, '_')) + 1"/>
-    <xsl:choose>
-      <xsl:when test="not(contains($string, '_'))">
-        <xsl:value-of select="$string"/>
-        <!-- break -->
-      </xsl:when>
-      <!-- Something like  blah_blah_blah or blah_XX_blah -->
-      <xsl:when test="not(contains($hexa, substring($string, $pos, 4)))">
-        <xsl:value-of select="substring-before($string, '_')"/>
-        <xsl:text>_</xsl:text>
-        <xsl:call-template name="_loop">
-          <xsl:with-param name="string" select="substring-after($string, '_')"/>
-        </xsl:call-template>
-      </xsl:when>
-      <!-- Should be blah_20_blah -->
-      <xsl:otherwise>
-        <xsl:value-of select="substring-before($string, '_')"/>
-        <xsl:call-template name="_loop">
-          <xsl:with-param name="string" select="substring($string, $pos+4)"/>
-        </xsl:call-template>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
+
   <!-- name for some color code -->
   <xsl:template name="color">
     <xsl:param name="code"/>

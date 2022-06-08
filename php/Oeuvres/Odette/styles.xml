@@ -81,6 +81,7 @@ LGPL  http://www.gnu.org/licenses/lgpl.html
   <style level="p" name="endnote" element="note"/>
   <style level="p" name="entry" element="entry" doc="true"/>
   <style level="p" name="exemple" element="quote" parent="entryFree"/>
+  <style level="p" name="figure" element="figure"/>
   <style level="p" name="footnote" element="p"/><!-- in odt, used inside notes -->
   <style level="p" name="form" element="form" parent="entryFree"/>
   <style level="p" name="fw" element="fw" doc="true"/>
