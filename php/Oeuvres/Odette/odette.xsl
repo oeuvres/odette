@@ -2,13 +2,16 @@
 <xsl:transform version="1.0"
   
   xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0"
+  xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
   xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
   xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
   
-  exclude-result-prefixes="draw style text"
+  exclude-result-prefixes="draw office style text"
   
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   >
+  <xsl:key name="style" match="style:style|text:list-style" use="@style:name"/>
+  <xsl:key name="style-auto" match="office:automatic-styles/style:style|office:automatic-styles/text:list-style" use="@style:name"/>
   <xsl:variable name="ABC">ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÆÈÉÊËÌÍÎÏÐÑÒÓÔÕÖŒÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöùúûüýÿþ,:; ?()/\ ._-{}[]</xsl:variable>
   <xsl:variable name="abc">abcdefghijklmnopqrstuvwxyzaaaaaaeeeeeiiiidnoooooœuuuuybbaaaaaaaceeeeiiiionooooouuuuyyb</xsl:variable>
   <!-- Find the best semantic name for an automatic style name -->

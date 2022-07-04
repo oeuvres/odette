@@ -210,9 +210,6 @@ class OdtChain implements LoggerAwareInterface
             dirname(__FILE__) . '/odt-norm.xsl', 
             $this->dom
         );
-
-
-
         // odt > tei
         $this->dom = Xml::transformToDoc(
             __DIR__ . '/odt2tei.xsl',
