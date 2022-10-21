@@ -124,10 +124,10 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
     </hi>
   </xsl:template>
   <xsl:template match="tei:i">
-    <emph>
+    <hi>
       <xsl:copy-of select="@*"/>
       <xsl:apply-templates/>
-    </emph>
+    </hi>
   </xsl:template>
   <xsl:template match="tei:author">
     <xsl:choose>

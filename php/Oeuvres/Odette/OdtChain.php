@@ -220,18 +220,17 @@ class OdtChain implements LoggerAwareInterface
         $this->dom->preserveWhiteSpace = true;
         $this->dom->formatOutput = false; // after multiple tests, keep it
         $this->dom->substituteEntities = true;
-        $xml = $this->dom->saveXML();
-        
+
         // regularisation of tags segments, ex: spaces tagged as italic
+        $xml = $this->dom->saveXML();
         $preg = self::sed_preg(file_get_contents(__DIR__ . '/tei.sed'));
         $xml = preg_replace($preg[0], $preg[1], $xml);
+        $this->dom->loadXML($xml);
 
         $template = null;
-        $xsl = null;
+        $tmpl_xsl = null;
         if ($tmpl && isset(self::$templates[$tmpl])) {
             $template = self::$templates[$tmpl] . $tmpl . ".xml";
-            $xsl = self::$templates[$tmpl] . $tmpl  . ".xsl";
-            if (!is_readable($xsl)) $xsl = null; // post transforrm ?
             // Exception if template not available or silently go out ?
             /*
             throw new Exception(
@@ -240,6 +239,10 @@ class OdtChain implements LoggerAwareInterface
                 . implode(', ', array_keys(self::$templates)) . "\n\n"
             );
             */
+            $tmpl_xsl = self::$templates[$tmpl] . $tmpl  . ".xsl";
+            if (!is_readable($tmpl_xsl)) $tmpl_xsl = null;
+            $tmpl_sed = self::$templates[$tmpl] . $tmpl  . ".sed";
+            if (!is_readable($tmpl_sed)) $tmpl_sed = null; 
         }
         else {
             $template = __DIR__. "/default.xml";
@@ -247,17 +250,27 @@ class OdtChain implements LoggerAwareInterface
         // ensure path for windows
         $template = "file:///" . str_replace(DIRECTORY_SEPARATOR, "/", $template);
 
-        $this->dom->loadXML($xml);
         // TEI regularisations and model fusion
         $this->dom = Xml::transformToDoc(
             __DIR__ . '/tei-post.xsl',
             $this->dom,
             array("template" => $template)
         );
-        if ($xsl) {
+        // apply regex for this template, may break xml
+        if ($tmpl_sed) {
+            $xml = $this->dom->saveXML();
+            $preg = self::sed_preg(file_get_contents($tmpl_sed));
+            $xml = preg_replace($preg[0], $preg[1], $xml);
+            $this->dom->loadXML($xml);
+        }
+        // the model 
+        if ($tmpl_xsl) {
             $this->dom = Xml::transformToDoc(
-                $xsl,
-                $this->dom
+                $tmpl_xsl,
+                $this->dom,
+                array(
+                    'filename' => $this->dstName,
+                )
             );
         }
     }
@@ -278,7 +291,11 @@ class OdtChain implements LoggerAwareInterface
             $mod = 'u';
             if (strpos($flags, 'i') !== FALSE) $mod .= "i"; // ignore case ?
             $search[] = $delim . $re . $delim . $mod;
-            $replace[] = preg_replace('/\\\\([0-9]+)/', '\\$$1', $rep);
+            $replace[] = preg_replace(
+                array('/\\\\([0-9]+)/', '/\\\\n/', '/\\\\t/'), 
+                array('\\$$1', "\n" ,"\t"), 
+                $rep
+            );
         }
         return array($search, $replace);
     }

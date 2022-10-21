@@ -498,7 +498,14 @@ case encountered, seems logic, but not fully tested
     </xsl:variable>
     <!-- first line indent -->
     <xsl:variable name="indent">
+      <xsl:variable name="indent-mm">
+        <xsl:call-template name="mm">
+          <xsl:with-param name="value" select="$style/style:paragraph-properties/@fo:text-indent"/>
+        </xsl:call-template>
+      </xsl:variable>
+      <!--
       <xsl:variable name="n" select="translate($style/style:paragraph-properties/@fo:text-indent, 'abcdefghijklmnopqrstuvwxyz', '')"/>
+      -->
       <xsl:choose>
         <xsl:when test="$class = 'l'"/>
         <xsl:when test="$class = 'label'"/>
@@ -507,12 +514,10 @@ case encountered, seems logic, but not fully tested
         <!-- no first-line indentation for indented block -->
         <xsl:when test="$margin != ''"/>
         <xsl:when test="not($style/style:paragraph-properties/@fo:text-indent)"/>
-        <xsl:when test="$n &lt; -0.1">hanging</xsl:when>
-        <!--
-        <xsl:when test="$n &gt; 0">indent</xsl:when>
-        -->
+        <xsl:when test="$indent-mm &lt; -5">hanging</xsl:when>
+        <xsl:when test="$indent-mm &gt; 5">indent</xsl:when>
         <!-- Shall we verify on parent if there is a difference ? -->
-        <xsl:when test="$n = 0">noindent</xsl:when>
+        <xsl:when test="$indent-mm = 0">noindent</xsl:when>
       </xsl:choose>
     </xsl:variable>
     <xsl:variable name="font">
@@ -1251,10 +1256,10 @@ to facilitate subsequent groupings.
               <xsl:apply-templates/>
             </xsl:when>
             <xsl:when test="$style/style:text-properties/@fo:font-style='italic' or $style/style:text-properties/@font-style-complex='italic'">
-              <emph>
+              <i>
                 <xsl:call-template name="lang"/>
                 <xsl:copy-of select="$subsup"/>
-              </emph>
+              </i>
             </xsl:when>
             <xsl:otherwise>
               <xsl:copy-of select="$subsup"/>
@@ -1356,16 +1361,16 @@ to facilitate subsequent groupings.
             <xsl:when test="($style/style:text-properties/@fo:font-weight='bold' or $style/style:text-properties/@font-weight-complex='bold') and ($style/style:text-properties/@fo:font-style='italic' or $style/style:text-properties/@font-style-complex='italic')">
               <b>
                 <xsl:call-template name="lang"/>
-                <emph>
+                <i>
                   <xsl:copy-of select="$subsup"/>
-                </emph>
+                </i>
               </b>
             </xsl:when>
             <xsl:when test="$style/style:text-properties/@fo:font-style='italic' or $style/style:text-properties/@font-style-complex='italic'">
-              <emph>
+              <i>
                 <xsl:call-template name="lang"/>
                 <xsl:copy-of select="$subsup"/>
-              </emph>
+              </i>
             </xsl:when>
             <xsl:when test="$style/style:text-properties/@fo:font-weight='bold' or $style/style:text-properties/@font-weight-complex='bold'">
               <b>
