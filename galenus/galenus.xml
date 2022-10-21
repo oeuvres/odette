@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+	<teiHeader xml:lang="eng">    
+		<fileDesc>
+			<titleStmt>
+				<title xml:lang="lat">*</title>
+				<author>Galen</author>
+				<editor>Karl Gottlob Kühn</editor>
+				<funder>Institut Universitaire de France</funder>
+				<respStmt>
+          <resp>Published the latin translation of Karl Gottlob Kühn translation of Galen</resp>
+          <orgName>Galenus Verbatim, Galenus Latinii funded by the Sorbonne Université</orgName>
+          <persName>Natahalie Rouseau, Sorbonne Université</persName>
+        </respStmt>
+        <respStmt>
+          <resp>Project Manager (Sorbonne Université)</resp>
+          <persName>Natahalie Rouseau</persName>
+        </respStmt>
+          <resp>Lead Developer (ORTEOS)</resp>
+          <persName>Frédéric Glorieux</persName>
+        </respStmt>
+        <respStmt>
+          <resp>Technical Advisor</resp>
+          <persName>Cahal Taaffe</persName>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+				<authority>Galenus Verbatim, funded by the Institut Universitaire de France</authority>
+				<publisher>Sorbonne Université</publisher>
+				<pubPlace>Paris</pubPlace>
+				<idno type="filename">tlg0***.tlg***.1st1K-grc1.xml</idno>
+				<availability>
+					<licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a
+						Creative Commons Attribution-ShareAlike 4.0 International License</licence>
+				</availability>
+				<date>2022</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<ref target="https://www.biusante.parisdescartes.fr/histmed/medica/cote?45674x**">BIU Santé</ref>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<p>The following text is encoded in accordance with EpiDoc standards and with the CTS/CITE
+				Architecture.</p>
+			  <refsDecl n="CTS">
+				<cRefPattern matchPattern="(.+)" n="chapter" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])"/>
+			</refsDecl>
+		</encodingDesc>
+		<profileDesc>
+			<langUsage>
+				<language ident="grc">Greek</language>
+				<language ident="lat">Latin</language>
+			</langUsage>
+		</profileDesc>
+	</teiHeader>
+	<text>
+		<body>
+
+    <text>
+        <body>
+		           
+        </body>
+    </text>
+</TEI>
