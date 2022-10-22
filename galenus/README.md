@@ -5,7 +5,8 @@
 * Suppress bold
 * Suppress lists
 * Style Title level 1 = text/body/div\[@type='edition'\]/div\[@subtype='chapter|book|…'\]
-* 
+
+
 # BAD
 
 ## Inside 1 header, use line break if line break is needed (ctrl+enter, ↵)
