@@ -35,5 +35,5 @@ M E N O D O T I (with spaces between) is not 1 word, but 8 words
 
 ![image](https://user-images.githubusercontent.com/5686231/197335245-932b12bf-2876-4ac6-a90c-6481a19d7455.png)
 
-* forgotten cap 10
+* forgotten cap 8 and 10
 * Odd title. « Jam ut inteiligas […] ». ABBYY or MS.Word bad inference. To correct, apply normal style.
