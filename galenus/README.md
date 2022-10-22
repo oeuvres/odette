@@ -2,16 +2,16 @@
 
 ## Word processor operations
 
+* Filename is **very** important. ex: tlg0057.tlg001.1st1K-lat1.odt — tlg{author}.tlg{opus}.1st1K-lat{version}.{format} for parallelism with greek
 * Suppress bold
 * Suppress lists
-* Style Title level 1 = text/body/div\[@type='edition'\]/div\[@subtype='chapter|book|…'\]
+* Style Title level 1 = text/body/div\[@type='edition'\]/div\[@subtype='chapter|book|…'\], level 2 is body/div/div/div
+* Inside 1 header, use line break if line break is needed (ctrl+enter, ↵)
 
 
 # BAD
 
-## Inside 1 header, use line break if line break is needed (ctrl+enter, ↵)
-
-NOT paragraph (enter, ¶), 2 paras = 2 headers
+## 3 paragraphs style “Title 1” (enter, ¶) are 3 headers
 
 ![image](https://user-images.githubusercontent.com/5686231/197334921-3e1f3825-ea6c-4bf2-96ec-21e4e3a24469.png)
 
