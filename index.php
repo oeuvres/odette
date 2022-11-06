@@ -55,11 +55,10 @@ if (isset($_POST['post'])) {
     <p>[fr] Odette, customisations pour des projets éditoriaux</p>
     <ul>
         <?php
-    foreach(glob(dirname(__FILE__)."/*", GLOB_ONLYDIR) as $dir) {
+    foreach(glob(__DIR__."/templates/*", GLOB_ONLYDIR) as $dir) {
       $basename = basename($dir);
       if ($basename[0] == '.' || $basename[0] == '_') continue;
-      if (!is_readable($dir."/".$basename.".xml")) continue;
-      echo "<li><a href=\"".$basename."/\">".$basename."</a></li>\n";
+      echo "<li><a href=\"templates/".$basename."/\">".$basename."</a></li>\n";
     }
      ?>
     </ul>

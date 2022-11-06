@@ -1,11 +1,11 @@
 <?php
 // Soumission en post
 if (isset($_POST['post'])) {
-  include_once(dirname(__DIR__) . '/php/autoload.php');
+  include_once(dirname(__DIR__, 2) . '/php/autoload.php');
   Oeuvres\Odette\OdtChain::doPost(
     @$_POST['format'],
     isset($_POST['download']),
-    basename(__DIR__) // template
+    __DIR__, // tmpl_dir
   );
   exit(0);
 }
@@ -13,23 +13,18 @@ if (isset($_POST['post'])) {
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title>Odette (odt ▶ TEI), Hurlus</title>
+    <title>Odette (odt ▶ TEI)</title>
     <style>
 body, html {
   width: 100%;
   margin: 0;
-  background: #697f73;
 }
 
-a {
-  color: #f80;
-}
 
 body {
   padding-top: 15px;
   padding-bottom: 15px;
   font-family: Arial, Helvetica,sans-serif;
-  color: #FFFFFF;
 }
 
 #center {
@@ -42,13 +37,6 @@ body {
   _height: 650px;
 }
 
-.tab {
-  color: #FFFFFF;
-  display: inline-block;
-  border-bottom: solid 4px #FFFFFF;
-  font-family: Georgia , Arial, Helvetica, sans-serif;
-  font-style: italic;
-}
 
 #main {
   padding: 15px 40px;
@@ -67,11 +55,10 @@ form.gris {
   <body>
     <div id="center">
     <header id="header">
-      <a href=https://github.com/hurlus">Hurlus, des bouquinistes électroniques</a>
-      <i class="tab">Odette (odt ▶ TEI)</i>
+      Odette (odt ▶ TEI) pour la thèse de Axel Le Roy : <i>Descriptions de la Chine (XVII<sup>e</sup>-XIX<sup>e</sup>)</i>. 
     </header>
     <div id="contenu">
-      <p>Hurlus, convertir les textes édités en traitement de textes vers XML/TEI</p>
+      
     <?php
   if (isset($_REQUEST['format'])) $format=$_REQUEST['format'];
   else $format="tei";

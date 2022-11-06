@@ -49,17 +49,16 @@ class OdtChain implements LoggerAwareInterface
         "odtx" => ".odt.xml",
         "html" => ".html",
     );
-    /** available templates */
-    private static $templates;
     /** Somewhere to log in  */
     private $logger;
     /** keep original odt FilePath for a file context */
     private $odtFile;
     /** FileName without extension for generated contents */
-    private $dstName;
+    private $name;
     /** Current dom document on which work is done by methods */
     private $dom;
-
+    /** debug mode */
+    private $debug;
     /**
      * Get available formats for this exporter
      */
@@ -131,15 +130,15 @@ class OdtChain implements LoggerAwareInterface
     /**
      * Format loaded dom
      */
-    public function format(?string $format = 'tei', ?string $model = null)
+    public function format(?string $format = 'tei', ?string $tmpl_dir = null)
     {
         if ($format == 'odtx');
         else if ($format == 'tei') {
-            $this->tei($model);
+            $this->tei($tmpl_dir);
         } 
         else if ($format == 'html') {
             // format html from a clean TEI
-            $this->tei($model);
+            $this->tei($tmpl_dir);
             // find a transfo pack for tei to html
             $pars = array(
                 'xslbase' => null,
@@ -167,18 +166,18 @@ class OdtChain implements LoggerAwareInterface
     /**
      * Save result to file, in desired format
      */
-    public function save($dstFile, $format = null, $model = null)
+    public function save($dstFile, $format=null, $tmpl_dir=null)
     {
         $dstInfo = pathinfo($dstFile);
         // used by the tei formatter for mediadir (ex: pictures extracted from odt)
-        $this->dstName = $dstInfo['filename'];
+        $this->name = $dstInfo['filename'];
         if ($format == 'odtx') {
             $this->pictures(dirname($dstFile) . '/Pictures');
         } else {
-            $this->pictures(dirname($dstFile) . '/' . $this->dstName . '-img/');
+            $this->pictures(dirname($dstFile) . '/' . $this->name . '-img/');
         }
         if (!$format) $format = 'tei';
-        $this->format($format, $model);
+        $this->format($format, $tmpl_dir);
         File::mkdir(dirname($dstFile));
         $this->dom->save($dstFile);
     }
@@ -202,10 +201,28 @@ class OdtChain implements LoggerAwareInterface
     /**
      * Output TEI
      */
-    private function tei(?string $tmpl = null)
+    private function tei(?string $tmpl_dir=null)
     {
-        // some normalisation of oddities
         $start = microtime(true);
+        $tmpl_xml = null;
+        $tmpl_xsl = null;
+        $tmpl_sed = null;
+        do {
+            if ($tmpl_dir === null) break;
+            $tmpl_dir = realpath($tmpl_dir);
+            if (!$tmpl_dir) break;
+            $tmpl_dir = $tmpl_dir . DIRECTORY_SEPARATOR;
+            $tmpl_name = basename($tmpl_dir);
+            $tmpl_xml = $tmpl_dir . $tmpl_name . ".xml";
+            // Exception if template not available or silently go out ?
+            if (!is_readable($tmpl_xml)) $tmpl_xml = null;
+            $tmpl_xsl = $tmpl_dir . $tmpl_name . ".xsl";
+            if (!is_readable($tmpl_xsl)) $tmpl_xsl = null;
+            $tmpl_sed = $tmpl_dir . $tmpl_name . ".sed";
+            if (!is_readable($tmpl_sed)) $tmpl_sed = null; 
+        } while(false);
+        if (!$tmpl_xml) $tmpl_xml = __DIR__. "/default.xml";
+        // some normalisation of oddities
         $this->dom = Xml::transformToDoc(
             dirname(__FILE__) . '/odt-norm.xsl', 
             $this->dom
@@ -214,7 +231,7 @@ class OdtChain implements LoggerAwareInterface
         $this->dom = Xml::transformToDoc(
             __DIR__ . '/odt2tei.xsl',
             $this->dom,
-            array('media_dir' => $this->dstName . '-img/')
+            array('media_dir' => $this->name . '-img/')
         );
 
         $this->dom->preserveWhiteSpace = true;
@@ -227,34 +244,14 @@ class OdtChain implements LoggerAwareInterface
         $xml = preg_replace($preg[0], $preg[1], $xml);
         $this->dom->loadXML($xml);
 
-        $template = null;
-        $tmpl_xsl = null;
-        if ($tmpl && isset(self::$templates[$tmpl])) {
-            $template = self::$templates[$tmpl] . $tmpl . ".xml";
-            // Exception if template not available or silently go out ?
-            /*
-            throw new Exception(
-                "\nTemplate not found: \"$tmpl\"\n"
-                . "Choose in:\n"
-                . implode(', ', array_keys(self::$templates)) . "\n\n"
-            );
-            */
-            $tmpl_xsl = self::$templates[$tmpl] . $tmpl  . ".xsl";
-            if (!is_readable($tmpl_xsl)) $tmpl_xsl = null;
-            $tmpl_sed = self::$templates[$tmpl] . $tmpl  . ".sed";
-            if (!is_readable($tmpl_sed)) $tmpl_sed = null; 
-        }
-        else {
-            $template = __DIR__. "/default.xml";
-        }
-        // ensure path for windows
-        $template = "file:///" . str_replace(DIRECTORY_SEPARATOR, "/", $template);
+        // normalize windows path for xsltproc
+        $tmpl_xml = "file:///" . str_replace(DIRECTORY_SEPARATOR, "/", $tmpl_xml);
 
         // TEI regularisations and model fusion
         $this->dom = Xml::transformToDoc(
             __DIR__ . '/tei-post.xsl',
             $this->dom,
-            array("template" => $template)
+            array("template" => $tmpl_xml)
         );
         // apply regex for this template, may break xml
         if ($tmpl_sed) {
@@ -263,13 +260,13 @@ class OdtChain implements LoggerAwareInterface
             $xml = preg_replace($preg[0], $preg[1], $xml);
             $this->dom->loadXML($xml);
         }
-        // the model 
+        // last custom transformation 
         if ($tmpl_xsl) {
             $this->dom = Xml::transformToDoc(
                 $tmpl_xsl,
                 $this->dom,
                 array(
-                    'filename' => $this->dstName,
+                    'filename' => $this->name,
                 )
             );
         }
@@ -306,22 +303,22 @@ class OdtChain implements LoggerAwareInterface
     public static function doPost(
         ?string $format = null, 
         ?bool $download = false,
-        ?string $template = null 
+        ?string $tmpl_dir = null 
     ) {
         if (!array_key_exists($format, self::$formats)) $format = "tei";
         $ext = self::$formats[$format];
         $upload = Web::upload();
         if ($upload && count($upload) && isset($upload['tmp_name'])) {
             $odtFile = $upload['tmp_name'];
-            $dstName = pathinfo($upload['name'], PATHINFO_FILENAME) . $ext;
+            $name = pathinfo($upload['name'], PATHINFO_FILENAME) . $ext;
         }
         else {
             $odtFile = __DIR__ . "/default.odt";
-            $dstName = "odette" . $ext;
+            $name = "odette" . $ext;
         }
 
         $odt = new OdtChain($odtFile);
-        $odt->format($format, $template);
+        $odt->format($format, $tmpl_dir);
         $xml = $odt->dom->saveXML();
 
         // headers
@@ -333,7 +330,7 @@ class OdtChain implements LoggerAwareInterface
                 header("Content-Type: text/xml");
                 $ext = 'xml';
             }
-            header('Content-Disposition: attachment; filename="' . $dstName . '.' . $ext . '"');
+            header('Content-Disposition: attachment; filename="' . $name . '.' . $ext . '"');
             header('Content-Description: File Transfer');
             header('Expires: 0');
             header('Cache-Control: ');
@@ -354,20 +351,6 @@ class OdtChain implements LoggerAwareInterface
         exit;
     }
 
-    public static function templates()
-    {
-        if (self::$templates) return self::$templates;
-        $glob = glob(self::home() . "*", GLOB_ONLYDIR | GLOB_MARK);
-        $templates = array();
-        foreach ($glob as $dir) {
-            $name = basename($dir);
-            if (!file_exists($dir . $name . ".xml")) continue;
-            $templates[$name] = $dir;
-        }
-        self::$templates = $templates;
-        return self::$templates;
-    }
-
 
     /**
      * Apply code from Cli
@@ -377,7 +360,6 @@ class OdtChain implements LoggerAwareInterface
         global $argv;
         if ($logger == null) $logger = new LoggerCli(LogLevel::INFO);
         Xml::setLogger($logger);
-        $templates = self::templates();
         $help = '
 php odette.php (options)? "../work/*.odt"
 Export odt files with styles as XML (ex: TEI)
@@ -386,29 +368,36 @@ Parameters:
 globs       : 1-n files or globs
 
 Options:
--h, --help   : show this help message
--f, --force  : force deletion of destination file
 -d destdir   : destination directory for generated files
--t template  : a specific template for export among:
-               ' . implode(', ', array_keys($templates)).
-'
+-t tmpl_dir  : a specific template directory for export, for ex';
+$templates = "templates/";
+$glob = glob(self::home() . "templates/*", GLOB_ONLYDIR | GLOB_MARK);
+foreach ($glob as $dir) {
+    $help .= "\n    " . File::relpath(getcwd(), $dir);
+}
+        $help .= '
+-f, --force  : force deletion of destination file
+-x, --debug  : debug trace transformation steps
+-h, --help   : show this help message
+
 --tei        : default, export odt as XML/TEI
 --html       : export odt as html
---odtx       : export native odt xml (for debug)
-        
+--odtx       : export native odt xml
 ';
 
         $shortopts = "";
-        $shortopts .= "h";
-        $shortopts .= "f"; // force transformation
         $shortopts .= "d:"; // output directory
         $shortopts .= "t:"; // template
+        $shortopts .= "f"; // force transformation
+        $shortopts .= "x"; // debug trace
+        $shortopts .= "h"; // help
         $longopts  = array(
-            "help",
+            "debug",
             "force",
-            "tei",
+            "help",
             "html",
             "odtx",
+            "tei",
         );
         $options = getopt($shortopts, $longopts, $ipar);
         if (
@@ -418,18 +407,17 @@ Options:
         ) {
             exit($help);
         }
-        $tmpl = null;
+        $tmpl_dir = null;
         if (array_key_exists("t", $options)) {
-            $tmpl = rtrim($options['t'], '/\\');
-            if (!array_key_exists($tmpl, $templates)) {
+            $tmpl_dir = rtrim($options['t'], '/\\');
+            if (!is_dir($tmpl_dir)) {
                 exit(
-                    "\nTemplate not found: \"$tmpl\"\n"
-                    . "Choose in:\n"
-                    . implode(', ', array_keys($templates)) . "\n\n"
+                    "\nTemplate directory not found: \"$tmpl_dir\"\n"
                 );
             }
         }
         $force = array_key_exists("f", $options) || array_key_exists("force", $options);
+        $debug = array_key_exists("x", $options) || array_key_exists("debug", $options);
         $dstDir = null;
         if (array_key_exists('d', $options)) {
             $dstDir = File::normdir($options['d']);
@@ -460,7 +448,7 @@ Options:
                     continue;
                 }
                 $odt = new OdtChain($odtFile);
-                $odt->save($dstFile, $format, $tmpl);
+                $odt->save($dstFile, $format, $tmpl_dir);
             }
         }
     }

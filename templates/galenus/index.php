@@ -1,11 +1,11 @@
 <?php
 // Soumission en post
 if (isset($_POST['post'])) {
-  include_once(dirname(__DIR__) . '/php/autoload.php');
+  include_once(dirname(__DIR__, 2) . '/php/autoload.php');
   Oeuvres\Odette\OdtChain::doPost(
     @$_POST['format'],
     isset($_POST['download']),
-    basename(__DIR__) // template
+    __DIR__, // tmpl_dir
   );
   exit(0);
 }

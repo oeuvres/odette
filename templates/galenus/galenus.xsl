@@ -29,6 +29,7 @@ Final normalization
   <xsl:variable name="subtype2" select="$grc/tei:TEI/tei:text/tei:body/tei:div/tei:div/tei:div/@subtype"/>
   <xsl:variable name="subtype3" select="$grc/tei:TEI/tei:text/tei:body/tei:div/tei:div/tei:div/tei:div/@subtype"/>
   <xsl:variable name="subtype4" select="$grc/tei:TEI/tei:text/tei:body/tei:div/tei:div/tei:div/tei:div/tei:div/@subtype"/>
+  <xsl:variable name="lf" select="'&#10;'"/>
   <xsl:template match="node()|@*" name="copy">
     <xsl:copy>
       <xsl:apply-templates select="node()|@*"/>
@@ -66,7 +67,7 @@ Final normalization
   <!-- body -->
   <xsl:template match="tei:body">
     <body>
-      <div type="edition" xml:lang="lat" n="urn:cts:greekLit:{$filename}">
+      <div n="urn:cts:greekLit:{$filename}" type="edition" xml:lang="lat">
         <pb n="{$p1}"/>
         <xsl:apply-templates/>
       </div>
@@ -104,6 +105,65 @@ Final normalization
         <xsl:value-of select="$p1 + @n - 1"/>
       </xsl:attribute>
     </pb>
+  </xsl:template>
+  <!-- div/l seen by regex, put inside <lg>, match first -->
+  <xsl:template match="tei:div/tei:l">
+    <xsl:choose>
+      <!-- has a <l> before (with maybe a pb), do nothing -->
+      <xsl:when test="name(preceding-sibling::*[not(self::tei:pb)][1]) = 'l'"/>
+      <xsl:otherwise>
+        <lg>
+          <xsl:call-template name="lg-in"/>
+          <xsl:value-of select="$lf"/>
+        </lg>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  <!-- copy inside an <l> inside <lg> and following <l> -->
+  <xsl:template name="lg-in">
+    <xsl:value-of select="$lf"/>
+    <xsl:text>  </xsl:text>
+    <xsl:copy-of select="."/>
+    <xsl:for-each select="following-sibling::*[1]">
+      <xsl:choose>
+        <xsl:when test="self::tei:l">
+          <xsl:call-template name="lg-in"/>
+        </xsl:when>
+        <xsl:when test="self::tei:pb">
+          <xsl:variable name="pb" select="."/>
+          <xsl:for-each select="following-sibling::*[1]">
+            <xsl:if test="self::tei:l">
+              <xsl:apply-templates select="$pb"/>
+              <xsl:call-template name="lg-in"/>
+            </xsl:if>
+          </xsl:for-each>
+        </xsl:when>
+      </xsl:choose>
+    </xsl:for-each>
+  </xsl:template>
+  <!-- Para full italic, are verses (lg/l), expect text() and <lb/> only -->
+  <xsl:template match="tei:p[tei:hi][count(*)=1][not(text()[normalize-space(.) != ''])]">
+    <lg>
+      <xsl:for-each select="tei:hi/node()">
+        <xsl:choose>
+          <xsl:when test="self::tei:lb"/>
+          <xsl:when test="self::text() and normalize-space(.) = ''"/>
+          <xsl:when test="self::text()">
+            <xsl:value-of select="$lf"/>
+            <xsl:text>  </xsl:text>
+            <l>
+              <xsl:value-of select="normalize-space(.)"/>
+            </l>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:message>Para in italic, someting else than text() and line-break</xsl:message>
+            <xsl:value-of select="$lf"/>
+            <xsl:copy-of select="."/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:for-each>
+      <xsl:value-of select="$lf"/>
+    </lg>
   </xsl:template>
   <!-- Epidoc specific -->
   <xsl:template match="tei:hi[@rend='sup']">

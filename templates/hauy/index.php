@@ -1,27 +1,97 @@
 <?php
 // Soumission en post
 if (isset($_POST['post'])) {
-  include_once(dirname(__DIR__) . '/php/autoload.php');
+  include_once(dirname(__DIR__, 2) . '/php/autoload.php');
   Oeuvres\Odette\OdtChain::doPost(
     @$_POST['format'],
     isset($_POST['download']),
-    basename(__DIR__) // template
+    __DIR__, // tmpl_dir
   );
   exit(0);
 }
-
 ?><!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title>Odette (odt ► TEI), Delacroix</title>
-    <link rel="stylesheet" type="text/css" href="delacroix.css" />
+    <title>Odette (odt ► TEI), Hauy</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&amp;display=swap" rel="stylesheet"/>
+    <style>
+* {
+  box-sizing: border-box;
+}
+header {
+  background: #ffffff;
+}
+body {
+  margin: 0;
+  background: #f7f7f7;
+  color: #26458a;
+  font-family: Lato, Helvetica, sans-serif;
+}
+footer,
+header {
+  text-align: center;
+}
+footer,
+header nav {
+  height: 90px;
+  background: #26458a;
+  color: #fff;
+  font-weight: bold;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+footer a,
+header nav a {
+  color: #fff;
+  border: none;
+  text-decoration: none;
+}
+
+main,
+div.sep {
+  width: 67%;
+  margin: 0 auto;
+}
+div.sep {
+  text-align: center;
+  align-items: center;
+  -webkit-box-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90px;
+}
+div.sep > div {
+  display: inline-block;
+  margin: 0 10px;
+}
+div.sep:before,
+div.sep:after {
+    display: block;
+    content: "";
+    border-bottom: 0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    border-top: 1.9px solid #fff;
+}
+    </style>
   </head>
   <body>
     <div id="center">
       <header id="header">
-        <a href="http://www.correspondance-delacroix.fr/" style="padding-left: 10px;"><img src="logo.png" alt="Correspondances d’Eugène Delacroix"></a>
-        <i class="tab">Odette (odt ► TEI)</i>
+        <a href="https://obtic.sorbonne-universite.fr/"><img width="368px" src="obtic.svg"/></a>
+        <nav>
+        <a href="https://www.avh.asso.fr/">Association Valentin Haüy</a>
+        </nav>
       </header>
       <main>
 
@@ -31,9 +101,8 @@ if (isset($_POST['post'])) {
   else $format="tei";
     ?>
         <form class="gris" enctype="multipart/form-data" method="POST" name="odt" action="index.php">
-          <p>Correspondance de Delacroix, conversion des lettres éditées en traitement de textes vers XML/TEI</p>
           <input type="hidden" name="post" value="post"/>
-          <input type="hidden" name="template" value="<?php echo basename(dirname(__FILE__)) ?>"/>
+          <input type="hidden" name="model" value="<?php echo basename(dirname(__FILE__)) ?>"/>
           <div style="margin: 50px 0 20px;">
             <b>1. Fichier odt</b> :
             <input type="file" size="70" name="odt" accept="application/vnd.oasis.opendocument.text"/><!-- ne sort pas ds chrome -->
@@ -50,6 +119,7 @@ if (isset($_POST['post'])) {
             <input type="submit" name="view"  value="Voir"/> ou
               <input type="submit" name="download" onclick="this.form" value="Télécharger"/>
           </div>
+        </form>
           <?php
           $odt = glob(dirname(__FILE__)."/*.odt");
           $count = count($odt);
@@ -66,10 +136,14 @@ if (isset($_POST['post'])) {
           }
            ?>
           
-          <p class="byline">Modèle XML : <a onmouseover="this.href='mailto'+'\x3A'+'gaellelafage'+'\x40'+'gmail.com'" href="#">Gaëlle Lafage</a></p>
-          <p class="byline">Développement : <a onmouseover="this.href='mailto'+'\x3A'+'frederic.glorieux'+'\x40'+'fictif.org'" href="#">Frédéric Glorieux</a></p>
-        </form>
       </main>
+      <footer>
+        <div class="sep">
+          <div>
+            <a href="https://obtic.sorbonne-universite.fr/"><img align="middle" width="50px" src="otc.svg"/></a>
+          </div>
+        </div>
+      </footer>
     </div>
   </body>
 </html>
