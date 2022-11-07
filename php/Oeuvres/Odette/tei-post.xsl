@@ -38,7 +38,22 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
   <xsl:variable name="abc">abcdefghijklmnopqrstuvwxyzaaaaaaeeeeeiiiidnoooooœuuuuybbaaaaaaaceeeeiiiionooooouuuuyyb</xsl:variable>
   <xsl:variable name="body" select="/*"/>
   <xsl:variable name="meta" select="/*/tei:index/tei:term"/>
-  <!-- start  -->
+  <xsl:template match="node()" mode="metakeys">
+    <xsl:apply-templates mode="metakeys" select="node()|@*"/>
+  </xsl:template>
+  <xsl:template match="text()|@*" mode="metakeys">
+    <xsl:choose>
+      <xsl:when test="starts-with(., '{') and contains(., '}') and normalize-space(substring-after(., '}')) = ''">
+        <xsl:value-of select="translate(., $ABC, $abc)"/>
+        <xsl:text>,</xsl:text>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:template>
+  <xsl:variable name="metakeys">
+    <xsl:text>,</xsl:text>
+    <xsl:apply-templates select="/" mode="metakeys"/>
+    <xsl:text>,</xsl:text>
+  </xsl:variable>  <!-- start  -->
   <xsl:template match="/">
     <xsl:apply-templates mode="model" select="$tei"/>
   </xsl:template>
@@ -680,6 +695,9 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
   </xsl:template>
   <!-- Wash some inline typo in headings -->
   <xsl:template match="tei:head">
+    <!-- Put page breaks before titles -->
+    <xsl:apply-templates select=".//tei:pb | .//tei:ref[starts-with(., 'p.') or starts-with(., '[p.')]"/>
+    <xsl:value-of select="$lf"/>
     <xsl:copy>
       <xsl:copy-of select="@*[local-name() != 'type']"/>
       <xsl:if test="@type='sub'">
@@ -698,6 +716,8 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
         <xsl:when test="translate(normalize-space($text), $num, '')=''">
           <xsl:for-each select="node()">
             <xsl:choose>
+              <xsl:when test="self::tei:pb"/>
+              <xsl:when test="self::tei:ref[starts-with(., 'p.') or starts-with(., '[p.')]"/>
               <xsl:when test="self::tei:space">
                 <xsl:text> </xsl:text>
               </xsl:when>
@@ -722,7 +742,9 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
           </xsl:for-each>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:apply-templates/>
+          <xsl:apply-templates select="node()
+            [not(self::tei:pb)]
+            [not(self::tei:ref[starts-with(., 'p.') or starts-with(., '[p.')])]"/>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:copy>
@@ -753,17 +775,6 @@ s#</(bg|color|font|mark)_[^>]+>#</hi>#g
         <xsl:copy-of select="$terms"/>
       </index>
     </xsl:if>
-  </xsl:template>
-  <xsl:template match="node()" mode="metakeys">
-    <xsl:apply-templates mode="metakeys" select="node()|@*"/>
-  </xsl:template>
-  <xsl:template match="text()|@*" mode="metakeys">
-    <xsl:choose>
-      <xsl:when test="starts-with(., '{') and contains(., '}') and normalize-space(substring-after(., '}')) = ''">
-        <xsl:value-of select="translate(., $ABC, $abc)"/>
-        <xsl:text>,</xsl:text>
-      </xsl:when>
-    </xsl:choose>
   </xsl:template>
   <!--
   <xsl:template match="tei:teiHeader">

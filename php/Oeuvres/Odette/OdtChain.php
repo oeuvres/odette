@@ -52,7 +52,7 @@ class OdtChain implements LoggerAwareInterface
     /** Somewhere to log in  */
     private $logger;
     /** keep original odt FilePath for a file context */
-    private $odtFile;
+    private $odt_file;
     /** FileName without extension for generated contents */
     private $name;
     /** Current dom document on which work is done by methods */
@@ -69,22 +69,22 @@ class OdtChain implements LoggerAwareInterface
 
     public static function home():string
     {
-        return dirname(dirname(dirname(__DIR__))).'/';
+        return dirname(__DIR__, 3).'/';
     }
 
     /**
      * Constructor, instanciations
      */
-    function __construct(string $odtFile, ?LoggerInterface $logger = null)
+    function __construct(string $odt_file, ?LoggerInterface $logger = null)
     {
         if (!extension_loaded("zip")) {
             throw new Exception('PHP zip extension required. Check your php.ini');
         }
-        File::readable($odtFile);
+        File::readable($odt_file);
 
         if ($logger == null) $logger = new NullLogger();
         $this->setLogger($logger);
-        $this->odtFile = $odtFile;
+        $this->odt_file = $odt_file;
         // load odt as xml doc
         $this->odtx();
     }
@@ -100,8 +100,8 @@ class OdtChain implements LoggerAwareInterface
     public function odtx()
     {
         $zip = new ZipArchive();
-        if (!($zip->open($this->odtFile) === TRUE)) {
-            throw new Exception ($this->odtFile . ' seems not a valid zip archive');
+        if (!($zip->open($this->odt_file) === TRUE)) {
+            throw new Exception ($this->odt_file . ' seems not a valid zip archive');
         }
         // concat XML files sxtracted, without XML prolog
         $xml = '<?xml version="1.0" encoding="UTF-8"?>
@@ -166,37 +166,37 @@ class OdtChain implements LoggerAwareInterface
     /**
      * Save result to file, in desired format
      */
-    public function save($dstFile, $format=null, $tmpl_dir=null)
+    public function save($dst_file, $format=null, $tmpl_dir=null)
     {
-        $dstInfo = pathinfo($dstFile);
+        $dstInfo = pathinfo($dst_file);
         // used by the tei formatter for mediadir (ex: pictures extracted from odt)
         $this->name = $dstInfo['filename'];
         if ($format == 'odtx') {
-            $this->pictures(dirname($dstFile) . '/Pictures');
+            $this->pictures(dirname($dst_file) . '/Pictures');
         } else {
-            $this->pictures(dirname($dstFile) . '/' . $this->name . '-img/');
+            $this->pictures(dirname($dst_file) . '/' . $this->name . '-img/');
         }
         if (!$format) $format = 'tei';
         $this->format($format, $tmpl_dir);
-        File::mkdir(dirname($dstFile));
-        $this->dom->save($dstFile);
+        File::mkdir(dirname($dst_file));
+        $this->dom->save($dst_file);
     }
     /**
      * Images extraction
      */
-    private function pictures($dstDir)
+    private function pictures($dst_dir)
     {
-        $dstDir = rtrim($dstDir, '/') . '/';
+        $dst_dir = rtrim($dst_dir, '/') . '/';
         $zip = new ZipArchive();
-        $zip->open($this->odtFile);
+        $zip->open($this->odt_file);
         $entries = array();
         for ($i = $zip->numFiles - 1; $i >= 0; $i--) {
             if (strpos($zip->getNameIndex($i), 'Pictures/') !== 0 && strpos($zip->getNameIndex($i), 'media/') !== 0) continue;
             $entries[] = $zip->getNameIndex($i);
         }
         if (!count($entries)) return false;
-        File::cleandir($dstDir);
-        foreach ($entries as $entry) file_put_contents($dstDir . basename($entry), $zip->getFromName($entry));
+        File::cleandir($dst_dir);
+        foreach ($entries as $entry) file_put_contents($dst_dir . basename($entry), $zip->getFromName($entry));
     }
     /**
      * Output TEI
@@ -309,15 +309,15 @@ class OdtChain implements LoggerAwareInterface
         $ext = self::$formats[$format];
         $upload = Web::upload();
         if ($upload && count($upload) && isset($upload['tmp_name'])) {
-            $odtFile = $upload['tmp_name'];
+            $odt_file = $upload['tmp_name'];
             $name = pathinfo($upload['name'], PATHINFO_FILENAME) . $ext;
         }
         else {
-            $odtFile = __DIR__ . "/default.odt";
+            $odt_file = __DIR__ . "/default.odt";
             $name = "odette" . $ext;
         }
 
-        $odt = new OdtChain($odtFile);
+        $odt = new OdtChain($odt_file);
         $odt->format($format, $tmpl_dir);
         $xml = $odt->dom->saveXML();
 
@@ -361,15 +361,15 @@ class OdtChain implements LoggerAwareInterface
         if ($logger == null) $logger = new LoggerCli(LogLevel::INFO);
         Xml::setLogger($logger);
         $help = '
-php odette.php (options)? "../work/*.odt"
-Export odt files with styles as XML (ex: TEI)
+Transfrom odt files with styles in XML (ex: TEI)
 
-Parameters:
-globs       : 1-n files or globs
+    php odette.php (options)? "../work/*.odt"
 
-Options:
--d destdir   : destination directory for generated files
--t tmpl_dir  : a specific template directory for export, for ex';
+PARAMETERS: 1-n files or globs
+
+OPTIONS
+-d dst_dir   : destination directory for generated files
+-t tmpl_dir  : a specific template directory, known ones';
 $templates = "templates/";
 $glob = glob(self::home() . "templates/*", GLOB_ONLYDIR | GLOB_MARK);
 foreach ($glob as $dir) {
@@ -411,16 +411,22 @@ foreach ($glob as $dir) {
         if (array_key_exists("t", $options)) {
             $tmpl_dir = rtrim($options['t'], '/\\');
             if (!is_dir($tmpl_dir)) {
-                exit(
-                    "\nTemplate directory not found: \"$tmpl_dir\"\n"
-                );
+                $dir = self::home().'templates/'.$tmpl_dir;
+                if (is_dir($dir)) {
+                    $tmpl_dir = $dir;
+                }
+                else {
+                    exit(
+                        "\nTemplate directory not found: \"$tmpl_dir\"\n"
+                    );
+                }
             }
         }
         $force = array_key_exists("f", $options) || array_key_exists("force", $options);
         $debug = array_key_exists("x", $options) || array_key_exists("debug", $options);
-        $dstDir = null;
+        $dst_dir = null;
         if (array_key_exists('d', $options)) {
-            $dstDir = File::normdir($options['d']);
+            $dst_dir = File::normdir($options['d']);
         }
 
         $format = "tei";
@@ -433,22 +439,22 @@ foreach ($glob as $dir) {
         $count = 0;
         for ($i = $ipar; $i < count($argv); $i++) {
             $glob = $argv[$i];
-            foreach (glob($glob) as $odtFile) {
+            foreach (glob($glob) as $odt_file) {
                 $count++;
-                $name = pathinfo($odtFile,  PATHINFO_FILENAME);
-                if (isset($dstDir)) {
-                    $dstFile = $dstDir . $name . $ext;
+                $name = pathinfo($odt_file,  PATHINFO_FILENAME);
+                if (isset($dst_dir)) {
+                    $dst_file = $dst_dir . $name . $ext;
                 }
                 else {
-                    $dstFile = dirname($odtFile) . '/' . $name . $ext;
+                    $dst_file = dirname($odt_file) . '/' . $name . $ext;
                 }
-                $logger->info("$count. $odtFile > $dstFile");
-                if (file_exists($dstFile) && !$force) {
-                    $logger->warning("OVERWRITE WARNING  $dstFile already exists, it will not be overwritten, can't know if human value was added");
+                $logger->info("$count. $odt_file > $dst_file");
+                if (file_exists($dst_file) && !$force) {
+                    $logger->warning("OVERWRITE WARNING  $dst_file already exists, it will not be overwritten, can't know if human value was added");
                     continue;
                 }
-                $odt = new OdtChain($odtFile);
-                $odt->save($dstFile, $format, $tmpl_dir);
+                $odt = new OdtChain($odt_file);
+                $odt->save($dst_file, $format, $tmpl_dir);
             }
         }
     }
