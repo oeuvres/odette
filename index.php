@@ -1,6 +1,10 @@
 <?php
 error_reporting(-1);
+
 include_once __DIR__ . '/php/autoload.php';
+
+use Oeuvres\Kit\{Route};
+
 if (isset($_POST['post'])) {
   // print_r(\Oeuvres\Odette\OdtChain::formats());
   \Oeuvres\Odette\OdtChain::doPost(
@@ -58,7 +62,7 @@ if (isset($_POST['post'])) {
     foreach(glob(__DIR__."/templates/*", GLOB_ONLYDIR) as $dir) {
       $basename = basename($dir);
       if ($basename[0] == '.' || $basename[0] == '_') continue;
-      echo "<li><a href=\"templates/".$basename."/\">".$basename."</a></li>\n";
+      echo "<li><a href=\"" . Route::home_href() . "templates/".$basename."/\">".$basename."</a></li>\n";
     }
      ?>
     </ul>
